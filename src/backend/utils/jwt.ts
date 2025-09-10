@@ -1,19 +1,33 @@
-import jwt, {SignOptions} from "jsonwebtoken";
-import { ENV } from "@/backend/config/env";
-import {TokenPayload} from "@/backend/types/jwt.types";
+import { SignJWT, jwtVerify } from "jose";
+import { ENV } from "../config/env";
 
-export function signJwt(
-    payload: object,
-    expiresIn: SignOptions["expiresIn"] = "7d"
-): string {
-    const options: SignOptions = { expiresIn };
-    return jwt.sign(payload, ENV.JWT_SECRET, options);
+const encoder = new TextEncoder();
+
+export type AccessPayload = { sub: string; email: string; role: string };
+export type RefreshPayload = { sub: string; sid: string }; // sid = session id (Mongo _id)
+
+export async function signAccessToken(payload: AccessPayload, expiresIn = ENV.ACCESS_TOKEN_EXPIRES) {
+    return await new SignJWT(payload)
+        .setProtectedHeader({ alg: "HS256" })
+        .setIssuedAt()
+        .setExpirationTime(expiresIn)
+        .sign(encoder.encode(ENV.JWT_ACCESS_SECRET));
 }
 
-export function verifyJwt(token: string): TokenPayload | null {
-    try {
-        return jwt.verify(token, ENV.JWT_SECRET) as TokenPayload;
-    } catch {
-        return null;
-    }
+export async function verifyAccessToken<T = AccessPayload>(token: string) {
+    const { payload } = await jwtVerify(token, encoder.encode(ENV.JWT_ACCESS_SECRET));
+    return payload as T;
+}
+
+export async function signRefreshToken(payload: RefreshPayload, expiresIn = ENV.REFRESH_TOKEN_EXPIRES) {
+    return await new SignJWT(payload)
+        .setProtectedHeader({ alg: "HS256" })
+        .setIssuedAt()
+        .setExpirationTime(expiresIn)
+        .sign(encoder.encode(ENV.JWT_REFRESH_SECRET));
+}
+
+export async function verifyRefreshToken<T = RefreshPayload>(token: string) {
+    const { payload } = await jwtVerify(token, encoder.encode(ENV.JWT_REFRESH_SECRET));
+    return payload as T;
 }

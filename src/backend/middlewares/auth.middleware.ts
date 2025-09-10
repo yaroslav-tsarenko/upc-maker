@@ -1,13 +1,17 @@
-import { NextRequest, NextResponse } from "next/server";
-import { verifyJwt } from "../utils/jwt";
+import { NextRequest } from "next/server";
+import { ENV } from "../config/env";
+import { verifyAccessToken } from "../utils/jwt";
 
-export function requireAuth(req: NextRequest) {
-    const authHeader = req.headers.get("authorization");
-    if (!authHeader) throw new Error("Missing auth header");
+export async function requireAuth(req: NextRequest) {
+    const access = req.cookies.get(ENV.ACCESS_COOKIE_NAME)?.value
+        || req.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
 
-    const token = authHeader.split(" ")[1];
-    const payload = verifyJwt(token);
-    if (!payload) throw new Error("Invalid or expired token");
+    if (!access) throw new Error("Missing auth");
 
-    return payload;
+    try {
+        const payload = await verifyAccessToken<{ sub: string; email: string; role: string }>(access);
+        return payload; // { sub, email, role }
+    } catch {
+        throw new Error("Invalid or expired token");
+    }
 }

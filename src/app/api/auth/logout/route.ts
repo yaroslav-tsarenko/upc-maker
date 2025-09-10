@@ -1,8 +1,15 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { authController } from "@/backend/controllers/auth.controller";
-import { LogoutResponse } from "@/backend/types/auth.types";
+import { clearAuthCookies } from "@/backend/utils/cookies";
+import { ENV } from "@/backend/config/env";
 
-export async function POST() {
-    const result: LogoutResponse = await authController.logout();
-    return NextResponse.json(result);
+export async function POST(req: NextRequest) {
+    const res = NextResponse.json({ message: "Logged out" }, { status: 200 });
+    try {
+        const refresh = req.cookies.get(ENV.REFRESH_COOKIE_NAME)?.value;
+        if (refresh) await authController.logout(refresh);
+    } finally {
+        clearAuthCookies(res);
+    }
+    return res;
 }

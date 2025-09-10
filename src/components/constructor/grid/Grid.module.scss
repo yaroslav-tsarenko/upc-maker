@@ -1,0 +1,9 @@
+.grid {
+  display: grid !important;
+  width: 100% !important;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 8px !important;
+  }
+}

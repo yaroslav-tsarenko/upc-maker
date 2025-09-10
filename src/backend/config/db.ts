@@ -1,12 +1,11 @@
 import mongoose from "mongoose";
-import {ENV, env} from "@/backend/config/env";
+import { ENV } from "./env";
+
+let isConnected = 0;
 
 export async function connectDB(): Promise<void> {
-    try {
-        await mongoose.connect(ENV.MONGODB_URI);
-        console.log("MongoDB connected");
-    } catch (error) {
-        console.error("MongoDB connection error:", error);
-        throw error;
-    }
+    if (isConnected) return;
+    const conn = await mongoose.connect(ENV.MONGODB_URI);
+    isConnected = conn.connections[0].readyState;
+    if (ENV.NODE_ENV !== "production") console.log("MongoDB connected");
 }
