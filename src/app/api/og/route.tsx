@@ -22,7 +22,7 @@ export async function GET(req: Request) {
     const bg    = parseColor(searchParams.get("bg"), "#ffffff");
     const color = parseColor(searchParams.get("color"), "#000000");
 
-    const logoPath = "/logo.jpg";
+    const logoPath = "/logo.png";
     const logoUrl = `${getBaseUrl(req)}${logoPath}`;
 
     return new ImageResponse(
