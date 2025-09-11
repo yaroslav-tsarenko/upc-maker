@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridProps } from "./types";
+import {GridProps} from "./types";
 import styles from './Grid.module.scss';
 
 const Grid: React.FC<GridProps> = ({

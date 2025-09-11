@@ -1,4 +1,3 @@
-// src/resources/styles-config.ts
 export const googleFonts = [
     {
         name: "Roboto",
@@ -29,3 +28,19 @@ export const googleFonts = [
 
 export const currentFontIndex = 3; // 0: Roboto, 1: Inter, etc.
 export const currentFont = googleFonts[currentFontIndex];
+
+export const headerStyles = {
+    type: "fixed", // "default" | "fixed"
+    sideBarDirection: "left", // "left" "right" "top" "bottom"
+}
+
+export const appColors = {
+    primary: "#1976d2",
+    secondary: "#9c27b0",
+    success: "#4caf50",
+    danger: "#f44336",
+    warning: "#ff9800",
+    dark: "#212121",
+    light: "#f5f5f5",
+    buttonHover: "#1565c0",
+};

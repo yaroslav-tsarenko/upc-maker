@@ -1,3 +1,25 @@
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled {
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px white;
+  border-radius: 20px;
+  transform: scale(0.95);
+  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--primary-color) !important;
+}
+
+.default {
+  position: relative;
+}
+
 .header {
   display: flex;
   align-content: center;
@@ -7,7 +29,7 @@
   border-bottom: 1px solid #eee;
 }
 
-.headerInner{
+.headerInner {
   padding: 20px;
   display: flex;
   max-width: 1440px;
@@ -46,7 +68,8 @@
   font-size: 28px;
   cursor: pointer;
 }
-.content{
+
+.content {
   display: flex;
   height: 100%;
   padding: 20px;
