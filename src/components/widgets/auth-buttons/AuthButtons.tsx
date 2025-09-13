@@ -12,7 +12,7 @@ const AuthButtons: React.FC = () => {
         return (
             <div className={styles.authedUser}>
                 <Link href="/dashboard" >
-                    <ButtonUI text="Rounded" shape="rounded" />
+                    <ButtonUI text="Go To App" shape="rounded" />
                 </Link>
                 <LogoutButton/>
             </div>
@@ -26,7 +26,7 @@ const AuthButtons: React.FC = () => {
                 <ButtonUI text="Sign In" shape="rounded" color="dark" hoverColor="buttonHover" fullWidth/>
             </Link>
             <Link  href="/sign-up">
-                <ButtonUI text="Sign Up" shape="rounded" color="danger" fullWidth/>
+                <ButtonUI text="Sign Up" shape="rounded" color="danger" hoverColor="buttonHover" fullWidth/>
             </Link>
         </div>
     );

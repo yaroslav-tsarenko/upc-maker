@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styles from "./PageWrapper.module.scss"
-import {PageWrapperProps} from "@/components/ui/page-wrapper/types";
+import {PageWrapperProps} from "@/types/page-wrapper";
 
 const PageWrapper:FC<PageWrapperProps> = ({children}) => {
     return (

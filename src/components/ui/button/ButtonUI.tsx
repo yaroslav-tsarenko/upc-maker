@@ -2,21 +2,7 @@
 import * as React from "react";
 import Button from "@mui/joy/Button";
 import { appColors } from "@/resources/styles-config";
-
-type ButtonUIProps = {
-    variant?: "solid" | "outlined" | "soft" | "plain";
-    shape?: "default" | "rounded" | "circle";
-    size?: "sm" | "md" | "lg";
-    fullWidth?: boolean;
-    color?: keyof typeof appColors | string;
-    hoverColor?: keyof typeof appColors | string;
-    textColor?: keyof typeof appColors | string;
-    hoverTextColor?: keyof typeof appColors | string;
-    text?: string;
-    startIcon?: React.ReactNode;
-    endIcon?: React.ReactNode;
-    onClick?: () => void;
-};
+import {ButtonUIProps} from "@/types/button-ui";
 
 const hexToRgba = (hex: string, alpha = 1) => {
     if (!hex) return `rgba(0,0,0,${alpha})`;
