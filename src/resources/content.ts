@@ -44,10 +44,6 @@ export const footerContent = {
         address: "123 Main St, City, Country",
     },
 
-    extraContacts: [
-        { label: "Email", email: "textai9938@gmail.com" },
-    ],
-
     legal: {
         companyName: "JUNGLE SAPPHIRE LTD",
         companyNumber: "15545389",

@@ -16,47 +16,78 @@ const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
     const user = useUser();
-    const headerClass = [
-        styles.header,
-        headerStyles.type === "fixed" ? styles.fixed : styles.default,
-        headerStyles.type === "fixed" && isScrolled ? styles.scrolled : ""
-    ].join(" ");
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
-        }
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // формуємо динамічні стилі при скролі
+    const scrolledStyle: React.CSSProperties = {};
+    if (isScrolled) {
+        switch (headerStyles.scrollMode) {
+            case "solid":
+                scrolledStyle.backgroundColor = headerStyles.scrollBackground;
+                break;
+            case "blur":
+                scrolledStyle.backdropFilter = `blur(${headerStyles.scrollBlur})`;
+                scrolledStyle.backgroundColor = "rgba(255,255,255,0.05)";
+                break;
+        }
+    }
 
     return (
         <>
-            <header className={headerClass}>
+            <header
+                className={[
+                    styles.header,
+                    headerStyles.type === "fixed" ? styles.fixed : styles.default,
+                    isScrolled ? styles.scrolled : "",
+                ].join(" ")}
+                style={scrolledStyle}
+            >
                 <div className={styles.headerInner}>
                     <a href={headerContent.logo.href} className={styles.logo}>
-                        <Image width={120} height={30} src={headerContent.logo.src} alt={headerContent.logo.alt}/>
+                        <Image
+                            width={120}
+                            height={30}
+                            src={headerContent.logo.src}
+                            alt={headerContent.logo.alt}
+                        />
                     </a>
-                    <nav className={styles.nav}>
-                        {headerContent.links.map(link => (
+
+                    <nav
+                        className={styles.nav}
+                        style={
+                            {
+                                "--link-color": headerStyles.linkColor,
+                                "--link-hover-color": headerStyles.linkHoverColor,
+                            } as React.CSSProperties
+                        }
+                    >
+                        {headerContent.links.map((link) => (
                             <a href={link.href} key={link.label} className={styles.link}>
                                 {link.label}
                             </a>
                         ))}
                     </nav>
+
                     <div className={styles.actions}>
-                        <AuthButtons/>
+                        <AuthButtons />
                     </div>
+
                     <div className={styles.menuButton}>
                         <IconButton
                             onClick={() => setDrawerOpen(true)}
                             aria-label="Open navigation"
                         >
-                            <FaBars/>
+                            <FaBars />
                         </IconButton>
                     </div>
                 </div>
             </header>
+
             <DrawerMenu open={drawerOpen} onClose={() => setDrawerOpen(false)} />
         </>
     );

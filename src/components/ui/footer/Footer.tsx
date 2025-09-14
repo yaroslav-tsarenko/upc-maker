@@ -41,7 +41,7 @@ const SmartLink: React.FC<SmartLinkProps> = ({
 };
 
 const Footer: React.FC = () => {
-    const { logo, columns, contact, socials, extraContacts, legal } = footerContent;
+    const { logo, columns, contact, socials, legal } = footerContent;
 
     const LegalAddress = () =>
         legal?.addressLines?.length ? (
@@ -69,23 +69,6 @@ const Footer: React.FC = () => {
             </div>
         ) : null;
 
-    const ExtraContacts = () =>
-        extraContacts?.length ? (
-            <div className={styles["footer__extra"]}>
-                {extraContacts.map((ec) => (
-                    <div key={ec.label} className={styles["footer__extra-item"]}>
-                        <span className={styles["footer__extra-label"]}>{ec.label}:</span>{" "}
-                        {ec.email ? (
-                            <a href={`mailto:${ec.email}`} className={styles["footer__extra-link"]}>
-                                {ec.email}
-                            </a>
-                        ) : null}
-                    </div>
-                ))}
-            </div>
-        ) : null;
-
-    // CSS variables (px)
     const cssVars: React.CSSProperties = {
         ["--footer-maxw" as any]: `${footerStyles.maxWidth}px`,
         ["--footer-pad-x" as any]: `${footerStyles.paddings?.x ?? 20}px`,
@@ -96,7 +79,8 @@ const Footer: React.FC = () => {
         ["--footer-logo-h" as any]: `${footerStyles.logo?.height ?? 30}px`,
 
         ["--footer-bg" as any]: footerStyles.colors?.bg ?? "#fff",
-        ["--footer-text" as any]: footerStyles.colors?.text ?? "#242424",
+        ["--footer-title-color" as any]: footerStyles.colors?.title ?? "#333",
+        ["--footer-text" as any]: footerStyles.colors?.link ?? "#242424",
         ["--footer-muted" as any]: footerStyles.colors?.muted ?? "#878787",
         ["--footer-border" as any]: footerStyles.colors?.border ?? "#eee",
         ["--footer-link" as any]: footerStyles.colors?.link ?? "#4A90E2",
@@ -104,6 +88,12 @@ const Footer: React.FC = () => {
 
         ["--footer-fs" as any]: `${footerStyles.font?.size ?? 16}px`,
         ["--footer-legal-fs" as any]: `${footerStyles.font?.legalSize ?? 14}px`,
+
+        ["--footer-contact-hover" as any]: footerStyles.colors?.contactHover ?? footerStyles.colors?.linkHover ?? "#242424",
+        ["--footer-social-hover" as any]: footerStyles.colors?.socialHover,
+
+        ["--footer-legal" as any]: footerStyles.colors?.link,
+        ["--footer-contact-label" as any]: footerStyles.colors?.contactLabel ?? footerStyles.colors?.muted,
 
         ["--footer-radius" as any]: footerStyles.radius ?? "0",
         ["--footer-shadow" as any]: footerStyles.shadow ?? "none",
@@ -142,7 +132,6 @@ const Footer: React.FC = () => {
             )}
             style={cssVars}
         >
-            {/* TYPE: columns */}
             {footerStyles.type === "columns" && (
                 <div className={styles["footer__inner"]}>
                     <SmartLink href={logo.href} className={styles["footer__logo"]} ariaLabel="Logo">
@@ -195,8 +184,6 @@ const Footer: React.FC = () => {
                             </div>
                         )}
 
-                        <ExtraContacts />
-
                         {!!socials?.length && (
                             <div className={styles["footer__socials"]}>
                                 {socials.map((s) => {
@@ -222,7 +209,6 @@ const Footer: React.FC = () => {
                 </div>
             )}
 
-            {/* TYPE: center */}
             {footerStyles.type === "center" && (
                 <div className={clsx(styles["footer__inner"], styles["footer__inner--center"])}>
                     <SmartLink href={logo.href} className={styles["footer__logo"]} ariaLabel="Logo">
@@ -252,7 +238,6 @@ const Footer: React.FC = () => {
 
                     <div className={styles["footer__center-legal"]}>
                         <LegalBlock />
-                        <ExtraContacts />
                     </div>
 
                     {!!socials?.length && (
@@ -279,7 +264,6 @@ const Footer: React.FC = () => {
                 </div>
             )}
 
-            {/* TYPE: mega */}
             {footerStyles.type === "mega" && (
                 <div className={clsx(styles["footer__inner"], styles["footer__inner--mega"])}>
                     <div className={styles["footer__mega-top"]}>
@@ -332,7 +316,6 @@ const Footer: React.FC = () => {
                             )}
                         </div>
 
-                        <ExtraContacts />
                     </div>
 
                     {!!socials?.length && (
