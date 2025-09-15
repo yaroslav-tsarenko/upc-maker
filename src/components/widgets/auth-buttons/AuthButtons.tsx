@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser } from "@/context/UserContext";
+import {useUser} from "@/context/UserContext";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import Link from "next/link";
 import styles from "./AuthButtons.module.scss";
@@ -11,10 +11,8 @@ const AuthButtons: React.FC = () => {
     if (user) {
         return (
             <div className={styles.authedUser}>
-                <Link href="/dashboard" >
-                    <ButtonUI variant="soft" color="primary" sx={{width: "100%"}} >
-                        Go to App
-                    </ButtonUI>
+                <Link href="/dashboard">
+                    <ButtonUI text="Go To App" shape="rounded"/>
                 </Link>
                 <LogoutButton/>
             </div>
@@ -24,15 +22,13 @@ const AuthButtons: React.FC = () => {
 
     return (
         <div className={styles.nonAuthedButtons}>
-            <Link  href="/sign-in">
-                <ButtonUI variant="outlined" color="primary" sx={{width: "100%"}}>
-                    Sign In
-                </ButtonUI>
+            <Link href="/sign-in">
+                <ButtonUI text="Sign In" shape="rounded" color="linkHover" hoverColor="hover" hoverEffect="none"
+                          fullWidth/>
             </Link>
-            <Link  href="/sign-up">
-                <ButtonUI variant="soft" color="primary" sx={{width: "100%"}}>
-                    Sign Up
-                </ButtonUI>
+            <Link href="/sign-up">
+                <ButtonUI text="Sign Up" shape="rounded" color="secondary" hoverColor="muted" hoverEffect="none"
+                          fullWidth/>
             </Link>
         </div>
     );

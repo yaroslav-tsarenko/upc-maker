@@ -1,4 +1,5 @@
 import { media } from "@/resources/media";
+import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 export const baseURL =
     typeof window !== "undefined"
@@ -19,31 +20,42 @@ export const headerContent = {
 };
 
 export const footerContent = {
-    logo: {
-        src: media.logo.src,
-        alt: "Site Logo",
-        href: "/"
-    },
+    logo: { src: media.logo.src, alt: "Site Logo", href: "/" },
     columns: [
         {
             title: "Company",
             links: [
                 { label: "About Us", href: "/about" },
                 { label: "Careers", href: "/careers" },
-                { label: "Blog", href: "/blog" }
-            ]
+                { label: "Blog", href: "/blog" },
+            ],
         },
         {
             title: "Support",
             links: [
                 { label: "Contact", href: "/contact" },
-                { label: "FAQ", href: "/faq" }
-            ]
-        }
+                { label: "FAQ", href: "/faq" },
+            ],
+        },
     ],
     contact: {
         email: "info@example.com",
         phone: "+1 234 567 890",
-        address: "123 Main St, City, Country"
-    }
+        address: "123 Main St, City, Country",
+    },
+
+    legal: {
+        companyName: "JUNGLE SAPPHIRE LTD",
+        companyNumber: "15545389",
+        addressLines: [
+            "20 Wenlock Road",
+            "London, England",
+            "N1 7GU",
+        ],
+    },
+    socials: [
+        { label: "Twitter", href: "https://x.com/...", icon: FaTwitter },
+        { label: "Facebook", href: "https://facebook.com/...", icon: FaFacebook },
+        { label: "LinkedIn", href: "https://linkedin.com/...", icon: FaLinkedin },
+    ],
 };

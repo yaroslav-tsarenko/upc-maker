@@ -1,66 +1,95 @@
-"use client"
+"use client";
 
-import React, {useState} from "react";
-import {headerContent} from "@/resources/content";
+import React, { useEffect, useState } from "react";
+import { headerContent } from "@/resources/content";
 import styles from "./Header.module.scss";
-import {Drawer, IconButton, Box, Button} from "@mui/material";
-import {FaBars} from "react-icons/fa";
-import {useUser} from "@/context/UserContext";
+import { IconButton } from "@mui/material";
+import { FaBars } from "react-icons/fa";
+import { useUser } from "@/context/UserContext";
 import Image from "next/image";
 import AuthButtons from "@/components/widgets/auth-buttons/AuthButtons";
+import { headerStyles } from "@/resources/styles-config";
+import DrawerMenu from "@/components/ui/drawer/Drawer";
 
 const Header: React.FC = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
     const user = useUser();
 
-    return (
-        <header className={styles.header}>
-            <div className={styles.headerInner}>
-                <a href={headerContent.logo.href} className={styles.logo}>
-                    <Image width={120} height={30} src={headerContent.logo.src} alt={headerContent.logo.alt}/>
-                </a>
-                <nav className={styles.nav}>
-                    {headerContent.links.map(link => (
-                        <a href={link.href} key={link.label} className={styles.link}>
-                            {link.label}
-                        </a>
-                    ))}
-                </nav>
-                <div className={styles.actions}>
-                    <AuthButtons/>
-                </div>
-                <div className={styles.menuButton}>
-                    <IconButton
+    useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-                        onClick={() => setDrawerOpen(true)}
-                        aria-label="Open navigation"
-                    >
-                        <FaBars/>
-                    </IconButton>
-                </div>
-            </div>
-            <Drawer anchor="right" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <div className={styles.content}>
-                    <a href={headerContent.logo.href} className={styles.logo} onClick={() => setDrawerOpen(false)}>
-                        <Image width={120} height={30} src={headerContent.logo.src} alt={headerContent.logo.alt}/>
+    // формуємо динамічні стилі при скролі
+    const scrolledStyle: React.CSSProperties = {};
+    if (isScrolled) {
+        switch (headerStyles.scrollMode) {
+            case "solid":
+                scrolledStyle.backgroundColor = headerStyles.scrollBackground;
+                break;
+            case "blur":
+                scrolledStyle.backdropFilter = `blur(${headerStyles.scrollBlur})`;
+                scrolledStyle.backgroundColor = "rgba(255,255,255,0.05)";
+                break;
+        }
+    }
+
+    return (
+        <>
+            <header
+                className={[
+                    styles.header,
+                    headerStyles.type === "fixed" ? styles.fixed : styles.default,
+                    isScrolled ? styles.scrolled : "",
+                ].join(" ")}
+                style={scrolledStyle}
+            >
+                <div className={styles.headerInner}>
+                    <a href={headerContent.logo.href} className={styles.logo}>
+                        <Image
+                            width={120}
+                            height={30}
+                            src={headerContent.logo.src}
+                            alt={headerContent.logo.alt}
+                        />
                     </a>
-                    <nav className={styles.nav} style={{display: "flex", flexDirection: "column", marginTop: 16}}>
-                        {headerContent.links.map(link => (
-                            <a
-                                href={link.href}
-                                key={link.label}
-                                className={styles.link}
-                                onClick={() => setDrawerOpen(false)}
-                                style={{marginBottom: 12}}
-                            >
+
+                    <nav
+                        className={styles.nav}
+                        style={
+                            {
+                                "--link-color": headerStyles.linkColor,
+                                "--link-hover-color": headerStyles.linkHoverColor,
+                            } as React.CSSProperties
+                        }
+                    >
+                        {headerContent.links.map((link) => (
+                            <a href={link.href} key={link.label} className={styles.link}>
                                 {link.label}
                             </a>
                         ))}
                     </nav>
-                    <AuthButtons/>
+
+                    <div className={styles.actions}>
+                        <AuthButtons />
+                    </div>
+
+                    <div className={styles.menuButton}>
+                        <IconButton
+                            onClick={() => setDrawerOpen(true)}
+                            aria-label="Open navigation"
+                        >
+                            <FaBars />
+                        </IconButton>
+                    </div>
                 </div>
-            </Drawer>
-        </header>
+            </header>
+
+            <DrawerMenu open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+        </>
     );
 };
 

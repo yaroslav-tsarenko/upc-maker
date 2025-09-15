@@ -7,10 +7,11 @@
 
 .nonAuthedButtons{
   display: flex;
+  flex-direction: row;
   width: 100%;
   gap: 10px;
 
-  @media screen and (max-width: 1028px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 }

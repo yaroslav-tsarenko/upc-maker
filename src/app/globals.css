@@ -14,10 +14,37 @@ body {
 
 :root {
     --primary-color: #4A90E2;
-    --secondary-color: #50E3C2;
-    --tertiary-color: #9013FE;
-    --quaternary-color: #F5A623;
-    --text-black: #242424;
-    --text-gray: #878787;
+    --secondary-color: #1ABC9C;
+    --tertiary-color: #F39C12;
+    --quaternary-color: #9B59B6;
+
+    /* Фон та поверхні */
+    --background-light: #F9FAFB;
+    --background-dark: #1E1E2F;
+    --surface-color: #FFFFFF;
+    --surface-muted: #F2F4F7;
+
+    /* Тексти */
+    --text-primary: #242424;
+    --text-secondary: #5F6C7B;
+    --text-muted: #9CA3AF;
+    --text-inverse: #FFFFFF;
+
+    /* Статуси */
+    --success-color: #27AE60;
+    --warning-color: #E2B93B;
+    --error-color: #E74C3C;
+    --info-color: #3498DB;
+
+    /* Інтерактивні */
+    --button-hover: #357ABD;
+    --link-color: #4A90E2;
+    --link-hover: #2C3E50;
+
+    /* Система */
+    --border-color: #E5E7EB;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
     --font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
+
