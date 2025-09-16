@@ -1,0 +1,90 @@
+.ordersSection {
+  padding: 20px;
+  background: #f9fafc;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-height: 1000px;
+  overflow-y: auto;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+  }
+
+  .empty {
+    color: #777;
+    font-size: 0.95rem;
+  }
+}
+
+.orderList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.orderCard {
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  border: 1px solid #eaeaea;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.orderId {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0070f3;
+}
+
+.charge {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e63946;
+}
+
+.email {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.refreshBtn {
+  margin-top: 20px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #0070f3;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #005bb5;
+  }
+}

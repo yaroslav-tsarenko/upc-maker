@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
 import Button from "@mui/joy/Button";
-import { ButtonUIProps } from "@/types/button-ui";
-import { buttonColors } from "@/resources/styles-config";
+import {ButtonUIProps} from "@/types/button-ui";
+import {buttonColors} from "@/resources/styles-config";
 
 const resolveColor = (color?: string) => {
     if (!color) return "";
@@ -34,7 +34,12 @@ const ButtonUI: React.FC<ButtonUIProps & {
           textColor,
           hoverTextColor,
           hoverEffect = "shadow",
+          disabled,
+          children,
+          sx,
+          loading,
           text,
+          type,
           startIcon,
           endIcon,
           onClick,
@@ -121,6 +126,9 @@ const ButtonUI: React.FC<ButtonUIProps & {
         <Button
             variant={variant}
             size={size}
+            type={type}
+            disabled={disabled}
+            loading={loading}
             fullWidth={isCircle ? false : fullWidth}
             startDecorator={startIcon}
             endDecorator={endIcon}
@@ -142,9 +150,10 @@ const ButtonUI: React.FC<ButtonUIProps & {
                 }),
                 fontFamily: "var(--font-family, 'Roboto', sans-serif)",
                 ...byVariant,
+                ...sx,
             }}
         >
-            {isCircle ? null : text}
+            {isCircle ? null : (children ?? text)}
         </Button>
     );
 };

@@ -10,7 +10,7 @@ export async function requireAuth(req: NextRequest) {
 
     try {
         const payload = await verifyAccessToken<{ sub: string; email: string; role: string }>(access);
-        return payload; // { sub, email, role }
+        return payload;
     } catch {
         throw new Error("Invalid or expired token");
     }

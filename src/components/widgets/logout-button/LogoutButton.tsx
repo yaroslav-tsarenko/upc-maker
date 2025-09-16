@@ -14,8 +14,17 @@ export function LogoutButton({ all = false }: { all?: boolean }) {
     };
 
     return (
-        <ButtonUI type="button" onClick={handleClick} color="primary" variant="outlined">
+        <ButtonUI
+            type="button"
+            onClick={handleClick}
+            shape="rounded"
+            color="secondary"
+            sx={{
+                width: { xs: "100%", sm: "100%", md: "auto" },
+            }}
+        >
             {all ? "Log out from all devices" : "Log out"}
         </ButtonUI>
+
     );
 }

@@ -1,17 +1,17 @@
-import logo from "@/assets/logo/logo.svg"
-import image1 from "@/assets/images/image1.jpg"
-import image2 from "@/assets/images/image2.jpg"
-import image3 from "@/assets/images/image3.jpg"
-import image4 from "@/assets/images/image4.jpg"
-import image5 from "@/assets/images/image5.jpg"
-import image6 from "@/assets/images/image6.jpg"
-import image7 from "@/assets/images/image7.jpg"
-import image8 from "@/assets/images/image8.jpg"
-import image9 from "@/assets/images/image9.jpg"
-import image10 from "@/assets/images/image10.jpg"
+import logo from "@/assets/logo/logo.svg";
+import logo_white from "@/assets/logo/logo-white.svg";
+
+import image1 from "@/assets/images/image1.jpg";
+import image2 from "@/assets/images/image2.jpg";
+import image3 from "@/assets/images/image3.jpg";
+import image4 from "@/assets/images/image4.jpg";
+import image5 from "@/assets/images/image5.jpg";
+import image6 from "@/assets/images/image6.jpg";
+import image7 from "@/assets/images/image7.jpg";
 
 export const media = {
     logo: logo,
+    logo_white: logo_white,
     image1: image1,
     image2: image2,
     image3: image3,
@@ -19,9 +19,9 @@ export const media = {
     image5: image5,
     image6: image6,
     image7: image7,
-    image8: image8,
-    image9: image9,
-    image10: image10,
+    image8: image7,
+    image9: image7,
+    image10: image7,
     image11: image1,
     image12: image2,
     image13: image3,
@@ -29,9 +29,9 @@ export const media = {
     image15: image5,
     image16: image6,
     image17: image7,
-    image18: image8,
-    image19: image9,
-    image20: image10,
+    image18: image7,
+    image19: image7,
+    image20: image7,
     image21: image1,
     image22: image2,
     image23: image3,
@@ -39,9 +39,9 @@ export const media = {
     image25: image5,
     image26: image6,
     image27: image7,
-    image28: image8,
-    image29: image9,
-    image30: image10,
+    image28: image7,
+    image29: image5,
+    image30: image5,
     image31: image1,
     image32: image2,
     image33: image3,
@@ -49,9 +49,9 @@ export const media = {
     image35: image5,
     image36: image6,
     image37: image7,
-    image38: image8,
-    image39: image9,
-    image40: image10,
+    image38: image6,
+    image39: image6,
+    image40: image6,
     image41: image1,
     image42: image2,
     image43: image3,
@@ -59,9 +59,9 @@ export const media = {
     image45: image5,
     image46: image6,
     image47: image7,
-    image48: image8,
-    image49: image9,
-    image50: image10,
+    image48: image3,
+    image49: image3,
+    image50: image3,
     image51: image1,
     image52: image2,
     image53: image3,
@@ -69,9 +69,9 @@ export const media = {
     image55: image5,
     image56: image6,
     image57: image7,
-    image58: image8,
-    image59: image9,
-    image60: image10,
+    image58: image7,
+    image59: image7,
+    image60: image7,
     image61: image1,
     image62: image2,
     image63: image3,
@@ -79,9 +79,9 @@ export const media = {
     image65: image5,
     image66: image6,
     image67: image7,
-    image68: image8,
-    image69: image9,
-    image70: image10,
+    image68: image2,
+    image69: image2,
+    image70: image2,
     image71: image1,
     image72: image2,
     image73: image3,
@@ -89,9 +89,9 @@ export const media = {
     image75: image5,
     image76: image6,
     image77: image7,
-    image78: image8,
-    image79: image9,
-    image80: image10,
+    image78: image2,
+    image79: image2,
+    image80: image2,
     image81: image1,
     image82: image2,
     image83: image3,
@@ -99,9 +99,9 @@ export const media = {
     image85: image5,
     image86: image6,
     image87: image7,
-    image88: image8,
-    image89: image9,
-    image90: image10,
+    image88: image6,
+    image89: image6,
+    image90: image6,
     image91: image1,
     image92: image2,
     image93: image3,
@@ -109,9 +109,9 @@ export const media = {
     image95: image5,
     image96: image6,
     image97: image7,
-    image98: image8,
-    image99: image9,
-    image100: image10,
+    image98: image6,
+    image99: image6,
+    image100: image6,
     video1: "https://media.image.se/image_video_1.mp4",
     video2: "https://media.image.se/image_video_1.mp4",
     video3: "https://media.image.se/image_video_1.mp4",

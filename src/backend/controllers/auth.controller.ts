@@ -49,6 +49,7 @@ function toUser(u: any): UserType {
         name: u.name,
         email: u.email,
         role: u.role,
+        tokens: u.tokens,
         createdAt: u.createdAt,
         updatedAt: u.updatedAt,
     };

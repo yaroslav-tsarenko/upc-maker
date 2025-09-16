@@ -9,6 +9,7 @@ import Card from "../card/Card";
 import Grid from "../grid/Grid";
 import Slider from "../slider/Slider";
 import FAQ from "../faq/FAQ";
+import PricingCard from "../pricing-card/PricingCard"; // ← import new
 
 import type {
     PageSchema,
@@ -20,9 +21,12 @@ import type {
     SliderBlock,
     FaqBlock,
     CardBlock,
+    PricingBlock,
     GridItem,
     AlignInput,
 } from "./types";
+
+// ------------------- helpers -------------------
 
 function resolveMedia(key?: string) {
     if (!key) return undefined;
@@ -32,6 +36,8 @@ function resolveMedia(key?: string) {
     }
     return v as any;
 }
+
+// ------------------- renderers -------------------
 
 function RenderText(b: TextBlock) {
     return (
@@ -82,6 +88,23 @@ function RenderCard(b: CardBlock) {
     );
 }
 
+function RenderPricingCard(b: PricingBlock) {
+    return (
+        <PricingCard
+            variant={b.variant}
+            title={b.title}
+            price={b.price}
+            tokens={b.tokens}
+            description={b.description}
+            features={b.features}
+            buttonText={b.buttonText}
+            buttonLink={b.buttonLink}
+        />
+    );
+}
+
+// ------------------- grid + section -------------------
+
 function mapAlign(a?: AlignInput): "center" | "start" | "end" | undefined {
     if (!a) return undefined;
     if (a === "left") return "start";
@@ -99,17 +122,25 @@ function RenderGrid(b: GridBlock) {
     const items: GridItem[] =
         (b.items && b.items.length > 0)
             ? b.items
-            : (b.cards?.map((c, idx) => ({
-                key: c.title ?? String(idx),
-                block: {
-                    type: "card",
-                    image: c.image,
-                    title: c.title,
-                    description: c.description,
-                    buttonLink: c.buttonLink,
-                    buttonText: c.buttonText,
-                } as CardBlock,
-            })) ?? []);
+            : (b.cards?.map((c, idx) => {
+                if (c.type === "pricing") {
+                    return {
+                        key: c.title ?? String(idx),
+                        block: c as PricingBlock,
+                    };
+                }
+                return {
+                    key: c.title ?? String(idx),
+                    block: {
+                        type: "card",
+                        image: c.image,
+                        title: c.title,
+                        description: c.description,
+                        buttonLink: c.buttonLink,
+                        buttonText: c.buttonText,
+                    } as CardBlock,
+                };
+            }) ?? []);
 
     return (
         <Grid columns={b.columns} gap={b.gap} style={b.style}>
@@ -125,6 +156,8 @@ function RenderGrid(b: GridBlock) {
     );
 }
 
+// ------------------- switch -------------------
+
 function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
     switch (block.type) {
         case "text":
@@ -137,6 +170,8 @@ function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
             return <React.Fragment key={key}><RenderFaq {...block} /></React.Fragment>;
         case "card":
             return <React.Fragment key={key}><RenderCard {...block} /></React.Fragment>;
+        case "pricing":
+            return <React.Fragment key={key}><RenderPricingCard {...block} /></React.Fragment>;
         case "section":
             return <React.Fragment key={key}><RenderSection {...block} /></React.Fragment>;
         case "grid":
@@ -147,6 +182,8 @@ function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
         }
     }
 }
+
+// ------------------- root -------------------
 
 export default function PageRenderer({ schema }: { schema: PageSchema }) {
     return <>{schema.blocks.map((b, i) => renderBlock(b, i))}</>;

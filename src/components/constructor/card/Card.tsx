@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ image, title, description, buttonText, butt
             <p className={styles.description}>{description}</p>
             {buttonText && buttonLink && (
                 <a href={buttonLink} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-                    <ButtonUI type="button" sx={{ width: "100%", marginTop: "1rem" }}>
+                    <ButtonUI type="button" sx={{ width: "100%"}}>
                         {buttonText}
                     </ButtonUI>
                 </a>

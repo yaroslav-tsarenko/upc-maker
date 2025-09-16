@@ -16,4 +16,6 @@ export const ENV = {
     REFRESH_COOKIE_NAME: env("REFRESH_COOKIE_NAME", "refresh_token"),
     APP_URL: env("APP_URL", "http://localhost:3000"),
     NODE_ENV: env("NODE_ENV", "development"),
+    OPENAI_API_KEY: env("OPENAI_API_KEY", "none"),
+    AI_COST_PER_REQUEST: env("AI_COST_PER_REQUEST", "tokens_per_request"),
 };

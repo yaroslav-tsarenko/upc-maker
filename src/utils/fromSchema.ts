@@ -36,16 +36,23 @@ export async function metadataFromSchema(meta: MetaSchema): Promise<Metadata> {
         description: meta.description,
         keywords: meta.keywords,
         alternates: {
-            canonical: meta.canonical ? await absoluteUrl(meta.canonical) : undefined,
+            canonical: canonicalAbs,
         },
         openGraph: {
             title,
             description,
             url: canonicalAbs,
-            siteName: "ShipsterAI",
+            siteName: "TechGuide",
             type: "website",
             locale: "uk_UA",
-            images: [{ url: ogImageAbs, width: 1200, height: 630, alt: title }],
+            images: [
+                {
+                    url: ogImageAbs,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                },
+            ],
         },
         twitter: {
             card: "summary_large_image",

@@ -5,6 +5,7 @@ export interface IUser {
     name: string;
     email: string;
     role: UserRole;
+    tokens: number | null;
     createdAt: string;
     updatedAt: string;
 }

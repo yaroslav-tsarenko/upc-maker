@@ -14,13 +14,16 @@ export const headerContent = {
     },
     links: [
         { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
-        { label: "Contact", href: "/contact" }
+        { label: "About", href: "/about-us" },
+        { label: "Services", href: "/services" },
+        { label: "Pricing", href: "/pricing" },
+        { label: "Faq", href: "/faq" },
+        { label: "Get Started", href: "/get-started" },
     ]
 };
 
 export const footerContent = {
-    logo: { src: media.logo.src, alt: "Site Logo", href: "/" },
+    logo: { src: media.logo_white.src, alt: "Site Logo", href: "/" },
     columns: [
         {
             title: "Company",

@@ -7,6 +7,7 @@ const UserSchema: Schema<IUserSchema> = new Schema(
         email: { type: String, required: true, unique: true, lowercase: true, index: true },
         password: { type: String, required: true, select: false },
         role: { type: String, enum: ["user", "admin"], default: "user" },
+        tokens: { type: Number, default: 10 }
     },
     { timestamps: true }
 );

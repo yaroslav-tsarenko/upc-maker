@@ -7,7 +7,6 @@ import { ENV } from "../config/env";
 import { Types } from "mongoose";
 
 function parseDurationToSec(input: string): number {
-    // підтримка "15m", "30d", "7d", "3600" (сек)
     const m = input.match(/^(\d+)([smhd])?$/i);
     if (!m) return 60 * 60 * 24 * 30;
     const n = parseInt(m[1], 10);

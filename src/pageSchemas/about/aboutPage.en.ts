@@ -2,14 +2,21 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 
 const schema: PageSchema = {
     meta: {
-        title: "About ShipsterAI — Our Vision & Story",
+        title: "About Us — TechGuide",
         description:
-            "Learn about ShipsterAI: our mission, our team, and how we power AI logistics in Sweden.",
-        keywords: ["about", "logistics", "ai", "sweden"],
-        canonical: "/about",
+            "Learn more about TechGuide. Our team of specialists has decades of experience in creating manuals for devices, equipment, and tools. Unlock expert knowledge with tokens.",
+        keywords: [
+            "about TechGuide",
+            "manual specialists",
+            "device manuals",
+            "equipment guides",
+            "technical documentation"
+        ],
+        canonical: "/about-us",
         ogImage: {
-            title: "ShipsterAI",
-            description: "AI-powered logistics for Sweden.",
+            title: "TechGuide",
+            description:
+                "Experienced specialists creating professional manuals for devices and equipment.",
             bg: "#ffffff",
             color: "#000000",
         },
@@ -18,44 +25,22 @@ const schema: PageSchema = {
         {
             type: "section",
             left: {
-                type: "text",
-                title: "About ShipsterAI",
-                description:
-                    "We build a modern, AI-driven logistics platform tailored to Sweden. Our focus is precision, transparency, and simplicity for both shippers and carriers.",
-                bullets: [
-                    "Founded in Sweden, Nordic focus",
-                    "Data-driven decisions and smart matching",
-                    "Scalable for businesses of all sizes",
-                ],
-            },
-            right: {
                 type: "media",
                 mediaType: "image",
-                src: "image13",
+                src: "image1",
                 width: "100%",
-                height: "420px",
-                alt: "ShipsterAI team and culture",
-            },
-        },
-        {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image14",
-                width: "100%",
-                height: "420px",
-                alt: "Innovation and technology",
+                height: "400px",
+                alt: "Experienced specialists writing manuals",
             },
             right: {
                 type: "text",
-                title: "Our Mission",
+                title: "Who We Are",
                 description:
-                    "Make Nordic freight simple by matching the right load to the right carrier at the right time—using AI, real-time data, and clean UX.",
+                    "TechGuide was founded with a simple mission: to make technical manuals more accessible, accurate, and reliable. Our specialists bring years of hands-on experience working with devices, equipment, and industrial tools, ensuring that every manual is crafted with precision and clarity.",
                 bullets: [
-                    "Less deadhead, fewer emissions",
-                    "Right price in real time",
-                    "Control and traceability for all parties",
+                    "Manuals created by experienced professionals",
+                    "Focus on accuracy and usability",
+                    "Guides trusted by technicians and everyday users alike",
                 ],
             },
         },
@@ -63,74 +48,83 @@ const schema: PageSchema = {
             type: "section",
             left: {
                 type: "text",
-                title: "How We Work",
+                title: "Our Expertise",
                 description:
-                    "We combine machine learning, resilient infrastructure, and close collaboration with the industry. Together with our partners, we optimize routes and capacity.",
-                bullets: ["Swedish partnerships", "API-first architecture", "Rapid delivery of new features"],
+                    "From household appliances to complex machinery, our team has worked across industries to create detailed, easy-to-follow manuals. This expertise allows us to provide guides that are both technically accurate and user-friendly.",
+                bullets: [
+                    "Years of experience in technical documentation",
+                    "Knowledge spanning multiple device categories",
+                    "Commitment to clarity and detail in every manual",
+                ],
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image15",
+                src: "image2",
                 width: "100%",
-                height: "420px",
-                alt: "Partnerships and processes",
+                height: "400px",
+                alt: "Manual writing expertise",
             },
         },
         {
-            type: "grid",
-            columns: 4,
-            gap: "2rem",
-            style: { margin: "3rem 0" },
-            cards: [
-                {
-                    image: "image16",
-                    title: "Our Values",
-                    description: "Transparency, reliability, user-centric design.",
-                    buttonLink: "/services",
-                    buttonText: "Learn more",
-                },
-                {
-                    image: "image17",
-                    title: "Technology",
-                    description: "AI models, route optimization, real-time analytics.",
-                    buttonLink: "/services",
-                    buttonText: "Learn more",
-                },
-                {
-                    image: "image18",
-                    title: "Sustainability",
-                    description: "Cut deadhead and CO₂ via smart planning.",
-                    buttonLink: "/services",
-                    buttonText: "Learn more",
-                },
-                {
-                    image: "image19",
-                    title: "Support",
-                    description: "Swedish-language support and onboarding.",
-                    buttonLink: "/contact",
-                    buttonText: "Contact us",
-                },
-            ],
+            type: "section",
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image3",
+                width: "100%",
+                height: "400px",
+                alt: "Token-based manual access",
+            },
+            right: {
+                type: "text",
+                title: "How TechGuide Works",
+                description:
+                    "With TechGuide, you can access any manual by using tokens. This system gives you flexibility and control — unlock only the guides you need, when you need them. Our goal is to make knowledge both accessible and cost-effective.",
+                bullets: [
+                    "Token-based access to manuals",
+                    "Pay only for the guides you need",
+                    "Instant digital availability",
+                ],
+            },
         },
         {
-            type: "text",
-            title: "Team & Partners",
-            description:
-                "Our team blends engineers, logistics experts, and data scientists. We work closely with Swedish carriers and shippers.",
-            centerTitle: true,
-            centerDescription: true,
-        },
-        {
-            type: "slider",
-            images: ["image20", "image21", "image22", "image23"],
+            type: "section",
+            align: "center",
+            gap: "3rem",
+            left: {
+                type: "text",
+                title: "Why Trust TechGuide?",
+                description:
+                    "Because every guide is written and reviewed by seasoned specialists, you can be confident that the information you receive is accurate and reliable. We stand for quality, trust, and professional documentation.",
+                bullets: [
+                    "Specialists with proven experience",
+                    "Transparent and reliable content",
+                    "Guides designed for both professionals and everyday users",
+                ],
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+            },
         },
         {
             type: "faq",
             items: [
-                { question: "Where are you based?", answer: "We are based in Sweden with a Nordic focus." },
-                { question: "Who can use the platform?", answer: "Carriers, shippers, and B2B customers across Sweden." },
-                { question: "How do I get started?", answer: "Create an account and follow the onboarding steps." },
+                {
+                    question: "Who writes the manuals on TechGuide?",
+                    answer:
+                        "Our manuals are created by specialists with years of experience working with technical documentation and real devices.",
+                },
+                {
+                    question: "What kind of manuals are available?",
+                    answer:
+                        "TechGuide offers manuals for a wide variety of devices, equipment, and tools, ranging from everyday appliances to advanced machinery.",
+                },
+                {
+                    question: "Do I need a subscription?",
+                    answer:
+                        "No. TechGuide works on a token system, so you only pay for the manuals you need.",
+                },
             ],
         },
     ],

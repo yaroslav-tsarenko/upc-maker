@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type {CSSProperties} from "react";
 
 export type TextBlock = {
     type: "text";
@@ -89,6 +89,19 @@ export type GridBlock = {
     cards?: LegacyCard[];
 };
 
+export type PricingBlock = {
+    type: "pricing";
+    variant?: "basic" | "highlight" | "premium";
+    title: string;
+    price: string;
+    tokens: number;
+    description: string;
+    features: string[];
+    buttonText: string;
+    buttonLink: string;
+}
+
+
 export type PageBlock =
     | TextBlock
     | MediaBlock
@@ -96,6 +109,7 @@ export type PageBlock =
     | FaqBlock
     | CardBlock
     | SectionBlock
+    | PricingBlock
     | GridBlock;
 
 export type PageSchema = {

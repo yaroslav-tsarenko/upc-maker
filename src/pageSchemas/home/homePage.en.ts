@@ -2,41 +2,39 @@ import { PageSchema } from "@/components/constructor/page-render/types";
 
 const schema: PageSchema = {
     meta: {
-        title: "ShipsterAI — AI Logistics for Sweden",
-        description: "Next-gen AI logistics platform for carriers and shippers in Sweden.",
-        keywords: ["logistics", "ai", "sweden"],
+        title: "TechGuide — Professional Manuals on Demand",
+        description:
+            "Access practical manuals created by specialists. Unlock any guide instantly using tokens.",
+        keywords: ["manuals", "guides", "technical", "documentation"],
         canonical: "/",
         ogImage: {
-            title: "ShipsterAI",
-            description: "AI-powered logistics. Fast. Accurate. Automated.",
+            title: "TechGuide",
+            description:
+                "Expert manuals for every tool and device. Unlock with tokens, use anytime.",
             bg: "#ffffff",
             color: "#000000",
         },
     },
     blocks: [
         {
-            type: "media",
-            mediaType: "video",
-            src: "video1",
-            width: "100%",
-            height: "500px",
-            controls: false,
-            loop: true,
-            autoPlay: true,
-            muted: true,
-        },
-        {
             type: "section",
-            left: { type: "media", mediaType: "image", src: "image1", width: "100%", height: "400px", alt: "AI Logistics Platform" },
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image1",
+                width: "100%",
+                height: "400px",
+                alt: "Manuals Library",
+            },
             right: {
                 type: "text",
-                title: "AI-Powered Logistics in Sweden",
+                title: "Expert Manuals at Your Fingertips",
                 description:
-                    "ShipsterAI is the next-generation AI logistics platform built for Sweden. It connects local carriers and customers with unmatched speed, accuracy, and automation.",
+                    "TechGuide gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.",
                 bullets: [
-                    "Instant AI-based load matching",
-                    "Trusted by thousands of Swedish carriers",
-                    "Optimized routes and real-time updates",
+                    "Created and verified by professionals",
+                    "Covers a wide range of equipment and tools",
+                    "Instant digital access",
                 ],
             },
         },
@@ -44,38 +42,67 @@ const schema: PageSchema = {
             type: "section",
             left: {
                 type: "text",
-                title: "Why Choose ShipsterAI?",
+                title: "How TechGuide Works",
                 description:
-                    "ShipsterAI combines machine learning, route prediction, and logistics intelligence to automate your supply chain. Get competitive pricing and a smaller carbon footprint with every shipment.",
+                    "Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.",
                 bullets: [
-                    "AI route & pricing prediction",
-                    "Supports LTL, FTL, Pallets",
-                    "Fully digital logistics for the Swedish market",
+                    "Buy tokens once, use them anytime",
+                    "No subscription pressure",
+                    "Simple and transparent access",
                 ],
             },
-            right: { type: "media", mediaType: "image", src: "image2", width: "100%", height: "400px", alt: "AI Route Optimization" },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image2",
+                width: "100%",
+                height: "400px",
+                alt: "Token Access",
+            },
         },
         {
             type: "section",
-            left: { type: "media", mediaType: "image", src: "image3", width: "100%", height: "400px", alt: "Carrier Dashboard" },
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image3",
+                width: "100%",
+                height: "400px",
+                alt: "Dashboard Preview",
+            },
             right: {
                 type: "text",
-                title: "Powerful Dashboard for Swedish Carriers",
+                title: "Clear and Organized Dashboard",
                 description:
-                    "Find relevant loads in seconds, avoid deadhead miles, and maximize fuel efficiency. ShipsterAI empowers Swedish drivers with intelligent decision-making tools.",
-                bullets: ["Smart load recommendations", "Reduce fuel & maintenance costs", "Real-time support and status updates"],
+                    "Browse manuals by category, track your token balance, and manage your downloads from a single place.",
+                bullets: [
+                    "Easy manual search by categories",
+                    "Track token usage and history",
+                    "Download guides anytime",
+                ],
             },
         },
         {
             type: "section",
             left: {
                 type: "text",
-                title: "Built for Sweden",
+                title: "Why Choose TechGuide?",
                 description:
-                    "Our system is tailored for Swedish infrastructure and regulations — with localization and local route knowledge built-in.",
-                bullets: ["Swedish regulations ready", "Built-in localization", "Integrated with Nordic carriers"],
+                    "Unlike random internet tutorials, TechGuide manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.",
+                bullets: [
+                    "Verified by experts",
+                    "Well-structured and clear format",
+                    "Trusted source for technical knowledge",
+                ],
             },
-            right: { type: "media", mediaType: "image", src: "image4", width: "100%", height: "400px", alt: "Built for Sweden" },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image4",
+                width: "100%",
+                height: "400px",
+                alt: "Specialist Manuals",
+            },
         },
         {
             type: "section",
@@ -83,10 +110,14 @@ const schema: PageSchema = {
             gap: "3rem",
             left: {
                 type: "text",
-                title: "Ready to Ship with Intelligence?",
+                title: "Start Using TechGuide Today",
                 description:
-                    "Join the logistics revolution in Sweden with ShipsterAI. Whether you're a customer or a carrier, our AI tools give you the upper hand.",
-                bullets: ["Instant onboarding", "AI load & route planning", "24/7 live tracking"],
+                    "Unlock manuals instantly with tokens and gain access to reliable knowledge for your equipment and tools.",
+                bullets: [
+                    "Instant access to guides",
+                    "Pay only for what you need",
+                    "Knowledge from real specialists",
+                ],
                 centerTitle: true,
                 centerDescription: true,
                 centerBullets: true,
@@ -98,30 +129,54 @@ const schema: PageSchema = {
             gap: "2rem",
             style: { margin: "3rem 0" },
             cards: [
-                { image: "image5", title: "AI Logistics Platform", description: "Next-gen AI logistics for Sweden. Fast, accurate, automated.", buttonLink: "/sign-up", buttonText: "Get Started" },
-                { image: "image6", title: "Route Optimization", description: "AI-powered route prediction for cost & carbon savings.", buttonLink: "/sign-up", buttonText: "Get Started" },
-                { image: "image7", title: "Carrier Dashboard", description: "Empower Swedish carriers with smart load recommendations.", buttonLink: "/sign-up", buttonText: "Get Started" },
-                { image: "image8", title: "Built for Sweden", description: "Tailored for Swedish regulations and local infrastructure.", buttonLink: "/sign-up", buttonText: "Get Started" },
+                {
+                    image: "image5",
+                    title: "Wide Manual Library",
+                    description: "Access manuals across multiple categories and industries.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Get Started",
+                },
+                {
+                    image: "image6",
+                    title: "Token Flexibility",
+                    description: "Use tokens only on the manuals you need, no recurring fees.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Get Started",
+                },
+                {
+                    image: "image7",
+                    title: "Expert-Created Guides",
+                    description: "Every manual is written and reviewed by specialists.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Get Started",
+                },
+                {
+                    image: "image8",
+                    title: "Always Accessible",
+                    description: "Download and revisit your manuals at any time.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Get Started",
+                },
             ],
-        },
-        {
-            type: "text",
-            title: "Powerful Dashboard for Swedish Carriers",
-            description:
-                "Find relevant loads in seconds, avoid deadhead miles, and maximize fuel efficiency. ShipsterAI empowers Swedish drivers with intelligent decision-making tools.",
-            centerTitle: true,
-            centerDescription: true,
-        },
-        {
-            type: "slider",
-            images: ["image9", "image10", "image11", "image12"],
         },
         {
             type: "faq",
             items: [
-                { question: "What is ShipsterAI?", answer: "ShipsterAI is an AI-powered logistics platform for Sweden." },
-                { question: "How do I sign up?", answer: "Click the “Get Started” button and follow the steps." },
-                { question: "Is my data secure?", answer: "Yes, we use industry-standard security." },
+                {
+                    question: "What is TechGuide?",
+                    answer:
+                        "TechGuide is a platform that provides expert-written manuals for different tools and equipment.",
+                },
+                {
+                    question: "How do I access a manual?",
+                    answer:
+                        "Each manual can be unlocked by spending tokens. Buy tokens once and use them whenever you need.",
+                },
+                {
+                    question: "Do manuals stay available after purchase?",
+                    answer:
+                        "Yes. Once unlocked, you can access your manual anytime through your dashboard.",
+                },
             ],
         },
     ],
