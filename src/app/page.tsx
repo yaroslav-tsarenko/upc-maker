@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import svHome from "@/pageSchemas/home/homePage.sv";
 import enHome from "@/pageSchemas/home/homePage.en";
 
 import PageCreator from "@/components/features/page-creator/PageCreator";
@@ -11,5 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-    return <PageCreator schemaMap={{ sv: svHome, en: enHome }} />;
+    return <PageCreator schemaMap={{ sv: enHome, en: enHome }} />;
 }
