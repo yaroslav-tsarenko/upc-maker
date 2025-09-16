@@ -1,8 +1,17 @@
-.fixed {
-  position: fixed;
+.sticky {
+  position: sticky;
   top: 0;
   z-index: 100;
   width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.stickyRounded {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-radius: 0;
   transition: all 0.3s ease-in-out;
 }
 
@@ -18,7 +27,6 @@
   align-content: center;
   align-items: center;
   justify-items: center;
-  position: sticky;
   background: white;
   border-bottom: 1px solid #eee;
 }
