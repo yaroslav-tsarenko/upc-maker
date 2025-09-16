@@ -5,6 +5,7 @@ import { sha256, randomToken } from "../utils/crypto";
 import { signAccessToken, signRefreshToken } from "../utils/jwt";
 import { ENV } from "../config/env";
 import { Types } from "mongoose";
+import {sendEmail} from "@/backend/utils/sendEmail";
 
 function parseDurationToSec(input: string): number {
     const m = input.match(/^(\d+)([smhd])?$/i);
@@ -24,8 +25,13 @@ export const authService = {
 
         const hashed = await bcrypt.hash(data.password, 12);
         const user = await User.create({ ...data, email: data.email.toLowerCase(), password: hashed });
-
         const result = await this.issueTokensAndSession(user._id, user.email, user.role, undefined, undefined);
+        await sendEmail(
+            user.email,
+            "Welcome to TechGuide 🎉",
+            `Hi ${user.name}, thanks for registering at TechGuide.`
+        );
+
         return { user, ...result };
     },
 

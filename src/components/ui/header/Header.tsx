@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
     // формуємо динамічні стилі при скролі
     const scrolledStyle: React.CSSProperties = {};
-    if (isScrolled) {
+    if (isScrolled && headerStyles.type !== "default") {
         switch (headerStyles.scrollMode) {
             case "solid":
                 scrolledStyle.backgroundColor = headerStyles.scrollBackground;
@@ -41,10 +41,13 @@ const Header: React.FC = () => {
         <>
             <header
                 className={[
-                    styles.header,
-                    headerStyles.type === "fixed" ? styles.fixed : styles.default,
-                    isScrolled ? styles.scrolled : "",
-                ].join(" ")}
+                    headerStyles.type === "default" && styles.header,
+                    headerStyles.type === "sticky" && styles.sticky,
+                    headerStyles.type === "sticky-rounded" && styles.stickyRounded,
+                    headerStyles.type === "sticky-rounded" && isScrolled ? styles.scrolled : "",
+                ]
+                    .filter(Boolean)
+                    .join(" ")}
                 style={scrolledStyle}
             >
                 <div className={styles.headerInner}>
@@ -87,6 +90,7 @@ const Header: React.FC = () => {
                     </div>
                 </div>
             </header>
+
 
             <DrawerMenu open={drawerOpen} onClose={() => setDrawerOpen(false)} />
         </>

@@ -61,13 +61,15 @@ export const buttonColors = {
 export type ButtonColor = keyof typeof buttonColors;
 
 export type HeaderScrollMode = "solid" | "blur";
+export type HeaderType = "default" | "sticky" | "sticky-rounded";
+
 export const headerStyles = {
-    type: "fixed" as "default" | "fixed",
+    type: "sticky" as HeaderType,
     sideBarDirection: "left" as "left" | "right" | "top" | "bottom",
     linkColor: "var(--text-primary)",
     linkHoverColor: "var(--link-hover)",
 
-    scrollMode: "blur" as HeaderScrollMode,
+    scrollMode: "solid" as HeaderScrollMode,
     scrollBackground: "var(--primary-color)",   // фон для solid
     scrollBlur: "50px",                          // blur для blur
 };
@@ -125,4 +127,3 @@ export const footerStyles = {
     radius: "100px 100px 0 0",
     shadow: "none",
 };
-
