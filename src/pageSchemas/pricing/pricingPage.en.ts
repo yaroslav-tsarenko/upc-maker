@@ -41,7 +41,7 @@ const pricingSchema: PageSchema = {
         },
         {
             type: "grid",
-            columns: 3,
+            columns: 4,
             gap: "2rem",
             cards: [
                 {
@@ -92,6 +92,22 @@ const pricingSchema: PageSchema = {
                     ],
                     buttonText: "Go Premium",
                     buttonLink: "/checkout?plan=enterprise",
+                },
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Custom Pack",
+                    price: "dynamic",
+                    tokens: 0,
+                    description: "Enter your own token amount and get instant pricing.",
+                    features: [
+                        "Flexible tokens",
+                        "Automatic price calculation",
+                        "No expiration",
+                        "Perfect for custom needs"
+                    ],
+                    buttonText: "Buy Custom",
+                    buttonLink: "/checkout?plan=custom",
                 },
             ],
         },

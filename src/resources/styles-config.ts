@@ -64,7 +64,7 @@ export type HeaderScrollMode = "solid" | "blur";
 export type HeaderType = "default" | "sticky" | "sticky-rounded";
 
 export const headerStyles = {
-    type: "default" as HeaderType,
+    type: "sticky" as HeaderType,
     sideBarDirection: "left" as "left" | "right" | "top" | "bottom",
     linkColor: "var(--text-primary)",
     linkHoverColor: "var(--link-hover)",
@@ -127,4 +127,3 @@ export const footerStyles = {
     radius: "100px 100px 0 0",
     shadow: "none",
 };
-
