@@ -3,7 +3,6 @@
 import React from "react";
 import { useAllOrders } from "@/context/AllOrdersContext";
 import styles from "./AllOrders.module.scss";
-import PDFExtractor from "@/components/features/pdf-extractor/PDFExtractor";
 
 const OrdersSection: React.FC = () => {
     const { orders, refreshOrders } = useAllOrders();
@@ -21,7 +20,7 @@ const OrdersSection: React.FC = () => {
     };
 
     const formatId = (id: string) => {
-        return id.slice(-6); // тільки останні 6 символів
+        return id.slice(-6);
     };
 
     return (
@@ -30,7 +29,6 @@ const OrdersSection: React.FC = () => {
             {orders.length === 0 ? (
                 <p className={styles.empty}>No orders yet.</p>
             ) : (
-                <PDFExtractor orders={orders}>
                     <ul className={styles.orderList}>
                         {orders.map((order) => (
                             <li key={order._id} className={styles.orderCard}>
@@ -43,7 +41,6 @@ const OrdersSection: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                </PDFExtractor>
             )}
         </div>
     );

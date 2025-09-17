@@ -1,5 +1,5 @@
 import { media } from "@/resources/media";
-import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
+import {COMPANY_ADDRESS, COMPANY_EMAIL, COMPANY_LEGAL_NAME, COMPANY_NUMBER} from "@/resources/constants";
 
 export const baseURL =
     typeof window !== "undefined"
@@ -44,23 +44,14 @@ export const footerContent = {
         },
     ],
     contact: {
-        email: "info@example.com",
-        phone: "+1 234 567 890",
-        address: "123 Main St, City, Country",
+        email: COMPANY_EMAIL,
     },
-
     legal: {
-        companyName: "JUNGLE SAPPHIRE LTD",
-        companyNumber: "15545389",
+        companyName: COMPANY_LEGAL_NAME,
+        companyNumber: COMPANY_NUMBER,
+        companyEmail: COMPANY_EMAIL,
         addressLines: [
-            "20 Wenlock Road",
-            "London, England",
-            "N1 7GU",
+            COMPANY_ADDRESS,
         ],
     },
-    socials: [
-        { label: "Twitter", href: "https://x.com/...", icon: FaTwitter },
-        { label: "Facebook", href: "https://facebook.com/...", icon: FaFacebook },
-        { label: "LinkedIn", href: "https://linkedin.com/...", icon: FaLinkedin },
-    ],
 };

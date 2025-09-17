@@ -1,13 +1,20 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_ADDRESS,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: "Get Started — TechGuide",
+        title: `Get Started — ${COMPANY_NAME}`,
         description:
-            "Learn how to get started with TechGuide: create an account, purchase tokens, and unlock manuals instantly. Follow simple steps to access expert documentation.",
+            `Learn how to get started with ${COMPANY_NAME}: create an account, purchase tokens, and unlock manuals instantly. Follow simple steps to access expert documentation.`,
         keywords: [
-            "TechGuide get started",
-            "how to use TechGuide",
+            `${COMPANY_NAME} get started`,
+            `how to use ${COMPANY_NAME}`,
             "manuals access",
             "unlock guides",
             "purchase tokens",
@@ -15,9 +22,9 @@ const schema: PageSchema = {
         ],
         canonical: "/get-started",
         ogImage: {
-            title: "Get Started with TechGuide",
+            title: `Get Started with ${COMPANY_NAME}`,
             description:
-                "Follow simple steps to create your account, buy tokens, and unlock manuals instantly.",
+                `Follow simple steps to create your account, buy tokens, and unlock manuals instantly.`,
             bg: "#ffffff",
             color: "#000000",
         },
@@ -28,9 +35,9 @@ const schema: PageSchema = {
             align: "center",
             left: {
                 type: "text",
-                title: "Start Your Journey with TechGuide",
+                title: `Start Your Journey with ${COMPANY_NAME}`,
                 description:
-                    "Getting started is simple. In just a few steps, you can create your account, buy tokens, and access professional manuals tailored to your needs. Follow the guide below to unlock your first manual.",
+                    `Getting started is simple. In just a few steps, you can create your account, buy tokens, and access professional manuals tailored to your needs. Follow the guide below to unlock your first manual.`,
                 centerTitle: true,
                 centerDescription: true,
             },
@@ -44,7 +51,7 @@ const schema: PageSchema = {
                     image: "image1",
                     title: "Step 1 — Create an Account",
                     description:
-                        "Sign up with your email to access your dashboard, manage tokens, and store your manuals securely.",
+                        `Sign up with your email to access your dashboard, manage tokens, and store your manuals securely.`,
                     buttonLink: "/sign-up",
                     buttonText: "Sign Up",
                 },
@@ -52,7 +59,7 @@ const schema: PageSchema = {
                     image: "image2",
                     title: "Step 2 — Buy Tokens",
                     description:
-                        "Purchase tokens based on your needs. Tokens give you flexible access to manuals without subscription pressure.",
+                        `Purchase tokens based on your needs. Tokens give you flexible access to manuals without subscription pressure.`,
                     buttonLink: "/pricing",
                     buttonText: "View Pricing",
                 },
@@ -60,7 +67,7 @@ const schema: PageSchema = {
                     image: "image3",
                     title: "Step 3 — Unlock Manuals",
                     description:
-                        "Use tokens to unlock the manuals you need. Instantly access them online, download, and save for future use.",
+                        `Use tokens to unlock the manuals you need. Instantly access them online, download, and save for future use.`,
                     buttonLink: "/services",
                     buttonText: "Browse Manuals",
                 },
@@ -78,9 +85,9 @@ const schema: PageSchema = {
             },
             right: {
                 type: "text",
-                title: "Manage Everything in One Dashboard",
+                title: `Manage Everything in One Dashboard`,
                 description:
-                    "Your TechGuide dashboard is the control center for your knowledge. Check your token balance, view your unlocked manuals, and track your download history — all in one place.",
+                    `Your ${COMPANY_NAME} dashboard is the control center for your knowledge. Check your token balance, view your unlocked manuals, and track your download history — all in one place.`,
                 bullets: [
                     "Track tokens and usage history",
                     "Browse manuals by category",
@@ -92,9 +99,9 @@ const schema: PageSchema = {
             type: "section",
             left: {
                 type: "text",
-                title: "Scale Your Access with Token Packages",
+                title: `Scale Your Access with Token Packages`,
                 description:
-                    "Whether you need a single manual or an entire library, TechGuide adapts to your needs. Purchase more tokens to unlock additional manuals and grow your personal documentation hub.",
+                    `Whether you need a single manual or an entire library, ${COMPANY_NAME} adapts to your needs. Purchase more tokens to unlock additional manuals and grow your personal documentation hub.`,
                 bullets: [
                     "Small packages for individuals",
                     "Bulk tokens for businesses",
@@ -119,7 +126,7 @@ const schema: PageSchema = {
                     image: "image6",
                     title: "Multi-Device Access",
                     description:
-                        "Use your manuals on desktop, tablet, or smartphone. TechGuide adapts to your workflow.",
+                        `Use your manuals on desktop, tablet, or smartphone. ${COMPANY_NAME} adapts to your workflow.`,
                     buttonLink: "/faq",
                     buttonText: "Learn More",
                 },
@@ -127,7 +134,7 @@ const schema: PageSchema = {
                     image: "image7",
                     title: "Offline Availability",
                     description:
-                        "Download manuals to access them anytime, even without an internet connection.",
+                        `Download manuals to access them anytime, even without an internet connection.`,
                     buttonLink: "/faq",
                     buttonText: "Read FAQ",
                 },
@@ -139,9 +146,9 @@ const schema: PageSchema = {
             gap: "3rem",
             left: {
                 type: "text",
-                title: "Why Start with TechGuide?",
+                title: `Why Start with ${COMPANY_NAME}?`,
                 description:
-                    "Because we make technical knowledge easy, flexible, and accessible. From the first token you spend to the last manual you unlock, our system is designed to give you control and confidence.",
+                    `Because we make technical knowledge easy, flexible, and accessible. From the first token you spend to the last manual you unlock, our system is designed to give you control and confidence.`,
                 bullets: [
                     "Quick and easy onboarding",
                     "Token-based flexibility",
@@ -174,7 +181,7 @@ const schema: PageSchema = {
                 {
                     question: "Do I need to install anything?",
                     answer:
-                        "No. TechGuide works directly in your browser. Manuals are accessible from any device.",
+                        `No. ${COMPANY_NAME} works directly in your browser. Manuals are accessible from any device.`,
                 },
             ],
         },

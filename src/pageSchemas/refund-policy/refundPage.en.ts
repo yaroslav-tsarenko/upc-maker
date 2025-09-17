@@ -1,22 +1,29 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_ADDRESS,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const refundPolicySchema: PageSchema = {
     meta: {
-        title: "Refund Policy – TechGuide",
+        title: `Refund Policy – ${COMPANY_NAME}`,
         description:
-            "Refund Policy for TechGuide: rules for refunds on internal currency purchases and orders of technical manuals.",
+            `Refund Policy for ${COMPANY_NAME}: rules for refunds on internal currency purchases and orders of technical manuals.`,
         keywords: [
             "refund policy",
             "refunds",
             "returns",
-            "techguide",
+            COMPANY_NAME?.toLowerCase() || "manuals",
             "manuals",
             "credits",
             "internal currency"
         ],
         canonical: "/refund-policy",
         ogImage: {
-            title: "TechGuide – Refund Policy",
+            title: `${COMPANY_NAME} – Refund Policy`,
             description: "Clear and transparent refund conditions.",
             bg: "#ffffff",
             color: "#000000"
@@ -25,9 +32,9 @@ const refundPolicySchema: PageSchema = {
     blocks: [
         {
             type: "text",
-            title: "Refund Policy – Overview",
+            title: `Refund Policy – Overview`,
             description:
-                "This Refund Policy explains when and how refunds may be granted for purchases made on TechGuide. By using the Platform, you agree to this Refund Policy alongside our Terms & Conditions."
+                `This Refund Policy explains when and how refunds may be granted for purchases made on ${COMPANY_NAME}. By using the Platform, you agree to this Refund Policy alongside our Terms & Conditions.`
         },
         {
             type: "text",
@@ -55,7 +62,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "3. How to Request a Refund",
             description:
-                "If you believe you are eligible for a refund, please contact our support team within 14 days of purchase. Provide your account details, order ID, and reason for the refund request. Each case will be reviewed individually."
+                `If you believe you are eligible for a refund, please contact our support team within 14 days of purchase. Provide your account details, order ID, and reason for the refund request. Each case will be reviewed individually.`
         },
         {
             type: "text",
@@ -72,7 +79,7 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "5. Fraud or Abuse",
             description:
-                "TechGuide reserves the right to refuse refunds in cases of fraud, abuse, or violation of the Terms & Conditions."
+                `${COMPANY_NAME} reserves the right to refuse refunds in cases of fraud, abuse, or violation of the Terms & Conditions.`
         },
         {
             type: "text",
@@ -90,10 +97,10 @@ const refundPolicySchema: PageSchema = {
             type: "text",
             title: "8. Contact",
             bullets: [
-                "Company: JUNGLE SAPPHIRE LTD",
-                "Company number: 15545389",
-                "Address: 20 Wenlock Road, London, England, N1 7GU",
-                "Support: support@techguide.ai"
+                `Company: ${COMPANY_LEGAL_NAME}`,
+                `Company number: ${COMPANY_NUMBER}`,
+                `Address: ${COMPANY_ADDRESS}`,
+                `Support: ${COMPANY_EMAIL}`
             ]
         },
         {

@@ -1,18 +1,26 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_ADDRESS,
+    COMPANY_LEGAL_NAME,
+    COMPANY_NAME,
+    COMPANY_NUMBER,
+    COMPANY_EMAIL,
+} from "@/resources/constants";
 
 const cookiePolicyEn: PageSchema = {
     meta: {
-        title: "Cookie Policy – ShipsterAI Sweden",
+        title: `Cookie Policy – ${COMPANY_NAME}`,
         description:
-            "Learn which cookies ShipsterAI uses, for what purposes, how long they persist, and how to manage your consent.",
+            `Learn which cookies ${COMPANY_NAME} uses, for what purposes, how long they persist, and how to manage your consent.`,
         keywords: [
             "cookies",
             "cookie policy",
             "privacy",
             "tracking",
             "consent",
-            "sweden",
-            "shipsterai"
+            "manuals",
+            "devices",
+            COMPANY_NAME?.toLowerCase() || "manuals"
         ],
         canonical: "/cookie-policy",
         ogImage: {
@@ -25,9 +33,9 @@ const cookiePolicyEn: PageSchema = {
     blocks: [
         {
             type: "text",
-            title: "Cookie Policy – Overview",
+            title: `Cookie Policy – Overview`,
             description:
-                "This Cookie Policy explains how ShipsterAI (“we”, “us”) uses cookies and similar technologies on our platform. It complements our Privacy Policy. By clicking “Accept” in the banner or continuing to use the site, you consent—where required—to the use of non-essential cookies."
+                `This Cookie Policy explains how ${COMPANY_NAME} (“we”, “us”) uses cookies and similar technologies on our platform for device manuals. It complements our Privacy Policy. By clicking “Accept” in the banner or continuing to use the site, you consent—where required—to the use of non-essential cookies.`
         },
         {
             type: "text",
@@ -39,7 +47,7 @@ const cookiePolicyEn: PageSchema = {
             type: "text",
             title: "Cookie categories",
             bullets: [
-                "Necessary – required for core functions (login, security, payment flow). Without these, the platform will not work properly.",
+                "Necessary – required for core functions (login, security, access to your manuals). Without these, the platform will not work properly.",
                 "Functional – remembers your settings (language, layout, preferences).",
                 "Performance/Analytics – measures usage, errors, and load times to improve stability (e.g., aggregated statistics).",
                 "Marketing/Ads – only if enabled: reach measurement, campaign attribution, interest-based content.",
@@ -50,7 +58,7 @@ const cookiePolicyEn: PageSchema = {
             type: "text",
             title: "Typical cookies & lifetimes (examples)",
             bullets: [
-                "shipster_session – Purpose: login session (necessary) • Lifetime: session",
+                "session_id – Purpose: login session (necessary) • Lifetime: session",
                 "csrf_token – Purpose: CSRF protection (necessary) • Lifetime: session",
                 "consent_state – Purpose: stores your consent choice (necessary) • Lifetime: 6–12 months",
                 "ui_prefs – Purpose: language/theme (functional) • Lifetime: ~6 months",
@@ -62,7 +70,7 @@ const cookiePolicyEn: PageSchema = {
             type: "text",
             title: "Third-party & similar technologies",
             description:
-                "We may use third-party services (e.g., maps, analytics, payments, error tracking). These providers may set their own cookies/IDs. We choose partners carefully and safeguard privacy. See the Privacy Policy and—where available—our consent banner (CMP) under “Details”.",
+                "We may use third-party services (e.g., analytics, payments, error tracking). These providers may set their own cookies/IDs. We choose partners carefully and safeguard privacy. See the Privacy Policy and—where available—our consent banner (CMP) under “Details”.",
             bullets: [
                 "Analytics (aggregated, pseudonymized, IP masking where feasible)",
                 "Error/crash reporting",
@@ -102,9 +110,10 @@ const cookiePolicyEn: PageSchema = {
             type: "text",
             title: "Contact",
             bullets: [
-                "General: hello@shipster.ai",
-                "Privacy: privacy@shipster.ai",
-                "Address: ShipsterAI AB, Vasagatan 10, 111 20 Stockholm, Sweden"
+                `General: ${COMPANY_EMAIL}`,
+                `Legal: ${COMPANY_LEGAL_NAME}`,
+                `Address: ${COMPANY_ADDRESS}`,
+                `Company Number: ${COMPANY_NUMBER}`
             ]
         },
         {

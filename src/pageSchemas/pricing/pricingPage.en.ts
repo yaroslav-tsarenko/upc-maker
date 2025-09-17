@@ -1,12 +1,19 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_ADDRESS,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const pricingSchema: PageSchema = {
     meta: {
-        title: "Pricing — TechGuide",
+        title: `Pricing — ${COMPANY_NAME}`,
         description:
-            "Choose a TechGuide token package that fits your needs. Flexible pricing with Starter, Pro, and Enterprise options for individuals, professionals, and businesses.",
+            `Choose a ${COMPANY_NAME} token package that fits your needs. Flexible pricing with Starter, Pro, and Enterprise options for individuals, professionals, and businesses.`,
         keywords: [
-            "TechGuide pricing",
+            `${COMPANY_NAME} pricing`,
             "token packages",
             "manual access",
             "subscription alternatives",
@@ -14,7 +21,7 @@ const pricingSchema: PageSchema = {
         ],
         canonical: "/pricing",
         ogImage: {
-            title: "TechGuide Pricing",
+            title: `${COMPANY_NAME} Pricing`,
             description: "Flexible token-based pricing for manuals.",
             bg: "#ffffff",
             color: "#000000",
@@ -28,7 +35,7 @@ const pricingSchema: PageSchema = {
                 type: "text",
                 title: "Simple and Transparent Pricing",
                 description:
-                    "At TechGuide, you only pay for what you need. Our token-based system is flexible, affordable, and scalable — whether you’re unlocking one manual or managing documentation for your whole company.",
+                    `At ${COMPANY_NAME}, you only pay for what you need. Our token-based system is flexible, affordable, and scalable — whether you’re unlocking one manual or managing documentation for your whole company.`,
                 bullets: [
                     "No hidden fees or subscriptions",
                     "Tokens never expire",
@@ -125,7 +132,7 @@ const pricingSchema: PageSchema = {
                 type: "text",
                 title: "How the Token System Works",
                 description:
-                    "Each manual you unlock requires tokens. Buy tokens once and use them whenever you need. Tokens never expire, so you have full flexibility to plan your documentation strategy without pressure.",
+                    `Each manual you unlock requires tokens. Buy tokens once and use them whenever you need. Tokens never expire, so you have full flexibility to plan your documentation strategy without pressure.`,
                 bullets: [
                     "1 token = 1 manual (standard complexity)",
                     "Advanced guides may require multiple tokens",
@@ -142,7 +149,7 @@ const pricingSchema: PageSchema = {
                     image: "image2",
                     title: "Why Tokens?",
                     description:
-                        "Traditional subscriptions lock you into recurring payments. With TechGuide, you only pay for the manuals you need — simple, transparent, and scalable.",
+                        `Traditional subscriptions lock you into recurring payments. With ${COMPANY_NAME}, you only pay for the manuals you need — simple, transparent, and scalable.`,
                     buttonLink: "/about-us",
                     buttonText: "Learn More",
                 },
@@ -150,7 +157,7 @@ const pricingSchema: PageSchema = {
                     image: "image3",
                     title: "Enterprise Benefits",
                     description:
-                        "Businesses can purchase larger token packages for teams. Save costs, gain dedicated support, and enjoy documentation tailored to your industry.",
+                        `Businesses can purchase larger token packages for teams. Save costs, gain dedicated support, and enjoy documentation tailored to your industry.`,
                     buttonLink: "/contact",
                     buttonText: "Contact Sales",
                 },
@@ -164,11 +171,11 @@ const pricingSchema: PageSchema = {
                 type: "text",
                 title: "What Our Customers Say",
                 description:
-                    "Thousands of users rely on TechGuide for reliable documentation. From individuals to enterprises, our token-based pricing helps everyone access the knowledge they need.",
+                    `Thousands of users rely on ${COMPANY_NAME} for reliable documentation. From individuals to enterprises, our token-based pricing helps everyone access the knowledge they need.`,
                 bullets: [
-                    "\"Perfect for my freelance work — I only buy manuals when I need them.\"",
-                    "\"Our engineering team saves hours every week thanks to TechGuide manuals.\"",
-                    "\"Affordable, flexible, and easy to use — highly recommended.\"",
+                    `"Perfect for my freelance work — I only buy manuals when I need them."`,
+                    `"Our engineering team saves hours every week thanks to ${COMPANY_NAME} manuals."`,
+                    `"Affordable, flexible, and easy to use — highly recommended."`,
                 ],
                 centerTitle: true,
                 centerDescription: true,
@@ -196,7 +203,7 @@ const pricingSchema: PageSchema = {
                 },
                 {
                     question: "Can businesses get custom pricing?",
-                    answer: "Yes. Enterprises can contact us directly for tailored packages, custom manuals, and dedicated support.",
+                    answer: `Yes. Enterprises can contact us directly for tailored packages, custom manuals, and dedicated support. Email: ${COMPANY_EMAIL}`,
                 },
             ],
         },

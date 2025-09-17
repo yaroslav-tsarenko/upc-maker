@@ -8,6 +8,7 @@ import ProtectedRoute from "@/components/features/protected-route/ProtectedRoute
 import {currentFont} from "@/resources/styles-config";
 import {I18nProvider} from "@/context/i18nContext";
 import {AllOrdersProvider} from "@/context/AllOrdersContext";
+import PDFExtractor from "@/components/features/pdf-extractor/PDFExtractor";
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -23,11 +24,13 @@ function Layout({ children }: { children: React.ReactNode }) {
             <AlertProvider>
                 <AllOrdersProvider>
                     <ProtectedRoute>
-                        <Header />
-                        <PageWrapper>
-                            {children}
-                        </PageWrapper>
-                        <Footer />
+                        <PDFExtractor>
+                            <Header />
+                            <PageWrapper>
+                                {children}
+                            </PageWrapper>
+                            <Footer />
+                        </PDFExtractor>
                     </ProtectedRoute>
                 </AllOrdersProvider>
             </AlertProvider>
