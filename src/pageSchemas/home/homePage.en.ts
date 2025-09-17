@@ -1,14 +1,15 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import { COMPANY_NAME } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: "TechGuide — Professional Manuals on Demand",
+        title: `${COMPANY_NAME} — Professional Manuals on Demand`,
         description:
-            "Access practical manuals created by specialists. Unlock any guide instantly using tokens.",
+            `Access practical manuals created by specialists. Unlock any guide instantly using tokens.`,
         keywords: ["manuals", "guides", "technical", "documentation"],
         canonical: "/",
         ogImage: {
-            title: "TechGuide",
+            title: `${COMPANY_NAME}`,
             description:
                 "Expert manuals for every tool and device. Unlock with tokens, use anytime.",
             bg: "#ffffff",
@@ -30,7 +31,7 @@ const schema: PageSchema = {
                 type: "text",
                 title: "Expert Manuals at Your Fingertips",
                 description:
-                    "TechGuide gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.",
+                    `${COMPANY_NAME} gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.`,
                 bullets: [
                     "Created and verified by professionals",
                     "Covers a wide range of equipment and tools",
@@ -42,9 +43,9 @@ const schema: PageSchema = {
             type: "section",
             left: {
                 type: "text",
-                title: "How TechGuide Works",
+                title: `How ${COMPANY_NAME} Works`,
                 description:
-                    "Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.",
+                    `Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.`,
                 bullets: [
                     "Buy tokens once, use them anytime",
                     "No subscription pressure",
@@ -86,9 +87,9 @@ const schema: PageSchema = {
             type: "section",
             left: {
                 type: "text",
-                title: "Why Choose TechGuide?",
+                title: `Why Choose ${COMPANY_NAME}?`,
                 description:
-                    "Unlike random internet tutorials, TechGuide manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.",
+                    `Unlike random internet tutorials, ${COMPANY_NAME} manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.`,
                 bullets: [
                     "Verified by experts",
                     "Well-structured and clear format",
@@ -110,7 +111,7 @@ const schema: PageSchema = {
             gap: "3rem",
             left: {
                 type: "text",
-                title: "Start Using TechGuide Today",
+                title: `Start Using ${COMPANY_NAME} Today`,
                 description:
                     "Unlock manuals instantly with tokens and gain access to reliable knowledge for your equipment and tools.",
                 bullets: [
@@ -163,9 +164,9 @@ const schema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "What is TechGuide?",
+                    question: `What is ${COMPANY_NAME}?`,
                     answer:
-                        "TechGuide is a platform that provides expert-written manuals for different tools and equipment.",
+                        `${COMPANY_NAME} is a platform that provides expert-written manuals for different tools and equipment.`,
                 },
                 {
                     question: "How do I access a manual?",

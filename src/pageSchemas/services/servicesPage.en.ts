@@ -1,12 +1,15 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+} from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: "Our Services — TechGuide",
+        title: `Our Services — ${COMPANY_NAME}`,
         description:
-            "Explore TechGuide services: from custom manuals tailored to your individual needs to a flexible token system, instant digital access, and trusted expertise across industries.",
+            `Explore ${COMPANY_NAME} services: from custom manuals tailored to your individual needs to a flexible token system, instant digital access, and trusted expertise across industries.`,
         keywords: [
-            "TechGuide services",
+            `${COMPANY_NAME} services`,
             "custom manuals",
             "manual specialists",
             "device guides",
@@ -17,7 +20,7 @@ const schema: PageSchema = {
         ],
         canonical: "/services",
         ogImage: {
-            title: "TechGuide Services",
+            title: `${COMPANY_NAME} Services`,
             description:
                 "Professional manuals for devices and equipment. Tailored, flexible, and token-based.",
             bg: "#ffffff",
@@ -31,7 +34,7 @@ const schema: PageSchema = {
                 type: "text",
                 title: "Custom Manuals for Your Needs",
                 description:
-                    "Every project, tool, and device is unique. That’s why TechGuide creates manuals designed around your specific requirements. Whether you’re working with simple appliances, professional tools, or complex machinery, our experts deliver clear, structured, and accurate documentation.",
+                    `Every project, tool, and device is unique. That’s why ${COMPANY_NAME} creates manuals designed around your specific requirements. Whether you’re working with simple appliances, professional tools, or complex machinery, our experts deliver clear, structured, and accurate documentation.`,
                 bullets: [
                     "Individually tailored guides",
                     "Specialist-created content",
@@ -91,7 +94,7 @@ const schema: PageSchema = {
                 type: "text",
                 title: "Flexible Token System",
                 description:
-                    "Forget rigid subscriptions. With TechGuide, you purchase tokens and spend them only on the manuals you actually need. The more manuals you unlock, the more tokens you use — simple, scalable, and transparent.",
+                    `Forget rigid subscriptions. With ${COMPANY_NAME}, you purchase tokens and spend them only on the manuals you actually need. The more manuals you unlock, the more tokens you use — simple, scalable, and transparent.`,
                 bullets: [
                     "No monthly fees",
                     "Pay per manual you unlock",
@@ -106,7 +109,7 @@ const schema: PageSchema = {
                 type: "text",
                 title: "Instant Access Anywhere",
                 description:
-                    "TechGuide manuals are available instantly after unlocking. Access them from your dashboard, download them for offline use, and keep your knowledge library organized. Your manuals, always at hand.",
+                    `${COMPANY_NAME} manuals are available instantly after unlocking. Access them from your dashboard, download them for offline use, and keep your knowledge library organized. Your manuals, always at hand.`,
                 bullets: [
                     "Immediate availability",
                     "Cloud-based and offline access",
@@ -153,7 +156,7 @@ const schema: PageSchema = {
                 type: "text",
                 title: "Trusted by Professionals and Users",
                 description:
-                    "From engineers and technicians to everyday users, TechGuide is the go-to source for reliable manuals. Our service blends professional accuracy with easy access for anyone who needs structured knowledge.",
+                    `From engineers and technicians to everyday users, ${COMPANY_NAME} is the go-to source for reliable manuals. Our service blends professional accuracy with easy access for anyone who needs structured knowledge.`,
                 bullets: [
                     "Relied upon across industries",
                     "Used by professionals and individuals",
@@ -168,7 +171,7 @@ const schema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "What services does TechGuide provide?",
+                    question: `What services does ${COMPANY_NAME} provide?`,
                     answer:
                         "We offer custom manuals, quick start guides, tutorials, and detailed documentation for devices and equipment across industries.",
                 },
@@ -185,7 +188,7 @@ const schema: PageSchema = {
                 {
                     question: "Do you provide manuals in multiple languages?",
                     answer:
-                        "Yes. TechGuide supports multi-language documentation to meet the needs of global users.",
+                        `${COMPANY_NAME} supports multi-language documentation to meet the needs of global users.`,
                 },
             ],
         },

@@ -1,13 +1,21 @@
 import { Resend } from "resend";
 import { ENV } from "@/backend/config/env";
+import {COMPANY_NAME} from "@/resources/constants";
 
 const resend = new Resend(ENV.RESEND_API);
+
+interface EmailAttachment {
+    filename: string;
+    content: string;
+    encoding?: "base64";
+}
 
 export async function sendEmail(
     to: string,
     subject: string,
     text: string,
-    html?: string
+    html?: string,
+    attachments?: EmailAttachment[]
 ) {
     try {
         const response = await resend.emails.send({
@@ -16,6 +24,7 @@ export async function sendEmail(
             subject,
             text: text || "",
             html: html || defaultTemplate(subject, text),
+            ...(attachments && attachments.length > 0 ? { attachments } : {}),
         });
 
         console.log("✅ Email sent via Resend:", response);
@@ -42,7 +51,7 @@ function defaultTemplate(title: string, message: string) {
         </div>
         <hr style="margin:20px 0; border:none; border-top:1px solid #eee;" />
         <p style="font-size:14px; color:#777; text-align:center;">
-          © ${new Date().getFullYear()} TechGuide – All rights reserved.
+          © ${new Date().getFullYear()} ${COMPANY_NAME} – All rights reserved.
         </p>
       </div>
     </div>

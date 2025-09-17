@@ -1,22 +1,29 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_ADDRESS,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const privacyPolicySchema: PageSchema = {
     meta: {
-        title: "Privacy Policy – TechGuide",
+        title: `Privacy Policy – ${COMPANY_NAME}`,
         description:
-            "Privacy Policy for TechGuide: how we collect, use, and protect your personal data when ordering custom technical manuals.",
+            `Privacy Policy for ${COMPANY_NAME}: how we collect, use, and protect your personal data when ordering custom technical manuals.`,
         keywords: [
             "privacy policy",
             "data protection",
             "gdpr",
-            "techguide",
+            COMPANY_NAME?.toLowerCase() || "manuals",
             "manuals",
             "personal data",
             "security"
         ],
         canonical: "/privacy-policy",
         ogImage: {
-            title: "TechGuide – Privacy Policy",
+            title: `${COMPANY_NAME} – Privacy Policy`,
             description: "Transparent data protection and privacy standards.",
             bg: "#ffffff",
             color: "#000000"
@@ -25,9 +32,9 @@ const privacyPolicySchema: PageSchema = {
     blocks: [
         {
             type: "text",
-            title: "Privacy Policy – Overview",
+            title: `Privacy Policy – Overview`,
             description:
-                "This Privacy Policy explains how TechGuide collects, uses, and protects your personal data when you use the platform. By accessing or using our services, you consent to the practices described in this Policy."
+                `This Privacy Policy explains how ${COMPANY_NAME} collects, uses, and protects your personal data when you use the platform. By accessing or using our services, you consent to the practices described in this Policy.`
         },
         {
             type: "text",
@@ -103,7 +110,7 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "10. Children’s Privacy",
             description:
-                "TechGuide does not knowingly collect data from children under 16. If we become aware of such data, it will be deleted promptly."
+                `${COMPANY_NAME} does not knowingly collect data from children under 16. If we become aware of such data, it will be deleted promptly.`
         },
         {
             type: "text",
@@ -115,11 +122,11 @@ const privacyPolicySchema: PageSchema = {
             type: "text",
             title: "12. Contact",
             bullets: [
-                "Company: JUNGLE SAPPHIRE LTD",
-                "Company number: 15545389",
-                "Address: 20 Wenlock Road, London, England, N1 7GU",
-                "Data Protection inquiries: privacy@techguide.ai",
-                "Support: support@techguide.ai"
+                `Company: ${COMPANY_LEGAL_NAME}`,
+                `Company number: ${COMPANY_NUMBER}`,
+                `Address: ${COMPANY_ADDRESS}`,
+                `Data Protection inquiries: ${COMPANY_EMAIL}`,
+                `Support: ${COMPANY_EMAIL}`
             ]
         },
         {

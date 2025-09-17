@@ -1,13 +1,20 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
+import {
+    COMPANY_NAME,
+    COMPANY_EMAIL,
+    COMPANY_LEGAL_NAME,
+    COMPANY_ADDRESS,
+    COMPANY_NUMBER,
+} from "@/resources/constants";
 
 const faqSchema: PageSchema = {
     meta: {
-        title: "FAQ — TechGuide",
+        title: `FAQ — ${COMPANY_NAME}`,
         description:
-            "Frequently Asked Questions about TechGuide services, manuals, token system, access, downloads, languages, and more.",
+            `Frequently Asked Questions about ${COMPANY_NAME} services, manuals, token system, access, downloads, languages, and more.`,
         keywords: [
             "faq",
-            "TechGuide help",
+            `${COMPANY_NAME} help`,
             "manuals FAQ",
             "token FAQ",
             "documentation questions",
@@ -16,8 +23,8 @@ const faqSchema: PageSchema = {
         ],
         canonical: "/faq",
         ogImage: {
-            title: "TechGuide FAQ",
-            description: "Answers to the most common questions about manuals, tokens, and services.",
+            title: `${COMPANY_NAME} FAQ`,
+            description: `Answers to the most common questions about manuals, tokens, and services.`,
             bg: "#ffffff",
             color: "#000000",
         },
@@ -27,14 +34,14 @@ const faqSchema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "What is TechGuide?",
+                    question: `What is ${COMPANY_NAME}?`,
                     answer:
-                        "TechGuide is a platform that provides professional manuals created by specialists. Each manual can be unlocked using tokens, giving you flexible access to the guides you need."
+                        `${COMPANY_NAME} is a platform that provides professional manuals created by specialists. Each manual can be unlocked using tokens, giving you flexible access to the guides you need.`
                 },
                 {
                     question: "How do I purchase manuals?",
                     answer:
-                        "Instead of direct purchases, TechGuide uses tokens. You buy tokens and spend them on unlocking manuals. This way you only pay for what you need."
+                        `Instead of direct purchases, ${COMPANY_NAME} uses tokens. You buy tokens and spend them on unlocking manuals. This way you only pay for what you need.`
                 },
                 {
                     question: "How much does a manual cost?",
@@ -44,7 +51,7 @@ const faqSchema: PageSchema = {
                 {
                     question: "Do I need a subscription?",
                     answer:
-                        "No. TechGuide does not use subscriptions. You purchase tokens once and spend them whenever you need manuals."
+                        `No. ${COMPANY_NAME} does not use subscriptions. You purchase tokens once and spend them whenever you need manuals.`
                 },
                 {
                     question: "Are manuals available instantly?",
@@ -69,7 +76,7 @@ const faqSchema: PageSchema = {
                 {
                     question: "What types of manuals are available?",
                     answer:
-                        "TechGuide offers manuals for household devices, consumer electronics, professional tools, industrial equipment, and specialized systems."
+                        `${COMPANY_NAME} offers manuals for household devices, consumer electronics, professional tools, industrial equipment, and specialized systems.`
                 },
                 {
                     question: "Can I request a custom manual?",
@@ -77,29 +84,29 @@ const faqSchema: PageSchema = {
                         "Yes. If you need a manual for a specific device or tool that is not in our library, you can request a custom manual. Our team will prepare it for you."
                 },
                 {
-                    question: "Is TechGuide available in multiple languages?",
+                    question: `Is ${COMPANY_NAME} available in multiple languages?`,
                     answer:
                         "Yes. Many manuals are available in multiple languages, and we are continuously expanding our multilingual documentation support."
                 },
                 {
-                    question: "How do businesses use TechGuide?",
+                    question: `How do businesses use ${COMPANY_NAME}?`,
                     answer:
-                        "Businesses use TechGuide to provide staff with accurate manuals, reduce training time, and ensure compliance with operational standards. Token packages can be scaled for teams."
+                        `Businesses use ${COMPANY_NAME} to provide staff with accurate manuals, reduce training time, and ensure compliance with operational standards. Token packages can be scaled for teams.`
                 },
                 {
                     question: "Is my data secure?",
                     answer:
-                        "Yes. TechGuide follows industry-standard security practices to ensure your personal and payment data are always protected."
+                        `${COMPANY_NAME} follows industry-standard security practices to ensure your personal and payment data are always protected.`
                 },
                 {
                     question: "Do you provide support?",
                     answer:
-                        "Yes. Our support team is available to help with accessing manuals, managing tokens, or requesting custom documentation."
+                        `Yes. Our support team is available to help with accessing manuals, managing tokens, or requesting custom documentation. Contact us at ${COMPANY_EMAIL}.`
                 },
                 {
-                    question: "What devices can I use to access TechGuide?",
+                    question: `What devices can I use to access ${COMPANY_NAME}?`,
                     answer:
-                        "TechGuide works on all modern devices: desktop, laptop, tablet, and smartphone. Manuals are optimized for easy reading across screen sizes."
+                        `${COMPANY_NAME} works on all modern devices: desktop, laptop, tablet, and smartphone. Manuals are optimized for easy reading across screen sizes.`
                 },
             ],
         },
