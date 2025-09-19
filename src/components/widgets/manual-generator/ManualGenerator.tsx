@@ -7,12 +7,11 @@ import {formSchema, buildPrompt} from "./formSchema";
 
 import Textarea from "@mui/joy/Textarea";
 import Checkbox from "@mui/joy/Checkbox";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
 
 import styles from "./ManualGenerator.module.scss";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import {useAlert} from "@/context/AlertContext";
+import Input from "@mui/joy/Input";
 
 const ManualGenerator = () => {
     const [showAdvanced, setShowAdvanced] = useState(false);
@@ -20,7 +19,7 @@ const ManualGenerator = () => {
     const [loading, setLoading] = useState(false);
     const buildInitialValues = () => {
         const init: Record<string, any> = {};
-        [...formSchema.expectations, ...formSchema.selectors, ...formSchema.advanced].forEach((field) => {
+        [...formSchema.expectations, ...formSchema.inputs, ...formSchema.advanced].forEach((field) => {
             if (field.type === "checkbox") {
                 init[field.name] = false;
             } else {
@@ -32,7 +31,7 @@ const ManualGenerator = () => {
 
     const buildValidationSchema = () => {
         const shape: Record<string, any> = {};
-        [...formSchema.expectations, ...formSchema.selectors].forEach((field) => {
+        [...formSchema.expectations, ...formSchema.inputs].forEach((field) => {
             if (field.required) {
                 shape[field.name] = Yup.string().required("This field is required");
             }
@@ -84,21 +83,17 @@ const ManualGenerator = () => {
                         </div>
                     ))}
                     <div className={styles.selectGrid}>
-                        {formSchema.selectors.map((field) => (
+                        {formSchema.inputs.map((field) => (
                             <div key={field.name} className={styles.formGroup}>
                                 <label className={styles.label}>{field.label}</label>
                                 {field.description && <p className={styles.description}>{field.description}</p>}
-                                <Select
+                                <Input
                                     placeholder={field.label}
-                                    value={values[field.name]}
-                                    onChange={(_, value) => setFieldValue(field.name, value)}
-                                >
-                                    {field.options.map((opt: string) => (
-                                        <Option key={opt} value={opt}>
-                                            {opt}
-                                        </Option>
-                                    ))}
-                                </Select>
+                                    value={values[field.name] || ""}
+                                    onChange={(e) => setFieldValue(field.name, e.target.value)}
+                                    required={field.required}
+                                    name={field.name}
+                                />
                             </div>
                         ))}
                     </div>

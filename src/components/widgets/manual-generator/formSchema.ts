@@ -15,35 +15,31 @@ export const formSchema = {
         },
     ],
 
-    selectors: [
+    inputs: [
         {
             name: "deviceType",
             label: "Device Type",
             description: "Choose the type of device for which you want to generate a manual.",
-            type: "select",
+            type: "input",
             required: true,
-            options: ["Phone", "Laptop", "Tablet", "TV", "Washing Machine", "Refrigerator", "Microwave", "Printer"]
         },
         {
             name: "brand",
             label: "Brand",
             description: "Select the brand of your device.",
-            type: "select",
-            options: ["Apple", "Samsung", "Sony", "LG", "Xiaomi", "Bosch", "HP", "Dell"]
+            type: "input",
         },
         {
             name: "model",
             label: "Model",
             description: "Select the specific model of your device.",
-            type: "select",
-            options: ["Pro 14", "Galaxy S24", "Bravia X90", "ThinkPad X1", "Mi 12", "Bosch Serie 6"]
+            type: "input",
         },
         {
             name: "version",
             label: "Version / Year",
             description: "Pick the production year or version of the device.",
-            type: "select",
-            options: ["2021", "2022", "2023", "2024", "2025"]
+            type: "input",
         },
     ],
 
