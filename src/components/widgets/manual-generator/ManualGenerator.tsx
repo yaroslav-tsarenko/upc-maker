@@ -12,10 +12,12 @@ import styles from "./ManualGenerator.module.scss";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import {useAlert} from "@/context/AlertContext";
 import Input from "@mui/joy/Input";
+import {useAllOrders} from "@/context/AllOrdersContext";
 
 const ManualGenerator = () => {
     const [showAdvanced, setShowAdvanced] = useState(false);
     const {showAlert} = useAlert();
+    const { orders, refreshOrders } = useAllOrders();
     const [loading, setLoading] = useState(false);
     const buildInitialValues = () => {
         const init: Record<string, any> = {};
@@ -48,15 +50,15 @@ const ManualGenerator = () => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                credentials: "include", // щоб токен з cookies підхопився
+                credentials: "include",
                 body: JSON.stringify({prompt}),
             });
 
             const data = await res.json();
 
             if (res.ok) {
-                showAlert("Thank you!", "Order created, due to 24 hours, our specialists send you and manual", "success");
-
+                showAlert("Thank you!", "Order created, after a few minutes we sent you to your email", "success");
+                refreshOrders()
             } else {
                 showAlert("Error", data.message || "Failed to generate manual", "error");
             }

@@ -5,7 +5,7 @@ import styles from "./PricingCard.module.scss";
 import ButtonUI from "@/components/ui/button/ButtonUI";
 import { useAlert } from "@/context/AlertContext";
 import { useUser } from "@/context/UserContext";
-import Input from "@mui/joy/Input"; // 🔹 Joy Input
+import Input from "@mui/joy/Input";
 
 interface PricingCardProps {
     variant?: "basic" | "highlight" | "premium";
@@ -29,9 +29,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
                                                  }) => {
     const { showAlert } = useAlert();
     const user = useUser();
-    const [customTokens, setCustomTokens] = useState(10);
 
-    const calcPrice = (t: number) => ((t * 19) / 5).toFixed(2);
+    const minAmount = 5;
+    const [customAmount, setCustomAmount] = useState(minAmount);
+
+    const calcTokens = (amount: number) => Math.floor((amount * 5) / 19);
 
     const handleBuy = async () => {
         if (!user) {
@@ -41,8 +43,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
             }, 2000);
             return;
         }
+
+        if (price === "dynamic" && customAmount < minAmount) {
+            showAlert("Minimum amount is €5", "Please enter a higher amount", "warning");
+            return;
+        }
+
         try {
-            const amount = price === "dynamic" ? customTokens : tokens;
+            const amount = price === "dynamic" ? calcTokens(customAmount) : tokens;
 
             const res = await fetch("/api/user/buy-tokens", {
                 method: "POST",
@@ -72,17 +80,23 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 <>
                     <Input
                         type="number"
-                        value={customTokens}
-                        onChange={(e) => setCustomTokens(Number(e.target.value))}
-                        slotProps={{ input: { min: 1 } }}
+                        value={customAmount}
+                        onChange={(e) => {
+                            const value = Number(e.target.value);
+                            if (value.toString().length > 4) return;
+                            setCustomAmount(Math.max(Math.min(value, 9999), minAmount));
+                        }}
+                        slotProps={{ input: { min: minAmount, max: 9999 } }}
                         sx={{ mb: 2, width: "100%" }}
-                        placeholder="Enter tokens"
+                        placeholder={`Enter amount (${minAmount}+ EUR)`}
                         variant="outlined"
                         size="lg"
                     />
                     <p className={styles.price}>
-                        ${calcPrice(customTokens)}{" "}
-                        <span className={styles.tokens}>/{customTokens} tokens</span>
+                        ${customAmount.toFixed(2)}{" "}
+                        <span className={styles.tokens}>
+                            ≈ {calcTokens(customAmount)} tokens
+                        </span>
                     </p>
                 </>
             ) : (
@@ -92,11 +106,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
             )}
 
             <p className={styles.description}>{description}</p>
+
             <ul className={styles.features}>
                 {features.map((f, i) => (
                     <li key={i}>{f}</li>
                 ))}
             </ul>
+
             <ButtonUI type="button" sx={{ width: "100%" }} onClick={handleBuy}>
                 {user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>

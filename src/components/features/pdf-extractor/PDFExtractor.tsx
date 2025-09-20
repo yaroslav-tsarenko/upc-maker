@@ -3,6 +3,7 @@
 import React, { JSX, useEffect } from "react";
 import { Document, Page, Text, StyleSheet, pdf } from "@react-pdf/renderer";
 import parse from "html-react-parser";
+import { marked } from "marked";
 import { AiOrder, useAllOrders } from "@/context/AllOrdersContext";
 
 const styles = StyleSheet.create({
@@ -21,8 +22,10 @@ const styles = StyleSheet.create({
     footer: { marginTop: 30, fontSize: 10, textAlign: "center", color: "grey" },
 });
 
-const renderHTMLToPDF = (html: string) => {
+const renderHTMLToPDF = (markdown: string) => {
     const elements: JSX.Element[] = [];
+    const html = marked.parse(markdown);
+
     const parsed = parse(html, {
         replace: (domNode: any) => {
             if (domNode.type === "tag") {
@@ -46,6 +49,16 @@ const renderHTMLToPDF = (html: string) => {
     return elements;
 };
 
+const setCookie = (name: string, value: string, days = 365) => {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+};
+
+const getCookie = (name: string): string | null => {
+    const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+};
+
 interface PDFExtractorProps {
     children: React.ReactNode;
 }
@@ -54,58 +67,72 @@ const PDFExtractor: React.FC<PDFExtractorProps> = ({ children }) => {
     const { orders } = useAllOrders();
 
     useEffect(() => {
-        const generateAndSendPDFs = async () => {
-            for (const order of orders) {
-                const createdAt = new Date(order.createdAt);
-                const diffHours = (Date.now() - createdAt.getTime()) / (1000 * 60 * 60);
+        const generateAndSendPDF = async (order: AiOrder) => {
+            if (!order.response || !order.email) return;
 
-                // відправляти всі ордери старші ніж 24 години
-                if (diffHours >= 24) {
-                    const raw = order.response || "";
+            const MyDoc = (
+                <Document>
+                    <Page style={styles.page}>
+                        {renderHTMLToPDF(order.response)}
+                        <Text style={styles.footer}>
+                            Generated automatically from your order response
+                        </Text>
+                    </Page>
+                </Document>
+            );
 
-                    const MyDoc = (
-                        <Document>
-                            <Page style={styles.page}>
-                                {renderHTMLToPDF(raw)}
-                                <Text style={styles.footer}>
-                                    Generated automatically from your order response
-                                </Text>
-                            </Page>
-                        </Document>
-                    );
+            try {
+                const blob = await pdf(MyDoc).toBlob();
+                const arrayBuffer = await blob.arrayBuffer();
+                const base64 = Buffer.from(arrayBuffer).toString("base64");
 
-                    const blob = await pdf(MyDoc).toBlob();
-                    const arrayBuffer = await blob.arrayBuffer();
-                    const base64 = Buffer.from(arrayBuffer).toString("base64");
+                await fetch("/api/orders/send-pdf", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        orderId: order._id,
+                        email: order.email,
+                        subject: `Your Order #${order._id} - PDF Manual`,
+                        text: `Attached is the generated PDF manual for your order.`,
+                        html: `
+                            <p>Hello,</p>
+                            <p>Attached is your PDF manual generated automatically for order <b>#${order._id}</b>.</p>
+                            <p>Thank you for using our service!</p>
+                        `,
+                        attachments: [
+                            {
+                                filename: `order-${order._id}.pdf`,
+                                content: base64,
+                                encoding: "base64",
+                            },
+                        ],
+                    }),
+                });
 
-                    await fetch("/api/orders/send-pdf", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            orderId: order._id,   // <-- додаємо айдішник
-                            email: order.email,
-                            subject: `Your Order #${order._id} - PDF Manual`,
-                            text: `Attached is the generated PDF manual for your order.`,
-                            html: `
-            <p>Hello,</p>
-            <p>Attached is your PDF manual generated automatically for order <b>#${order._id}</b>.</p>
-            <p>Thank you for using our service!</p>
-        `,
-                            attachments: [
-                                {
-                                    filename: `order-${order._id}.pdf`,
-                                    content: base64,
-                                    encoding: "base64",
-                                },
-                            ],
-                        }),
-                    });
-                }
+                console.log(`✅ PDF sent for order ${order._id}`);
+                setCookie(`pdf_sent_${order._id}`, "true");
+            } catch (err) {
+                console.error(`❌ PDF generation failed for order ${order._id}`, err);
             }
         };
 
         if (orders.length > 0) {
-            generateAndSendPDFs();
+            const now = Date.now();
+
+            const eligibleOrder = orders.find((order) => {
+                if (!order.response || !order._id || !order.createdAt) return false;
+                const alreadySent = getCookie(`pdf_sent_${order._id}`) === "true";
+                if (alreadySent) return false;
+
+                const created = new Date(order.createdAt).getTime();
+                const diffMin = (now - created) / 1000 / 60;
+
+                return diffMin <= 5;
+            });
+
+            if (eligibleOrder) {
+                generateAndSendPDF(eligibleOrder);
+            }
         }
     }, [orders]);
 
