@@ -8,6 +8,7 @@ import styles from "./Footer.module.scss";
 import { footerContent } from "@/resources/content";
 import { footerStyles } from "@/resources/styles-config";
 import {SmartLinkProps} from "@/types/smart-link";
+import {media} from "@/resources/media";
 
 const SmartLink: React.FC<SmartLinkProps> = ({
                                                  href,
@@ -144,7 +145,6 @@ const Footer: React.FC = () => {
                             style={{ width: "var(--footer-logo-w)", height: "var(--footer-logo-h)" }}
                         />
                     </SmartLink>
-
                     <div className={styles["footer__columns"]}>
                         {columns.map((col) => (
                             <div className={styles["footer__column"]} key={col.title}>
@@ -164,7 +164,6 @@ const Footer: React.FC = () => {
                             </div>
                         )}
                     </div>
-
                     <div className={styles["footer__contact"]}>
                         {contact.address && (
                             <div className={styles["footer__contact-item"]}>
@@ -183,7 +182,6 @@ const Footer: React.FC = () => {
                                 <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                             </div>
                         )}
-
                         {!!socials?.length && (
                             <div className={styles["footer__socials"]}>
                                 {socials.map((s) => {
@@ -208,7 +206,6 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             )}
-
             {footerStyles.type === "center" && (
                 <div className={clsx(styles["footer__inner"], styles["footer__inner--center"])}>
                     <SmartLink href={logo.href} className={styles["footer__logo"]} ariaLabel="Logo">
@@ -221,7 +218,6 @@ const Footer: React.FC = () => {
                             style={{ width: "var(--footer-logo-w)", height: "var(--footer-logo-h)" }}
                         />
                     </SmartLink>
-
                     <nav className={styles["footer__center-links"]}>
                         {columns.flatMap((c) => c.links).map((link) => (
                             <SmartLink href={link.href} className={styles["footer__center-link"]} key={link.label}>
@@ -229,17 +225,14 @@ const Footer: React.FC = () => {
                             </SmartLink>
                         ))}
                     </nav>
-
                     <div className={styles["footer__center-contact"]}>
                         {contact.address && <span>{contact.address}</span>}
                         {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
                         {contact.phone && <a href={`tel:${contact.phone}`}>{contact.phone}</a>}
                     </div>
-
                     <div className={styles["footer__center-legal"]}>
                         <LegalBlock />
                     </div>
-
                     {!!socials?.length && (
                         <div className={styles["footer__center-socials"]}>
                             {socials.map((s) => {
@@ -278,7 +271,6 @@ const Footer: React.FC = () => {
                             />
                         </SmartLink>
                     </div>
-
                     <div className={styles["footer__mega-grid"]}>
                         {columns.map((col) => (
                             <div className={styles["footer__mega-col"]} key={col.title}>
@@ -292,15 +284,25 @@ const Footer: React.FC = () => {
                                 </div>
                             </div>
                         ))}
-
                         {legal && (
                             <div className={styles["footer__mega-col"]}>
                                 <div className={styles["footer__column-title"]}>Legal</div>
                                 <LegalBlock />
+                                <div className={styles.payments}>
+                                    <p>
+                                        We accept the following payment methods:
+                                    </p>
+                                    <div className={styles.paymentsContent}>
+                                        <Image src={media.visa} alt="Visa" width={150} height={35}/>
+                                        <Image src={media.mastercard} alt="Visa" width={150} height={35}/>
+                                        <Image src={media.google_pay} alt="Visa" width={150} height={35}/>
+                                        <Image src={media.apple_pay} alt="Visa" width={150} height={35}/>
+                                        <Image src={media.american_express} alt="Visa" width={150} height={35}/>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </div>
-
                     <div className={styles["footer__mega-bottom"]}>
                         <div className={styles["footer__contact-row"]}>
                             {contact.address && <div>{contact.address}</div>}
@@ -315,9 +317,7 @@ const Footer: React.FC = () => {
                                 </div>
                             )}
                         </div>
-
                     </div>
-
                     {!!socials?.length && (
                         <div className={styles["footer__mega-socials"]}>
                             {socials.map((s) => {

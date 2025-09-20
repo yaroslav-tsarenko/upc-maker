@@ -19,6 +19,7 @@ export const headerContent = {
         { label: "Pricing", href: "/pricing" },
         { label: "Faq", href: "/faq" },
         { label: "Get Started", href: "/get-started" },
+        { label: "Contact Us", href: "/contact-us" },
     ]
 };
 

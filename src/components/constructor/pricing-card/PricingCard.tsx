@@ -7,14 +7,8 @@ import { useAlert } from "@/context/AlertContext";
 import { useUser } from "@/context/UserContext";
 import Input from "@mui/joy/Input";
 
-import {
-    cardVariants,
-    hoverEffects,
-    CardVariant,
-} from "@/resources/styles-config";
-
 interface PricingCardProps {
-    variant?: CardVariant;
+    variant?: "basic" | "highlight" | "premium";
     title: string;
     price: string;
     tokens: number;
@@ -35,34 +29,40 @@ const PricingCard: React.FC<PricingCardProps> = ({
                                                  }) => {
     const { showAlert } = useAlert();
     const user = useUser();
-    const [customTokens, setCustomTokens] = useState(10);
 
-    const config = cardVariants[variant];
-    const hover = hoverEffects[config.hover];
+    const minAmount = 5;
+    const [customAmount, setCustomAmount] = useState(minAmount);
 
-    const calcPrice = (t: number) => ((t * 19) / 5).toFixed(2);
+    const calcTokens = (amount: number) => Math.floor((amount * 5) / 19);
 
     const handleBuy = async () => {
         if (!user) {
-            showAlert(
-                "Please sign up",
-                "You need to be signed in to buy tokens",
-                "info"
-            );
-            setTimeout(() => (window.location.href = "/sign-up"), 2000);
+            showAlert("Please sign up", "You need to be signed in to buy tokens", "info");
+            setTimeout(() => {
+                window.location.href = "/sign-up";
+            }, 2000);
             return;
         }
+
+        if (price === "dynamic" && customAmount < minAmount) {
+            showAlert("Minimum amount is €5", "Please enter a higher amount", "warning");
+            return;
+        }
+
         try {
-            const amount = price === "dynamic" ? customTokens : tokens;
+            const amount = price === "dynamic" ? calcTokens(customAmount) : tokens;
+
             const res = await fetch("/api/user/buy-tokens", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
                 body: JSON.stringify({ amount }),
             });
+
             if (!res.ok) throw new Error("Failed to buy tokens");
+
             const data = await res.json();
-            showAlert("Success!", `You purchased ${amount} tokens.`, "success");
+            showAlert(`Success!`, `You purchased ${amount} tokens.`, "success");
             console.log("Updated user:", data.user);
         } catch (err: any) {
             showAlert("Error", err.message || "Something went wrong", "error");
@@ -70,75 +70,53 @@ const PricingCard: React.FC<PricingCardProps> = ({
     };
 
     return (
-        <div
-            className={styles.card}
-            style={{
-                border: config.border,
-                background: config.background,
-                transition: "all 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = hover.transform;
-                (e.currentTarget as HTMLElement).style.boxShadow = hover.shadow;
-            }}
-            onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.transform = "none";
-                (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 6px 16px rgba(0,0,0,0.08)";
-            }}
-        >
-            {config.label && (
-                <div
-                    className={styles.bestChoiceLabel}
-                    style={{
-                        background: config.label.bg,
-                        color: config.label.color,
-                    }}
-                >
-                    {config.label.text}
-                </div>
+        <div className={`${styles.card} ${styles[variant]}`}>
+            {variant === "highlight" && (
+                <div className={styles.bestChoiceLabel}>⭐ Best Choice</div>
             )}
-
             <h3 className={styles.title}>{title}</h3>
 
-            <div className={styles.content}>
-                {price === "dynamic" ? (
-                    <>
-                        <Input
-                            type="number"
-                            value={customTokens}
-                            onChange={(e) => setCustomTokens(Number(e.target.value))}
-                            slotProps={{ input: { min: 1 } }}
-                            sx={{ mb: 2, width: "100%" }}
-                            placeholder="Enter tokens"
-                            variant="outlined"
-                            size="lg"
-                        />
-                        <p className={styles.price}>
-                            ${calcPrice(customTokens)}
-                            <span className={styles.tokens}>/{customTokens} tokens</span>
-                        </p>
-                    </>
-                ) : (
+            {price === "dynamic" ? (
+                <>
+                    <Input
+                        type="number"
+                        value={customAmount}
+                        onChange={(e) => {
+                            const value = Number(e.target.value);
+                            if (value.toString().length > 4) return;
+                            setCustomAmount(Math.max(Math.min(value, 9999), minAmount));
+                        }}
+                        slotProps={{ input: { min: minAmount, max: 9999 } }}
+                        sx={{ mb: 2, width: "100%" }}
+                        placeholder={`Enter amount (${minAmount}+ EUR)`}
+                        variant="outlined"
+                        size="lg"
+                    />
                     <p className={styles.price}>
-                        {price} <span className={styles.tokens}>/{tokens} tokens</span>
+                        ${customAmount.toFixed(2)}{" "}
+                        <span className={styles.tokens}>
+                            ≈ {calcTokens(customAmount)} tokens
+                        </span>
                     </p>
-                )}
+                </>
+            ) : (
+                <p className={styles.price}>
+                    {price} <span className={styles.tokens}>/{tokens} tokens</span>
+                </p>
+            )}
 
-                <p className={styles.description}>{description}</p>
+            <p className={styles.description}>{description}</p>
 
-                <ul className={styles.features}>
-                    {features.map((f, i) => (
-                        <li key={i}>{f}</li>
-                    ))}
-                </ul>
-            </div>
+            <ul className={styles.features}>
+                {features.map((f, i) => (
+                    <li key={i}>{f}</li>
+                ))}
+            </ul>
 
             <ButtonUI type="button" sx={{ width: "100%" }} onClick={handleBuy}>
                 {user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>
         </div>
-
     );
 };
 

@@ -8,8 +8,19 @@ import image4 from "@/assets/images/image4.jpg";
 import image5 from "@/assets/images/image5.jpg";
 import image6 from "@/assets/images/image6.jpg";
 import image7 from "@/assets/images/image7.jpg";
+import visa from "@/assets/icons/visa-logo.svg";
+import mastercard from "@/assets/icons/mastercard-logo.svg";
+import apple_pay from "@/assets/icons/Apple_Pay_logo.svg";
+import google_pay from "@/assets/icons/Google_Pay_Logo.svg";
+import american_express from "@/assets/icons/American_Express_logo.svg";
+
 
 export const media = {
+    visa: visa,
+    mastercard: mastercard,
+    apple_pay: apple_pay,
+    google_pay: google_pay,
+    american_express: american_express,
     logo: logo,
     logo_white: logo_white,
     image1: image1,
