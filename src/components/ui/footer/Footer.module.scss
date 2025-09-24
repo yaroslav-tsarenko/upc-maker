@@ -17,7 +17,7 @@
   --legal: var(--footer-legal, #4A90E2);
   --contact-label: var(--footer-contact-label, #878787);
 
-  --fs: var(--footer-fs, 16px);
+  --fs: var(--footer-fs, 13px);
   --fs-legal: var(--footer-legal-fs, 14px);
 
   --logo-w: var(--footer-logo-w, 120px);
@@ -28,8 +28,8 @@
   --footer-cols-md: var(--footer-cols-md, 2);
   --footer-cols-sm: var(--footer-cols-sm, 1);
 
-  --footer-title-fs: var(--footer-title-fs-xl, 18px);
-  --footer-link-fs: var(--footer-link-fs-xl, 16px);
+  --footer-title-fs: var(--footer-title-fs-xl, 14px);
+  --footer-link-fs: var(--footer-link-fs-xl, 14px);
   --footer-icon-size: var(--footer-icon-xl, 24px);
 
   --footer-title-color: var(--text);
@@ -152,7 +152,7 @@
   font-weight: 600;
   margin-bottom: 12px;
   color: var(--footer-title-color);
-  font-size: var(--footer-title-fs);
+  font-size: 16px;
 }
 
 .footer--columns .footer__column-title {
@@ -169,7 +169,7 @@
   text-decoration: none;
   margin-bottom: 8px;
   transition: color .2s ease;
-  font-size: var(--footer-link-fs);
+  font-size: 14px;
 
   &:hover {
     color: var(--link-hover);
@@ -223,7 +223,7 @@
 .footer__legal-line,
 .footer__legal-address {
   color: var(--legal);
-  font-size: var(--footer-link-fs);
+  font-size: 14px;
   font-weight: 500;
 }
 

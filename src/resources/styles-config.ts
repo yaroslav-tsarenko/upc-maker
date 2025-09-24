@@ -100,7 +100,7 @@ export const footerStyles = {
         links: { xl: 20, lg: 18, md: 16, sm: 16 },
         icons: { xl: 30, lg: 25, md: 20, sm: 18 },
     },
-    radius: "100px 100px 0 0",
+    radius: "0 0 0 0",
     shadow: "none",
 };
 
