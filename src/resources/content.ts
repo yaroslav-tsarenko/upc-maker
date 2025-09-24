@@ -27,7 +27,7 @@ export const footerContent = {
     logo: { src: media.logo_white.src, alt: "Site Logo", href: "/" },
     columns: [
         {
-            title: "Company",
+            title: "Support",
             links: [
                 { label: "About Us", href: "/about" },
                 { label: "Careers", href: "/careers" },
@@ -35,7 +35,7 @@ export const footerContent = {
             ],
         },
         {
-            title: "Support",
+            title: "Legal",
             links: [
                 { label: "Terms & Conditions", href: "/terms-and-conditions" },
                 { label: "Cookie Policy", href: "/cookie-policy" },
