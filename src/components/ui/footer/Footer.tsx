@@ -67,6 +67,11 @@ const Footer: React.FC = () => {
                     </div>
                 )}
                 <LegalAddress />
+                {contact.email && (
+                    <div>
+                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                    </div>
+                )}
             </div>
         ) : null;
 
@@ -159,7 +164,7 @@ const Footer: React.FC = () => {
 
                         {legal && (
                             <div className={styles["footer__column"]}>
-                                <div className={styles["footer__column-title"]}>Legal</div>
+                                <div className={styles["footer__column-title"]}>Company</div>
                                 <LegalBlock />
                             </div>
                         )}
@@ -275,7 +280,7 @@ const Footer: React.FC = () => {
                         ))}
                         {legal && (
                             <div className={styles["footer__mega-col"]}>
-                                <div className={styles["footer__column-title"]}>Legal</div>
+                                <div className={styles["footer__column-title"]}>Company</div>
                                 <LegalBlock />
                                 <div className={styles.payments}>
                                     <p>
@@ -295,11 +300,7 @@ const Footer: React.FC = () => {
                     <div className={styles["footer__mega-bottom"]}>
                         <div className={styles["footer__contact-row"]}>
                             {contact.address && <div>{contact.address}</div>}
-                            {contact.email && (
-                                <div>
-                                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                                </div>
-                            )}
+
                             {contact.phone && (
                                 <div>
                                     <a href={`tel:${contact.phone}`}>{contact.phone}</a>
