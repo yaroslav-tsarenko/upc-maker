@@ -9,6 +9,27 @@ import { footerContent } from "@/resources/content";
 import { footerStyles } from "@/resources/styles-config";
 import {SmartLinkProps} from "@/types/smart-link";
 import {media} from "@/resources/media";
+import {useI18n} from "@/context/i18nContext";
+
+export const footerTranslations = {
+    en: {
+        company: "Company",
+        address: "Address",
+        email: "Email",
+        phone: "Phone",
+        rights: "All rights reserved.",
+        payments: "We accept the following payment methods:",
+    },
+    tr: {
+        company: "Şirket",
+        address: "Adres",
+        email: "E-posta",
+        phone: "Telefon",
+        rights: "Tüm hakları saklıdır.",
+        payments: "Aşağıdaki ödeme yöntemlerini kabul ediyoruz:",
+    },
+};
+
 
 const SmartLink: React.FC<SmartLinkProps> = ({
                                                  href,
@@ -43,7 +64,8 @@ const SmartLink: React.FC<SmartLinkProps> = ({
 
 const Footer: React.FC = () => {
     const { logo, columns, contact, socials, legal } = footerContent;
-
+    const { lang } = useI18n();
+    const t = footerTranslations[lang];
     const LegalAddress = () =>
         legal?.addressLines?.length ? (
             <address className={styles["footer__legal-address"]}>
@@ -164,7 +186,7 @@ const Footer: React.FC = () => {
 
                         {legal && (
                             <div className={styles["footer__column"]}>
-                                <div className={styles["footer__column-title"]}>Company</div>
+                                <div className={styles["footer__column-title"]}>{t.company}</div>
                                 <LegalBlock />
                             </div>
                         )}
@@ -172,18 +194,18 @@ const Footer: React.FC = () => {
                     <div className={styles["footer__contact"]}>
                         {contact.address && (
                             <div className={styles["footer__contact-item"]}>
-                                <strong>Address:</strong> {contact.address}
+                                <strong>{t.address}:</strong> {contact.address}
                             </div>
                         )}
                         {contact.email && (
                             <div className={styles["footer__contact-item"]}>
-                                <strong>Email:</strong>{" "}
+                                <strong>{t.email}</strong>{" "}
                                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
                             </div>
                         )}
                         {contact.phone && (
                             <div className={styles["footer__contact-item"]}>
-                                <strong>Phone:</strong>{" "}
+                                <strong>{t.phone}</strong>{" "}
                                 <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                             </div>
                         )}
@@ -284,7 +306,7 @@ const Footer: React.FC = () => {
                                 <LegalBlock />
                                 <div className={styles.payments}>
                                     <p>
-                                        We accept the following payment methods:
+                                        {t.payments}
                                     </p>
                                     <div className={styles.paymentsContent}>
                                         <Image src={media.visa} alt="Visa" width={150} height={35}/>
@@ -333,7 +355,7 @@ const Footer: React.FC = () => {
             )}
 
             <div className={styles["footer__rights"]}>
-                © {new Date().getFullYear()} All rights reserved.
+                © {new Date().getFullYear()} {t.rights}
             </div>
         </footer>
     );

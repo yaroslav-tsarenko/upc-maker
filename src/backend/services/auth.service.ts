@@ -6,6 +6,7 @@ import { signAccessToken, signRefreshToken } from "../utils/jwt";
 import { ENV } from "../config/env";
 import { Types } from "mongoose";
 import {sendEmail} from "@/backend/utils/sendEmail";
+import {COMPANY_NAME} from "@/resources/constants";
 
 function parseDurationToSec(input: string): number {
     const m = input.match(/^(\d+)([smhd])?$/i);
@@ -28,8 +29,8 @@ export const authService = {
         const result = await this.issueTokensAndSession(user._id, user.email, user.role, undefined, undefined);
         await sendEmail(
             user.email,
-            "Welcome to TechGuide 🎉",
-            `Hi ${user.name}, thanks for registering at TechGuide.`
+            `Welcome to ${COMPANY_NAME} 🎉`,
+            `Hi ${user.name}, thanks for registering at ${COMPANY_NAME}.`
         );
 
         return { user, ...result };

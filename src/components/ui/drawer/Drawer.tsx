@@ -1,13 +1,14 @@
-import React, { FC } from "react";
-import { Drawer } from "@mui/material";
+import React, {FC} from "react";
+import {Drawer} from "@mui/material";
 import styles from "./Drawer.module.scss";
 import Image from "next/image";
 import AuthButtons from "@/components/widgets/auth-buttons/AuthButtons";
-import { headerContent } from "@/resources/content";
-import { drawerConfig } from "@/resources/styles-config";
-import { DrawerMenuProps } from "@/types/drawer-menu";
+import {headerContent} from "@/resources/content";
+import {drawerConfig} from "@/resources/styles-config";
+import {DrawerMenuProps} from "@/types/drawer-menu";
+import Selectors from "@/components/widgets/selectors/Selectors";
 
-const DrawerMenu: FC<DrawerMenuProps> = ({ open, onClose }) => {
+const DrawerMenu: FC<DrawerMenuProps> = ({open, onClose}) => {
     const cfg = drawerConfig;
 
     return (
@@ -37,7 +38,7 @@ const DrawerMenu: FC<DrawerMenuProps> = ({ open, onClose }) => {
                     href={headerContent.logo.href}
                     className={styles.logo}
                     onClick={onClose}
-                    style={{ display: "inline-flex" }}
+                    style={{display: "inline-flex"}}
                 >
                     <Image
                         width={cfg.logoWidth}
@@ -66,8 +67,8 @@ const DrawerMenu: FC<DrawerMenuProps> = ({ open, onClose }) => {
                         </a>
                     ))}
                 </nav>
-
-                <AuthButtons />
+                <Selectors/>
+                <AuthButtons/>
             </div>
         </Drawer>
     );

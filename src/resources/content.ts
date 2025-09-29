@@ -13,7 +13,6 @@ export const headerContent = {
         href: "/"
     },
     links: [
-        { label: "Home", href: "/" },
         { label: "About", href: "/about-us" },
         { label: "Services", href: "/services" },
         { label: "Pricing", href: "/pricing" },
@@ -27,12 +26,15 @@ export const footerContent = {
     logo: { src: media.logo_white.src, alt: "Site Logo", href: "/" },
     columns: [
         {
-            title: "Support",
+            title: "Navigation",
             links: [
-                { label: "About Us", href: "/about" },
-                { label: "Careers", href: "/careers" },
-                { label: "Blog", href: "/blog" },
-            ],
+                { label: "About", href: "/about-us" },
+                { label: "Services", href: "/services" },
+                { label: "Pricing", href: "/pricing" },
+                { label: "Faq", href: "/faq" },
+                { label: "Get Started", href: "/get-started" },
+                { label: "Contact Us", href: "/contact-us" },
+            ]
         },
         {
             title: "Legal",

@@ -10,8 +10,7 @@ import {
 const termsSchema: PageSchema = {
     meta: {
         title: `Terms & Conditions – ${COMPANY_NAME}`,
-        description:
-            `T&Cs for using ${COMPANY_NAME}: ordering custom technical manuals, internal currency, accounts, payments, data protection, and liability.`,
+        description: `Terms for using ${COMPANY_NAME}: accounts, tokens, orders, refunds, IP, liability, privacy, and more.`,
         keywords: [
             "terms",
             "terms and conditions",
@@ -34,127 +33,156 @@ const termsSchema: PageSchema = {
     blocks: [
         {
             type: "text",
-            title: "Terms & Conditions – Overview",
-            description:
-                `These Terms govern the use of ${COMPANY_NAME}, a platform where users can order custom technical manuals by providing device details and paying with internal currency. By registering or using the platform, you accept these Terms. These Terms apply to all users worldwide.`
+            title: "Terms and Conditions",
+            description: "Effective date: 18th September 2025"
         },
         {
             type: "text",
-            title: "1. Definitions",
+            title: "1. Introduction",
+            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, purchasing tokens, downloading or ordering manuals or other digital content, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
+        },
+        {
+            type: "text",
+            title: "2. Definitions",
             bullets: [
-                `“Platform” – the ${COMPANY_NAME} website/application operated by ${COMPANY_LEGAL_NAME}.`,
-                "“User” – any registered individual or business using the service.",
-                "“Manual” – a digital technical manual generated on the basis of user input.",
-                "“Internal Currency” – credits purchased or earned, used exclusively on the Platform to order manuals.",
-                "“Order” – a request placed by a User to generate a manual."
+                `"Account" means the User account created on the Service.`,
+                `"Manual(s)" means any digital document, guide, instructions, drawing, checklist, specification or other content made available by the Company through the Service in any format (including PDF and DOCX).`,
+                `"Token(s)" means the Service’s internal unit of account used to obtain Manuals or other Products via the Service.`,
+                `"Product(s)" means Manuals and any other goods or services offered via the Service.`,
+                `"You/Your/Customer" means the person or legal entity who uses the Service or purchases Products.`
             ]
         },
         {
             type: "text",
-            title: "2. Scope and Contract Formation",
-            description:
-                `These Terms apply to all orders placed through ${COMPANY_NAME}. A contract is formed by registration, explicit acceptance of the Terms, or use of the Platform. Deviations are only valid if confirmed in writing by ${COMPANY_LEGAL_NAME}.`
-        },
-        {
-            type: "text",
-            title: "3. Accounts and Responsibilities",
-            description:
-                "Users must register to access the service. Account credentials must be kept secure. The account holder is responsible for all activity conducted under their account.",
+            title: "3. Eligibility and Account Registration",
             bullets: [
-                "Only accurate and truthful data may be provided when ordering manuals.",
-                "Internal currency balances are tied to accounts and are non-transferable.",
-                "Suspicious or fraudulent activity may result in suspension or termination."
+                "You must be at least 18 years of age to register for an Account and to use the Service. If you are registering on behalf of a company or other legal entity you confirm that you have authority to do so.",
+                "When registering you must provide accurate, current and complete information and keep such information up to date. You are responsible for maintaining the confidentiality of your Account credentials and for all activity that occurs under your Account.",
+                "You must notify us immediately of any unauthorised use of your Account or any other breach of security."
             ]
         },
         {
             type: "text",
-            title: "4. Service Description",
-            description:
-                `${COMPANY_NAME} provides AI-assisted technical manuals based on user-provided device information. Manuals are delivered in digital format (PDF or similar). The Platform does not guarantee that manuals fully replace official manufacturer documentation.`
-        },
-        {
-            type: "text",
-            title: "5. Internal Currency, Payments, and Billing",
-            description:
-                "Users must purchase internal currency credits to place orders. Prices for manuals are displayed on the Platform in credits. Purchased credits are non-refundable unless required by law.",
+            title: "4. Tokens",
             bullets: [
-                "Credits can be purchased via supported payment providers.",
-                "Credits cannot be exchanged for real currency.",
-                "Orders will only be processed once sufficient credits are available."
+                "Tokens are a virtual internal accounting mechanism used to purchase Products on the Service. Tokens are not legal tender, electronic money, securities or investments and do not confer any rights or obligations other than those expressly set out in these Terms.",
+                "The indicative nominal value of one Token will be 0.01 (one hundredth) of the chosen currency unit (e.g. £0.01, €0.01 or $0.01). The actual nominal value applying to a specific purchase will be displayed at checkout.",
+                "The Company may vary the nominal value of Tokens from time to time. Any change applies only to Tokens purchased after the change is displayed; existing Tokens are unaffected.",
+                "Product prices are expressed in Tokens. Each Product description specifies the number of Tokens required. Where a fiat equivalent is shown, the final fiat amount is calculated by reference to the Token nominal value at checkout.",
+                "Tokens are credited to your Account after payment and debited when redeemed. Unused Tokens may be refundable as per the Refund Policy (see clause 6).",
+                "The Company may offer promotional or discounted Token rates or bundles. Promotional terms will be specified at the time."
             ]
         },
         {
             type: "text",
-            title: "6. Orders and Delivery",
-            description:
-                "Orders are placed by submitting device details and paying with internal currency. Manuals are typically generated automatically and delivered digitally within a short timeframe. Delivery times may vary depending on system load and input complexity."
-        },
-        {
-            type: "text",
-            title: "7. Acceptable Use",
+            title: "5. Ordering, Payment and Checkout",
             bullets: [
-                "No unlawful, misleading, or harmful submissions are permitted.",
-                "Users may not upload offensive or harmful content.",
-                "Manuals are for personal or business use only and may not be resold."
+                "All orders are subject to acceptance by the Company. We may refuse or cancel any order for any reason, including suspected fraud, technical errors, or errors in price or product description.",
+                "Accepted payment methods are displayed at checkout. You warrant that you are authorised to use any payment method you provide.",
+                "At checkout you will be shown: (a) the number of Tokens to be purchased or used; (b) the Token nominal value; (c) the total fiat amount; and (d) any applicable taxes, fees and charges. You must confirm these before completing the transaction.",
+                "Title to and risk in any downloadable Product passes to you on provision of the download link or access credentials. The Company will endeavour to provide Products promptly but does not guarantee continuous availability."
             ]
         },
         {
             type: "text",
-            title: "8. Content, Rights, and IP",
-            description:
-                `All rights in the Platform, software, and branding belong to ${COMPANY_LEGAL_NAME} or licensors. Manuals generated for Users are licensed for personal/business use; redistribution or resale is prohibited unless explicitly agreed.`
+            title: "6. Refunds, Cancellation and Consumer Rights",
+            bullets: [
+                "Under UK consumer law, you may have a statutory right to cancel certain distance contracts. However, this right may be lost where digital content is supplied immediately after your express agreement to begin supply without the right to cancel. By confirming immediate delivery at checkout you accept loss of the right to cancel for that transaction.",
+                "Unused Tokens may be refunded at the purchase price in fiat currency if a refund request is made before use. Refunds may be subject to deduction of transaction fees.",
+                `If a Product is defective, not as described, or not as contracted, contact our support team at ${COMPANY_EMAIL}. If we cannot remedy the issue within a reasonable time, you may be entitled to a refund or other remedy under law.`,
+                `To request a refund, contact us at ${COMPANY_EMAIL} with your Account details, order reference and full details. We will investigate and respond within a reasonable time.`
+            ]
         },
         {
             type: "text",
-            title: "9. Data Protection and Privacy",
-            description:
-                `${COMPANY_NAME} processes personal data under applicable UK and EU data protection laws. Purpose limitation, data minimization, and transparency apply. See the separate Privacy Policy for details.`
+            title: "7. Intellectual Property Rights",
+            bullets: [
+                `All intellectual property rights in the Service and Products are owned by or licensed to ${COMPANY_LEGAL_NAME} unless otherwise indicated.`,
+                "On purchase of a Product, you are granted a limited, non-exclusive, non-transferable, revocable licence to use it for your personal or internal business use only. Unless agreed in writing, you may not:",
+                "(a) copy, reproduce, modify, create derivative works from, distribute, transmit, publish, display or sell the Product in whole or in part;",
+                "(b) remove, alter or obscure any copyright, trade mark or other proprietary notice in the Product; or",
+                "(c) upload or make the Product available to any third party or use it to provide services to third parties.",
+                "For custom Manuals, a separate written agreement may specify IP terms."
+            ]
         },
         {
             type: "text",
-            title: "10. Liability",
-            description:
-                `To the extent permitted by law, ${COMPANY_LEGAL_NAME} is not liable for indirect damages, data loss, or business interruption resulting from use of the Platform. Liability is limited to intent, gross negligence, and personal injury under mandatory law.`
+            title: "8. Warranties and Disclaimers",
+            bullets: [
+                "We warrant that we have the right to grant you the rights under these Terms.",
+                "Except as expressly provided, the Service and Products are provided \"as is\" and \"as available\". The Company excludes all other warranties, express or implied, to the fullest extent permitted by law."
+            ]
         },
         {
             type: "text",
-            title: "11. Termination",
-            description:
-                `Users may terminate their account at any time. ${COMPANY_LEGAL_NAME} may suspend or terminate accounts for breach of these Terms or fraudulent activity. Remaining internal currency may be forfeited upon termination unless required otherwise by law.`
+            title: "9. Limitation of Liability",
+            bullets: [
+                "Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, fraud, or any other liability which cannot be limited or excluded by law.",
+                "Subject to the above, the Company’s total liability to you is limited to the aggregate amount paid by you for the Products giving rise to the claim in the 12 months preceding the claim.",
+                "The Company is not liable for any indirect, special or consequential loss, loss of profits, business, goodwill, anticipated savings, data, or similar losses, even if foreseeable."
+            ]
         },
         {
             type: "text",
-            title: "12. Changes to Services and Terms",
-            description:
-                `${COMPANY_NAME} may update, expand, or modify features for legitimate reasons (security, legal compliance, improvements). Material changes to these Terms will be announced in advance. Continued use after the effective date constitutes acceptance.`
+            title: "10. Indemnity",
+            description: "You agree to indemnify and hold harmless the Company, its officers, directors, employees and agents from and against any and all losses, liabilities, claims, demands, damages, costs and expenses (including reasonable legal fees) arising out of or in connection with: (a) your breach of these Terms; (b) your misuse of the Service or Products; or (c) your violation of any applicable law or the rights of any third party."
         },
         {
             type: "text",
-            title: "13. Governing Law and Venue",
-            description:
-                "These Terms are governed by the laws of England and Wales. Exclusive venue—where permissible—shall be London, UK."
+            title: "11. Data Protection",
+            bullets: [
+                `We process personal data in accordance with our Privacy Policy (see website). We comply with the UK GDPR and Data Protection Act 2018.`,
+                "By using the Service you consent to the processing of your personal data in accordance with the Privacy Policy."
+            ]
         },
         {
             type: "text",
-            title: "14. Contact",
+            title: "12. Third Party Content and Links",
+            description: "The Service may contain links to third party websites and resources. We do not control and are not responsible for the content, privacy policies or practices of third party sites. Links are provided for convenience only and do not imply endorsement."
+        },
+        {
+            type: "text",
+            title: "13. Suspension and Termination",
+            bullets: [
+                "We may suspend, restrict or terminate your access to the Service or your Account immediately and without notice if we reasonably suspect breach of these Terms, fraudulent or illegal activity, or for security or technical reasons.",
+                "Upon suspension or termination, any rights licensed to you cease immediately and you must delete or destroy all copies of the Products in your possession unless otherwise agreed in writing. Termination does not affect accrued rights or liabilities."
+            ]
+        },
+        {
+            type: "text",
+            title: "14. Changes to These Terms",
+            description: "We may amend these Terms from time to time. Any material changes will be notified to registered users by email or by a prominent notice on the Service. Amended Terms take effect on the date specified in the notice. Continued use of the Service after publication constitutes acceptance."
+        },
+        {
+            type: "text",
+            title: "15. Notices",
+            description: `All notices to the Company should be sent by email to ${COMPANY_EMAIL} or by post to the registered address. Notices to you may be given via email or by posting on the Service.`
+        },
+        {
+            type: "text",
+            title: "16. Governing Law and Jurisdiction",
+            bullets: [
+                "These Terms and any dispute or claim arising out of or in connection with them are governed by the laws of England and Wales.",
+                "The courts of England and Wales have exclusive jurisdiction, except as required by consumer law in Scotland, Northern Ireland, or the EU."
+            ]
+        },
+        {
+            type: "text",
+            title: "17. Miscellaneous",
+            bullets: [
+                "If any provision of these Terms is found to be invalid, illegal or unenforceable, that provision shall be severed and the remainder shall continue in full force and effect.",
+                "No failure or delay by the Company in exercising any right under these Terms shall operate as a waiver of that right."
+            ]
+        },
+        {
+            type: "text",
+            title: "18. Contact Details",
             bullets: [
                 `Company: ${COMPANY_LEGAL_NAME}`,
-                `Company number: ${COMPANY_NUMBER}`,
-                `Address: ${COMPANY_ADDRESS}`,
-                `General inquiries: ${COMPANY_EMAIL}`,
-                `Support: ${COMPANY_EMAIL}`
+                `Registered office: ${COMPANY_ADDRESS}`,
+                `Company no.: ${COMPANY_NUMBER}`,
+                `Email: ${COMPANY_EMAIL}`
             ]
-        },
-        {
-            type: "text",
-            title: "Effective Date",
-            description:
-                "This version takes effect upon publication and supersedes prior versions. The version published on the website is authoritative."
-        },
-        {
-            type: "text",
-            title: "Valid from",
-            description: "18 September 2025"
         }
     ]
 };

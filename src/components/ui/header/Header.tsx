@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { headerContent } from "@/resources/content";
+import React, {useEffect, useState} from "react";
+import {headerContent} from "@/resources/content";
 import styles from "./Header.module.scss";
-import { IconButton } from "@mui/material";
-import { FaBars } from "react-icons/fa";
-import { useUser } from "@/context/UserContext";
+import {IconButton} from "@mui/material";
+import {FaBars} from "react-icons/fa";
+import {useUser} from "@/context/UserContext";
 import Image from "next/image";
 import AuthButtons from "@/components/widgets/auth-buttons/AuthButtons";
-import { headerStyles } from "@/resources/styles-config";
+import {headerStyles} from "@/resources/styles-config";
 import DrawerMenu from "@/components/ui/drawer/Drawer";
+import Selectors from "@/components/widgets/selectors/Selectors";
 
 const Header: React.FC = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -77,7 +78,8 @@ const Header: React.FC = () => {
                     </nav>
 
                     <div className={styles.actions}>
-                        <AuthButtons />
+                        <Selectors/>
+                        <AuthButtons/>
                     </div>
 
                     <div className={styles.menuButton}>
@@ -85,14 +87,14 @@ const Header: React.FC = () => {
                             onClick={() => setDrawerOpen(true)}
                             aria-label="Open navigation"
                         >
-                            <FaBars />
+                            <FaBars/>
                         </IconButton>
                     </div>
                 </div>
             </header>
 
 
-            <DrawerMenu open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+            <DrawerMenu open={drawerOpen} onClose={() => setDrawerOpen(false)}/>
         </>
     );
 };

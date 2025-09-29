@@ -6,6 +6,7 @@ import ButtonUI from "@/components/ui/button/ButtonUI";
 import { useAlert } from "@/context/AlertContext";
 import { useUser } from "@/context/UserContext";
 import Input from "@mui/joy/Input";
+import { useCurrency } from "@/context/CurrencyContext";
 
 interface PricingCardProps {
     variant?: "basic" | "highlight" | "premium";
@@ -18,6 +19,15 @@ interface PricingCardProps {
     buttonLink?: string;
 }
 
+const currencyConfig = {
+    GBP: { symbol: "£" },
+    USD: { symbol: "$" },
+    EUR: { symbol: "€" },
+} as const;
+
+const MIN_CUSTOM_AMOUNT = 0.01;
+const MAX_CUSTOM_AMOUNT = 9999;
+
 const PricingCard: React.FC<PricingCardProps> = ({
                                                      variant = "basic",
                                                      title,
@@ -29,11 +39,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
                                                  }) => {
     const { showAlert } = useAlert();
     const user = useUser();
+    const { currency } = useCurrency();
 
-    const minAmount = 5;
-    const [customAmount, setCustomAmount] = useState(minAmount);
+    const { symbol } = currencyConfig[currency];
+    const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
 
-    const calcTokens = (amount: number) => Math.floor((amount * 5) / 19);
+    // 1 unit = 100 tokens, 0.01 = 1 token
+    const calcTokens = (amount: number) => Math.floor(amount * 100);
 
     const handleBuy = async () => {
         if (!user) {
@@ -44,8 +56,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
             return;
         }
 
-        if (price === "dynamic" && customAmount < minAmount) {
-            showAlert("Minimum amount is €5", "Please enter a higher amount", "warning");
+        if (price === "dynamic" && customAmount < MIN_CUSTOM_AMOUNT) {
+            showAlert(`Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`, "Please enter a higher amount", "warning");
             return;
         }
 
@@ -64,8 +76,9 @@ const PricingCard: React.FC<PricingCardProps> = ({
             const data = await res.json();
             showAlert(`Success!`, `You purchased ${amount} tokens.`, "success");
             console.log("Updated user:", data.user);
-        } catch (err: any) {
-            showAlert("Error", err.message || "Something went wrong", "error");
+        } catch (err) {
+            const error = err as Error;
+            showAlert("Error", error.message || "Something went wrong", "error");
         }
     };
 
@@ -83,17 +96,17 @@ const PricingCard: React.FC<PricingCardProps> = ({
                         value={customAmount}
                         onChange={(e) => {
                             const value = Number(e.target.value);
-                            if (value.toString().length > 4) return;
-                            setCustomAmount(Math.max(Math.min(value, 9999), minAmount));
+                            if (value.toString().length > 7) return;
+                            setCustomAmount(Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT));
                         }}
-                        slotProps={{ input: { min: minAmount, max: 9999 } }}
+                        slotProps={{ input: { min: MIN_CUSTOM_AMOUNT, max: MAX_CUSTOM_AMOUNT, step: 0.01 } }}
                         sx={{ mb: 2, width: "100%" }}
-                        placeholder={`Enter amount (${minAmount}+ EUR)`}
+                        placeholder={`Enter amount (${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}+)`}
                         variant="outlined"
                         size="lg"
                     />
                     <p className={styles.price}>
-                        ${customAmount.toFixed(2)}{" "}
+                        {symbol}{customAmount.toFixed(2)}{" "}
                         <span className={styles.tokens}>
                             ≈ {calcTokens(customAmount)} tokens
                         </span>
@@ -101,7 +114,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 </>
             ) : (
                 <p className={styles.price}>
-                    {price} <span className={styles.tokens}>/{tokens} tokens</span>
+                    {symbol}{Number(price).toFixed(2)} <span className={styles.tokens}>/{tokens} tokens</span>
                 </p>
             )}
 

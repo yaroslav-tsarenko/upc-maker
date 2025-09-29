@@ -1,26 +1,47 @@
 "use client";
 
-import React, {useState} from "react";
-import {Formik, Form, Field} from "formik";
+import React, { useState } from "react";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import {formSchema, buildPrompt} from "./formSchema";
+import { formSchema, buildPrompt } from "./formSchema";
 
 import Textarea from "@mui/joy/Textarea";
 import Checkbox from "@mui/joy/Checkbox";
 
 import styles from "./ManualGenerator.module.scss";
 import ButtonUI from "@/components/ui/button/ButtonUI";
-import {useAlert} from "@/context/AlertContext";
+import { useAlert } from "@/context/AlertContext";
 import Input from "@mui/joy/Input";
-import {useAllOrders} from "@/context/AllOrdersContext";
+import { useAllOrders } from "@/context/AllOrdersContext";
+import { useI18n } from "@/context/i18nContext";
+
+const translations = {
+    en: {
+        showAdvanced: "Show Advanced Options",
+        hideAdvanced: "Hide Advanced Options",
+        getManual: "Get Manual",
+    },
+    tr: {
+        showAdvanced: "Gelişmiş Seçenekleri Göster",
+        hideAdvanced: "Gelişmiş Seçenekleri Gizle",
+        getManual: "Kılavuz Al",
+    }
+};
 
 const ManualGenerator = () => {
     const [showAdvanced, setShowAdvanced] = useState(false);
-    const {showAlert} = useAlert();
+    const { showAlert } = useAlert();
+    const { lang } = useI18n();
+    const t = translations[lang] || translations.en;
     const { orders, refreshOrders } = useAllOrders();
     const [loading, setLoading] = useState(false);
+
+    // Helper to get the correct language string
+    const getStr = (val: any) =>
+        typeof val === "object" && val !== null && lang in val ? val[lang] : val;
+
     const buildInitialValues = () => {
-        const init: Record<string, any> = {};
+        const init: Record<string, unknown> = {};
         [...formSchema.expectations, ...formSchema.inputs, ...formSchema.advanced].forEach((field) => {
             if (field.type === "checkbox") {
                 init[field.name] = false;
@@ -32,7 +53,7 @@ const ManualGenerator = () => {
     };
 
     const buildValidationSchema = () => {
-        const shape: Record<string, any> = {};
+        const shape: Record<string, unknown> = {};
         [...formSchema.expectations, ...formSchema.inputs].forEach((field) => {
             if (field.required) {
                 shape[field.name] = Yup.string().required("This field is required");
@@ -41,9 +62,9 @@ const ManualGenerator = () => {
         return Yup.object().shape(shape);
     };
 
-    const handleSubmit = async (values: Record<string, any>) => {
-        const prompt = buildPrompt(values);
-        setLoading(true)
+    const handleSubmit = async (values: Record<string, unknown>) => {
+        const prompt = buildPrompt(values, lang);
+        setLoading(true);
         try {
             const res = await fetch("/api/ai/create-order", {
                 method: "POST",
@@ -51,14 +72,14 @@ const ManualGenerator = () => {
                     "Content-Type": "application/json",
                 },
                 credentials: "include",
-                body: JSON.stringify({prompt}),
+                body: JSON.stringify({ prompt }),
             });
 
             const data = await res.json();
 
             if (res.ok) {
                 showAlert("Thank you!", "Order created, after a few minutes we sent you to your email", "success");
-                refreshOrders()
+                refreshOrders();
             } else {
                 showAlert("Error", data.message || "Failed to generate manual", "error");
             }
@@ -66,7 +87,7 @@ const ManualGenerator = () => {
             console.error("AI Request Error:", err);
             showAlert("Error", "Something went wrong while generating manual", "error");
         }
-        setLoading(false)
+        setLoading(false);
     };
 
     return (
@@ -75,22 +96,27 @@ const ManualGenerator = () => {
             validationSchema={buildValidationSchema()}
             onSubmit={handleSubmit}
         >
-            {({values, setFieldValue}) => (
+            {({ values, setFieldValue }) => (
                 <Form className={styles.form}>
                     {formSchema.expectations.map((field) => (
                         <div key={field.name} className={styles.fullWidth}>
-                            <label className={styles.label}>{field.label}</label>
-                            {field.description && <p className={styles.description}>{field.description}</p>}
-                            <Field name={field.name} as={Textarea} minRows={4} placeholder={field.label}/>
+                            <label className={styles.label}>{getStr(field.label)}</label>
+                            {field.description && <p className={styles.description}>{getStr(field.description)}</p>}
+                            <Field
+                                name={field.name}
+                                as={Textarea}
+                                minRows={4}
+                                placeholder={getStr(field.label)}
+                            />
                         </div>
                     ))}
                     <div className={styles.selectGrid}>
                         {formSchema.inputs.map((field) => (
                             <div key={field.name} className={styles.formGroup}>
-                                <label className={styles.label}>{field.label}</label>
-                                {field.description && <p className={styles.description}>{field.description}</p>}
+                                <label className={styles.label}>{getStr(field.label)}</label>
+                                {field.description && <p className={styles.description}>{getStr(field.description)}</p>}
                                 <Input
-                                    placeholder={field.label}
+                                    placeholder={getStr(field.label)}
                                     value={values[field.name] || ""}
                                     onChange={(e) => setFieldValue(field.name, e.target.value)}
                                     required={field.required}
@@ -106,24 +132,24 @@ const ManualGenerator = () => {
                         color="neutral"
                         onClick={() => setShowAdvanced((prev) => !prev)}
                     >
-                        {showAdvanced ? "Hide Advanced Options" : "Show Advanced Options"}
+                        {showAdvanced ? t.hideAdvanced : t.showAdvanced}
                     </ButtonUI>
                     {showAdvanced && (
                         <div className={styles.checkboxGrid}>
                             {formSchema.advanced.map((field) => (
                                 <div key={field.name} className={styles.checkboxItem}>
                                     <Checkbox
-                                        label={field.label}
-                                        checked={values[field.name]}
+                                        label={getStr(field.label)}
+                                        checked={values[field.name] as boolean}
                                         onChange={(e) => setFieldValue(field.name, e.target.checked)}
                                     />
-                                    {field.description && <p className={styles.description}>{field.description}</p>}
+                                    {field.description && <p className={styles.description}>{getStr(field.description)}</p>}
                                 </div>
                             ))}
                         </div>
                     )}
                     <ButtonUI type="submit" color="primary" loading={loading}>
-                        Get Manual
+                        {t.getManual}
                     </ButtonUI>
                 </Form>
             )}

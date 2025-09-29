@@ -9,6 +9,7 @@ import {currentFont} from "@/resources/styles-config";
 import {I18nProvider} from "@/context/i18nContext";
 import {AllOrdersProvider} from "@/context/AllOrdersContext";
 import PDFExtractor from "@/components/features/pdf-extractor/PDFExtractor";
+import {CurrencyProvider} from "@/context/CurrencyContext";
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -25,11 +26,13 @@ function Layout({ children }: { children: React.ReactNode }) {
                 <AllOrdersProvider>
                     <ProtectedRoute>
                         <PDFExtractor>
-                            <Header />
-                            <PageWrapper>
-                                {children}
-                            </PageWrapper>
-                            <Footer />
+                            <CurrencyProvider>
+                                <Header />
+                                <PageWrapper>
+                                    {children}
+                                </PageWrapper>
+                                <Footer />
+                            </CurrencyProvider>
                         </PDFExtractor>
                     </ProtectedRoute>
                 </AllOrdersProvider>
