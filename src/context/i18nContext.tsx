@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-export type LangCode = "en" | "sv";
+export type LangCode = "en" | "tr";
 
 type I18nContextType = {
     lang: LangCode;
@@ -12,12 +12,12 @@ type I18nContextType = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-    const [lang, setLangState] = useState<LangCode>("sv");
+    const [lang, setLangState] = useState<LangCode>("tr");
 
     useEffect(() => {
         try {
             const saved = localStorage.getItem("lang") as LangCode | null;
-            if (saved === "sv" || saved === "en") {
+            if (saved === "tr" || saved === "en") {
                 setLangState(saved);
                 return;
             }
@@ -25,10 +25,10 @@ export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
             if (browser.startsWith("en")) {
                 setLangState("en");
             } else {
-                setLangState("sv");
+                setLangState("tr");
             }
         } catch {
-            setLangState("sv");
+            setLangState("tr");
         }
     }, []);
 

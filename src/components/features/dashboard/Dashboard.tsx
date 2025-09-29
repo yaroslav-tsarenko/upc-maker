@@ -5,9 +5,23 @@ import styles from './Dashboard.module.scss';
 import ButtonUI from '@/components/ui/button/ButtonUI';
 import ManualGenerator from "@/components/widgets/manual-generator/ManualGenerator";
 import AllOrders from "@/components/widgets/all-orders/AllOrders";
+import { useI18n } from "@/context/i18nContext";
+
+const translations = {
+    en: {
+        getManual: "Get Manual",
+        myOrders: "My Orders",
+    },
+    tr: {
+        getManual: "Kılavuz Al",
+        myOrders: "Siparişlerim",
+    }
+};
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState<'manual' | 'orders'>('manual');
+    const { lang } = useI18n();
+    const t = translations[lang] || translations.en;
 
     return (
         <div className={styles.wrapper}>
@@ -20,7 +34,7 @@ const Dashboard = () => {
                         variant={activeTab === 'manual' ? 'solid' : 'outlined'}
                         onClick={() => setActiveTab('manual')}
                     >
-                        Get Manual
+                        {t.getManual}
                     </ButtonUI>
                     <ButtonUI
                         color={activeTab === 'orders' ? 'secondary' : 'muted'}
@@ -29,7 +43,7 @@ const Dashboard = () => {
                         variant={activeTab === 'orders' ? 'solid' : 'outlined'}
                         onClick={() => setActiveTab('orders')}
                     >
-                        My Orders
+                        {t.myOrders}
                     </ButtonUI>
                 </div>
             </div>

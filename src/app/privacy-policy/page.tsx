@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
-import enPrivacy from "@/pageSchemas/privacy-policy/privacyPage";
+import enPrivacy from "@/pageSchemas/privacy-policy/privacyPage.en";
+import trPrivacy from "@/pageSchemas/privacy-policy/privacyPage.tr";
 
 import PageCreator from "@/components/features/page-creator/PageCreator";
 import {metadataFromSchema} from "@/utils/fromSchema";
@@ -9,6 +10,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-    return <PageCreator schemaMap={{ sv: enPrivacy, en: enPrivacy }} />;
+    return <PageCreator schemaMap={{ tr: trPrivacy, en: enPrivacy }} />;
 }
 

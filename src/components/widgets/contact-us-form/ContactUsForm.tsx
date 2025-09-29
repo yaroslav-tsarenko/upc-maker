@@ -7,9 +7,45 @@ import Confetti from "react-confetti";
 import styles from "./ContactUsForm.module.scss";
 import { validationSchema, initialValues, sendContactRequest } from "./schema";
 import { useAlert } from "@/context/AlertContext";
+import { useI18n } from "@/context/i18nContext";
+
+const translations = {
+    en: {
+        formTitle: "Contact Us",
+        formDesc: "Fill out the form below and we’ll get back to you as soon as possible.",
+        firstName: "First Name",
+        secondName: "Second Name",
+        email: "Email",
+        phone: "Phone Number",
+        message: "Message (optional)",
+        send: "Send",
+        successMsg: "Thanks! Your data sent successfully!",
+        successAlertTitle: "Success",
+        successAlertMsg: "Your request has been sent!",
+        errorAlertTitle: "Error",
+        errorAlertMsg: "Failed to send. Please try again.",
+    },
+    tr: {
+        formTitle: "Bize Ulaşın",
+        formDesc: "Aşağıdaki formu doldurun, en kısa sürede size geri döneceğiz.",
+        firstName: "Ad",
+        secondName: "Soyad",
+        email: "E-posta",
+        phone: "Telefon Numarası",
+        message: "Mesaj (isteğe bağlı)",
+        send: "Gönder",
+        successMsg: "Teşekkürler! Bilgileriniz başarıyla gönderildi!",
+        successAlertTitle: "Başarılı",
+        successAlertMsg: "Talebiniz gönderildi!",
+        errorAlertTitle: "Hata",
+        errorAlertMsg: "Gönderilemedi. Lütfen tekrar deneyin.",
+    },
+};
 
 const ContactUsForm = () => {
     const { showAlert } = useAlert();
+    const { lang } = useI18n();
+    const t = translations[lang] || translations.en;
     const [showConfetti, setShowConfetti] = useState(false);
     const [successMsg, setSuccessMsg] = useState("");
 
@@ -20,12 +56,12 @@ const ContactUsForm = () => {
         try {
             await sendContactRequest(values);
             resetForm();
-            setSuccessMsg("Thanks! Your data sent successfully!");
+            setSuccessMsg(t.successMsg);
             setShowConfetti(true);
-            showAlert("Success", "Your request has been sent!", "success");
+            showAlert(t.successAlertTitle, t.successAlertMsg, "success");
             setTimeout(() => setShowConfetti(false), 1000000);
         } catch {
-            showAlert("Error", "Failed to send. Please try again.", "error");
+            showAlert(t.errorAlertTitle, t.errorAlertMsg, "error");
         }
         setSubmitting(false);
     };
@@ -34,10 +70,8 @@ const ContactUsForm = () => {
         <div className={styles.contactUsWrapper}>
             {showConfetti && <Confetti />}
             <div className={styles.contactForm}>
-                <div className={styles.formTitle}>Contact Us</div>
-                <div className={styles.formDesc}>
-                    Fill out the form below and we’ll get back to you as soon as possible.
-                </div>
+                <div className={styles.formTitle}>{t.formTitle}</div>
+                <div className={styles.formDesc}>{t.formDesc}</div>
                 {successMsg ? (
                     <div style={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", fontSize: "1.2rem", minHeight: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         {successMsg}
@@ -56,7 +90,7 @@ const ContactUsForm = () => {
                                             {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
                                                 <Input
                                                     {...field}
-                                                    placeholder="First Name"
+                                                    placeholder={t.firstName}
                                                     error={touched.name && !!errors.name}
                                                 />
                                             )}
@@ -70,7 +104,7 @@ const ContactUsForm = () => {
                                             {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
                                                 <Input
                                                     {...field}
-                                                    placeholder="Second Name"
+                                                    placeholder={t.secondName}
                                                     error={touched.secondName && !!errors.secondName}
                                                 />
                                             )}
@@ -85,7 +119,7 @@ const ContactUsForm = () => {
                                         {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
                                             <Input
                                                 {...field}
-                                                placeholder="Email"
+                                                placeholder={t.email}
                                                 type="email"
                                                 error={touched.email && !!errors.email}
                                             />
@@ -100,7 +134,7 @@ const ContactUsForm = () => {
                                         {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
                                             <Input
                                                 {...field}
-                                                placeholder="Phone Number"
+                                                placeholder={t.phone}
                                                 type="tel"
                                                 error={touched.phone && !!errors.phone}
                                             />
@@ -115,7 +149,7 @@ const ContactUsForm = () => {
                                         {({ field }: { field: React.TextareaHTMLAttributes<HTMLTextAreaElement> }) => (
                                             <Textarea
                                                 {...field}
-                                                placeholder="Message (optional)"
+                                                placeholder={t.message}
                                                 minRows={3}
                                             />
                                         )}
@@ -125,7 +159,7 @@ const ContactUsForm = () => {
                                     type="submit"
                                     fullWidth
                                     loading={isSubmitting}
-                                    text="Send"
+                                    text={t.send}
                                     sx={{ mt: 2 }}
                                 />
                             </Form>

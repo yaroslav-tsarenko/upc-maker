@@ -4,19 +4,21 @@ import { COMPANY_NAME } from "@/resources/constants";
 const schema: PageSchema = {
     meta: {
         title: `${COMPANY_NAME} — Professional Manuals on Demand`,
-        description:
-            `Access practical manuals created by specialists. Unlock any guide instantly using tokens.`,
+        description: `Access practical manuals created by specialists. Unlock any guide instantly using tokens.`,
         keywords: ["manuals", "guides", "technical", "documentation"],
         canonical: "/",
         ogImage: {
             title: `${COMPANY_NAME}`,
-            description:
-                "Expert manuals for every tool and device. Unlock with tokens, use anytime.",
+            description: "Expert manuals for every tool and device. Unlock with tokens, use anytime.",
             bg: "#ffffff",
             color: "#000000",
         },
     },
     blocks: [
+        {
+            type: "slider",
+            images: ["image1", "image2", "image3"],
+        },
         {
             type: "section",
             left: {
@@ -30,8 +32,7 @@ const schema: PageSchema = {
             right: {
                 type: "text",
                 title: "Expert Manuals at Your Fingertips",
-                description:
-                    `${COMPANY_NAME} gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.`,
+                description: `${COMPANY_NAME} gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.`,
                 bullets: [
                     "Created and verified by professionals",
                     "Covers a wide range of equipment and tools",
@@ -44,8 +45,7 @@ const schema: PageSchema = {
             left: {
                 type: "text",
                 title: `How ${COMPANY_NAME} Works`,
-                description:
-                    `Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.`,
+                description: `Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.`,
                 bullets: [
                     "Buy tokens once, use them anytime",
                     "No subscription pressure",
@@ -74,8 +74,7 @@ const schema: PageSchema = {
             right: {
                 type: "text",
                 title: "Clear and Organized Dashboard",
-                description:
-                    "Browse manuals by category, track your token balance, and manage your downloads from a single place.",
+                description: "Browse manuals by category, track your token balance, and manage your downloads from a single place.",
                 bullets: [
                     "Easy manual search by categories",
                     "Track token usage and history",
@@ -84,12 +83,40 @@ const schema: PageSchema = {
             },
         },
         {
+            type: "grid",
+            columns: 3,
+            gap: "2rem",
+            style: { margin: "2rem 0" },
+            cards: [
+                {
+                    image: "image4",
+                    title: "Mobile Friendly",
+                    description: "Access manuals on any device, anywhere.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Try Now",
+                },
+                {
+                    image: "image5",
+                    title: "Regular Updates",
+                    description: "Our library grows every week with new guides.",
+                    buttonLink: "/sign-up",
+                    buttonText: "Join Us",
+                },
+                {
+                    image: "image6",
+                    title: "Community Support",
+                    description: "Get help from our team and other users.",
+                    buttonLink: "/faq",
+                    buttonText: "FAQ",
+                },
+            ],
+        },
+        {
             type: "section",
             left: {
                 type: "text",
                 title: `Why Choose ${COMPANY_NAME}?`,
-                description:
-                    `Unlike random internet tutorials, ${COMPANY_NAME} manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.`,
+                description: `Unlike random internet tutorials, ${COMPANY_NAME} manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.`,
                 bullets: [
                     "Verified by experts",
                     "Well-structured and clear format",
@@ -99,7 +126,7 @@ const schema: PageSchema = {
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image4",
+                src: "image7",
                 width: "100%",
                 height: "400px",
                 alt: "Specialist Manuals",
@@ -112,8 +139,7 @@ const schema: PageSchema = {
             left: {
                 type: "text",
                 title: `Start Using ${COMPANY_NAME} Today`,
-                description:
-                    "Unlock manuals instantly with tokens and gain access to reliable knowledge for your equipment and tools.",
+                description: "Unlock manuals instantly with tokens and gain access to reliable knowledge for your equipment and tools.",
                 bullets: [
                     "Instant access to guides",
                     "Pay only for what you need",
@@ -131,28 +157,28 @@ const schema: PageSchema = {
             style: { margin: "3rem 0" },
             cards: [
                 {
-                    image: "image5",
+                    image: "image8",
                     title: "Wide Manual Library",
                     description: "Access manuals across multiple categories and industries.",
                     buttonLink: "/sign-up",
                     buttonText: "Get Started",
                 },
                 {
-                    image: "image6",
+                    image: "image9",
                     title: "Token Flexibility",
                     description: "Use tokens only on the manuals you need, no recurring fees.",
                     buttonLink: "/sign-up",
                     buttonText: "Get Started",
                 },
                 {
-                    image: "image7",
+                    image: "image10",
                     title: "Expert-Created Guides",
                     description: "Every manual is written and reviewed by specialists.",
                     buttonLink: "/sign-up",
                     buttonText: "Get Started",
                 },
                 {
-                    image: "image8",
+                    image: "image11",
                     title: "Always Accessible",
                     description: "Download and revisit your manuals at any time.",
                     buttonLink: "/sign-up",
@@ -161,22 +187,48 @@ const schema: PageSchema = {
             ],
         },
         {
+            type: "section",
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image12",
+                width: "100%",
+                height: "400px",
+                alt: "Customer Testimonials",
+            },
+            right: {
+                type: "text",
+                title: "What Our Users Say",
+                description: "“The manuals are clear, easy to follow, and always available when I need them.” — Satisfied Customer",
+                bullets: [
+                    "High user satisfaction",
+                    "Trusted by professionals",
+                    "Growing community",
+                ],
+            },
+        },
+        {
             type: "faq",
             items: [
                 {
                     question: `What is ${COMPANY_NAME}?`,
-                    answer:
-                        `${COMPANY_NAME} is a platform that provides expert-written manuals for different tools and equipment.`,
+                    answer: `${COMPANY_NAME} is a platform that provides expert-written manuals for different tools and equipment.`,
                 },
                 {
                     question: "How do I access a manual?",
-                    answer:
-                        "Each manual can be unlocked by spending tokens. Buy tokens once and use them whenever you need.",
+                    answer: "Each manual can be unlocked by spending tokens. Buy tokens once and use them whenever you need.",
                 },
                 {
                     question: "Do manuals stay available after purchase?",
-                    answer:
-                        "Yes. Once unlocked, you can access your manual anytime through your dashboard.",
+                    answer: "Yes. Once unlocked, you can access your manual anytime through your dashboard.",
+                },
+                {
+                    question: "Can I use the service on mobile?",
+                    answer: "Yes, the platform is fully mobile-friendly.",
+                },
+                {
+                    question: "How often are new manuals added?",
+                    answer: "We add new manuals and guides every week.",
                 },
             ],
         },

@@ -9,12 +9,34 @@ import {
     signUpOnSubmit
 } from "@/validationSchemas/sign-up/schema";
 import FormUI from "@/components/ui/form/FormUI";
+import { useI18n } from "@/context/i18nContext";
 
 export type SignUpValues = { name: string; email: string; password: string };
+
+const translations = {
+    en: {
+        title: "Sign Up",
+        description: "Create your account",
+        name: "Name",
+        email: "Email",
+        password: "Password",
+        submit: "Sign Up",
+    },
+    tr: {
+        title: "Kayıt Ol",
+        description: "Hesabınızı oluşturun",
+        name: "İsim",
+        email: "E-posta",
+        password: "Şifre",
+        submit: "Kayıt Ol",
+    }
+};
 
 export default function SignUpPage() {
     const { showAlert } = useAlert();
     const router = useRouter();
+    const { lang } = useI18n();
+    const t = translations[lang] || translations.en;
 
     return (
         <Formik<SignUpValues>
@@ -26,15 +48,15 @@ export default function SignUpPage() {
         >
             {({ isSubmitting }) => (
                 <FormUI
-                    title="Sign Up"
-                    description="Create your account"
+                    title={t.title}
+                    description={t.description}
                     isSubmitting={isSubmitting}
                     fields={[
-                        { name: "name", type: "text", placeholder: "Name" },
-                        { name: "email", type: "email", placeholder: "Email" },
-                        { name: "password", type: "password", placeholder: "Password" }
+                        { name: "name", type: "text", placeholder: t.name },
+                        { name: "email", type: "email", placeholder: t.email },
+                        { name: "password", type: "password", placeholder: t.password }
                     ]}
-                    submitLabel="Sign Up"
+                    submitLabel={t.submit}
                 />
             )}
         </Formik>

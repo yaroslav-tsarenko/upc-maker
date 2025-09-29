@@ -55,8 +55,8 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "basic",
                     title: "Starter Pack",
-                    price: "$19",
-                    tokens: 5,
+                    price: "10",
+                    tokens: 1000,
                     description: "Perfect for individuals who need occasional manuals.",
                     features: [
                         "5 tokens included",
@@ -71,8 +71,8 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "highlight",
                     title: "Pro Pack",
-                    price: "$49",
-                    tokens: 20,
+                    price: "20",
+                    tokens: 2000,
                     description: "Great for professionals and small teams.",
                     features: [
                         "20 tokens included",
@@ -87,8 +87,8 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "premium",
                     title: "Enterprise Pack",
-                    price: "$99",
-                    tokens: 50,
+                    price: "40",
+                    tokens: 4000,
                     description: "Best for businesses with regular documentation needs.",
                     features: [
                         "50 tokens included",

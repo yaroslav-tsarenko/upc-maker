@@ -9,12 +9,32 @@ import {
     signInOnSubmit
 } from "@/validationSchemas/sign-in/schema";
 import FormUI from "@/components/ui/form/FormUI";
+import { useI18n } from "@/context/i18nContext";
 
 export type SignInValues = { email: string; password: string };
+
+const translations = {
+    en: {
+        title: "Sign In",
+        description: "Welcome back! Please enter your details.",
+        email: "Email",
+        password: "Password",
+        submit: "Sign In",
+    },
+    tr: {
+        title: "Giriş Yap",
+        description: "Tekrar hoş geldiniz! Lütfen bilgilerinizi girin.",
+        email: "E-posta",
+        password: "Şifre",
+        submit: "Giriş Yap",
+    }
+};
 
 export default function SignInPage() {
     const { showAlert } = useAlert();
     const router = useRouter();
+    const { lang } = useI18n();
+    const t = translations[lang] || translations.en;
 
     return (
         <Formik<SignInValues>
@@ -26,14 +46,14 @@ export default function SignInPage() {
         >
             {({ isSubmitting }) => (
                 <FormUI
-                    title="Sign In"
-                    description="Welcome back! Please enter your details."
+                    title={t.title}
+                    description={t.description}
                     isSubmitting={isSubmitting}
                     fields={[
-                        { name: "email", type: "email", placeholder: "Email" },
-                        { name: "password", type: "password", placeholder: "Password" }
+                        { name: "email", type: "email", placeholder: t.email },
+                        { name: "password", type: "password", placeholder: t.password }
                     ]}
-                    submitLabel="Sign In"
+                    submitLabel={t.submit}
                 />
             )}
         </Formik>

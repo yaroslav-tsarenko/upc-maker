@@ -10,8 +10,7 @@ import {
 const cookiePolicyEn: PageSchema = {
     meta: {
         title: `Cookie Policy – ${COMPANY_NAME}`,
-        description:
-            `Learn which cookies ${COMPANY_NAME} uses, for what purposes, how long they persist, and how to manage your consent.`,
+        description: `How ${COMPANY_NAME} uses cookies, for what purposes, how long they persist, and how to manage your consent.`,
         keywords: [
             "cookies",
             "cookie policy",
@@ -33,93 +32,86 @@ const cookiePolicyEn: PageSchema = {
     blocks: [
         {
             type: "text",
-            title: `Cookie Policy – Overview`,
-            description:
-                `This Cookie Policy explains how ${COMPANY_NAME} (“we”, “us”) uses cookies and similar technologies on our platform for device manuals. It complements our Privacy Policy. By clicking “Accept” in the banner or continuing to use the site, you consent—where required—to the use of non-essential cookies.`
+            title: "Effective date",
+            description: "18th September 2025"
         },
         {
             type: "text",
-            title: "What are cookies?",
-            description:
-                "Cookies are small text files stored on your device when you visit websites. They help provide functionality (e.g., login sessions), understand usage, and improve services. In addition to cookies, we may use Local Storage, Session Storage, and pixels (collectively, “trackers”)."
+            title: "1. Overview",
+            description: `This Cookie Policy explains how ${COMPANY_NAME} (“we”, “us”, “our”) uses cookies and similar technologies (for example localStorage, sessionStorage and pixels) on the Service. It complements our Privacy Policy. By using the site or interacting with our cookie banner, you can manage or give consent to non-essential cookies as described below.`
         },
         {
             type: "text",
-            title: "Cookie categories",
+            title: "2. What are cookies?",
+            description: "Cookies are small text files placed on your device when you visit websites. They help provide core functionality (e.g. login sessions), remember your preferences, measure and improve site performance, and (with your consent) support marketing and analytics."
+        },
+        {
+            type: "text",
+            title: "3. Cookie categories we use",
             bullets: [
-                "Necessary – required for core functions (login, security, access to your manuals). Without these, the platform will not work properly.",
-                "Functional – remembers your settings (language, layout, preferences).",
-                "Performance/Analytics – measures usage, errors, and load times to improve stability (e.g., aggregated statistics).",
-                "Marketing/Ads – only if enabled: reach measurement, campaign attribution, interest-based content.",
-                "Security/Anti-abuse – detects unusual patterns, protects against fraud and bot traffic."
+                "Necessary / Essential — required for core platform functions (login, security, session management). These cookies do not require consent.",
+                "Functional — remember your settings and preferences (language, display, UI choices).",
+                "Performance / Analytics — measure site usage, errors and load times to improve reliability and performance. These are used under legitimate interests and / or consent depending on the tool.",
+                "Marketing / Advertising — used only if you enable them: campaign attribution, remarketing and interest-based content (consent required).",
+                "Security / Anti-abuse — detect unusual patterns and protect the site and users from fraud and bots."
             ]
         },
         {
             type: "text",
-            title: "Typical cookies & lifetimes (examples)",
+            title: "4. Typical cookies (examples)",
             bullets: [
-                "session_id – Purpose: login session (necessary) • Lifetime: session",
-                "csrf_token – Purpose: CSRF protection (necessary) • Lifetime: session",
-                "consent_state – Purpose: stores your consent choice (necessary) • Lifetime: 6–12 months",
-                "ui_prefs – Purpose: language/theme (functional) • Lifetime: ~6 months",
-                "perf_metrics – Purpose: performance metrics (analytics) • Lifetime: 1–3 months",
-                "campaign_src – Purpose: campaign attribution (marketing) • Lifetime: 1–3 months"
+                "session_id — Purpose: login session (necessary) • Lifetime: session",
+                "csrf_token — Purpose: CSRF protection (necessary) • Lifetime: session",
+                "consent_state — Purpose: stores your cookie consent choice (functional/necessary) • Lifetime: 6–12 months",
+                "ui_prefs — Purpose: language / layout preferences (functional) • Lifetime: ~6 months",
+                "perf_metrics — Purpose: performance analytics (analytics) • Lifetime: 1–3 months",
+                "campaign_src — Purpose: campaign attribution (marketing) • Lifetime: 1–3 months",
+                "Note: exact cookie names, lifetimes and third-party providers may change — current details are shown in the cookie control panel on the site."
             ]
         },
         {
             type: "text",
-            title: "Third-party & similar technologies",
-            description:
-                "We may use third-party services (e.g., analytics, payments, error tracking). These providers may set their own cookies/IDs. We choose partners carefully and safeguard privacy. See the Privacy Policy and—where available—our consent banner (CMP) under “Details”.",
+            title: "5. Consent and lawful basis",
             bullets: [
-                "Analytics (aggregated, pseudonymized, IP masking where feasible)",
-                "Error/crash reporting",
-                "Payment/billing providers",
-                "Embedded media (e.g., video CDNs)"
+                "Essential cookies: strictly necessary for the Service and used without consent.",
+                "Non-essential cookies (functional, analytics, marketing): set only after you give consent via our cookie banner or user settings, except where we can rely on legitimate interests (e.g. limited analytics).",
+                "The lawful bases we rely on include: performance of contract, consent and legitimate interests (fraud prevention, service improvement, dispute defence)."
             ]
         },
         {
             type: "text",
-            title: "Consent & withdrawal",
-            description:
-                "We set non-essential cookies only with your consent. You can change your choice at any time via the “Cookie Settings” link in the footer or by deleting/blocking cookies in your browser. Withdrawal takes effect going forward; processing already performed remains unaffected."
+            title: "6. How we record and retain consent",
+            description: "When you give consent we record the decision (checkbox text/version of policy), an ISO 8601 timestamp, the IP address and user-agent string as evidence. Consent and related order/transaction records are retained for a minimum of 24 months and up to 6 years for enterprise/disputed matters, consistent with our Privacy Policy."
         },
         {
             type: "text",
-            title: "Manage cookies in your browser (quick guide)",
+            title: "7. Third parties and international transfers",
+            description: "We use third-party providers (payment processors, analytics, hosting, marketing platforms) that may set cookies. Some providers may process data outside the UK/EEA; where transfers occur we ensure adequate safeguards (UK adequacy, Standard Contractual Clauses or equivalent). A list of third-party providers is available in the site cookie control panel."
+        },
+        {
+            type: "text",
+            title: "8. How to manage or withdraw cookie consent",
             bullets: [
-                "Chrome: Settings → Privacy and security → Cookies and other site data",
-                "Safari (macOS/iOS): Settings → Privacy → Manage Website Data",
-                "Firefox: Settings → Privacy & Security → Cookies and Site Data",
-                "Edge: Settings → Cookies and site permissions"
+                "Use the cookie banner / cookie settings on the site to accept, decline or customise non-essential cookies.",
+                "You can withdraw consent at any time via the cookie settings link in the footer.",
+                "You can also remove cookies via your browser settings (clear cookies / site data) or use private/incognito mode. Note that deleting cookies or disabling certain cookies may degrade site functionality (for example you may be logged out)."
             ]
         },
         {
             type: "text",
-            title: "Do Not Track & opt-out",
-            description:
-                "If your browser sends a “Do Not Track” (DNT) signal, we attempt—where technically reasonable—to respect it. Note: not all third parties reliably honor DNT; use their own opt-out mechanisms where applicable."
+            title: "9. Changes to this Policy",
+            description: "We may update this Cookie Policy from time to time (for example when we add new integrations). Material changes will be notified by a prominent notice on the Service or by e-mail to registered users. The policy’s effective date will be updated."
         },
         {
             type: "text",
-            title: "Changes to this policy",
-            description:
-                "We may update this policy (e.g., for new services or legal requirements). The version published on this page is authoritative. Major changes will be communicated via the banner or an in-app notice."
-        },
-        {
-            type: "text",
-            title: "Contact",
+            title: "10. Contact",
             bullets: [
+                "privacy@ilovemanual.co.uk",
                 `General: ${COMPANY_EMAIL}`,
                 `Legal: ${COMPANY_LEGAL_NAME}`,
                 `Address: ${COMPANY_ADDRESS}`,
-                `Company Number: ${COMPANY_NUMBER}`
+                "LIGHTING UP THE SKY LTD — Dept 6265, 126 East Ferry Road, Canary Wharf, London, E14 9FP."
             ]
-        },
-        {
-            type: "text",
-            title: "Last updated",
-            description: "14 August 2025"
         }
     ]
 };

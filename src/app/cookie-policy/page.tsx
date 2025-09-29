@@ -1,5 +1,6 @@
 import type {Metadata} from "next";
 import enCookie from "@/pageSchemas/cookie-policy/cookiePolicy.en";
+import trCookie from "@/pageSchemas/cookie-policy/cookiePolicy.en";
 
 import PageCreator from "@/components/features/page-creator/PageCreator";
 import {metadataFromSchema} from "@/utils/fromSchema";
@@ -9,6 +10,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-    return <PageCreator schemaMap={{ sv: enCookie, en: enCookie }} />;
+    return <PageCreator schemaMap={{ tr: trCookie, en: enCookie }} />;
 }
 
