@@ -1,96 +1,114 @@
 .card {
   position: relative;
-  border-radius: 1rem;
-  padding: 2rem;
-  transition: all 0.3s ease;
+  border-radius: 18px;
+  padding: 2.2rem 1.7rem 2rem 1.7rem;
+  transition: box-shadow 0.18s, transform 0.18s;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #fff;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #f7f7fa 0%, #fff 100%);
+  box-shadow: 0 6px 32px rgba(44, 62, 80, 0.10), 0 1.5px 6px rgba(42,181,23,0.08);
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(44,62,80,0.13), 0 2px 8px rgba(42,181,23,0.10);
+  }
+
+  .cornerLabel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(135deg, #2c3e50 60%, #2ab517 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.3rem;
+    border-radius: 0 14px 0 14px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.12);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
   }
 
   .title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    letter-spacing: 0.01em;
   }
 
   .price {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
+    color: #2ab517;
 
     .tokens {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 400;
-      color: #777;
+      color: #2c3e50;
+      margin-left: 0.5rem;
     }
   }
 
   .description {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-    color: #555;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    color: #2c3e50;
+    line-height: 1.6;
   }
 
   .features {
     list-style: none;
     padding: 0;
-    margin: 1rem 0 1.5rem;
-
-    li {
-      margin: 0.5rem 0;
-      padding-left: 1.4rem;
-      position: relative;
-      font-size: 0.9rem;
-
-      &::before {
-        content: "✔";
-        position: absolute;
-        left: 0;
-        color: #4CAF50;
-        font-weight: bold;
-      }
-    }
+    margin: 1.2rem 0 1.7rem;
   }
 
-  .bestChoiceLabel {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #ff9800, #ff5722);
-    color: #fff;
-    text-transform: capitalize;
-    font-weight: bold;
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    letter-spacing: 0.5px;
+  .featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.05rem;
+    color: #222;
+    margin-bottom: 0.7rem;
+  }
+
+  .featureIcon {
+    color: #2ab517;
+    font-size: 1.3rem;
+    flex-shrink: 0;
   }
 }
 
 /* Variants */
 .basic {
-  border: 2px solid #e5e7eb;
-  background: #fff;
+  border: 2px solid #2c3e50;
+  background: linear-gradient(135deg, #f7f7fa 0%, #eaf3fb 100%);
 }
 
 .highlight {
-  border: 2px solid #4a90e2;
-  background: #f0f7ff;
-  transform: scale(1.05);
+  border: 2px solid #2ab517;
+  background: linear-gradient(135deg, #eaf3fb 0%, #eaffea 100%);
+  box-shadow: 0 8px 24px rgba(42,181,23,0.12);
 }
 
 .premium {
-  border: 2px solid #f59e0b;
-  background: linear-gradient(135deg, #fffaf0, #fffbeb);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid #2c3e50;
+  background: linear-gradient(135deg, #fffaf0 0%, #f7f7fa 100%);
+  box-shadow: 0 8px 20px rgba(44,62,80,0.15);
+}
+
+@media screen and (max-width: 1028px) {
+  .card {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    border-radius: 12px;
+  }
+  .title {
+    font-size: 1.2rem;
+  }
+  .price {
+    font-size: 1.3rem;
+  }
 }

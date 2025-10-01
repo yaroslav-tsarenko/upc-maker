@@ -1,4 +1,4 @@
-.authedUser{
+.authedUser {
   display: flex;
   width: 100%;
   gap: 10px;
@@ -11,7 +11,7 @@
   }
 }
 
-.nonAuthedButtons{
+.nonAuthedButtons {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -25,8 +25,8 @@
 .userBalance {
   display: flex;
   align-items: flex-start;
-  flex-direction: column;
   font-size: 13px;
+  gap: 10px;
   color: #444;
 
   @media screen and (max-width: 768px) {
@@ -43,7 +43,7 @@
   margin-left: 5px;
 }
 
-.link{
+.link {
   display: flex;
   text-decoration: none;
 
@@ -55,6 +55,9 @@
 .balanceText {
   font-weight: 500;
   color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
 }
 
@@ -68,3 +71,42 @@
     color: #0070f3;
   }
 }
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,127,255,0.08);
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  color: #222;
+  font-size: 1rem;
+}
+
+.userEmail {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+.menuLink {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+

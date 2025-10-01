@@ -9,7 +9,8 @@ import Card from "../card/Card";
 import Grid from "../grid/Grid";
 import Slider from "../slider/Slider";
 import FAQ from "../faq/FAQ";
-import PricingCard from "../pricing-card/PricingCard"; // ← import new
+import PricingCard from "../pricing-card/PricingCard";
+import QRGenerator from "@/components/widgets/qr-generator/QRGenerator";
 
 import type {
     PageSchema,
@@ -24,7 +25,10 @@ import type {
     PricingBlock,
     GridItem,
     AlignInput,
+    HeroBlock,
+    QRGeneratorBlock,
 } from "./types";
+import Hero from "@/components/constructor/hero/Hero";
 
 // ------------------- helpers -------------------
 
@@ -37,7 +41,16 @@ function resolveMedia(key?: string) {
     return v as any;
 }
 
-// ------------------- renderers -------------------
+function RenderHero(b: HeroBlock) {
+    return (
+        <Hero
+            bgImage={b.bgImage}
+            title={b.title}
+            description={b.description}
+            buttons={b.buttons}
+        />
+    );
+}
 
 function RenderText(b: TextBlock) {
     return (
@@ -48,6 +61,12 @@ function RenderText(b: TextBlock) {
             centerTitle={b.centerTitle}
             centerDescription={b.centerDescription}
             centerBullets={b.centerBullets}
+            iconName={b.iconName}
+            iconSize={b.iconSize}
+            iconAlign={b.iconAlign}
+            buttons={b.buttons}
+            iconColor={b.iconColor}
+            iconBg={b.iconBg}
         />
     );
 }
@@ -103,6 +122,10 @@ function RenderPricingCard(b: PricingBlock) {
     );
 }
 
+function RenderQRGenerator(_b: QRGeneratorBlock) {
+    return <QRGenerator />;
+}
+
 // ------------------- grid + section -------------------
 
 function mapAlign(a?: AlignInput): "center" | "start" | "end" | undefined {
@@ -123,7 +146,7 @@ function RenderGrid(b: GridBlock) {
         (b.items && b.items.length > 0)
             ? b.items
             : (b.cards?.map((c, idx) => {
-                if (c.type === "pricing") {
+                if ((c as any).type === "pricing") {
                     return {
                         key: c.title ?? String(idx),
                         block: c as PricingBlock,
@@ -176,6 +199,14 @@ function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
             return <React.Fragment key={key}><RenderSection {...block} /></React.Fragment>;
         case "grid":
             return <React.Fragment key={key}><RenderGrid {...block} /></React.Fragment>;
+        case "qr-generator":
+            return <React.Fragment key={key}>{RenderQRGenerator(block as QRGeneratorBlock)}</React.Fragment>;
+        case "hero":
+            return (
+                <React.Fragment key={key}>
+                    <RenderHero {...(block as HeroBlock)} />
+                </React.Fragment>
+            );
         default: {
             const _exhaustive: never = block;
             return _exhaustive;

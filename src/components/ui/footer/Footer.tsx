@@ -3,358 +3,97 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import clsx from "clsx";
 import styles from "./Footer.module.scss";
 import { footerContent } from "@/resources/content";
-import { footerStyles } from "@/resources/styles-config";
-import {SmartLinkProps} from "@/types/smart-link";
-import {media} from "@/resources/media";
-import {useI18n} from "@/context/i18nContext";
-
-export const footerTranslations = {
-    en: {
-        company: "Company",
-        address: "Address",
-        email: "Email",
-        phone: "Phone",
-        rights: "All rights reserved.",
-        payments: "We accept the following payment methods:",
-    },
-    tr: {
-        company: "Şirket",
-        address: "Adres",
-        email: "E-posta",
-        phone: "Telefon",
-        rights: "Tüm hakları saklıdır.",
-        payments: "Aşağıdaki ödeme yöntemlerini kabul ediyoruz:",
-    },
-};
-
-
-const SmartLink: React.FC<SmartLinkProps> = ({
-                                                 href,
-                                                 className,
-                                                 children,
-                                                 ariaLabel,
-                                                 title,
-                                                 target,
-                                                 rel,
-                                             }) => {
-    const isInternal = href?.startsWith("/");
-    if (isInternal) {
-        return (
-            <Link href={href} className={className} aria-label={ariaLabel} title={title}>
-                {children}
-            </Link>
-        );
-    }
-    return (
-        <a
-            href={href}
-            className={className}
-            aria-label={ariaLabel}
-            title={title}
-            target={target}
-            rel={rel}
-        >
-            {children}
-        </a>
-    );
-};
+import { useI18n } from "@/context/i18nContext";
 
 const Footer: React.FC = () => {
     const { logo, columns, contact, socials, legal } = footerContent;
     const { lang } = useI18n();
-    const t = footerTranslations[lang];
-    const LegalAddress = () =>
-        legal?.addressLines?.length ? (
-            <address className={styles["footer__legal-address"]}>
-                {legal.addressLines.map((line) => (
-                    <div key={line}>{line}</div>
-                ))}
-            </address>
-        ) : null;
 
-    const LegalBlock = () =>
-        legal ? (
-            <div className={styles["footer__legal"]}>
-                <div className={styles["footer__legal-line"]}>
-                    <span className={styles["footer__legal-label"]}></span>{" "}
-                    <strong>{legal.companyName}</strong>
-                </div>
-                {legal.companyNumber && (
-                    <div className={styles["footer__legal-line"]}>
-                        <span className={styles["footer__legal-label"]}></span>{" "}
-                        <span>{legal.companyNumber}</span>
-                    </div>
-                )}
-                <LegalAddress />
-                {contact.email && (
-                    <div>
-                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                    </div>
-                )}
-            </div>
-        ) : null;
-
-    const cssVars: React.CSSProperties = {
-        ["--footer-maxw" as any]: `${footerStyles.maxWidth}px`,
-        ["--footer-pad-x" as any]: `${footerStyles.paddings?.x ?? 20}px`,
-        ["--footer-pad-y" as any]: `${footerStyles.paddings?.y ?? 32}px`,
-        ["--footer-gap" as any]: `${footerStyles.gap ?? 20}px`,
-        ["--footer-columns-gap" as any]: `${footerStyles.columnsGap ?? 24}px`,
-        ["--footer-logo-w" as any]: `${footerStyles.logo?.width ?? 120}px`,
-        ["--footer-logo-h" as any]: `${footerStyles.logo?.height ?? 30}px`,
-
-        ["--footer-bg" as any]: footerStyles.colors?.bg ?? "#fff",
-        ["--footer-title-color" as any]: footerStyles.colors?.title ?? "#333",
-        ["--footer-text" as any]: footerStyles.colors?.link ?? "#242424",
-        ["--footer-muted" as any]: footerStyles.colors?.muted ?? "#878787",
-        ["--footer-border" as any]: footerStyles.colors?.border ?? "#eee",
-        ["--footer-link" as any]: footerStyles.colors?.link ?? "#4A90E2",
-        ["--footer-link-hover" as any]: footerStyles.colors?.linkHover ?? "#242424",
-
-        ["--footer-fs" as any]: `${footerStyles.font?.size ?? 16}px`,
-        ["--footer-legal-fs" as any]: `${footerStyles.font?.legalSize ?? 14}px`,
-
-        ["--footer-contact-hover" as any]: footerStyles.colors?.contactHover ?? footerStyles.colors?.linkHover ?? "#242424",
-        ["--footer-social-hover" as any]: footerStyles.colors?.socialHover,
-
-        ["--footer-legal" as any]: footerStyles.colors?.link,
-        ["--footer-contact-label" as any]: footerStyles.colors?.contactLabel ?? footerStyles.colors?.muted,
-
-        ["--footer-radius" as any]: footerStyles.radius ?? "0",
-        ["--footer-shadow" as any]: footerStyles.shadow ?? "none",
-
-        ["--footer-cols-xl" as any]: `${footerStyles.grid?.colsXL ?? 4}`,
-        ["--footer-cols-lg" as any]: `${footerStyles.grid?.colsLG ?? 3}`,
-        ["--footer-cols-md" as any]: `${footerStyles.grid?.colsMD ?? 2}`,
-        ["--footer-cols-sm" as any]: `${footerStyles.grid?.colsSM ?? 1}`,
-
-        ["--footer-title-fs-xl" as any]: `${footerStyles.sizes?.titles?.xl ?? 18}px`,
-        ["--footer-title-fs-lg" as any]: `${footerStyles.sizes?.titles?.lg ?? 16}px`,
-        ["--footer-title-fs-md" as any]: `${footerStyles.sizes?.titles?.md ?? 15}px`,
-        ["--footer-title-fs-sm" as any]: `${footerStyles.sizes?.titles?.sm ?? 14}px`,
-
-        ["--footer-link-fs-xl" as any]: `${footerStyles.sizes?.links?.xl ?? 16}px`,
-        ["--footer-link-fs-lg" as any]: `${footerStyles.sizes?.links?.lg ?? 15}px`,
-        ["--footer-link-fs-md" as any]: `${footerStyles.sizes?.links?.md ?? 14}px`,
-        ["--footer-link-fs-sm" as any]: `${footerStyles.sizes?.links?.sm ?? 13}px`,
-
-        ["--footer-icon-xl" as any]: `${footerStyles.sizes?.icons?.xl ?? 24}px`,
-        ["--footer-icon-lg" as any]: `${footerStyles.sizes?.icons?.lg ?? 22}px`,
-        ["--footer-icon-md" as any]: `${footerStyles.sizes?.icons?.md ?? 20}px`,
-        ["--footer-icon-sm" as any]: `${footerStyles.sizes?.icons?.sm ?? 18}px`,
+    const translations = {
+        en: {
+            company: "Company",
+            address: "Address",
+            email: "Email",
+            phone: "Phone",
+            rights: "All rights reserved.",
+        },
+        tr: {
+            company: "Şirket",
+            address: "Adres",
+            email: "E-posta",
+            phone: "Telefon",
+            rights: "Tüm hakları saklıdır.",
+        },
     };
 
-    const alignTo = footerStyles.logo?.align ?? "start";
+    const t = translations[lang];
 
     return (
-        <footer
-            className={clsx(
-                styles.footer,
-                styles[`footer--${footerStyles.type}`],
-                footerStyles.showTopBorder && styles["footer--top-border"],
-                footerStyles.showBottomBorder && styles["footer--bottom-border"],
-                styles[`footer--logo-${alignTo}`]
-            )}
-            style={cssVars}
-        >
-            {footerStyles.type === "columns" && (
-                <div className={styles["footer__inner"]}>
-                    <SmartLink href={logo.href} className={styles["footer__logo"]} ariaLabel="Logo">
-                        <Image
-                            src={logo.src}
-                            alt={logo.alt}
-                            width={0}
-                            height={0}
-                            sizes="120px"
-                            style={{ width: "var(--footer-logo-w)", height: "var(--footer-logo-h)" }}
-                        />
-                    </SmartLink>
-                    <div className={styles["footer__columns"]}>
-                        {columns.map((col) => (
-                            <div className={styles["footer__column"]} key={col.title}>
-                                <div className={styles["footer__column-title"]}>{col.title}</div>
-                                {col.links.map((link) => (
-                                    <SmartLink href={link.href} className={styles["footer__link"]} key={link.label}>
-                                        {link.label}
-                                    </SmartLink>
-                                ))}
-                            </div>
-                        ))}
+        <footer className={styles.footer}>
+            <div className={styles.inner}>
+                {/* Logo */}
+                <Link href={logo.href} className={styles.logo}>
+                    <Image src={logo.src} alt={logo.alt} width={120} height={40} />
+                </Link>
 
-                        {legal && (
-                            <div className={styles["footer__column"]}>
-                                <div className={styles["footer__column-title"]}>{t.company}</div>
-                                <LegalBlock />
-                            </div>
-                        )}
-                    </div>
-                    <div className={styles["footer__contact"]}>
-                        {contact.address && (
-                            <div className={styles["footer__contact-item"]}>
-                                <strong>{t.address}:</strong> {contact.address}
-                            </div>
-                        )}
-                        {contact.email && (
-                            <div className={styles["footer__contact-item"]}>
-                                <strong>{t.email}</strong>{" "}
-                                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                            </div>
-                        )}
-                        {contact.phone && (
-                            <div className={styles["footer__contact-item"]}>
-                                <strong>{t.phone}</strong>{" "}
-                                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-                            </div>
-                        )}
-                        {!!socials?.length && (
-                            <div className={styles["footer__socials"]}>
-                                {socials.map((s) => {
-                                    const Icon = s.icon;
-                                    const isExternal = !s.href?.startsWith("/");
-                                    return (
-                                        <SmartLink
-                                            key={s.label}
-                                            href={s.href}
-                                            className={styles["footer__social-link"]}
-                                            ariaLabel={s.label}
-                                            title={s.label}
-                                            target={isExternal ? "_blank" : undefined}
-                                            rel={isExternal ? "noopener noreferrer" : undefined}
-                                        >
-                                            <Icon size={footerStyles.sizes?.icons?.xl ?? 24} />
-                                        </SmartLink>
-                                    );
-                                })}
-                            </div>
-                        )}
-                    </div>
-                </div>
-            )}
-            {footerStyles.type === "center" && (
-                <div className={clsx(styles["footer__inner"], styles["footer__inner--center"])}>
-                    <SmartLink href={logo.href} className={styles["footer__logo"]} ariaLabel="Logo">
-                        <Image
-                            src={logo.src}
-                            alt={logo.alt}
-                            width={0}
-                            height={0}
-                            sizes="120px"
-                            style={{ width: "var(--footer-logo-w)", height: "var(--footer-logo-h)" }}
-                        />
-                    </SmartLink>
-                    <nav className={styles["footer__center-links"]}>
-                        {columns.flatMap((c) => c.links).map((link) => (
-                            <SmartLink href={link.href} className={styles["footer__center-link"]} key={link.label}>
-                                {link.label}
-                            </SmartLink>
-                        ))}
-                    </nav>
-                    <div className={styles["footer__center-contact"]}>
-                        {contact.address && <span>{contact.address}</span>}
-                        {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
-                        {contact.phone && <a href={`tel:${contact.phone}`}>{contact.phone}</a>}
-                    </div>
-                    <div className={styles["footer__center-legal"]}>
-                        <LegalBlock />
-                    </div>
-                    {!!socials?.length && (
-                        <div className={styles["footer__center-socials"]}>
-                            {socials.map((s) => {
-                                const Icon = s.icon;
-                                const isExternal = !s.href?.startsWith("/");
-                                return (
-                                    <SmartLink
-                                        key={s.label}
-                                        href={s.href}
-                                        className={styles["footer__social-link"]}
-                                        ariaLabel={s.label}
-                                        title={s.label}
-                                        target={isExternal ? "_blank" : undefined}
-                                        rel={isExternal ? "noopener noreferrer" : undefined}
-                                    >
-                                        <Icon size={footerStyles.sizes?.icons?.xl ?? 24} />
-                                    </SmartLink>
-                                );
-                            })}
+                {/* Columns */}
+                <div className={styles.columns}>
+                    {columns.map((col) => (
+                        <div key={col.title} className={styles.column}>
+                            <h4>{col.title}</h4>
+                            {col.links.map((link) => (
+                                <Link key={link.label} href={link.href}>
+                                    {link.label}
+                                </Link>
+                            ))}
                         </div>
-                    )}
-                </div>
-            )}
+                    ))}
 
-            {footerStyles.type === "mega" && (
-                <div className={clsx(styles["footer__inner"], styles["footer__inner--mega"])}>
-
-                    <div className={styles["footer__mega-grid"]}>
-                        {columns.map((col) => (
-                            <div className={styles["footer__mega-col"]} key={col.title}>
-                                <div className={styles["footer__column-title"]}>{col.title}</div>
-                                <div className={styles["footer__mega-links"]}>
-                                    {col.links.map((link) => (
-                                        <SmartLink href={link.href} className={styles["footer__link"]} key={link.label}>
-                                            {link.label}
-                                        </SmartLink>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                        {legal && (
-                            <div className={styles["footer__mega-col"]}>
-                                <div className={styles["footer__column-title"]}>Company</div>
-                                <LegalBlock />
-                                <div className={styles.payments}>
-                                    <p>
-                                        {t.payments}
-                                    </p>
-                                    <div className={styles.paymentsContent}>
-                                        <Image src={media.visa} alt="Visa" width={150} height={35}/>
-                                        <Image src={media.mastercard} alt="Visa" width={150} height={35}/>
-                                        <Image src={media.google_pay} alt="Visa" width={150} height={35}/>
-                                        <Image src={media.apple_pay} alt="Visa" width={150} height={35}/>
-                                        <Image src={media.american_express} alt="Visa" width={150} height={35}/>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                    <div className={styles["footer__mega-bottom"]}>
-                        <div className={styles["footer__contact-row"]}>
-                            {contact.address && <div>{contact.address}</div>}
-
+                    {/* Company Info */}
+                    {legal && (
+                        <div className={styles.column}>
+                            <h4>{t.company}</h4>
+                            <p>{legal.companyName}</p>
+                            {legal.companyNumber && <p>{legal.companyNumber}</p>}
+                            {legal.addressLines?.map((line, idx) => (
+                                <p key={idx}>{line}</p>
+                            ))}
+                            {contact.email && (
+                                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                            )}
                             {contact.phone && (
-                                <div>
-                                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-                                </div>
+                                <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                             )}
                         </div>
-                    </div>
-                    {!!socials?.length && (
-                        <div className={styles["footer__mega-socials"]}>
-                            {socials.map((s) => {
-                                const Icon = s.icon;
-                                const isExternal = !s.href?.startsWith("/");
-                                return (
-                                    <SmartLink
-                                        key={s.label}
-                                        href={s.href}
-                                        className={styles["footer__social-link"]}
-                                        ariaLabel={s.label}
-                                        title={s.label}
-                                        target={isExternal ? "_blank" : undefined}
-                                        rel={isExternal ? "noopener noreferrer" : undefined}
-                                    >
-                                        <Icon size={footerStyles.sizes?.icons?.xl ?? 24} />
-                                    </SmartLink>
-                                );
-                            })}
-                        </div>
                     )}
+                </div>
+            </div>
+
+            {/* Socials */}
+            {!!socials?.length && (
+                <div className={styles.socials}>
+                    {socials.map((s) => {
+                        const Icon = s.icon;
+                        const isExternal = !s.href?.startsWith("/");
+                        return (
+                            <a
+                                key={s.label}
+                                href={s.href}
+                                target={isExternal ? "_blank" : undefined}
+                                rel={isExternal ? "noopener noreferrer" : undefined}
+                                aria-label={s.label}
+                            >
+                                <Icon size={22} />
+                            </a>
+                        );
+                    })}
                 </div>
             )}
 
-            <div className={styles["footer__rights"]}>
+            {/* Bottom rights */}
+            <div className={styles.rights}>
                 © {new Date().getFullYear()} {t.rights}
             </div>
         </footer>

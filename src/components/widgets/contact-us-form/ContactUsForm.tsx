@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import { Input, Textarea } from "@mui/joy";
-import ButtonUI from "@/components/ui/button/ButtonUI";
+import { TextField, Button, Card, CardContent, Typography, Box } from "@mui/material";
 import Confetti from "react-confetti";
 import styles from "./ContactUsForm.module.scss";
 import { validationSchema, initialValues, sendContactRequest } from "./schema";
 import { useAlert } from "@/context/AlertContext";
 import { useI18n } from "@/context/i18nContext";
+import ButtonUI from "@/components/ui/button/ButtonUI";
 
 const translations = {
     en: {
@@ -67,107 +67,118 @@ const ContactUsForm = () => {
     };
 
     return (
-        <div className={styles.contactUsWrapper}>
+        <Box className={styles.contactUsWrapper} sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
             {showConfetti && <Confetti />}
-            <div className={styles.contactForm}>
-                <div className={styles.formTitle}>{t.formTitle}</div>
-                <div className={styles.formDesc}>{t.formDesc}</div>
-                {successMsg ? (
-                    <div style={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", fontSize: "1.2rem", minHeight: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        {successMsg}
-                    </div>
-                ) : (
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={handleSubmit}
-                    >
-                        {({ errors, touched, isSubmitting }) => (
-                            <Form className={styles.form}>
-                                <div className={styles.formGroupRow}>
-                                    <div className={styles.formGroup}>
+            <Card sx={{ maxWidth: 480, width: "100%", boxShadow: 3, borderRadius: 3 }}>
+                <CardContent>
+                    <Typography variant="h5" fontWeight={700} mb={1} color="primary">
+                        {t.formTitle}
+                    </Typography>
+                    <Typography variant="body1" mb={3} color="text.secondary">
+                        {t.formDesc}
+                    </Typography>
+                    {successMsg ? (
+                        <Box sx={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", fontSize: "1.2rem", minHeight: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            {successMsg}
+                        </Box>
+                    ) : (
+                        <Formik
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                            onSubmit={handleSubmit}
+                        >
+                            {({ errors, touched, isSubmitting }) => (
+                                <Form>
+                                    <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
                                         <Field name="name">
-                                            {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
-                                                <Input
+                                            {({ field }: { field: any }) => (
+                                                <TextField
                                                     {...field}
-                                                    placeholder={t.firstName}
+                                                    label={t.firstName}
                                                     error={touched.name && !!errors.name}
+                                                    helperText={touched.name && errors.name}
+                                                    fullWidth
+                                                    variant="outlined"
+                                                    size="medium"
                                                 />
                                             )}
                                         </Field>
-                                        {touched.name && errors.name && (
-                                            <div className={styles.error}>{errors.name}</div>
-                                        )}
-                                    </div>
-                                    <div className={styles.formGroup}>
                                         <Field name="secondName">
-                                            {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
-                                                <Input
+                                            {({ field }: { field: any }) => (
+                                                <TextField
                                                     {...field}
-                                                    placeholder={t.secondName}
+                                                    label={t.secondName}
                                                     error={touched.secondName && !!errors.secondName}
+                                                    helperText={touched.secondName && errors.secondName}
+                                                    fullWidth
+                                                    variant="outlined"
+                                                    size="medium"
                                                 />
                                             )}
                                         </Field>
-                                        {touched.secondName && errors.secondName && (
-                                            <div className={styles.error}>{errors.secondName}</div>
-                                        )}
-                                    </div>
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <Field name="email">
-                                        {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
-                                            <Input
-                                                {...field}
-                                                placeholder={t.email}
-                                                type="email"
-                                                error={touched.email && !!errors.email}
-                                            />
-                                        )}
-                                    </Field>
-                                    {touched.email && errors.email && (
-                                        <div className={styles.error}>{errors.email}</div>
-                                    )}
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <Field name="phone">
-                                        {({ field }: { field: React.InputHTMLAttributes<HTMLInputElement> }) => (
-                                            <Input
-                                                {...field}
-                                                placeholder={t.phone}
-                                                type="tel"
-                                                error={touched.phone && !!errors.phone}
-                                            />
-                                        )}
-                                    </Field>
-                                    {touched.phone && errors.phone && (
-                                        <div className={styles.error}>{errors.phone}</div>
-                                    )}
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <Field name="message">
-                                        {({ field }: { field: React.TextareaHTMLAttributes<HTMLTextAreaElement> }) => (
-                                            <Textarea
-                                                {...field}
-                                                placeholder={t.message}
-                                                minRows={3}
-                                            />
-                                        )}
-                                    </Field>
-                                </div>
-                                <ButtonUI
-                                    type="submit"
-                                    fullWidth
-                                    loading={isSubmitting}
-                                    text={t.send}
-                                    sx={{ mt: 2 }}
-                                />
-                            </Form>
-                        )}
-                    </Formik>
-                )}
-            </div>
-        </div>
+                                    </Box>
+                                    <Box sx={{ mb: 2 }}>
+                                        <Field name="email">
+                                            {({ field }: { field: any }) => (
+                                                <TextField
+                                                    {...field}
+                                                    label={t.email}
+                                                    type="email"
+                                                    error={touched.email && !!errors.email}
+                                                    helperText={touched.email && errors.email}
+                                                    fullWidth
+                                                    variant="outlined"
+                                                    size="medium"
+                                                />
+                                            )}
+                                        </Field>
+                                    </Box>
+                                    <Box sx={{ mb: 2 }}>
+                                        <Field name="phone">
+                                            {({ field }: { field: any }) => (
+                                                <TextField
+                                                    {...field}
+                                                    label={t.phone}
+                                                    type="tel"
+                                                    error={touched.phone && !!errors.phone}
+                                                    helperText={touched.phone && errors.phone}
+                                                    fullWidth
+                                                    variant="outlined"
+                                                    size="medium"
+                                                />
+                                            )}
+                                        </Field>
+                                    </Box>
+                                    <Box sx={{ mb: 2 }}>
+                                        <Field name="message">
+                                            {({ field }: { field: any }) => (
+                                                <TextField
+                                                    {...field}
+                                                    label={t.message}
+                                                    multiline
+                                                    minRows={3}
+                                                    fullWidth
+                                                    variant="outlined"
+                                                    size="medium"
+                                                />
+                                            )}
+                                        </Field>
+                                    </Box>
+                                    <ButtonUI
+                                        type="submit"
+                                        color="primary"
+                                        fullWidth
+                                        disabled={isSubmitting}
+                                    >
+                                        {t.send}
+                                    </ButtonUI>
+                                </Form>
+                            )}
+                        </Formik>
+                    )}
+                </CardContent>
+            </Card>
+        </Box>
     );
 };
 

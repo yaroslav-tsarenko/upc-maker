@@ -11,36 +11,51 @@ const pricingSchema: PageSchema = {
     meta: {
         title: `Pricing — ${COMPANY_NAME}`,
         description:
-            `Choose a ${COMPANY_NAME} token package that fits your needs. Flexible pricing with Starter, Pro, and Enterprise options for individuals, professionals, and businesses.`,
+            `Discover flexible, transparent pricing for ${COMPANY_NAME}. Generate and customize QR codes at affordable rates — no subscriptions, no hidden fees.`,
         keywords: [
             `${COMPANY_NAME} pricing`,
-            "token packages",
-            "manual access",
-            "subscription alternatives",
-            "manual pricing"
+            "QR code generator pricing",
+            "QR code customization cost",
+            "affordable QR codes",
+            "QR code business plans"
         ],
         canonical: "/pricing",
         ogImage: {
             title: `${COMPANY_NAME} Pricing`,
-            description: "Flexible token-based pricing for manuals.",
-            bg: "#ffffff",
-            color: "#000000",
+            description: "Affordable, flexible pricing for QR code generation.",
+            bg: "#f4faff",
+            color: "#0070f3",
         },
     },
     blocks: [
+        {
+            type: "hero",
+            bgImage: "image10",
+            title: "Simple Pricing for Every Need",
+            description: `Choose the perfect plan for personal, professional, or business QR code generation. Pay only for what you use — no recurring fees.`,
+            buttons: [
+                { text: "Get Started", link: "/qr-generator", color: "primary" },
+                { text: "Contact Sales", link: "/contact", color: "secondary" },
+            ],
+        },
         {
             type: "section",
             align: "center",
             left: {
                 type: "text",
-                title: "Simple and Transparent Pricing",
+                title: "Why Choose Our Pricing?",
                 description:
-                    `At ${COMPANY_NAME}, you only pay for what you need. Our token-based system is flexible, affordable, and scalable — whether you’re unlocking one manual or managing documentation for your whole company.`,
+                    `We keep things simple: no subscriptions, no hidden fees. Whether you need a single QR code or thousands for your business, ${COMPANY_NAME} adapts to your needs.`,
                 bullets: [
-                    "No hidden fees or subscriptions",
-                    "Tokens never expire",
-                    "Perfect for individuals, teams, and enterprises",
+                    "No subscriptions or recurring payments",
+                    "Pay-as-you-go flexibility",
+                    "Affordable for individuals and enterprises",
+                    "Bulk QR generation available"
                 ],
+                iconName: "qr_code",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
                 centerTitle: true,
                 centerDescription: true,
                 centerBullets: true,
@@ -55,14 +70,13 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "basic",
                     title: "Starter Pack",
-                    price: "10",
-                    tokens: 1000,
-                    description: "Perfect for individuals who need occasional manuals.",
+                    price: "5",
+                    description: "For individuals who need a few QR codes.",
                     features: [
-                        "5 tokens included",
-                        "Instant manual access",
-                        "No expiration",
-                        "Best for one-time projects"
+                        "Up to 10 QR codes",
+                        "Basic customization",
+                        "Download in PNG/JPG",
+                        "No expiration"
                     ],
                     buttonText: "Buy Now",
                     buttonLink: "/checkout?plan=starter",
@@ -71,13 +85,12 @@ const pricingSchema: PageSchema = {
                     type: "pricing",
                     variant: "highlight",
                     title: "Pro Pack",
-                    price: "20",
-                    tokens: 2000,
-                    description: "Great for professionals and small teams.",
+                    price: "15",
+                    description: "For professionals and small teams.",
                     features: [
-                        "20 tokens included",
-                        "Priority manual creation",
-                        "Download & offline access",
+                        "Up to 50 QR codes",
+                        "Advanced customization (colors, logos)",
+                        "High-resolution exports",
                         "Best value for growing teams"
                     ],
                     buttonText: "Get Pro",
@@ -86,82 +99,62 @@ const pricingSchema: PageSchema = {
                 {
                     type: "pricing",
                     variant: "premium",
-                    title: "Enterprise Pack",
-                    price: "40",
-                    tokens: 4000,
-                    description: "Best for businesses with regular documentation needs.",
+                    title: "Business Pack",
+                    price: "30",
+                    description: "For businesses with ongoing QR needs.",
                     features: [
-                        "50 tokens included",
-                        "Dedicated support",
-                        "Multi-language manuals",
-                        "Custom industry guides",
-                        "Scalable for large teams"
+                        "Unlimited QR codes",
+                        "Full customization",
+                        "Priority support",
+                        "Bulk download/export"
                     ],
-                    buttonText: "Go Premium",
-                    buttonLink: "/checkout?plan=enterprise",
+                    buttonText: "Go Business",
+                    buttonLink: "/checkout?plan=business",
                 },
                 {
                     type: "pricing",
                     variant: "basic",
                     title: "Custom Pack",
                     price: "dynamic",
-                    tokens: 0,
-                    description: "Enter your own token amount and get instant pricing.",
+                    description: "Define your own package and get instant pricing.",
                     features: [
-                        "Flexible tokens",
-                        "Automatic price calculation",
+                        "Flexible number of QR codes",
+                        "Custom features",
                         "No expiration",
-                        "Perfect for custom needs"
+                        "Perfect for enterprises"
                     ],
-                    buttonText: "Buy Custom",
-                    buttonLink: "/checkout?plan=custom",
+                    buttonText: "Contact Us",
+                    buttonLink: "/contact",
                 },
             ],
         },
         {
             type: "section",
+            gap: "2rem",
             left: {
                 type: "media",
                 mediaType: "image",
                 src: "image1",
                 width: "100%",
                 height: "400px",
-                alt: "How tokens work",
+                alt: "How pricing works",
             },
             right: {
                 type: "text",
-                title: "How the Token System Works",
+                title: "How Our Pricing Works",
                 description:
-                    `Each manual you unlock requires tokens. Buy tokens once and use them whenever you need. Tokens never expire, so you have full flexibility to plan your documentation strategy without pressure.`,
+                    `You only pay for the QR codes you generate. Higher plans unlock more features and customization options. Your QR codes never expire, and you can download them anytime.`,
                 bullets: [
-                    "1 token = 1 manual (standard complexity)",
-                    "Advanced guides may require multiple tokens",
-                    "Tokens stay in your account until used",
+                    "Basic QR codes included in all plans",
+                    "Advanced features available in Pro/Business",
+                    "No hidden costs",
+                    "Transparent pay-as-you-go model",
                 ],
+                iconName: "settings",
+                iconSize: 40,
+                iconColor: "#28a745",
+                iconBg: "#e6ffe6",
             },
-        },
-        {
-            type: "grid",
-            columns: 2,
-            gap: "2rem",
-            cards: [
-                {
-                    image: "image2",
-                    title: "Why Tokens?",
-                    description:
-                        `Traditional subscriptions lock you into recurring payments. With ${COMPANY_NAME}, you only pay for the manuals you need — simple, transparent, and scalable.`,
-                    buttonLink: "/about-us",
-                    buttonText: "Learn More",
-                },
-                {
-                    image: "image3",
-                    title: "Enterprise Benefits",
-                    description:
-                        `Businesses can purchase larger token packages for teams. Save costs, gain dedicated support, and enjoy documentation tailored to your industry.`,
-                    buttonLink: "/contact",
-                    buttonText: "Contact Sales",
-                },
-            ],
         },
         {
             type: "section",
@@ -171,12 +164,16 @@ const pricingSchema: PageSchema = {
                 type: "text",
                 title: "What Our Customers Say",
                 description:
-                    `Thousands of users rely on ${COMPANY_NAME} for reliable documentation. From individuals to enterprises, our token-based pricing helps everyone access the knowledge they need.`,
+                    `Thousands of users trust ${COMPANY_NAME} for QR code generation. Our simple and affordable pricing works for freelancers, teams, and enterprises.`,
                 bullets: [
-                    `"Perfect for my freelance work — I only buy manuals when I need them."`,
-                    `"Our engineering team saves hours every week thanks to ${COMPANY_NAME} manuals."`,
-                    `"Affordable, flexible, and easy to use — highly recommended."`,
+                    `"Perfect for my restaurant menu QR codes — affordable and easy."`,
+                    `"Our marketing team uses ${COMPANY_NAME} for campaigns."`,
+                    `"Best QR code generator with real customization."`,
                 ],
+                iconName: "star",
+                iconSize: 48,
+                iconColor: "#FFD700",
+                iconBg: "#fffbe6",
                 centerTitle: true,
                 centerDescription: true,
                 centerBullets: true,
@@ -186,24 +183,24 @@ const pricingSchema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "Do tokens expire?",
-                    answer: "No. Tokens stay in your account until you decide to use them.",
+                    question: "Do QR codes expire?",
+                    answer: "No. Once generated and downloaded, your QR codes will always work.",
                 },
                 {
                     question: "Can I upgrade my plan later?",
-                    answer: "Yes. You can always purchase more tokens or switch to a larger package at any time.",
+                    answer: "Yes. You can upgrade at any time for more features and unlimited QR generation.",
                 },
                 {
-                    question: "How many tokens does a manual cost?",
-                    answer: "Most manuals cost 1 token. More complex or custom manuals may require additional tokens, which is always shown in advance.",
+                    question: "What formats are available?",
+                    answer: "QR codes can be downloaded in PNG, JPG, SVG, or PDF depending on your plan.",
                 },
                 {
                     question: "Do you offer refunds?",
-                    answer: "Unused tokens can be refunded within 14 days of purchase under our refund policy.",
+                    answer: "Refunds are available within 14 days for unused plans under our policy.",
                 },
                 {
-                    question: "Can businesses get custom pricing?",
-                    answer: `Yes. Enterprises can contact us directly for tailored packages, custom manuals, and dedicated support. Email: ${COMPANY_EMAIL}`,
+                    question: "Is support available?",
+                    answer: `Yes. We provide support for all plans. Email us at ${COMPANY_EMAIL} for assistance.`,
                 },
             ],
         },

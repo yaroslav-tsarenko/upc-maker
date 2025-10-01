@@ -1,8 +1,9 @@
 "use client";
 import * as React from "react";
-import Button from "@mui/joy/Button";
-import {ButtonUIProps} from "@/types/button-ui";
-import {buttonColors} from "@/resources/styles-config";
+import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
+import { ButtonUIProps } from "@/types/button-ui";
+import { buttonColors } from "@/resources/styles-config";
 
 const resolveColor = (color?: string) => {
     if (!color) return "";
@@ -25,9 +26,9 @@ const hexToRgba = (hex: string, alpha = 1) => {
 const ButtonUI: React.FC<ButtonUIProps & {
     hoverEffect?: "none" | "shadow" | "glow" | "scale";
 }> = ({
-          variant = "solid",
+          variant = "contained",
           shape = "default",
-          size = "md",
+          size = "medium",
           fullWidth = false,
           color = "primary",
           hoverColor = "hover",
@@ -51,14 +52,15 @@ const ButtonUI: React.FC<ButtonUIProps & {
         ? resolveColor(hoverTextColor)
         : resolvedText;
 
-    const circleSizes: Record<"sm" | "md" | "lg", number> = {
-        sm: 32,
-        md: 40,
-        lg: 56,
+    const circleSizes: Record<"small" | "medium" | "large", number> = {
+        small: 32,
+        medium: 40,
+        large: 56,
     };
     const isCircle = shape === "circle";
-    const side = circleSizes[size];
+    const side = circleSizes[size as keyof typeof circleSizes] || 40;
 
+    // Custom hover effects (for sx prop)
     const hoverEffects: Record<NonNullable<typeof hoverEffect>, any> = {
         none: {},
         shadow: {
@@ -74,64 +76,53 @@ const ButtonUI: React.FC<ButtonUIProps & {
         },
     };
 
+    // Custom variant styles (for sx prop)
     const byVariant =
         variant === "outlined"
             ? {
                 color: resolvedText || resolvedBase,
                 borderColor: resolvedBase,
-                bgcolor: "transparent",
+                backgroundColor: "transparent",
                 transition: "all 0.25s ease-in-out",
                 "&:hover": {
                     color: resolvedHoverText || resolvedHover,
                     borderColor: resolvedHover,
-                    bgcolor: hexToRgba(resolvedHover, 0.08),
+                    backgroundColor: hexToRgba(resolvedHover, 0.08),
                     ...hoverEffects[hoverEffect],
                 },
             }
-            : variant === "soft"
+            : variant === "text"
                 ? {
-                    color: resolvedText || resolveColor("inverse"),
-                    bgcolor: hexToRgba(resolvedBase, 0.85),
+                    color: resolvedText || resolvedBase,
+                    backgroundColor: "transparent",
                     transition: "all 0.25s ease-in-out",
                     "&:hover": {
-                        color: resolvedHoverText || resolveColor("inverse"),
-                        bgcolor: hexToRgba(resolvedHover, 1),
+                        color: resolvedHoverText || resolvedHover,
+                        backgroundColor: hexToRgba(resolvedHover, 0.12),
                         ...hoverEffects[hoverEffect],
                     },
                 }
-                : variant === "plain"
-                    ? {
-                        color: resolvedText || resolvedBase,
-                        bgcolor: "transparent",
-                        transition: "all 0.25s ease-in-out",
-                        "&:hover": {
-                            color: resolvedHoverText || resolvedHover,
-                            bgcolor: hexToRgba(resolvedHover, 0.12),
-                            ...hoverEffects[hoverEffect],
-                        },
-                    }
-                    : {
-                        // solid
-                        color: resolvedText || resolveColor("inverse"),
-                        bgcolor: resolvedBase,
-                        transition: "all 0.25s ease-in-out",
-                        "&:hover": {
-                            color: resolvedHoverText || resolveColor("inverse"),
-                            bgcolor: resolvedHover,
-                            ...hoverEffects[hoverEffect],
-                        },
-                    };
+                : {
+                    // contained
+                    color: resolvedText || resolveColor("inverse"),
+                    backgroundColor: resolvedBase,
+                    transition: "all 0.25s ease-in-out",
+                    "&:hover": {
+                        color: resolvedHoverText || resolveColor("inverse"),
+                        backgroundColor: resolvedHover,
+                        ...hoverEffects[hoverEffect],
+                    },
+                };
 
     return (
         <Button
             variant={variant}
             size={size}
             type={type}
-            disabled={disabled}
-            loading={loading}
+            disabled={disabled || loading}
             fullWidth={isCircle ? false : fullWidth}
-            startDecorator={startIcon}
-            endDecorator={endIcon}
+            startIcon={startIcon}
+            endIcon={endIcon}
             onClick={onClick}
             sx={{
                 borderRadius: isCircle ? "50%" : shape === "rounded" ? "30px" : "8px",
@@ -146,14 +137,14 @@ const ButtonUI: React.FC<ButtonUIProps & {
                     lineHeight: 1,
                     flex: "0 0 auto",
                     alignSelf: "center",
-                    "--Button-gap": "0px",
                 }),
                 fontFamily: "var(--font-family, 'Roboto', sans-serif)",
+                textTransform: "none",
                 ...byVariant,
                 ...sx,
             }}
         >
-            {isCircle ? null : (children ?? text)}
+            {loading ? <CircularProgress size={24} color="inherit" /> : (isCircle ? null : (children ?? text))}
         </Button>
     );
 };

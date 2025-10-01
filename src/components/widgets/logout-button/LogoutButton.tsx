@@ -17,7 +17,7 @@ export function LogoutButton({ all = false }: { all?: boolean }) {
         <ButtonUI
             type="button"
             onClick={handleClick}
-            shape="rounded"
+            shape="default"
             color="secondary"
             sx={{
                 width: { xs: "100%", sm: "100%", md: "auto" },

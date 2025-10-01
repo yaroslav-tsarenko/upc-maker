@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./Slider.module.scss";
 import { StaticImageData } from "next/image";
 import Image from "next/image";
-import ButtonUI from "@/components/ui/button/ButtonUI";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 interface SliderProps {
     images: StaticImageData[];
@@ -17,15 +17,11 @@ const Slider: React.FC<SliderProps> = ({ images, height = "400px" }) => {
     const next = () => setCurrent((current + 1) % images.length);
 
     return (
-        <div className={styles.slider} style={{ height, position: "relative" }}>
+        <div className={styles.slider} style={{ height }}>
             <div className={styles.navWrapperLeft}>
-                <ButtonUI
-                    sx={{ height: "150px", width: "40px", minWidth: 0, padding: 0 }}
-                    onClick={prev}
-                    aria-label="Previous"
-                >
-                    &#8592;
-                </ButtonUI>
+                <button className={styles.nav} onClick={prev} aria-label="Previous">
+                    <MdArrowBack />
+                </button>
             </div>
             <div className={styles.track} style={{ transform: `translateX(-${current * 100}%)` }}>
                 {images.map((img, idx) => (
@@ -40,13 +36,18 @@ const Slider: React.FC<SliderProps> = ({ images, height = "400px" }) => {
                 ))}
             </div>
             <div className={styles.navWrapperRight}>
-                <ButtonUI
-                    sx={{ height: "150px", width: "40px", minWidth: 0, padding: 0 }}
-                    onClick={next}
-                    aria-label="Next"
-                >
-                    &#8594;
-                </ButtonUI>
+                <button className={styles.nav} onClick={next} aria-label="Next">
+                    <MdArrowForward />
+                </button>
+            </div>
+            <div className={styles.dots}>
+                {images.map((_, idx) => (
+                    <span
+                        key={idx}
+                        className={`${styles.dot} ${current === idx ? styles.active : ""}`}
+                        onClick={() => setCurrent(idx)}
+                    />
+                ))}
             </div>
         </div>
     );

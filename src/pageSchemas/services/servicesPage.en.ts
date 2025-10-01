@@ -3,190 +3,261 @@ import { COMPANY_NAME } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `Our Services — ${COMPANY_NAME}`,
-        description:
-            `Explore ${COMPANY_NAME} services: custom manuals for tech devices, electronics, and equipment. Flexible token system, instant digital access, and trusted expertise for all your technology needs.`,
+        title: `QR Code Services — ${COMPANY_NAME}`,
+        description: `Discover all-in-one QR code services with ${COMPANY_NAME}. Create, customize, and manage QR codes with expert support and business-ready features.`,
         keywords: [
             `${COMPANY_NAME} services`,
-            "custom tech manuals",
-            "electronics guides",
-            "device documentation",
-            "IT equipment manuals",
-            "token system",
-            "digital manuals",
-            "technical guides"
+            "QR code generator",
+            "custom QR codes",
+            "bulk QR codes",
+            "secure QR codes",
+            "multi-language QR",
+            "business QR solutions"
         ],
         canonical: "/services",
         ogImage: {
-            title: `${COMPANY_NAME} Services`,
-            description:
-                "Professional manuals for tech devices, electronics, and equipment. Tailored, flexible, and token-based.",
-            bg: "#ffffff",
-            color: "#000000",
+            title: `${COMPANY_NAME} QR Services`,
+            description: "Generate and customize QR codes with powerful features for individuals and businesses.",
+            bg: "#f4faff",
+            color: "#0070f3",
         },
     },
     blocks: [
         {
+            type: "hero",
+            bgImage: "image1",
+            title: `Welcome to ${COMPANY_NAME}`,
+            description: "Your all-in-one solution for generating and customizing QR codes quickly and affordably.",
+            buttons: [
+                { text: "Generate QR Code", link: "/qr-generator", color: "primary" },
+                { text: "See Pricing", link: "/pricing", color: "secondary" }
+            ]
+        },
+        {
             type: "section",
+            align: "center",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: "Custom Manuals for Tech Devices",
-                description:
-                    `Every tech device, electronic tool, and IT equipment is unique. That’s why ${COMPANY_NAME} creates manuals designed for your specific technology needs. Whether you’re working with smartphones, computers, smart home devices, or industrial electronics, our experts deliver clear, structured, and accurate documentation.`,
+                title: "Cloud-Based QR Management",
+                description: "Create and save QR codes online. Access your codes anytime, from any device.",
                 bullets: [
-                    "Individually tailored tech guides",
-                    "Specialist-created content for electronics",
-                    "From home gadgets to industrial IT equipment",
+                    "Secure online storage",
+                    "Download anytime",
+                    "Organize your codes"
                 ],
+                iconName: "cloud",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
+                centerTitle: false,
+                centerDescription: false,
+                centerBullets: false,
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image1",
+                src: "image2",
                 width: "100%",
                 height: "400px",
-                alt: "Custom tech manuals service",
-            },
+                alt: "Cloud QR management",
+            }
         },
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
-            cards: [
+            items: [
                 {
-                    image: "image2",
-                    title: "Quick Start Guides",
-                    description: "Concise manuals to get your tech device or electronic equipment running fast.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Get Started",
+                    key: "multiLang",
+                    block: {
+                        type: "text",
+                        title: "Multi-Language Support",
+                        description: "Generate QR codes with localized content in multiple languages.",
+                        bullets: [
+                            "Language selector",
+                            "Localized QR data",
+                            "Perfect for global teams"
+                        ],
+                        iconName: "language",
+                        iconSize: 40,
+                        iconColor: "#FFD700",
+                        iconBg: "#fffbe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: true,
+                    }
                 },
                 {
-                    image: "image3",
-                    title: "Step-by-Step Tutorials",
-                    description:
-                        "Detailed walkthroughs for setting up, troubleshooting, and maintaining your technology.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Unlock Now",
+                    key: "security",
+                    block: {
+                        type: "text",
+                        title: "Security & Privacy",
+                        description: "Your QR codes and data are protected with enterprise-grade security.",
+                        bullets: [
+                            "Secure access",
+                            "Data encryption",
+                            "Verified accounts"
+                        ],
+                        iconName: "security",
+                        iconSize: 40,
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: true,
+                    }
                 },
                 {
-                    image: "image4",
-                    title: "Maintenance Manuals",
-                    description:
-                        "Stay ahead with manuals that cover regular checks and preventive care for electronics and IT devices.",
-                    buttonLink: "/sign-up",
-                    buttonText: "View Guides",
+                    key: "favorites",
+                    block: {
+                        type: "text",
+                        title: "Favorites & Quick Access",
+                        description: "Save and access your most-used QR codes instantly from your dashboard.",
+                        bullets: [
+                            "Mark favorite codes",
+                            "Quick dashboard access",
+                            "Personalized library"
+                        ],
+                        iconName: "favorite",
+                        iconSize: 40,
+                        iconColor: "#e91e63",
+                        iconBg: "#ffe6f0",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: true,
+                    }
                 },
-            ],
+            ]
         },
         {
             type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image5",
-                width: "100%",
-                height: "400px",
-                alt: "Token based access",
-            },
-            right: {
-                type: "text",
-                title: "Flexible Token System",
-                description:
-                    `No subscriptions. With ${COMPANY_NAME}, you purchase tokens and spend them only on the tech manuals you need. Unlock guides for smartphones, computers, smart devices, and more — simple, scalable, and transparent.`,
-                bullets: [
-                    "No monthly fees",
-                    "Pay per manual you unlock",
-                    "Scales with your usage",
-                    "Perfect for individuals and businesses",
-                ],
-            },
-        },
-        {
-            type: "section",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: "Instant Digital Access",
-                description:
-                    `${COMPANY_NAME} manuals for tech devices and electronics are available instantly after unlocking. Access them from your dashboard, download for offline use, and keep your digital library organized.`,
+                title: "Business Solutions",
+                description: "Scale your QR code usage with business-ready features and custom support.",
                 bullets: [
-                    "Immediate availability",
-                    "Cloud-based and offline access",
-                    "Download and re-access anytime",
+                    "Bulk QR code generation",
+                    "Custom branding",
+                    "Dedicated account manager"
                 ],
+                iconName: "business",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
+                centerTitle: false,
+                centerDescription: false,
+                centerBullets: false,
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image6",
+                src: "image3",
                 width: "100%",
                 height: "400px",
-                alt: "Instant access",
-            },
+                alt: "Business QR solutions",
+            }
         },
         {
             type: "grid",
             columns: 2,
             gap: "2rem",
-            cards: [
+            items: [
                 {
-                    image: "image7",
-                    title: "Industry-Specific Tech Manuals",
-                    description:
-                        "Tailored guides for healthcare devices, construction electronics, IT, and manufacturing equipment.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Learn More",
+                    key: "support",
+                    block: {
+                        type: "text",
+                        title: "Expert Support",
+                        description: "Our team helps you with setup, customization, and business integration.",
+                        bullets: [
+                            "Fast response times",
+                            "Technical guidance",
+                            "Personalized help"
+                        ],
+                        iconName: "help",
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: true,
+                    }
                 },
                 {
-                    image: "image8",
-                    title: "Multi-Language Documentation",
-                    description:
-                        "Access tech manuals in your preferred language for global teams and diverse users.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Start Now",
+                    key: "settings",
+                    block: {
+                        type: "text",
+                        title: "Easy Customization",
+                        description: "Adjust colors, add logos, and set options with an intuitive interface.",
+                        bullets: [
+                            "Color & style options",
+                            "Logo integration",
+                            "Flexible output formats"
+                        ],
+                        iconName: "settings",
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: true,
+                    }
                 },
-            ],
+            ]
         },
         {
             type: "section",
             align: "center",
-            gap: "3rem",
+            gap: "2rem",
             left: {
-                type: "text",
-                title: "Trusted by Tech Professionals and Users",
-                description:
-                    `From engineers and IT specialists to everyday users, ${COMPANY_NAME} is the go-to source for reliable tech manuals. Our service blends professional accuracy with easy access for anyone who needs structured knowledge about technology and electronics.`,
-                bullets: [
-                    "Relied upon across tech industries",
-                    "Used by professionals and individuals",
-                    "Backed by expert verification",
-                ],
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
+                type: "media",
+                mediaType: "image",
+                src: "image4",
+                width: "100%",
+                height: "400px",
+                alt: "Customer feedback",
             },
+            right: {
+                type: "text",
+                title: "Customer Success Stories",
+                description: `Thousands of users trust ${COMPANY_NAME} for reliable QR code generation. See how our services help businesses and individuals succeed.`,
+                bullets: [
+                    `"I created branded QR codes for my café in minutes."`,
+                    `"Our marketing team boosted engagement with custom QR campaigns."`,
+                    `"Fast, reliable, and affordable — highly recommended."`
+                ],
+                centerTitle: false,
+                centerDescription: false,
+                centerBullets: false,
+                iconName: "star",
+                iconSize: 48,
+                iconColor: "#FFD700",
+                iconBg: "#fffbe6",
+            }
         },
         {
             type: "faq",
             items: [
                 {
-                    question: `What services does ${COMPANY_NAME} provide?`,
-                    answer:
-                        "We offer custom manuals, quick start guides, tutorials, and detailed documentation for tech devices, electronics, and IT equipment across industries.",
+                    question: "How do I generate QR codes?",
+                    answer: "Simply go to the QR Generator, enter your data, customize the design, and download instantly.",
                 },
                 {
-                    question: "How does the token system work?",
-                    answer:
-                        "You purchase tokens and spend them on manuals. Each guide costs a certain number of tokens depending on its complexity. The more manuals you need, the more tokens you can purchase.",
+                    question: "Are QR codes secure?",
+                    answer: "Yes. All generated codes are private to your account and can include secure URLs.",
                 },
                 {
-                    question: "Can I use manuals offline?",
-                    answer:
-                        "Yes. Once unlocked, manuals can be downloaded and accessed anytime, even without an internet connection.",
+                    question: "Do you support businesses?",
+                    answer: "Absolutely! We offer bulk generation, custom branding, and enterprise features.",
                 },
                 {
-                    question: "Do you provide manuals in multiple languages?",
-                    answer:
-                        `${COMPANY_NAME} supports multi-language documentation to meet the needs of global users.`,
+                    question: "Can I create multi-language QR codes?",
+                    answer: "Yes, you can generate QR codes that link to localized content or use multilingual text.",
+                },
+                {
+                    question: "Can I save favorite QR codes?",
+                    answer: "Yes, you can mark your QR codes as favorites for quick access in your dashboard.",
                 },
             ],
         },

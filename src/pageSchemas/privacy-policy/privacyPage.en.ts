@@ -10,13 +10,13 @@ import {
 const privacyPolicySchema: PageSchema = {
     meta: {
         title: `Privacy Policy – ${COMPANY_NAME}`,
-        description: `Short Privacy Policy for ${COMPANY_NAME}: what data we collect, why, how long we keep it, and your rights.`,
+        description: `Privacy Policy for ${COMPANY_NAME}: what personal data we collect, how we use it for QR code generation, how long we keep it, and your rights.`,
         keywords: [
             "privacy policy",
             "data protection",
             "gdpr",
-            COMPANY_NAME?.toLowerCase() || "manuals",
-            "manuals",
+            COMPANY_NAME?.toLowerCase() || "qr-codes",
+            "qr codes",
             "personal data",
             "security"
         ],
@@ -32,59 +32,58 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: "We respect your privacy. This short Privacy Policy explains what personal data we collect, why we use it, how long we keep it and how you can exercise your rights."
+            description: `We respect your privacy. This Privacy Policy explains what personal data ${COMPANY_NAME} collects when you use our QR code generator, why we use it, how long we keep it, and how you can exercise your rights.`
         },
         {
             type: "text",
             title: "2. Data We Collect",
             bullets: [
-                "Name, email, billing address",
-                "Payment transaction references (not full card data)",
-                "Order history",
-                "Account credentials (hashed)",
-                "IP address, device and access logs",
-                "Support correspondence"
+                "Name, email, and account details (if you register)",
+                "Payment transaction references for premium features (not full card data)",
+                "QR code generation history and saved projects (if logged in)",
+                "IP address, device details, and access logs",
+                "Support requests and correspondence"
             ]
         },
         {
             type: "text",
             title: "3. Why We Process Your Data & Legal Bases",
             bullets: [
-                "To provide and operate the Service and deliver digital products (performance of contract)",
-                "To process payments and prevent fraud (legal obligation / legitimate interests)",
+                "To provide QR code generation, customization, and related features (performance of contract)",
+                "To process payments for premium services and prevent fraud (legal obligation / legitimate interests)",
                 "To respond to support requests and manage refunds (performance of contract / legitimate interests)",
-                "To send marketing where you consent (consent)"
+                "To send marketing communications if you opt in (consent)"
             ]
         },
         {
             type: "text",
             title: "4. Sharing and Transfers",
-            description: "We share data with payment processors, cloud hosting providers, analytics and support tools, and professional advisers where necessary. Some processors may be outside the UK/EEA; we use approved safeguards (UK adequacy, SCCs or equivalent) for any transfers."
+            description: "We share data with payment providers, hosting/cloud platforms, analytics, and support tools where necessary. Some processors may operate outside the UK/EEA; where transfers occur we apply safeguards such as UK adequacy decisions and Standard Contractual Clauses (SCCs)."
         },
         {
             type: "text",
             title: "5. Cookies",
-            description: "We use cookies and similar technologies. Essential cookies are required for core functionality. For details and opt-outs see our Cookie Policy."
+            description: "We use cookies and similar technologies to keep the site functional (e.g. login sessions, preferences) and to measure performance. For details and consent management, see our Cookie Policy."
         },
         {
             type: "text",
             title: "6. Retention",
-            description: "We retain order and transaction records (including token ledger and checkout acknowledgement evidence) for a minimum of 24 months and up to 6 years for disputed or enterprise matters. Other account and support data are retained only as long as necessary."
+            description: "We keep account, billing, and transaction records for a minimum of 24 months and up to 6 years for disputes or compliance. Saved QR codes and design history are retained as long as your account is active, unless you delete them."
         },
         {
             type: "text",
             title: "7. Your Rights",
-            description: "You have rights under data protection law, including access, rectification, erasure, restriction, portability, objection and withdrawal of consent. To exercise rights contact info@ilovemanual.co.uk. We may request ID to verify requests."
+            description: "You have rights under data protection law, including access, correction, deletion, restriction, portability, objection, and withdrawal of consent. To exercise these rights, contact us at " + COMPANY_EMAIL + ". We may request ID for verification."
         },
         {
             type: "text",
             title: "8. Security",
-            description: "We implement reasonable technical and organisational measures (access controls, encryption in transit, logging and backups) to protect personal data."
+            description: "We use reasonable technical and organisational measures to protect personal data, including encryption in transit, secure storage, access controls, logging, and regular backups."
         },
         {
             type: "text",
             title: "9. Changes",
-            description: "We may update this Policy. Material changes will be notified by email or a prominent notice on the Service."
+            description: "We may update this Policy when we add new features or legal requirements change. Significant updates will be notified by email or a prominent notice on our website."
         },
         {
             type: "text",
@@ -92,13 +91,13 @@ const privacyPolicySchema: PageSchema = {
             bullets: [
                 `Data protection enquiries: ${COMPANY_EMAIL}`,
                 `Support: ${COMPANY_EMAIL}`,
-                "If unsatisfied, you may lodge a complaint with the UK Information Commissioner’s Office (ICO)."
+                "If you are unsatisfied, you may lodge a complaint with the UK Information Commissioner’s Office (ICO) or your local data protection authority."
             ]
         },
         {
             type: "text",
             title: "Effective Date",
-            description: "This Privacy Policy takes effect upon publication and supersedes any prior versions."
+            description: "This Privacy Policy takes effect upon publication and supersedes all earlier versions."
         },
         {
             type: "text",

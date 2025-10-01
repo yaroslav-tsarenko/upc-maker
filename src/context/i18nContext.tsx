@@ -12,7 +12,7 @@ type I18nContextType = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-    const [lang, setLangState] = useState<LangCode>("tr");
+    const [lang, setLangState] = useState<LangCode>("en");
 
     useEffect(() => {
         try {
@@ -25,10 +25,10 @@ export const I18nProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
             if (browser.startsWith("en")) {
                 setLangState("en");
             } else {
-                setLangState("tr");
+                setLangState("en");
             }
         } catch {
-            setLangState("tr");
+            setLangState("en");
         }
     }, []);
 

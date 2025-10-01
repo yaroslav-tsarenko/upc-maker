@@ -106,11 +106,9 @@ const cookiePolicyTr: PageSchema = {
             type: "text",
             title: "10. İletişim",
             bullets: [
-                "privacy@ilovemanual.co.uk",
                 `Genel: ${COMPANY_EMAIL}`,
                 `Hukuki: ${COMPANY_LEGAL_NAME}`,
                 `Adres: ${COMPANY_ADDRESS}`,
-                "LIGHTING UP THE SKY LTD — Dept 6265, 126 East Ferry Road, Canary Wharf, London, E14 9FP."
             ]
         }
     ]

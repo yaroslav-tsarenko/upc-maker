@@ -2,20 +2,15 @@
   width: 100%;
   max-width: 700px;
   margin: 2rem auto;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  background: white;
-  padding: 2rem;
-  border-radius: 16px;
-
-  @media screen and (max-width: 1028px) {
-    padding: 1rem;
-    margin: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent;
+  padding: 0;
 }
 
 .item {
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
+  transition: box-shadow 0.3s, border 0.3s;
 }
 
 .question {
@@ -48,7 +43,7 @@
 
 .answer {
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.3s;
+  transition: max-height 0.5s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.4s, padding 0.3s;
 }
 
 .answerContent {
@@ -60,6 +55,7 @@
 .wrapper {
   display: flex;
   width: 100%;
+  flex-direction: column;
   align-content: center;
   align-items: center;
   justify-content: center;
@@ -70,12 +66,12 @@
     margin: 20px 0;
   }
 
-  h2{
-    font-size: 5.5rem;
+  h2 {
+    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--dark-grey);
+    color: var(--dark-grey, #222);
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     @media screen and (max-width: 1028px) {
       font-size: 1.5rem;

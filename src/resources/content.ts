@@ -23,7 +23,7 @@ export const headerContent = {
 };
 
 export const footerContent = {
-    logo: { src: media.logo_white.src, alt: "Site Logo", href: "/" },
+    logo: { src: media.logo.src, alt: "Site Logo", href: "/" },
     columns: [
         {
             title: "Navigation",

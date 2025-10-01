@@ -1,48 +1,50 @@
-import React, { useState } from "react";
-import { ToggleButton, ToggleButtonGroup, Select, MenuItem, SelectChangeEvent } from "@mui/material";
+import React from "react";
+import { ButtonGroup, Button, Select, Option } from "@mui/joy";
 import styles from "./Selectors.module.scss";
 import { useI18n } from "@/context/i18nContext";
-import {useCurrency} from "@/context/CurrencyContext";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const Selectors = () => {
     const { currency, setCurrency } = useCurrency();
     const { lang, setLang } = useI18n();
 
-    const handleLanguageChange = (e: SelectChangeEvent) => {
-        const newLang = e.target.value as "en" | "tr";
-        setLang(newLang);
-    };
-
     return (
         <div className={styles.selectorsWrapper}>
             <div className={styles.selectorBlock}>
-                <ToggleButtonGroup
-                    sx={{
-                        backgroundColor: "#fff",
-                    }}
-                    value={currency}
-                    exclusive
-                    onChange={(_, val) => val && setCurrency(val)}
-                    size="small"
-                    color="primary"
-                    className={styles.toggleGroup}
-                >
-                    <ToggleButton value="GBP">GBP</ToggleButton>
-                    <ToggleButton value="USD">USD</ToggleButton>
-                    <ToggleButton value="EUR">EUR</ToggleButton>
-                </ToggleButtonGroup>
-            </div>
-            <div className={styles.selectorBlock}>
                 <Select
-                    value={lang}
-                    onChange={handleLanguageChange}
-                    size="small"
-                    className={styles.select}
+                    value={currency}
+                    onChange={(_, newValue) => newValue && setCurrency(newValue)}
+                    size="md"
+                    variant="soft"
+                    sx={{
+                        background: "#f7f7fa",
+                        borderRadius: "8px",
+                        minWidth: 120,
+                        fontWeight: 600,
+                    }}
                 >
-                    <MenuItem value="en">English</MenuItem>
-                    <MenuItem value="tr">Türkçe</MenuItem>
+                    <Option value="GBP">GBP</Option>
+                    <Option value="USD">USD</Option>
+                    <Option value="EUR">EUR</Option>
                 </Select>
             </div>
+            {/*<div className={styles.selectorBlock}>
+                <Select
+                    value={lang}
+                    onChange={(_, newValue) => newValue && setLang(newValue as "en" | "tr")}
+                    size="md"
+                    variant="soft"
+                    sx={{
+                        background: "#f7f7fa",
+                        borderRadius: "8px",
+                        minWidth: 120,
+                        fontWeight: 600,
+                    }}
+                >
+                    <Option value="en">English</Option>
+                    <Option value="tr">Türkçe</Option>
+                </Select>
+            </div>*/}
         </div>
     );
 };

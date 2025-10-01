@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ image, title, description, buttonText, butt
             <p className={styles.description}>{description}</p>
             {buttonText && buttonLink && (
                 <a href={buttonLink} style={{ textDecoration: "none" }}>
-                    <ButtonUI type="button" sx={{ width: "100%"}}>
+                    <ButtonUI color="linkHover" hoverColor="linkHover" type="button" sx={{ width: "100%"}}>
                         {buttonText}
                     </ButtonUI>
                 </a>

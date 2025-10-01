@@ -1,14 +1,43 @@
 import type {CSSProperties} from "react";
 
-export type TextBlock = {
-    type: "text";
+
+export interface TextButton {
+    text: string;
+    link: string;
+    color?: "primary" | "secondary" | "tertiary";
+}
+
+export interface HeroButton {
+    text: string;
+    link: string;
+    color?: "primary" | "secondary" | "tertiary";
+}
+
+export type HeroBlock = {
+    type: "hero";
+    bgImage?: string | number;
     title?: string;
     description?: string;
+    buttons?: HeroButton[];
+}
+
+export interface TextBlock {
+    type: "text";
+    title?: string;
+    titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+    description?: string;
     bullets?: string[];
+    descriptionWithBullets?: string[];
     centerTitle?: boolean;
     centerDescription?: boolean;
     centerBullets?: boolean;
-};
+    iconName?: string;
+    iconSize?: number;
+    iconColor?: string;
+    iconBg?: string;
+    iconAlign?: "center" | "left" | "right";
+    buttons?: TextButton[];
+}
 
 export type OgImageInput =
     | string
@@ -99,7 +128,11 @@ export type PricingBlock = {
     features: string[];
     buttonText: string;
     buttonLink: string;
-}
+};
+
+export type QRGeneratorBlock = {
+    type: "qr-generator";
+};
 
 
 export type PageBlock =
@@ -110,7 +143,9 @@ export type PageBlock =
     | CardBlock
     | SectionBlock
     | PricingBlock
-    | GridBlock;
+    | GridBlock
+    | HeroBlock
+    | QRGeneratorBlock;
 
 export type PageSchema = {
     meta: MetaSchema;

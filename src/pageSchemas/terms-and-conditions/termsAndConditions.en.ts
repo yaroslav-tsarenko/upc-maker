@@ -10,13 +10,13 @@ import {
 const termsSchema: PageSchema = {
     meta: {
         title: `Terms & Conditions – ${COMPANY_NAME}`,
-        description: `Terms for using ${COMPANY_NAME}: accounts, tokens, orders, refunds, IP, liability, privacy, and more.`,
+        description: `Terms for using ${COMPANY_NAME}: accounts, QR code generation, payments, refunds, IP, liability, privacy, and more.`,
         keywords: [
             "terms",
             "terms and conditions",
             "contract",
-            COMPANY_NAME?.toLowerCase() || "manuals",
-            "manuals",
+            COMPANY_NAME?.toLowerCase() || "qr-codes",
+            "qr codes",
             "privacy",
             "liability",
             "payment",
@@ -25,7 +25,7 @@ const termsSchema: PageSchema = {
         canonical: "/terms",
         ogImage: {
             title: `${COMPANY_NAME} – Terms`,
-            description: "Transparent conditions. Manuals made simple.",
+            description: "Transparent conditions. QR codes made simple.",
             bg: "#ffffff",
             color: "#000000"
         }
@@ -39,16 +39,16 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, purchasing tokens, downloading or ordering manuals or other digital content, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
+            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, generating or customizing QR codes, or purchasing premium features, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
         },
         {
             type: "text",
             title: "2. Definitions",
             bullets: [
                 `"Account" means the User account created on the Service.`,
-                `"Manual(s)" means any digital document, guide, instructions, drawing, checklist, specification or other content made available by the Company through the Service in any format (including PDF and DOCX).`,
-                `"Token(s)" means the Service’s internal unit of account used to obtain Manuals or other Products via the Service.`,
-                `"Product(s)" means Manuals and any other goods or services offered via the Service.`,
+                `"QR Code(s)" means any digital QR code created or customized via the Service (including PNG, SVG, JPEG or PDF formats).`,
+                `"Feature(s)" means additional design, customization, export, or tracking functionalities available on the Service.`,
+                `"Product(s)" means QR Codes and any other goods or services offered via the Service.`,
                 `"You/Your/Customer" means the person or legal entity who uses the Service or purchases Products.`
             ]
         },
@@ -63,14 +63,12 @@ const termsSchema: PageSchema = {
         },
         {
             type: "text",
-            title: "4. Tokens",
+            title: "4. Services and Features",
             bullets: [
-                "Tokens are a virtual internal accounting mechanism used to purchase Products on the Service. Tokens are not legal tender, electronic money, securities or investments and do not confer any rights or obligations other than those expressly set out in these Terms.",
-                "The indicative nominal value of one Token will be 0.01 (one hundredth) of the chosen currency unit (e.g. £0.01, €0.01 or $0.01). The actual nominal value applying to a specific purchase will be displayed at checkout.",
-                "The Company may vary the nominal value of Tokens from time to time. Any change applies only to Tokens purchased after the change is displayed; existing Tokens are unaffected.",
-                "Product prices are expressed in Tokens. Each Product description specifies the number of Tokens required. Where a fiat equivalent is shown, the final fiat amount is calculated by reference to the Token nominal value at checkout.",
-                "Tokens are credited to your Account after payment and debited when redeemed. Unused Tokens may be refundable as per the Refund Policy (see clause 6).",
-                "The Company may offer promotional or discounted Token rates or bundles. Promotional terms will be specified at the time."
+                "Basic QR Code generation is free of charge.",
+                "Premium features (such as custom branding, social media icons, high-resolution exports, analytics, and API access) may require payment.",
+                "Products are delivered digitally through your dashboard or via download links.",
+                "We may update, add, or remove features from time to time."
             ]
         },
         {
@@ -79,17 +77,17 @@ const termsSchema: PageSchema = {
             bullets: [
                 "All orders are subject to acceptance by the Company. We may refuse or cancel any order for any reason, including suspected fraud, technical errors, or errors in price or product description.",
                 "Accepted payment methods are displayed at checkout. You warrant that you are authorised to use any payment method you provide.",
-                "At checkout you will be shown: (a) the number of Tokens to be purchased or used; (b) the Token nominal value; (c) the total fiat amount; and (d) any applicable taxes, fees and charges. You must confirm these before completing the transaction.",
-                "Title to and risk in any downloadable Product passes to you on provision of the download link or access credentials. The Company will endeavour to provide Products promptly but does not guarantee continuous availability."
+                "At checkout you will be shown: (a) the price of the selected features or products; (b) applicable taxes, fees and charges. You must confirm these before completing the transaction.",
+                "Products are delivered digitally and considered provided once download or access is granted. We do not guarantee continuous availability of the Service."
             ]
         },
         {
             type: "text",
             title: "6. Refunds, Cancellation and Consumer Rights",
             bullets: [
-                "Under UK consumer law, you may have a statutory right to cancel certain distance contracts. However, this right may be lost where digital content is supplied immediately after your express agreement to begin supply without the right to cancel. By confirming immediate delivery at checkout you accept loss of the right to cancel for that transaction.",
-                "Unused Tokens may be refunded at the purchase price in fiat currency if a refund request is made before use. Refunds may be subject to deduction of transaction fees.",
-                `If a Product is defective, not as described, or not as contracted, contact our support team at ${COMPANY_EMAIL}. If we cannot remedy the issue within a reasonable time, you may be entitled to a refund or other remedy under law.`,
+                "Under UK consumer law, you may have a statutory right to cancel certain distance contracts. However, this right may be lost where digital content is supplied immediately after your express agreement to begin supply without the right to cancel.",
+                "Refunds may be available only for unused or defective purchases. Refund requests must be submitted before use.",
+                `If a Product (QR code export or feature) is defective or not as described, contact our support team at ${COMPANY_EMAIL}. If we cannot remedy the issue within a reasonable time, you may be entitled to a refund or other remedy under law.`,
                 `To request a refund, contact us at ${COMPANY_EMAIL} with your Account details, order reference and full details. We will investigate and respond within a reasonable time.`
             ]
         },
@@ -98,11 +96,10 @@ const termsSchema: PageSchema = {
             title: "7. Intellectual Property Rights",
             bullets: [
                 `All intellectual property rights in the Service and Products are owned by or licensed to ${COMPANY_LEGAL_NAME} unless otherwise indicated.`,
-                "On purchase of a Product, you are granted a limited, non-exclusive, non-transferable, revocable licence to use it for your personal or internal business use only. Unless agreed in writing, you may not:",
-                "(a) copy, reproduce, modify, create derivative works from, distribute, transmit, publish, display or sell the Product in whole or in part;",
-                "(b) remove, alter or obscure any copyright, trade mark or other proprietary notice in the Product; or",
-                "(c) upload or make the Product available to any third party or use it to provide services to third parties.",
-                "For custom Manuals, a separate written agreement may specify IP terms."
+                "On generation of a QR Code, you are granted a limited, non-exclusive, non-transferable, revocable licence to use it for your personal or business purposes. Unless agreed in writing, you may not:",
+                "(a) resell QR codes as a standalone product;",
+                "(b) remove or obscure any copyright, trade mark or other proprietary notice on the Service;",
+                "(c) misuse the Service to generate QR codes for illegal, harmful, or fraudulent purposes."
             ]
         },
         {
@@ -145,7 +142,7 @@ const termsSchema: PageSchema = {
             title: "13. Suspension and Termination",
             bullets: [
                 "We may suspend, restrict or terminate your access to the Service or your Account immediately and without notice if we reasonably suspect breach of these Terms, fraudulent or illegal activity, or for security or technical reasons.",
-                "Upon suspension or termination, any rights licensed to you cease immediately and you must delete or destroy all copies of the Products in your possession unless otherwise agreed in writing. Termination does not affect accrued rights or liabilities."
+                "Upon suspension or termination, any rights licensed to you cease immediately. Termination does not affect accrued rights or liabilities."
             ]
         },
         {

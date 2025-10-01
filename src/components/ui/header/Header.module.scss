@@ -70,13 +70,13 @@
   display: flex;
   gap: 24px;
   text-decoration: none;
-
 }
 
 .link {
   text-decoration: none;
   color: var(--link-color);
   font-weight: 500;
+  font-size: 13px;
   transition: color 0.2s ease;
 
   &:hover {

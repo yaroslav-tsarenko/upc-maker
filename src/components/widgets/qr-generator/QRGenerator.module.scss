@@ -1,0 +1,75 @@
+.layout {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column-reverse;
+  }
+}
+
+.leftBlock,
+.rightBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 320px;
+}
+
+.previewBlock {
+  flex: 1 1 360px;
+  background: white;
+  padding: 24px;
+  height: fit-content;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.previewTitle {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.downloadBtns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.colorSquare {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pickerPopup {
+  position: absolute;
+  top: 40px;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

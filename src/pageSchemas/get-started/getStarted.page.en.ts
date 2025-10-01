@@ -1,45 +1,57 @@
 import { PageSchema } from "@/components/constructor/page-render/types";
-import {
-    COMPANY_NAME,
-    COMPANY_EMAIL,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
-} from "@/resources/constants";
+import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `Get Started — ${COMPANY_NAME}`,
-        description:
-            `Learn how to get started with ${COMPANY_NAME}: create an account, purchase tokens, and unlock manuals instantly. Follow simple steps to access expert documentation.`,
+        title: `QR Code Generator — ${COMPANY_NAME}`,
+        description: `Generate QR codes easily, quickly, and affordably for any need. Customize your QR codes and access them instantly on any device.`,
         keywords: [
-            `${COMPANY_NAME} get started`,
-            `how to use ${COMPANY_NAME}`,
-            "manuals access",
-            "unlock guides",
-            "purchase tokens",
-            "documentation steps"
+            "QR code generator",
+            "custom QR codes",
+            "affordable QR codes",
+            "instant QR code creation",
+            "multi-device QR codes",
+            "easy QR code customization"
         ],
-        canonical: "/get-started",
+        canonical: "/qr-generator",
         ogImage: {
-            title: `Get Started with ${COMPANY_NAME}`,
-            description:
-                `Follow simple steps to create your account, buy tokens, and unlock manuals instantly.`,
-            bg: "#ffffff",
-            color: "#000000",
+            title: `QR Code Generator`,
+            description: "Create and customize QR codes instantly.",
+            bg: "#f4faff",
+            color: "#0070f3",
         },
     },
     blocks: [
+        {
+            type: "hero",
+            bgImage: "image10",
+            title: "Generate QR Codes Instantly",
+            description: "Create, customize, and download QR codes for any purpose — fast, easy, and affordable.",
+            buttons: [
+                { text: "Try QR Generator", link: "/qr-generator", color: "primary" },
+                { text: "Learn More", link: "/faq", color: "secondary" },
+            ],
+        },
         {
             type: "section",
             align: "center",
             left: {
                 type: "text",
-                title: `Start Your Journey with ${COMPANY_NAME}`,
-                description:
-                    `Getting started is simple. In just a few steps, you can create your account, buy tokens, and access professional manuals tailored to your needs. Follow the guide below to unlock your first manual.`,
+                title: "Why Use Our QR Code Generator?",
+                description: "Our platform lets you create QR codes for business, events, marketing, or personal use. No technical skills required — just enter your data and get your code.",
+                bullets: [
+                    "Instant QR code creation",
+                    "Easy customization options",
+                    "Affordable pricing",
+                    "Works on all devices",
+                ],
+                iconName: "qr",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
                 centerTitle: true,
                 centerDescription: true,
+                centerBullets: true,
             },
         },
         {
@@ -49,27 +61,24 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image1",
-                    title: "Step 1 — Create an Account",
-                    description:
-                        `Sign up with your email to access your dashboard, manage tokens, and store your manuals securely.`,
-                    buttonLink: "/sign-up",
-                    buttonText: "Sign Up",
+                    title: "Step 1 — Enter Your Data",
+                    description: "Type in a URL, text, contact info, or any data you want to encode.",
+                    buttonLink: "/qr-generator",
+                    buttonText: "Start Now",
                 },
                 {
                     image: "image2",
-                    title: "Step 2 — Buy Tokens",
-                    description:
-                        `Purchase tokens based on your needs. Tokens give you flexible access to manuals without subscription pressure.`,
-                    buttonLink: "/pricing",
-                    buttonText: "View Pricing",
+                    title: "Step 2 — Customize Your QR Code",
+                    description: "Choose colors, add a logo, and set the size to match your brand or style.",
+                    buttonLink: "/qr-generator",
+                    buttonText: "Customize",
                 },
                 {
                     image: "image3",
-                    title: "Step 3 — Unlock Manuals",
-                    description:
-                        `Use tokens to unlock the manuals you need. Instantly access them online, download, and save for future use.`,
-                    buttonLink: "/services",
-                    buttonText: "Browse Manuals",
+                    title: "Step 3 — Download & Share",
+                    description: "Download your QR code in high quality and use it anywhere — print, web, or mobile.",
+                    buttonLink: "/qr-generator",
+                    buttonText: "Download",
                 },
             ],
         },
@@ -81,32 +90,38 @@ const schema: PageSchema = {
                 src: "image4",
                 width: "100%",
                 height: "400px",
-                alt: "Dashboard preview",
+                alt: "QR code customization preview",
             },
             right: {
                 type: "text",
-                title: `Manage Everything in One Dashboard`,
-                description:
-                    `Your ${COMPANY_NAME} dashboard is the control center for your knowledge. Check your token balance, view your unlocked manuals, and track your download history — all in one place.`,
+                title: "Customize Your QR Codes",
+                description: "Easily change colors, add your logo, and select the format you need. Make your QR codes stand out and match your brand.",
                 bullets: [
-                    "Track tokens and usage history",
-                    "Browse manuals by category",
-                    "Revisit and download unlocked guides anytime",
+                    "Color and style options",
+                    "Logo upload",
+                    "Multiple formats: PNG, SVG, PDF",
                 ],
+                iconName: "settings",
+                iconSize: 40,
+                iconColor: "#28a745",
+                iconBg: "#e6ffe6",
             },
         },
         {
             type: "section",
             left: {
                 type: "text",
-                title: `Scale Your Access with Token Packages`,
-                description:
-                    `Whether you need a single manual or an entire library, ${COMPANY_NAME} adapts to your needs. Purchase more tokens to unlock additional manuals and grow your personal documentation hub.`,
+                title: "Affordable and Flexible",
+                description: "Generate unlimited QR codes at a low cost. No subscriptions — pay only for what you use.",
                 bullets: [
-                    "Small packages for individuals",
-                    "Bulk tokens for businesses",
-                    "Transparent, cost-effective pricing",
+                    "No hidden fees",
+                    "Pay-as-you-go model",
+                    "Bulk generation for businesses",
                 ],
+                iconName: "money",
+                iconSize: 40,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
             },
             right: {
                 type: "media",
@@ -114,7 +129,7 @@ const schema: PageSchema = {
                 src: "image5",
                 width: "100%",
                 height: "400px",
-                alt: "Token packages",
+                alt: "Affordable QR code pricing",
             },
         },
         {
@@ -124,17 +139,15 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image6",
-                    title: "Multi-Device Access",
-                    description:
-                        `Use your manuals on desktop, tablet, or smartphone. ${COMPANY_NAME} adapts to your workflow.`,
+                    title: "Multi-Device Support",
+                    description: "Generate and use QR codes on desktop, tablet, or smartphone. Our site adapts to your workflow.",
                     buttonLink: "/faq",
                     buttonText: "Learn More",
                 },
                 {
                     image: "image7",
-                    title: "Offline Availability",
-                    description:
-                        `Download manuals to access them anytime, even without an internet connection.`,
+                    title: "Offline Access",
+                    description: "Download QR codes for offline use. Perfect for print materials and events.",
                     buttonLink: "/faq",
                     buttonText: "Read FAQ",
                 },
@@ -146,15 +159,18 @@ const schema: PageSchema = {
             gap: "3rem",
             left: {
                 type: "text",
-                title: `Why Start with ${COMPANY_NAME}?`,
-                description:
-                    `Because we make technical knowledge easy, flexible, and accessible. From the first token you spend to the last manual you unlock, our system is designed to give you control and confidence.`,
+                title: "What Makes Us Different?",
+                description: "We focus on speed, simplicity, and affordability. Generate as many QR codes as you need, with full customization and instant access.",
                 bullets: [
-                    "Quick and easy onboarding",
-                    "Token-based flexibility",
-                    "Expert-created manuals",
-                    "Knowledge available 24/7",
+                    "Fast and reliable",
+                    "Easy to use for everyone",
+                    "Custom branding options",
+                    "No subscription required",
                 ],
+                iconName: "star",
+                iconSize: 48,
+                iconColor: "#FFD700",
+                iconBg: "#fffbe6",
                 centerTitle: true,
                 centerDescription: true,
                 centerBullets: true,
@@ -164,26 +180,33 @@ const schema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "How long does it take to get started?",
-                    answer:
-                        "Just a few minutes. Create an account, buy tokens, and start unlocking manuals right away.",
+                    question: "How do I generate a QR code?",
+                    answer: "Just enter your data, customize the style, and click generate. Your QR code is ready instantly.",
                 },
                 {
-                    question: "Do tokens expire?",
-                    answer:
-                        "No. Tokens stay in your account until you use them, giving you full flexibility.",
+                    question: "Can I customize the QR code?",
+                    answer: "Yes. You can change colors, add a logo, and select the format you want.",
                 },
                 {
-                    question: "Can I upgrade my token package later?",
-                    answer:
-                        "Yes. You can purchase additional tokens at any time to expand your access.",
+                    question: "Is there a limit to how many QR codes I can create?",
+                    answer: "No. You can generate as many QR codes as you need.",
                 },
                 {
-                    question: "Do I need to install anything?",
-                    answer:
-                        `No. ${COMPANY_NAME} works directly in your browser. Manuals are accessible from any device.`,
+                    question: "Do I need an account?",
+                    answer: "No account required for basic generation. Sign up for advanced features and history.",
+                },
+                {
+                    question: "Can I use QR codes for business?",
+                    answer: "Absolutely. Our platform supports bulk generation and branding for business needs.",
+                },
+                {
+                    question: "Is support available?",
+                    answer: `Yes. Contact us at ${COMPANY_EMAIL} for help or custom requests.`,
                 },
             ],
+        },
+        {
+            type: "qr-generator",
         },
     ],
 };

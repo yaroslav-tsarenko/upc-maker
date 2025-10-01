@@ -10,21 +10,19 @@ import {
 const faqSchema: PageSchema = {
     meta: {
         title: `FAQ — ${COMPANY_NAME}`,
-        description:
-            `Frequently Asked Questions about ${COMPANY_NAME} services, manuals, token system, access, downloads, languages, and more.`,
+        description: `Frequently Asked Questions about ${COMPANY_NAME} QR code generator. Learn about customization, downloads, devices, security, and business features.`,
         keywords: [
             "faq",
             `${COMPANY_NAME} help`,
-            "manuals FAQ",
-            "token FAQ",
-            "documentation questions",
-            "guide access",
-            "manual downloads"
+            "QR code FAQ",
+            "QR code customization",
+            "QR code downloads",
+            "QR code business solutions"
         ],
         canonical: "/faq",
         ogImage: {
             title: `${COMPANY_NAME} FAQ`,
-            description: `Answers to the most common questions about manuals, tokens, and services.`,
+            description: `Answers to the most common questions about QR codes and services.`,
             bg: "#ffffff",
             color: "#000000",
         },
@@ -35,78 +33,55 @@ const faqSchema: PageSchema = {
             items: [
                 {
                     question: `What is ${COMPANY_NAME}?`,
-                    answer:
-                        `${COMPANY_NAME} is a platform that provides professional manuals created by specialists. Each manual can be unlocked using tokens, giving you flexible access to the guides you need.`
+                    answer: `${COMPANY_NAME} is a platform that lets you generate, customize, and download QR codes instantly for personal, business, or enterprise use.`
                 },
                 {
-                    question: "How do I purchase manuals?",
-                    answer:
-                        `Instead of direct purchases, ${COMPANY_NAME} uses tokens. You buy tokens and spend them on unlocking manuals. This way you only pay for what you need.`
+                    question: "How do I generate a QR code?",
+                    answer: "Simply enter your data (URL, text, contact info, etc.), customize the design, and click generate. Your QR code is ready instantly."
                 },
                 {
-                    question: "How much does a manual cost?",
-                    answer:
-                        "The cost depends on the complexity and length of the manual. Simple quick-start guides require fewer tokens, while detailed technical documentation requires more."
+                    question: "Can I customize my QR codes?",
+                    answer: "Yes. You can change colors, shapes, add logos or icons, adjust sizes, and choose output formats (PNG, SVG, PDF)."
                 },
                 {
-                    question: "Do I need a subscription?",
-                    answer:
-                        `No. ${COMPANY_NAME} does not use subscriptions. You purchase tokens once and spend them whenever you need manuals.`
+                    question: "What can I use QR codes for?",
+                    answer: "QR codes can be used for websites, product packaging, event tickets, marketing campaigns, menus, Wi-Fi access, business cards, and more."
                 },
                 {
-                    question: "Are manuals available instantly?",
-                    answer:
-                        "Yes. Once you unlock a manual, it’s instantly available in your dashboard. You can read it online, download it, and access it anytime."
+                    question: "Is there a limit to how many QR codes I can create?",
+                    answer: "No. You can generate unlimited QR codes. Some advanced customization features may be part of premium plans."
                 },
                 {
-                    question: "Can I download manuals?",
-                    answer:
-                        "Yes. All unlocked manuals are available for download in digital format. You can save them and access them offline."
+                    question: "Do I need an account?",
+                    answer: "No account is required for basic QR generation. However, signing up allows you to save, manage, and favorite your QR codes."
                 },
                 {
-                    question: "Do manuals remain available after purchase?",
-                    answer:
-                        "Yes. Once a manual is unlocked, it stays in your account permanently. You can revisit and re-download it anytime."
+                    question: "Can I download QR codes?",
+                    answer: "Yes. QR codes can be downloaded instantly in multiple formats (PNG, SVG, PDF) and used both online and offline."
                 },
                 {
-                    question: "Who writes the manuals?",
-                    answer:
-                        "All manuals are written and reviewed by experienced specialists with real industry expertise, ensuring accuracy and reliability."
+                    question: "Do my QR codes expire?",
+                    answer: "No. Once generated and downloaded, your QR codes work permanently unless the linked content changes."
                 },
                 {
-                    question: "What types of manuals are available?",
-                    answer:
-                        `${COMPANY_NAME} offers manuals for household devices, consumer electronics, professional tools, industrial equipment, and specialized systems.`
-                },
-                {
-                    question: "Can I request a custom manual?",
-                    answer:
-                        "Yes. If you need a manual for a specific device or tool that is not in our library, you can request a custom manual. Our team will prepare it for you."
-                },
-                {
-                    question: `Is ${COMPANY_NAME} available in multiple languages?`,
-                    answer:
-                        "Yes. Many manuals are available in multiple languages, and we are continuously expanding our multilingual documentation support."
-                },
-                {
-                    question: `How do businesses use ${COMPANY_NAME}?`,
-                    answer:
-                        `Businesses use ${COMPANY_NAME} to provide staff with accurate manuals, reduce training time, and ensure compliance with operational standards. Token packages can be scaled for teams.`
+                    question: "Can I generate QR codes for free?",
+                    answer: "Yes. Basic QR code generation is free. Premium customization options may be available for a small fee."
                 },
                 {
                     question: "Is my data secure?",
-                    answer:
-                        `${COMPANY_NAME} follows industry-standard security practices to ensure your personal and payment data are always protected.`
+                    answer: `${COMPANY_NAME} follows industry-standard security practices to ensure that your generated QR codes and data are safe.`
                 },
                 {
-                    question: "Do you provide support?",
-                    answer:
-                        `Yes. Our support team is available to help with accessing manuals, managing tokens, or requesting custom documentation. Contact us at ${COMPANY_EMAIL}.`
+                    question: "Can businesses use ${COMPANY_NAME}?",
+                    answer: "Absolutely. We support bulk QR code generation, custom branding, analytics, and enterprise integrations."
                 },
                 {
-                    question: `What devices can I use to access ${COMPANY_NAME}?`,
-                    answer:
-                        `${COMPANY_NAME} works on all modern devices: desktop, laptop, tablet, and smartphone. Manuals are optimized for easy reading across screen sizes.`
+                    question: "Is support available?",
+                    answer: `Yes. Our support team is ready to help with customization, downloads, or business solutions. Contact us at ${COMPANY_EMAIL}.`
+                },
+                {
+                    question: "What devices are supported?",
+                    answer: `${COMPANY_NAME} works on all modern devices: desktop, laptop, tablet, and smartphone. Your QR codes are optimized for any screen size.`
                 },
             ],
         },

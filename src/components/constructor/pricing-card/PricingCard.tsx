@@ -7,6 +7,7 @@ import { useAlert } from "@/context/AlertContext";
 import { useUser } from "@/context/UserContext";
 import Input from "@mui/joy/Input";
 import { useCurrency } from "@/context/CurrencyContext";
+import { MdCheckCircle } from "react-icons/md";
 
 interface PricingCardProps {
     variant?: "basic" | "highlight" | "premium";
@@ -28,6 +29,12 @@ const currencyConfig = {
 const MIN_CUSTOM_AMOUNT = 0.01;
 const MAX_CUSTOM_AMOUNT = 9999;
 
+const labelText: Record<string, string> = {
+    basic: "Basic",
+    highlight: "Popular",
+    premium: "Premium"
+};
+
 const PricingCard: React.FC<PricingCardProps> = ({
                                                      variant = "basic",
                                                      title,
@@ -44,7 +51,6 @@ const PricingCard: React.FC<PricingCardProps> = ({
     const { symbol } = currencyConfig[currency];
     const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
 
-    // 1 unit = 100 tokens, 0.01 = 1 token
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
     const handleBuy = async () => {
@@ -84,9 +90,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     return (
         <div className={`${styles.card} ${styles[variant]}`}>
-            {variant === "highlight" && (
-                <div className={styles.bestChoiceLabel}>⭐ Best Choice</div>
-            )}
+            <div className={styles.cornerLabel}>{labelText[variant]}</div>
             <h3 className={styles.title}>{title}</h3>
 
             {price === "dynamic" ? (
@@ -122,11 +126,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
             <ul className={styles.features}>
                 {features.map((f, i) => (
-                    <li key={i}>{f}</li>
+                    <li key={i} className={styles.featureItem}>
+                        <MdCheckCircle className={styles.featureIcon} />
+                        <span>{f}</span>
+                    </li>
                 ))}
             </ul>
 
-            <ButtonUI type="button" sx={{ width: "100%" }} onClick={handleBuy}>
+            <ButtonUI type="button" color="secondary" hoverColor="secondary" sx={{ width: "100%" }} onClick={handleBuy}>
                 {user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>
         </div>

@@ -1,159 +1,327 @@
-import { PageSchema } from "@/components/constructor/page-render/types";
-import {
-    COMPANY_NAME,
-    COMPANY_LEGAL_NAME,
-    COMPANY_ADDRESS,
-    COMPANY_NUMBER,
-    COMPANY_EMAIL,
-} from "@/resources/constants";
+import { PageSchema } from '@/components/constructor/page-render/types';
+import { COMPANY_NAME, COMPANY_EMAIL, COMPANY_LEGAL_NAME, COMPANY_NUMBER, COMPANY_ADDRESS } from '@/resources/constants';
 
 const schema: PageSchema = {
     meta: {
-        title: `About ${COMPANY_NAME} — Our Story & Values`,
-        description: `Discover the mission, team, and expertise behind ${COMPANY_NAME}. Learn how our specialists deliver trusted manuals and support.`,
-        keywords: [
-            `about ${COMPANY_NAME}`,
-            "company values",
-            "expert team",
-            "manuals",
-            "contact"
-        ],
+        title: `About Us — ${COMPANY_NAME}`,
+        description: `Learn about ${COMPANY_NAME}, our mission, values, and the team behind the fastest QR code configurator. Discover our services, pricing, and how we make QR generation easy for everyone.`,
+        keywords: ["about", "company", "team", "mission", "QR code", "services", "pricing"],
         canonical: "/about-us",
         ogImage: {
-            title: COMPANY_NAME,
-            description: `Meet the team and vision behind ${COMPANY_NAME}.`,
-            bg: "#ffffff",
-            color: "#000000",
+            title: `About ${COMPANY_NAME}`,
+            description: "Meet the team and discover our mission for easy QR code generation.",
+            bg: "#f4faff",
+            color: "#0070f3",
         },
     },
     blocks: [
         {
-            type: "slider",
-            images: ["image1", "image2", "image3"],
+            type: "hero",
+            bgImage: "image1",
+            title: `Welcome to ${COMPANY_NAME}`,
+            description: "Empowering everyone to create, customize, and use QR codes with ease. Fast, secure, and affordable for any need.",
+            buttons: [
+                { text: "Get Started", link: "/get-started", color: "primary" },
+                { text: "See Our Services", link: "/services", color: "secondary" }
+            ]
         },
         {
             type: "section",
+            align: "center",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: `Welcome to ${COMPANY_NAME}`,
-                description: `${COMPANY_NAME} is operated by ${COMPANY_LEGAL_NAME} (Company No: ${COMPANY_NUMBER}). Our mission is to empower users with reliable, expert-created manuals for every need.`,
+                title: "Our Mission",
+                description: `At ${COMPANY_NAME}, our mission is to make QR code generation accessible, reliable, and affordable for everyone. Whether you're a business, event organizer, or individual, we help you connect the world with a single scan.`,
                 bullets: [
-                    "Driven by innovation and expertise",
-                    "Trusted by thousands of users",
-                    "Accessible knowledge for all"
+                    "Instant QR code creation",
+                    "No subscriptions or hidden fees",
+                    "Customizable for any use case",
+                    "Trusted by thousands worldwide"
                 ],
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+                iconName: "flag",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
             },
             right: {
-                type: "media",
-                mediaType: "image",
-                src: "image1",
-                width: "100%",
-                height: "400px",
-                alt: "Company mission",
-            },
-        },
-        {
-            type: "section",
-            left: {
                 type: "media",
                 mediaType: "image",
                 src: "image2",
                 width: "100%",
                 height: "400px",
-                alt: "Teamwork",
-            },
-            right: {
-                type: "text",
-                title: "Our Team",
-                description: "A diverse group of specialists, writers, and engineers dedicated to quality documentation. We believe in collaboration and continuous learning.",
-                bullets: [
-                    "Experienced professionals",
-                    "Continuous training",
-                    "Passion for technology"
-                ],
-            },
+                alt: "Our Mission",
+            }
         },
         {
             type: "grid",
-            columns: 2,
+            columns: 4,
             gap: "2rem",
             style: { margin: "2rem 0" },
-            cards: [
+            items: [
                 {
-                    image: "image3",
-                    title: "Our Values",
-                    description: "Integrity, clarity, and user empowerment are at the heart of everything we do.",
-                    buttonLink: "/about-us",
-                    buttonText: "About",
+                    key: "feature1",
+                    block: {
+                        type: "text",
+                        description: "No technical skills required. Our platform is designed for everyone.",
+                        bullets: [
+                            "Intuitive interface",
+                            "Step-by-step guidance",
+                            "Instant preview"
+                        ],
+                        iconSize: 40,
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: false,
+                    }
                 },
                 {
-                    image: "image4",
-                    title: "Our Services",
-                    description: "We provide a wide range of technical manuals and guides for various industries.",
-                    buttonLink: "/services",
-                    buttonText: "Services",
+                    key: "feature2",
+                    block: {
+                        type: "text",
+                        description: "Choose colors, add logos, and set error correction for your brand.",
+                        bullets: [
+                            "Branding options",
+                            "Flexible formats",
+                            "Logo embedding"
+                        ],
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: false,
+                    }
+                },
+                {
+                    key: "feature3",
+                    block: {
+                        type: "text",
+                        description: "Pay only for what you need. No subscriptions, tokens never expire.",
+                        bullets: [
+                            "Transparent pricing",
+                            "Tokens for every QR",
+                            "No recurring charges"
+                        ],
+                        iconSize: 40,
+                        iconColor: "#FFD700",
+                        iconBg: "#fffbe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: false,
+                    }
+                },
+                {
+                    key: "feature4",
+                    block: {
+                        type: "text",
+                        description: "Your data is protected. Every QR code is unique and safe.",
+                        bullets: [
+                            "Secure technology",
+                            "Private codes",
+                            "Trusted by professionals"
+                        ],
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: false,
+                        centerDescription: false,
+                        centerBullets: false,
+                    }
+                },
+            ]
+        },
+        {
+            type: "section",
+            align: "center",
+            gap: "2rem",
+            left: {
+                type: "media",
+                mediaType: "image",
+                src: "image3",
+                width: "100%",
+                height: "400px",
+                alt: "Our Team",
+            },
+            right: {
+                type: "text",
+                title: "Meet Our Team",
+                description: "Our passionate team combines expertise in technology, design, and customer support to deliver the best QR code experience. We believe in innovation, transparency, and helping you succeed.",
+                bullets: [
+                    "Experienced developers",
+                    "Creative designers",
+                    "Dedicated support",
+                    "Global vision"
+                ],
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+                iconName: "group",
+                iconSize: 48,
+                iconColor: "#28a745",
+                iconBg: "#e6ffe6",
+            }
+        },
+        {
+            type: "section",
+            align: "center",
+            gap: "2rem",
+            left: {
+                type: "text",
+                title: "Our Values",
+                description: "We are committed to simplicity, security, and customer satisfaction. Every feature is built with your needs in mind.",
+                bullets: [
+                    "Simplicity: Easy for everyone",
+                    "Security: Your data is safe",
+                    "Support: We're here for you",
+                    "Innovation: Always improving"
+                ],
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+                iconName: "star",
+                iconSize: 48,
+                iconColor: "#FFD700",
+                iconBg: "#fffbe6",
+            },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image4",
+                width: "100%",
+                height: "400px",
+                alt: "Our Values",
+            }
+        },
+        {
+            type: "grid",
+            columns: 4,
+            gap: "2rem",
+            cards: [
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Starter Pack",
+                    price: "10",
+                    tokens: 1000,
+                    description: "Perfect for individuals who need occasional QR codes.",
+                    features: [
+                        "5 QR codes included",
+                        "Instant QR access",
+                        "No expiration",
+                        "Best for one-time projects"
+                    ],
+                    buttonText: "Buy Now",
+                    buttonLink: "/pricing",
+                },
+                {
+                    type: "pricing",
+                    variant: "highlight",
+                    title: "Pro Pack",
+                    price: "20",
+                    tokens: 2000,
+                    description: "Great for professionals and small teams.",
+                    features: [
+                        "20 QR codes included",
+                        "Priority QR creation",
+                        "Download & offline access",
+                        "Best value for growing teams"
+                    ],
+                    buttonText: "Get Pro",
+                    buttonLink: "/pricing",
+                },
+                {
+                    type: "pricing",
+                    variant: "premium",
+                    title: "Enterprise Pack",
+                    price: "40",
+                    tokens: 4000,
+                    description: "Best for businesses with regular QR needs.",
+                    features: [
+                        "50 QR codes included",
+                        "Dedicated support",
+                        "Multi-format downloads",
+                        "Custom branding",
+                        "Scalable for large teams"
+                    ],
+                    buttonText: "Go Premium",
+                    buttonLink: "/pricing",
+                },
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Custom Pack",
+                    price: "dynamic",
+                    tokens: 0,
+                    description: "Enter your own token amount and get instant pricing.",
+                    features: [
+                        "Flexible tokens",
+                        "Automatic price calculation",
+                        "No expiration",
+                        "Perfect for custom needs"
+                    ],
+                    buttonText: "Buy Custom",
+                    buttonLink: "/pricing",
                 },
             ],
         },
         {
-            type: "section",
-            left: {
-                type: "text",
-                title: "Why Choose Us?",
-                description: "We combine years of experience with a passion for helping users. Our manuals are trusted by professionals and everyday users alike.",
-                bullets: [
-                    "Comprehensive documentation",
-                    "User-friendly guides",
-                    "Support for all your needs"
-                ],
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image5",
-                width: "100%",
-                height: "400px",
-                alt: "Why choose us",
-            },
-        },
-        {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image6",
-                width: "100%",
-                height: "400px",
-                alt: "Pricing and plans",
-            },
-            right: {
-                type: "text",
-                title: "Transparent Pricing",
-                description: "Our pricing is simple and fair. Pay only for what you need, when you need it.",
-                bullets: [
-                    "No hidden fees",
-                    "Flexible plans",
-                    "See our pricing page for details"
-                ],
-            },
+            type: "faq",
+            items: [
+                {
+                    question: "What services do you offer?",
+                    answer: "We provide instant QR code generation, customization, and secure downloads.",
+                },
+                {
+                    question: "How do I get started?",
+                    answer: "Visit our quick start guide for easy onboarding.",
+                },
+                {
+                    question: "Where can I find pricing?",
+                    answer: "All pricing options are detailed for your convenience.",
+                },
+                {
+                    question: "How can I contact support?",
+                    answer: `Reach us anytime via email: ${COMPANY_EMAIL}`,
+                },
+                {
+                    question: "Is my data safe?",
+                    answer: "Absolutely. We use secure technology to protect your information. Your QR codes are unique and private.",
+                },
+                {
+                    question: "Do you have a refund policy?",
+                    answer: "Yes, we offer a clear refund policy for unused tokens.",
+                },
+            ],
         },
         {
             type: "grid",
-            columns: 2,
+            columns: 3,
             gap: "2rem",
-            style: { margin: "2rem 0" },
             cards: [
                 {
-                    image: "image7",
-                    title: "FAQ",
-                    description: "Find answers to common questions about our platform and services.",
-                    buttonLink: "/faq",
-                    buttonText: "FAQ",
+                    image: "image5",
+                    title: "Services",
+                    description: "Explore all our QR code services.",
+                    buttonLink: "/services",
+                    buttonText: "See Services",
                 },
                 {
-                    image: "image8",
+                    image: "image6",
+                    title: "Pricing",
+                    description: "Find the best plan for your needs.",
+                    buttonLink: "/pricing",
+                    buttonText: "View Pricing",
+                },
+                {
+                    image: "image7",
                     title: "Get Started",
-                    description: "Ready to begin? Start using our manuals and guides today.",
+                    description: "Start generating QR codes now.",
                     buttonLink: "/get-started",
                     buttonText: "Get Started",
                 },
@@ -161,49 +329,36 @@ const schema: PageSchema = {
         },
         {
             type: "section",
+            align: "center",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: "Contact & Support",
-                description: `Have questions? Reach out to us at ${COMPANY_EMAIL} or visit us at ${COMPANY_ADDRESS}. Our support team is ready to help you.`,
+                title: "Contact & Legal",
+                description: `Have questions or need help? Contact us at ${COMPANY_EMAIL}.  
+${COMPANY_LEGAL_NAME}  
+Company Number: ${COMPANY_NUMBER}  
+Address: ${COMPANY_ADDRESS}`,
                 bullets: [
-                    "Responsive customer service",
-                    "Comprehensive FAQ and help center",
-                    "Direct email support"
+                    "Email support available",
+                    "Legal information on footer",
+                    "More contact options below"
                 ],
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+                iconName: "email",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
             },
             right: {
                 type: "media",
                 mediaType: "image",
-                src: "image9",
+                src: "image8",
                 width: "100%",
                 height: "400px",
-                alt: "Contact and support",
-            },
-        },
-        {
-            type: "faq",
-            items: [
-                {
-                    question: `What is ${COMPANY_NAME}?`,
-                    answer: `${COMPANY_NAME} is a platform providing expert manuals and guides, operated by ${COMPANY_LEGAL_NAME}.`,
-                },
-                {
-                    question: "How can I contact support?",
-                    answer: `You can email us at ${COMPANY_EMAIL} or use our contact form.`,
-                },
-                {
-                    question: "Where is the company located?",
-                    answer: `Our address: ${COMPANY_ADDRESS}`,
-                },
-                {
-                    question: "Where can I find your pricing?",
-                    answer: `Visit our pricing page at /pricing for all details.`,
-                },
-                {
-                    question: "How do I get started?",
-                    answer: `Go to /get-started to begin using our services.`,
-                },
-            ],
+                alt: "Contact & Legal",
+            }
         },
     ],
 };

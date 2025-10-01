@@ -1,234 +1,219 @@
-import { PageSchema } from "@/components/constructor/page-render/types";
-import { COMPANY_NAME } from "@/resources/constants";
+import { PageSchema } from '@/components/constructor/page-render/types';
+import { COMPANY_NAME } from '@/resources/constants';
 
 const schema: PageSchema = {
     meta: {
-        title: `${COMPANY_NAME} — Professional Manuals on Demand`,
-        description: `Access practical manuals created by specialists. Unlock any guide instantly using tokens.`,
-        keywords: ["manuals", "guides", "technical", "documentation"],
+        title: `${COMPANY_NAME} — QR Code Configurator for Any Need`,
+        description: `Create detailed, custom QR codes instantly. Every QR requires 30 tokens. Fast, secure, and flexible for any use case.`,
+        keywords: ["QR code", "configurator", "generator", "tokens", "custom", "fast", "secure"],
         canonical: "/",
         ogImage: {
-            title: `${COMPANY_NAME}`,
-            description: "Expert manuals for every tool and device. Unlock with tokens, use anytime.",
-            bg: "#ffffff",
-            color: "#000000",
+            title: `${COMPANY_NAME} QR Configurator`,
+            description: "Create custom QR codes for any need. Fast, flexible, and secure.",
+            bg: "#f4faff",
+            color: "#0070f3",
         },
     },
     blocks: [
         {
-            type: "slider",
-            images: ["image1", "image2", "image3"],
+            type: "qr-generator",
         },
         {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image1",
-                width: "100%",
-                height: "400px",
-                alt: "Manuals Library",
-            },
-            right: {
-                type: "text",
-                title: "Expert Manuals at Your Fingertips",
-                description: `${COMPANY_NAME} gives you access to a growing library of manuals written by industry specialists. From everyday equipment to advanced tools — unlock knowledge when you need it.`,
-                bullets: [
-                    "Created and verified by professionals",
-                    "Covers a wide range of equipment and tools",
-                    "Instant digital access",
-                ],
-            },
-        },
-        {
-            type: "section",
-            left: {
-                type: "text",
-                title: `How ${COMPANY_NAME} Works`,
-                description: `Each manual can be unlocked with tokens. Tokens give you flexibility: spend them only on the guides you need, when you need them.`,
-                bullets: [
-                    "Buy tokens once, use them anytime",
-                    "No subscription pressure",
-                    "Simple and transparent access",
-                ],
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image2",
-                width: "100%",
-                height: "400px",
-                alt: "Token Access",
-            },
-        },
-        {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image3",
-                width: "100%",
-                height: "400px",
-                alt: "Dashboard Preview",
-            },
-            right: {
-                type: "text",
-                title: "Clear and Organized Dashboard",
-                description: "Browse manuals by category, track your token balance, and manage your downloads from a single place.",
-                bullets: [
-                    "Easy manual search by categories",
-                    "Track token usage and history",
-                    "Download guides anytime",
-                ],
-            },
-        },
-        {
-            type: "grid",
-            columns: 3,
-            gap: "2rem",
-            style: { margin: "2rem 0" },
-            cards: [
-                {
-                    image: "image4",
-                    title: "Mobile Friendly",
-                    description: "Access manuals on any device, anywhere.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Try Now",
-                },
-                {
-                    image: "image5",
-                    title: "Regular Updates",
-                    description: "Our library grows every week with new guides.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Join Us",
-                },
-                {
-                    image: "image6",
-                    title: "Community Support",
-                    description: "Get help from our team and other users.",
-                    buttonLink: "/faq",
-                    buttonText: "FAQ",
-                },
-            ],
-        },
-        {
-            type: "section",
-            left: {
-                type: "text",
-                title: `Why Choose ${COMPANY_NAME}?`,
-                description: `Unlike random internet tutorials, ${COMPANY_NAME} manuals are created and reviewed by specialists. You get accurate, structured, and reliable information in every guide.`,
-                bullets: [
-                    "Verified by experts",
-                    "Well-structured and clear format",
-                    "Trusted source for technical knowledge",
-                ],
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image7",
-                width: "100%",
-                height: "400px",
-                alt: "Specialist Manuals",
-            },
-        },
-        {
-            type: "section",
-            align: "center",
-            gap: "3rem",
-            left: {
-                type: "text",
-                title: `Start Using ${COMPANY_NAME} Today`,
-                description: "Unlock manuals instantly with tokens and gain access to reliable knowledge for your equipment and tools.",
-                bullets: [
-                    "Instant access to guides",
-                    "Pay only for what you need",
-                    "Knowledge from real specialists",
-                ],
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
-            },
+            type: "hero",
+            bgImage: "image1",
+            title: "The Fastest Way to Create QR Codes",
+            description: "Unlock the power of instant QR code generation. Our configurator is designed for speed, flexibility, and security. Every QR code is ready in seconds and tailored to your needs.",
+            buttons: [
+                { text: "Try QR Generator", link: "/qr-generator", color: "primary" },
+                { text: "See Examples", link: "/examples", color: "secondary" }
+            ]
         },
         {
             type: "grid",
             columns: 4,
             gap: "2rem",
-            style: { margin: "3rem 0" },
-            cards: [
+            style: { margin: "2rem 0" },
+            items: [
                 {
-                    image: "image8",
-                    title: "Wide Manual Library",
-                    description: "Access manuals across multiple categories and industries.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Get Started",
+                    key: "feature1",
+                    block: {
+                        type: "text",
+                        description: "Create QR codes for URLs, text, contact info, WiFi, events, and more. Tailor every QR to your exact needs.",
+                        bullets: [
+                            "Supports multiple data types",
+                            "Easy to configure",
+                            "Preview before download",
+                        ],
+                        iconName: "edit",
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: false,
+                        centerDescription: false,
+                    }
                 },
                 {
-                    image: "image9",
-                    title: "Token Flexibility",
-                    description: "Use tokens only on the manuals you need, no recurring fees.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Get Started",
+                    key: "feature2",
+                    block: {
+                        type: "text",
+                        description: "Choose colors, add logos, and set error correction levels for maximum reliability and branding.",
+                        bullets: [
+                            "Custom colors and branding",
+                            "Logo embedding",
+                            "High error correction",
+                        ],
+                        iconName: "palette",
+                        iconSize: 40,
+                        iconColor: "#28a745",
+                        iconBg: "#e6ffe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                    }
                 },
                 {
-                    image: "image10",
-                    title: "Expert-Created Guides",
-                    description: "Every manual is written and reviewed by specialists.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Get Started",
+                    key: "feature3",
+                    block: {
+                        type: "text",
+                        description: "Get your QR code instantly after payment. Download in PNG, SVG, or PDF formats for print or digital use.",
+                        bullets: [
+                            "No waiting time",
+                            "Multiple formats",
+                            "Ready for print",
+                        ],
+                        iconName: "time",
+                        iconSize: 40,
+                        iconColor: "#FFD700",
+                        iconBg: "#fffbe6",
+                        centerTitle: false,
+                        centerDescription: false,
+                    }
                 },
                 {
-                    image: "image11",
-                    title: "Always Accessible",
-                    description: "Download and revisit your manuals at any time.",
-                    buttonLink: "/sign-up",
-                    buttonText: "Get Started",
+                    key: "feature4",
+                    block: {
+                        type: "text",
+                        description: "Your data is protected. Every QR code is unique and safe for business or personal use.",
+                        bullets: [
+                            "Secure technology",
+                            "Private and unique codes",
+                            "Trusted by professionals",
+                        ],
+                        iconName: "lock",
+                        iconSize: 40,
+                        iconColor: "#0070f3",
+                        iconBg: "#e6f7ff",
+                        centerTitle: true,
+                        centerDescription: false,
+                    }
                 },
-            ],
+            ]
         },
         {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image12",
-                width: "100%",
-                height: "400px",
-                alt: "Customer Testimonials",
-            },
-            right: {
-                type: "text",
-                title: "What Our Users Say",
-                description: "“The manuals are clear, easy to follow, and always available when I need them.” — Satisfied Customer",
-                bullets: [
-                    "High user satisfaction",
-                    "Trusted by professionals",
-                    "Growing community",
-                ],
-            },
+            type: "grid",
+            columns: 4,
+            gap: "2rem",
+            cards: [
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Starter Pack",
+                    price: "10",
+                    tokens: 1000,
+                    description: "Perfect for individuals who need occasional QR codes.",
+                    features: [
+                        "5 QR codes included",
+                        "Instant QR access",
+                        "No expiration",
+                        "Best for one-time projects"
+                    ],
+                    buttonText: "Buy Now",
+                    buttonLink: "/checkout?plan=starter",
+                },
+                {
+                    type: "pricing",
+                    variant: "highlight",
+                    title: "Pro Pack",
+                    price: "20",
+                    tokens: 2000,
+                    description: "Great for professionals and small teams.",
+                    features: [
+                        "20 QR codes included",
+                        "Priority QR creation",
+                        "Download & offline access",
+                        "Best value for growing teams"
+                    ],
+                    buttonText: "Get Pro",
+                    buttonLink: "/checkout?plan=pro",
+                },
+                {
+                    type: "pricing",
+                    variant: "premium",
+                    title: "Enterprise Pack",
+                    price: "40",
+                    tokens: 4000,
+                    description: "Best for businesses with regular QR needs.",
+                    features: [
+                        "50 QR codes included",
+                        "Dedicated support",
+                        "Multi-format downloads",
+                        "Custom branding",
+                        "Scalable for large teams"
+                    ],
+                    buttonText: "Go Premium",
+                    buttonLink: "/checkout?plan=enterprise",
+                },
+                {
+                    type: "pricing",
+                    variant: "basic",
+                    title: "Custom Pack",
+                    price: "dynamic",
+                    tokens: 0,
+                    description: "Enter your own token amount and get instant pricing.",
+                    features: [
+                        "Flexible tokens",
+                        "Automatic price calculation",
+                        "No expiration",
+                        "Perfect for custom needs"
+                    ],
+                    buttonText: "Buy Custom",
+                    buttonLink: "/checkout?plan=custom",
+                },
+            ],
         },
         {
             type: "faq",
             items: [
                 {
-                    question: `What is ${COMPANY_NAME}?`,
-                    answer: `${COMPANY_NAME} is a platform that provides expert-written manuals for different tools and equipment.`,
+                    question: "What is a QR code configurator?",
+                    answer: "It's a tool to create custom QR codes for any purpose, instantly and securely. You can choose the content, style, and format.",
                 },
                 {
-                    question: "How do I access a manual?",
-                    answer: "Each manual can be unlocked by spending tokens. Buy tokens once and use them whenever you need.",
+                    question: "How much does each QR code cost?",
+                    answer: "Each QR code requires 30 tokens. No subscriptions or hidden fees. Buy tokens and use them as needed.",
                 },
                 {
-                    question: "Do manuals stay available after purchase?",
-                    answer: "Yes. Once unlocked, you can access your manual anytime through your dashboard.",
+                    question: "How fast do I get my QR code?",
+                    answer: "Your QR code is generated and delivered instantly after payment. Download it in your preferred format.",
                 },
                 {
-                    question: "Can I use the service on mobile?",
-                    answer: "Yes, the platform is fully mobile-friendly.",
+                    question: "Can I use QR codes for business?",
+                    answer: "Yes! Our QR codes are perfect for business cards, product tracking, marketing, event tickets, and more.",
                 },
                 {
-                    question: "How often are new manuals added?",
-                    answer: "We add new manuals and guides every week.",
+                    question: "Is my data safe?",
+                    answer: "Absolutely. We use secure technology to protect your information. Your QR codes are unique and private.",
+                },
+                {
+                    question: "What formats are available?",
+                    answer: "You can download QR codes as PNG, SVG, or PDF, ready for print or digital use.",
+                },
+                {
+                    question: "Do I need technical skills?",
+                    answer: "No technical skills required. Our configurator is designed for everyone.",
+                },
+                {
+                    question: "Can I customize the look of my QR code?",
+                    answer: "Yes, you can choose colors, add logos, and set error correction levels for maximum reliability.",
                 },
             ],
         },

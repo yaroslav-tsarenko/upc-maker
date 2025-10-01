@@ -20,7 +20,7 @@ export const googleFonts: GoogleFont[] = [
     { name: "Open Sans", css: "'Open Sans', sans-serif", url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" },
 ];
 
-export const currentFontIndex = 3;
+export const currentFontIndex = 4;
 export const currentFont = googleFonts[currentFontIndex];
 
 // Кольори для кнопок
@@ -54,14 +54,14 @@ export const headerStyles = {
     sideBarDirection: "left" as SideBarDirection,
     linkColor: "var(--text-primary)",
     linkHoverColor: "var(--link-hover)",
-    scrollMode: "solid" as HeaderScrollMode,
+    scrollMode: "blur" as HeaderScrollMode,
     scrollBackground: "var(--primary-color)",
     scrollBlur: "50px",
 };
 
 // Drawer
 export const drawerConfig = {
-    anchor: "top" as SideBarDirection,
+    anchor: "right" as SideBarDirection,
     width: "100%",
     padding: "20px",
     logoWidth: 120,
@@ -77,10 +77,10 @@ export const footerStyles = {
     showTopBorder: true,
     showBottomBorder: true,
     maxWidth: 1440,
-    paddings: { x: 70, y: 32 },
+    paddings: { x: 40, y: 32 },
     gap: 20,
     columnsGap: 50,
-    logo: { width: 240, height: 30, align: "start" as FooterLogoAlign },
+    logo: { width: 340, height: 50, align: "start" as FooterLogoAlign },
     colors: {
         bg: "var(--primary-color)",
         title: "var(--text-primary)",

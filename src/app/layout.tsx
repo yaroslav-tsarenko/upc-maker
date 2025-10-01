@@ -10,6 +10,7 @@ import {I18nProvider} from "@/context/i18nContext";
 import {AllOrdersProvider} from "@/context/AllOrdersContext";
 import PDFExtractor from "@/components/features/pdf-extractor/PDFExtractor";
 import {CurrencyProvider} from "@/context/CurrencyContext";
+import {TransactionsProvider} from "@/context/TransactionContext";
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -25,7 +26,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             <AlertProvider>
                 <AllOrdersProvider>
                     <ProtectedRoute>
-                        <PDFExtractor>
+                        <TransactionsProvider>
                             <CurrencyProvider>
                                 <Header />
                                 <PageWrapper>
@@ -33,7 +34,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                                 </PageWrapper>
                                 <Footer />
                             </CurrencyProvider>
-                        </PDFExtractor>
+                        </TransactionsProvider>
                     </ProtectedRoute>
                 </AllOrdersProvider>
             </AlertProvider>

@@ -44,7 +44,7 @@ const FormUI: React.FC<FormUIProps> = ({
                             formik
                         />
                     ))}
-                    <ButtonUI type="submit" disabled={isSubmitting} loading={isSubmitting} text={submitLabel} fullWidth/>
+                    <ButtonUI type="submit" color="secondary" disabled={isSubmitting} loading={isSubmitting} text={submitLabel} fullWidth/>
                 </Form>
             </div>
         </div>
