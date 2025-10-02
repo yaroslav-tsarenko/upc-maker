@@ -78,8 +78,8 @@ const Header: React.FC = () => {
                     </nav>
 
                     <div className={styles.actions}>
-                        <AuthButtons/>
                         <Selectors/>
+                        <AuthButtons/>
                     </div>
 
                     <div className={styles.menuButton}>

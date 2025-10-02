@@ -4,27 +4,41 @@ import { COMPANY_NAME, COMPANY_EMAIL, COMPANY_LEGAL_NAME, COMPANY_NUMBER, COMPAN
 const schema: PageSchema = {
     meta: {
         title: `About Us — ${COMPANY_NAME}`,
-        description: `Learn about ${COMPANY_NAME}, our mission, values, and the team behind the fastest QR code configurator. Discover our services, pricing, and how we make QR generation easy for everyone.`,
-        keywords: ["about", "company", "team", "mission", "QR code", "services", "pricing"],
+        description: `Discover ${COMPANY_NAME}: our mission, values, and the team behind the most accurate and secure barcode generator (UPC‑A, EAN‑13, Code128, Code39). Learn how we simplify barcoding for retail, packaging, and logistics.`,
+        keywords: [
+            "about",
+            "company",
+            "team",
+            "mission",
+            "barcode generator",
+            "UPC-A",
+            "EAN-13",
+            "Code128",
+            "Code39",
+            "services",
+            "pricing"
+        ],
         canonical: "/about-us",
         ogImage: {
             title: `About ${COMPANY_NAME}`,
-            description: "Meet the team and discover our mission for easy QR code generation.",
+            description: "Meet the team and discover our mission to simplify barcode creation for everyone.",
             bg: "#f4faff",
-            color: "#0070f3",
-        },
+            color: "#0070f3"
+        }
     },
+
     blocks: [
         {
             type: "hero",
             bgImage: "image1",
             title: `Welcome to ${COMPANY_NAME}`,
-            description: "Empowering everyone to create, customize, and use QR codes with ease. Fast, secure, and affordable for any need.",
+            description: `We empower businesses and individuals to create precise and professional barcodes (UPC-A, EAN-13, Code128, Code39) for packaging, retail, and logistics. Fast, secure, and scalable for every need.`,
             buttons: [
                 { text: "Get Started", link: "/get-started", color: "primary" },
-                { text: "See Our Services", link: "/services", color: "secondary" }
+                { text: "Our Services", link: "/services", color: "secondary" }
             ]
         },
+
         {
             type: "section",
             align: "center",
@@ -32,12 +46,12 @@ const schema: PageSchema = {
             left: {
                 type: "text",
                 title: "Our Mission",
-                description: `At ${COMPANY_NAME}, our mission is to make QR code generation accessible, reliable, and affordable for everyone. Whether you're a business, event organizer, or individual, we help you connect the world with a single scan.`,
+                description: `${COMPANY_NAME} was created to make professional barcode generation accessible, reliable, and affordable. We combine advanced algorithms with a simple interface so anyone can produce GS1-compliant codes instantly.`,
                 bullets: [
-                    "Instant QR code creation",
+                    "UPC-A, EAN-13, Code128, Code39 in one tool",
                     "No subscriptions or hidden fees",
-                    "Customizable for any use case",
-                    "Trusted by thousands worldwide"
+                    "High-resolution, print-ready output",
+                    "Trusted by businesses worldwide"
                 ],
                 centerTitle: true,
                 centerDescription: true,
@@ -45,7 +59,7 @@ const schema: PageSchema = {
                 iconName: "flag",
                 iconSize: 48,
                 iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
+                iconBg: "#e6f7ff"
             },
             right: {
                 type: "media",
@@ -53,9 +67,10 @@ const schema: PageSchema = {
                 src: "image2",
                 width: "100%",
                 height: "400px",
-                alt: "Our Mission",
+                alt: "Our Mission"
             }
         },
+
         {
             type: "grid",
             columns: 4,
@@ -66,7 +81,7 @@ const schema: PageSchema = {
                     key: "feature1",
                     block: {
                         type: "text",
-                        description: "No technical skills required. Our platform is designed for everyone.",
+                        description: "No technical skills required — our barcode platform is built for everyone.",
                         bullets: [
                             "Intuitive interface",
                             "Step-by-step guidance",
@@ -74,17 +89,14 @@ const schema: PageSchema = {
                         ],
                         iconSize: 40,
                         iconColor: "#28a745",
-                        iconBg: "#e6ffe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: false,
+                        iconBg: "#e6ffe6"
                     }
                 },
                 {
                     key: "feature2",
                     block: {
                         type: "text",
-                        description: "Choose colors, add logos, and set error correction for your brand.",
+                        description: "Match your packaging design with custom fonts, colors, and human-readable text.",
                         bullets: [
                             "Branding options",
                             "Flexible formats",
@@ -92,35 +104,29 @@ const schema: PageSchema = {
                         ],
                         iconSize: 40,
                         iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: false,
+                        iconBg: "#e6f7ff"
                     }
                 },
                 {
                     key: "feature3",
                     block: {
                         type: "text",
-                        description: "Pay only for what you need. No subscriptions, tokens never expire.",
+                        description: "Pay only for what you need. No subscriptions, credits never expire.",
                         bullets: [
                             "Transparent pricing",
-                            "Tokens for every QR",
+                            "Tokens for every barcode",
                             "No recurring charges"
                         ],
                         iconSize: 40,
                         iconColor: "#FFD700",
-                        iconBg: "#fffbe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: false,
+                        iconBg: "#fffbe6"
                     }
                 },
                 {
                     key: "feature4",
                     block: {
                         type: "text",
-                        description: "Your data is protected. Every QR code is unique and safe.",
+                        description: "Your data is protected. Every barcode is unique and secure.",
                         bullets: [
                             "Secure technology",
                             "Private codes",
@@ -128,14 +134,12 @@ const schema: PageSchema = {
                         ],
                         iconSize: 40,
                         iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: false,
+                        iconBg: "#e6f7ff"
                     }
-                },
+                }
             ]
         },
+
         {
             type: "section",
             align: "center",
@@ -146,12 +150,12 @@ const schema: PageSchema = {
                 src: "image3",
                 width: "100%",
                 height: "400px",
-                alt: "Our Team",
+                alt: "Our Team"
             },
             right: {
                 type: "text",
                 title: "Meet Our Team",
-                description: "Our passionate team combines expertise in technology, design, and customer support to deliver the best QR code experience. We believe in innovation, transparency, and helping you succeed.",
+                description: `Our passionate team combines expertise in technology, design, and customer support to deliver the best barcode experience. We believe in innovation, transparency, and helping you succeed.`,
                 bullets: [
                     "Experienced developers",
                     "Creative designers",
@@ -164,9 +168,10 @@ const schema: PageSchema = {
                 iconName: "group",
                 iconSize: 48,
                 iconColor: "#28a745",
-                iconBg: "#e6ffe6",
+                iconBg: "#e6ffe6"
             }
         },
+
         {
             type: "section",
             align: "center",
@@ -187,7 +192,7 @@ const schema: PageSchema = {
                 iconName: "star",
                 iconSize: 48,
                 iconColor: "#FFD700",
-                iconBg: "#fffbe6",
+                iconBg: "#fffbe6"
             },
             right: {
                 type: "media",
@@ -195,110 +200,51 @@ const schema: PageSchema = {
                 src: "image4",
                 width: "100%",
                 height: "400px",
-                alt: "Our Values",
+                alt: "Our Values"
             }
         },
+
         {
-            type: "grid",
-            columns: 4,
-            gap: "2rem",
-            cards: [
-                {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Starter Pack",
-                    price: "10",
-                    tokens: 1000,
-                    description: "Perfect for individuals who need occasional QR codes.",
-                    features: [
-                        "5 QR codes included",
-                        "Instant QR access",
-                        "No expiration",
-                        "Best for one-time projects"
-                    ],
-                    buttonText: "Buy Now",
-                    buttonLink: "/pricing",
-                },
-                {
-                    type: "pricing",
-                    variant: "highlight",
-                    title: "Pro Pack",
-                    price: "20",
-                    tokens: 2000,
-                    description: "Great for professionals and small teams.",
-                    features: [
-                        "20 QR codes included",
-                        "Priority QR creation",
-                        "Download & offline access",
-                        "Best value for growing teams"
-                    ],
-                    buttonText: "Get Pro",
-                    buttonLink: "/pricing",
-                },
-                {
-                    type: "pricing",
-                    variant: "premium",
-                    title: "Enterprise Pack",
-                    price: "40",
-                    tokens: 4000,
-                    description: "Best for businesses with regular QR needs.",
-                    features: [
-                        "50 QR codes included",
-                        "Dedicated support",
-                        "Multi-format downloads",
-                        "Custom branding",
-                        "Scalable for large teams"
-                    ],
-                    buttonText: "Go Premium",
-                    buttonLink: "/pricing",
-                },
-                {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Custom Pack",
-                    price: "dynamic",
-                    tokens: 0,
-                    description: "Enter your own token amount and get instant pricing.",
-                    features: [
-                        "Flexible tokens",
-                        "Automatic price calculation",
-                        "No expiration",
-                        "Perfect for custom needs"
-                    ],
-                    buttonText: "Buy Custom",
-                    buttonLink: "/pricing",
-                },
-            ],
+            type: "testimonials",
+            title: "What Our Clients Say",
+            items: [
+                { name: "Marta", role: "Packaging Lead", text: "UPC-A and EAN-13 exports are spot-on. Print house loved the SVGs.", avatar: "https://i.pravatar.cc/150?img=5" },
+                { name: "Arman", role: "Ops Manager", text: "Bulk barcodes saved hours before a logistics deadline.", avatar: "https://i.pravatar.cc/150?img=12" },
+                { name: "Li Wei", role: "Product Owner", text: "Code128 SKUs scan perfectly at POS — zero returns from retailers.", avatar: "https://i.pravatar.cc/150?img=8" },
+                { name: "David", role: "E-commerce", text: "Fast to configure, predictable filenames, clean exports.", avatar: "https://i.pravatar.cc/150?img=22" }
+            ]
         },
+
         {
             type: "faq",
             items: [
                 {
                     question: "What services do you offer?",
-                    answer: "We provide instant QR code generation, customization, and secure downloads.",
+                    answer: "We provide instant barcode generation, customization, and secure downloads."
                 },
                 {
                     question: "How do I get started?",
-                    answer: "Visit our quick start guide for easy onboarding.",
+                    answer: "Visit our Get Started page for easy onboarding and step-by-step guidance."
                 },
                 {
                     question: "Where can I find pricing?",
-                    answer: "All pricing options are detailed for your convenience.",
+                    answer: "All pricing options are detailed on our Pricing page for your convenience."
                 },
                 {
                     question: "How can I contact support?",
-                    answer: `Reach us anytime via email: ${COMPANY_EMAIL}`,
+                    answer: `Reach us anytime via email: ${COMPANY_EMAIL}`
                 },
                 {
                     question: "Is my data safe?",
-                    answer: "Absolutely. We use secure technology to protect your information. Your QR codes are unique and private.",
+                    answer: "Absolutely. We use secure technology to protect your information. Your barcodes are unique and private."
                 },
                 {
                     question: "Do you have a refund policy?",
-                    answer: "Yes, we offer a clear refund policy for unused tokens.",
-                },
-            ],
+                    answer: "Yes, we offer a clear refund policy for unused credits."
+                }
+            ]
         },
+
         {
             type: "grid",
             columns: 3,
@@ -306,27 +252,28 @@ const schema: PageSchema = {
             cards: [
                 {
                     image: "image5",
-                    title: "Services",
-                    description: "Explore all our QR code services.",
+                    title: "Our Services",
+                    description: "Explore all our barcode services for businesses of any size.",
                     buttonLink: "/services",
-                    buttonText: "See Services",
+                    buttonText: "See Services"
                 },
                 {
                     image: "image6",
-                    title: "Pricing",
-                    description: "Find the best plan for your needs.",
+                    title: "Pricing Plans",
+                    description: "Find the best plan for your needs — no subscriptions, no hidden fees.",
                     buttonLink: "/pricing",
-                    buttonText: "View Pricing",
+                    buttonText: "View Pricing"
                 },
                 {
                     image: "image7",
                     title: "Get Started",
-                    description: "Start generating QR codes now.",
+                    description: "Start generating barcodes now with our easy-to-use platform.",
                     buttonLink: "/get-started",
-                    buttonText: "Get Started",
-                },
-            ],
+                    buttonText: "Get Started"
+                }
+            ]
         },
+
         {
             type: "section",
             align: "center",
@@ -349,7 +296,7 @@ Address: ${COMPANY_ADDRESS}`,
                 iconName: "email",
                 iconSize: 48,
                 iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
+                iconBg: "#e6f7ff"
             },
             right: {
                 type: "media",
@@ -357,10 +304,10 @@ Address: ${COMPANY_ADDRESS}`,
                 src: "image8",
                 width: "100%",
                 height: "400px",
-                alt: "Contact & Legal",
+                alt: "Contact & Legal"
             }
-        },
-    ],
+        }
+    ]
 };
 
 export default schema;

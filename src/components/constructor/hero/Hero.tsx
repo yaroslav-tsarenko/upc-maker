@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Hero.module.scss";
-import clsx from "clsx";
+import Image from "next/image";
 import ButtonUI from "@/components/ui/button/ButtonUI";
+import styles from "./Hero.module.scss";
 import { media as mediaMap } from "@/resources/media";
 
 export interface HeroButton {
@@ -19,17 +19,33 @@ export interface HeroProps {
 
 function resolveMedia(key?: string | number) {
     if (key === undefined || key === null) return undefined;
-    return (mediaMap as Record<string, unknown>)[String(key)] as string | undefined;
+    const value = (mediaMap as Record<string, any>)[String(key)];
+    if (!value) return undefined;
+
+    // handle next/image static imports
+    if (typeof value === "object" && "src" in value) {
+        return (value as any).src;
+    }
+    return value as string;
 }
 
 const Hero: React.FC<HeroProps> = ({ bgImage, title, description, buttons = [] }) => {
     const bgUrl = resolveMedia(bgImage);
 
     return (
-        <section
-            className={styles.hero}
-            style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : undefined}
-        >
+        <section className={styles.hero}>
+            {bgUrl && (
+                <Image
+                    src={bgUrl}
+                    alt={title || "Hero background"}
+                    fill
+                    className={styles.bgImage}
+                    priority
+                />
+            )}
+            {/* Dark overlay */}
+            <div className={styles.overlay} />
+
             <div className={styles.content}>
                 {title && <h1 className={styles.title}>{title}</h1>}
                 {description && <p className={styles.description}>{description}</p>}
@@ -39,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ bgImage, title, description, buttons = [] }
                             key={idx}
                             color={btn.color || "primary"}
                             href={btn.link}
-                            sx={{ marginRight: idx === 0 && buttons.length > 1 ? 16 : 0 }}
+                            sx={{display: "flex", width: "100%"}}
                         >
                             {btn.text}
                         </ButtonUI>

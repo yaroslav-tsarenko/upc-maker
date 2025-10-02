@@ -11,6 +11,8 @@ import Slider from "../slider/Slider";
 import FAQ from "../faq/FAQ";
 import PricingCard from "../pricing-card/PricingCard";
 import QRGenerator from "@/components/widgets/qr-generator/QRGenerator";
+import Testimonials from "../testimonials/Testimonials";
+import Steps from "../steps/Steps";
 
 import type {
     PageSchema,
@@ -23,12 +25,15 @@ import type {
     FaqBlock,
     CardBlock,
     PricingBlock,
+    TestimonialsBlock,
+    StepsBlock,
     GridItem,
     AlignInput,
     HeroBlock,
     QRGeneratorBlock,
 } from "./types";
 import Hero from "@/components/constructor/hero/Hero";
+import FadeIn from "@/components/constructor/fade-in/FadeIn";
 
 // ------------------- helpers -------------------
 
@@ -51,6 +56,17 @@ function RenderHero(b: HeroBlock) {
         />
     );
 }
+
+
+
+function RenderTestimonials(b: TestimonialsBlock) {
+    return <Testimonials title={b.title} items={b.items} />;
+}
+
+function RenderSteps(b: StepsBlock) {
+    return <Steps title={b.title} items={b.items} />;
+}
+
 
 function RenderText(b: TextBlock) {
     return (
@@ -181,31 +197,80 @@ function RenderGrid(b: GridBlock) {
 
 // ------------------- switch -------------------
 
+
 function renderBlock(block: PageBlock, key?: React.Key): React.ReactNode {
     switch (block.type) {
         case "text":
-            return <React.Fragment key={key}><RenderText {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderText {...block} />
+                </FadeIn>
+            );
         case "media":
-            return <React.Fragment key={key}><RenderMedia {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderMedia {...block} />
+                </FadeIn>
+            );
         case "slider":
-            return <React.Fragment key={key}><RenderSlider {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderSlider {...block} />
+                </FadeIn>
+            );
         case "faq":
-            return <React.Fragment key={key}><RenderFaq {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderFaq {...block} />
+                </FadeIn>
+            );
         case "card":
-            return <React.Fragment key={key}><RenderCard {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderCard {...block} />
+                </FadeIn>
+            );
         case "pricing":
-            return <React.Fragment key={key}><RenderPricingCard {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderPricingCard {...block} />
+                </FadeIn>
+            );
         case "section":
-            return <React.Fragment key={key}><RenderSection {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderSection {...block} />
+                </FadeIn>
+            );
         case "grid":
-            return <React.Fragment key={key}><RenderGrid {...block} /></React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    <RenderGrid {...block} />
+                </FadeIn>
+            );
         case "qr-generator":
-            return <React.Fragment key={key}>{RenderQRGenerator(block as QRGeneratorBlock)}</React.Fragment>;
+            return (
+                <FadeIn key={key}>
+                    {RenderQRGenerator(block as QRGeneratorBlock)}
+                </FadeIn>
+            );
         case "hero":
             return (
-                <React.Fragment key={key}>
+                <FadeIn key={key}>
                     <RenderHero {...(block as HeroBlock)} />
-                </React.Fragment>
+                </FadeIn>
+            );
+        case "steps":
+            return (
+                <FadeIn key={key}>
+                    <RenderSteps {...(block as StepsBlock)} />
+                </FadeIn>
+            );
+        case "testimonials":
+            return (
+                <FadeIn key={key}>
+                    <RenderTestimonials {...(block as TestimonialsBlock)} />
+                </FadeIn>
             );
         default: {
             const _exhaustive: never = block;

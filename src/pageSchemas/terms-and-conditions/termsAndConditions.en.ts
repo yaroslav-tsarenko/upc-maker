@@ -10,22 +10,22 @@ import {
 const termsSchema: PageSchema = {
     meta: {
         title: `Terms & Conditions – ${COMPANY_NAME}`,
-        description: `Terms for using ${COMPANY_NAME}: accounts, QR code generation, payments, refunds, IP, liability, privacy, and more.`,
+        description: `Terms for using ${COMPANY_NAME}: accounts, UPC barcode generation, payments, refunds, IP, liability, and more.`,
         keywords: [
             "terms",
             "terms and conditions",
             "contract",
-            COMPANY_NAME?.toLowerCase() || "qr-codes",
-            "qr codes",
+            COMPANY_NAME?.toLowerCase() || "barcodes",
+            "upc barcodes",
             "privacy",
             "liability",
             "payment",
-            "currency"
+            "retail compliance"
         ],
         canonical: "/terms",
         ogImage: {
             title: `${COMPANY_NAME} – Terms`,
-            description: "Transparent conditions. QR codes made simple.",
+            description: "Transparent terms and fair conditions for UPC barcode generation.",
             bg: "#ffffff",
             color: "#000000"
         }
@@ -39,16 +39,16 @@ const termsSchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, generating or customizing QR codes, or purchasing premium features, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
+            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, generating UPC barcodes, or purchasing premium features, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
         },
         {
             type: "text",
             title: "2. Definitions",
             bullets: [
                 `"Account" means the User account created on the Service.`,
-                `"QR Code(s)" means any digital QR code created or customized via the Service (including PNG, SVG, JPEG or PDF formats).`,
-                `"Feature(s)" means additional design, customization, export, or tracking functionalities available on the Service.`,
-                `"Product(s)" means QR Codes and any other goods or services offered via the Service.`,
+                `"UPC Barcode(s)" means any digital Universal Product Code barcode created or customized via the Service (including PNG, SVG, JPEG or PDF formats).`,
+                `"Feature(s)" means additional barcode design, formatting, export, or bulk generation functionalities available on the Service.`,
+                `"Product(s)" means UPC barcodes and any other goods or services offered via the Service.`,
                 `"You/Your/Customer" means the person or legal entity who uses the Service or purchases Products.`
             ]
         },
@@ -56,119 +56,121 @@ const termsSchema: PageSchema = {
             type: "text",
             title: "3. Eligibility and Account Registration",
             bullets: [
-                "You must be at least 18 years of age to register for an Account and to use the Service. If you are registering on behalf of a company or other legal entity you confirm that you have authority to do so.",
-                "When registering you must provide accurate, current and complete information and keep such information up to date. You are responsible for maintaining the confidentiality of your Account credentials and for all activity that occurs under your Account.",
-                "You must notify us immediately of any unauthorised use of your Account or any other breach of security."
+                "You must be at least 18 years of age to register for an Account and use the Service. If acting on behalf of an organization, you confirm your authority to do so.",
+                "You are responsible for maintaining the accuracy of your account information and for any activity that occurs under your credentials.",
+                "Notify us immediately if you suspect unauthorized access to your Account."
             ]
         },
         {
             type: "text",
             title: "4. Services and Features",
             bullets: [
-                "Basic QR Code generation is free of charge.",
-                "Premium features (such as custom branding, social media icons, high-resolution exports, analytics, and API access) may require payment.",
-                "Products are delivered digitally through your dashboard or via download links.",
-                "We may update, add, or remove features from time to time."
+                "Basic UPC barcode generation is available for free.",
+                "Advanced features (such as bulk export, custom sizing, high-resolution images, and format selection) may require payment.",
+                "Products are delivered digitally via secure download or dashboard access.",
+                "The Service may evolve over time with new features added or existing features updated."
             ]
         },
         {
             type: "text",
             title: "5. Ordering, Payment and Checkout",
             bullets: [
-                "All orders are subject to acceptance by the Company. We may refuse or cancel any order for any reason, including suspected fraud, technical errors, or errors in price or product description.",
-                "Accepted payment methods are displayed at checkout. You warrant that you are authorised to use any payment method you provide.",
-                "At checkout you will be shown: (a) the price of the selected features or products; (b) applicable taxes, fees and charges. You must confirm these before completing the transaction.",
-                "Products are delivered digitally and considered provided once download or access is granted. We do not guarantee continuous availability of the Service."
+                "All orders must be confirmed by the Company. Orders may be rejected for suspected fraud, errors, or availability issues.",
+                "Accepted payment methods are shown during checkout. You must have authorization to use the provided payment method.",
+                "You will see full pricing details including applicable fees and taxes before confirming your order.",
+                "Barcodes are delivered digitally and are considered provided once access is granted. Availability is not guaranteed at all times."
             ]
         },
         {
             type: "text",
             title: "6. Refunds, Cancellation and Consumer Rights",
             bullets: [
-                "Under UK consumer law, you may have a statutory right to cancel certain distance contracts. However, this right may be lost where digital content is supplied immediately after your express agreement to begin supply without the right to cancel.",
-                "Refunds may be available only for unused or defective purchases. Refund requests must be submitted before use.",
-                `If a Product (QR code export or feature) is defective or not as described, contact our support team at ${COMPANY_EMAIL}. If we cannot remedy the issue within a reasonable time, you may be entitled to a refund or other remedy under law.`,
-                `To request a refund, contact us at ${COMPANY_EMAIL} with your Account details, order reference and full details. We will investigate and respond within a reasonable time.`
+                "Digital barcode products are delivered immediately. By completing your purchase, you agree to waive statutory cancellation rights where applicable.",
+                "Refunds may be offered for unused or defective barcodes. Requests must be submitted before usage.",
+                `If a barcode is corrupted, unreadable, or does not meet standard format specifications, contact our support at ${COMPANY_EMAIL}.`,
+                `Provide your order reference and account information. We aim to resolve issues or process eligible refunds promptly.`
             ]
         },
         {
             type: "text",
             title: "7. Intellectual Property Rights",
             bullets: [
-                `All intellectual property rights in the Service and Products are owned by or licensed to ${COMPANY_LEGAL_NAME} unless otherwise indicated.`,
-                "On generation of a QR Code, you are granted a limited, non-exclusive, non-transferable, revocable licence to use it for your personal or business purposes. Unless agreed in writing, you may not:",
-                "(a) resell QR codes as a standalone product;",
-                "(b) remove or obscure any copyright, trade mark or other proprietary notice on the Service;",
-                "(c) misuse the Service to generate QR codes for illegal, harmful, or fraudulent purposes."
+                `All IP rights in the barcode generator platform and related tools are owned or licensed by ${COMPANY_LEGAL_NAME}.`,
+                "When you generate a barcode, you are granted a limited, non-exclusive license to use it for legitimate business or personal purposes.",
+                "You may not:",
+                "(a) Resell generated barcodes as a standalone product;",
+                "(b) Remove copyright or branding from the Service UI;",
+                "(c) Use the Service to create counterfeit or misleading product labels."
             ]
         },
         {
             type: "text",
             title: "8. Warranties and Disclaimers",
             bullets: [
-                "We warrant that we have the right to grant you the rights under these Terms.",
-                "Except as expressly provided, the Service and Products are provided \"as is\" and \"as available\". The Company excludes all other warranties, express or implied, to the fullest extent permitted by law."
+                "We guarantee the right to provide the Services under these Terms.",
+                "Except as explicitly stated, all services and products are provided 'as-is' without warranty of merchantability or fitness for purpose.",
+                "We do not guarantee acceptance of barcodes by third-party retailers if your UPC numbers are not GS1-verified."
             ]
         },
         {
             type: "text",
             title: "9. Limitation of Liability",
             bullets: [
-                "Nothing in these Terms limits or excludes liability for death or personal injury caused by negligence, fraud, or any other liability which cannot be limited or excluded by law.",
-                "Subject to the above, the Company’s total liability to you is limited to the aggregate amount paid by you for the Products giving rise to the claim in the 12 months preceding the claim.",
-                "The Company is not liable for any indirect, special or consequential loss, loss of profits, business, goodwill, anticipated savings, data, or similar losses, even if foreseeable."
+                "Nothing excludes liability for death, personal injury caused by negligence, or fraud.",
+                "Our total liability is capped at the total amount paid by you for barcodes in the past 12 months.",
+                "We are not liable for indirect damages, data loss, or business interruption related to your use of generated barcodes."
             ]
         },
         {
             type: "text",
             title: "10. Indemnity",
-            description: "You agree to indemnify and hold harmless the Company, its officers, directors, employees and agents from and against any and all losses, liabilities, claims, demands, damages, costs and expenses (including reasonable legal fees) arising out of or in connection with: (a) your breach of these Terms; (b) your misuse of the Service or Products; or (c) your violation of any applicable law or the rights of any third party."
+            description: `You agree to indemnify and hold harmless ${COMPANY_NAME}, its affiliates and employees against claims, liabilities, or losses arising from your use of the Service, especially if used in violation of applicable laws, including product labeling or consumer protection regulations.`
         },
         {
             type: "text",
             title: "11. Data Protection",
             bullets: [
-                `We process personal data in accordance with our Privacy Policy (see website). We comply with the UK GDPR and Data Protection Act 2018.`,
-                "By using the Service you consent to the processing of your personal data in accordance with the Privacy Policy."
+                "We collect and process user data in accordance with the UK GDPR and our Privacy Policy.",
+                "By using the Service, you agree to such processing and warrant the accuracy of data you provide."
             ]
         },
         {
             type: "text",
             title: "12. Third Party Content and Links",
-            description: "The Service may contain links to third party websites and resources. We do not control and are not responsible for the content, privacy policies or practices of third party sites. Links are provided for convenience only and do not imply endorsement."
+            description: "Links to third-party sites may appear within our Service. These are provided for informational purposes. We assume no responsibility for their content or privacy practices."
         },
         {
             type: "text",
             title: "13. Suspension and Termination",
             bullets: [
-                "We may suspend, restrict or terminate your access to the Service or your Account immediately and without notice if we reasonably suspect breach of these Terms, fraudulent or illegal activity, or for security or technical reasons.",
-                "Upon suspension or termination, any rights licensed to you cease immediately. Termination does not affect accrued rights or liabilities."
+                "We may suspend or terminate your account for breach of these Terms or misuse of the platform (e.g. barcode forgery or automation abuse).",
+                "Upon termination, you must stop using the platform. Previously downloaded barcodes remain usable unless access was fraudulently obtained."
             ]
         },
         {
             type: "text",
             title: "14. Changes to These Terms",
-            description: "We may amend these Terms from time to time. Any material changes will be notified to registered users by email or by a prominent notice on the Service. Amended Terms take effect on the date specified in the notice. Continued use of the Service after publication constitutes acceptance."
+            description: "We may update these Terms. Changes will be announced via the Service or email. Continued use of the Service after updates implies acceptance."
         },
         {
             type: "text",
             title: "15. Notices",
-            description: `All notices to the Company should be sent by email to ${COMPANY_EMAIL} or by post to the registered address. Notices to you may be given via email or by posting on the Service.`
+            description: `Contact us at ${COMPANY_EMAIL} or by mail at our registered address. We may send service-related notices to your account email.`
         },
         {
             type: "text",
             title: "16. Governing Law and Jurisdiction",
             bullets: [
-                "These Terms and any dispute or claim arising out of or in connection with them are governed by the laws of England and Wales.",
-                "The courts of England and Wales have exclusive jurisdiction, except as required by consumer law in Scotland, Northern Ireland, or the EU."
+                "These Terms are governed by the laws of England and Wales.",
+                "Any disputes will be subject to the jurisdiction of the English courts, unless otherwise required by consumer law."
             ]
         },
         {
             type: "text",
             title: "17. Miscellaneous",
             bullets: [
-                "If any provision of these Terms is found to be invalid, illegal or unenforceable, that provision shall be severed and the remainder shall continue in full force and effect.",
-                "No failure or delay by the Company in exercising any right under these Terms shall operate as a waiver of that right."
+                "If any provision is found unenforceable, it will be removed, and the rest will remain valid.",
+                "Failure to enforce any right under these Terms shall not constitute a waiver."
             ]
         },
         {

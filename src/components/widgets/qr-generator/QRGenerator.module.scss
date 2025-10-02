@@ -1,75 +1,138 @@
 .layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  align-items: start;
   width: 100%;
-  gap: 32px;
-  justify-content: space-between;
 
-  @media screen and (max-width: 1200px) {
-    flex-direction: column-reverse;
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
   }
 }
 
-.leftBlock,
-.rightBlock {
+.left, .right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  flex: 1 1 320px;
-}
-
-.previewBlock {
-  flex: 1 1 360px;
-  background: white;
-  padding: 24px;
-  height: fit-content;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.previewTitle {
-  margin-top: 12px;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.downloadBtns {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 18px;
 }
 
 .section {
-  background: #fff;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0,0,0,.06);
 }
 
-.colorRow {
+.preview {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+}
+
+.previewCard {
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  min-height: 220px;
+  padding: 16px;
+  border: 1px dashed rgba(0,0,0,.1);
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  canvas {
+    display: block;
+  }
+}
+
+.exportRow {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.hints {
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+
+  li {
+    color: #475569;
+    font-size: 0.95rem;
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.row, .rowBtns {
+  display: flex;
+  gap: 10px;
   align-items: center;
-  gap: 8px;
-  width: 100%;
-  justify-content: space-between;
-  position: relative;
+  flex-wrap: wrap;
 }
 
 .colorSquare {
-  width: 35px;
-  height: 35px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 36px;
+  height: 32px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 .pickerPopup {
   position: absolute;
-  top: 40px;
-  z-index: 20;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 40;
+  margin-top: 10px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.2);
+  border-radius: 10px;
+  overflow: hidden;
 }

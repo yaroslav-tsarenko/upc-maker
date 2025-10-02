@@ -1,40 +1,39 @@
 "use client";
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import { TextField, Button, Card, CardContent, Typography, Box } from "@mui/material";
+import { Box, Typography, Input, Textarea, Button, Card } from "@mui/joy";
 import Confetti from "react-confetti";
 import styles from "./ContactUsForm.module.scss";
 import { validationSchema, initialValues, sendContactRequest } from "./schema";
 import { useAlert } from "@/context/AlertContext";
 import { useI18n } from "@/context/i18nContext";
-import ButtonUI from "@/components/ui/button/ButtonUI";
 
 const translations = {
     en: {
-        formTitle: "Contact Us",
-        formDesc: "Fill out the form below and we’ll get back to you as soon as possible.",
+        formTitle: "Get in Touch ✨",
+        formDesc: "We’d love to hear from you. Fill in your details and our team will get back shortly.",
         firstName: "First Name",
-        secondName: "Second Name",
-        email: "Email",
+        secondName: "Last Name",
+        email: "Email Address",
         phone: "Phone Number",
-        message: "Message (optional)",
-        send: "Send",
-        successMsg: "Thanks! Your data sent successfully!",
+        message: "Your Message",
+        send: "Send Message",
+        successMsg: "✅ Thanks! Your message has been sent successfully!",
         successAlertTitle: "Success",
         successAlertMsg: "Your request has been sent!",
         errorAlertTitle: "Error",
         errorAlertMsg: "Failed to send. Please try again.",
     },
     tr: {
-        formTitle: "Bize Ulaşın",
-        formDesc: "Aşağıdaki formu doldurun, en kısa sürede size geri döneceğiz.",
+        formTitle: "Bizimle İletişime Geçin ✨",
+        formDesc: "Bilgilerinizi doldurun, en kısa sürede size ulaşalım.",
         firstName: "Ad",
         secondName: "Soyad",
         email: "E-posta",
         phone: "Telefon Numarası",
-        message: "Mesaj (isteğe bağlı)",
-        send: "Gönder",
-        successMsg: "Teşekkürler! Bilgileriniz başarıyla gönderildi!",
+        message: "Mesajınız",
+        send: "Mesaj Gönder",
+        successMsg: "✅ Teşekkürler! Mesajınız başarıyla gönderildi!",
         successAlertTitle: "Başarılı",
         successAlertMsg: "Talebiniz gönderildi!",
         errorAlertTitle: "Hata",
@@ -59,7 +58,7 @@ const ContactUsForm = () => {
             setSuccessMsg(t.successMsg);
             setShowConfetti(true);
             showAlert(t.successAlertTitle, t.successAlertMsg, "success");
-            setTimeout(() => setShowConfetti(false), 1000000);
+            setTimeout(() => setShowConfetti(false), 4000);
         } catch {
             showAlert(t.errorAlertTitle, t.errorAlertMsg, "error");
         }
@@ -67,118 +66,95 @@ const ContactUsForm = () => {
     };
 
     return (
-        <Box className={styles.contactUsWrapper} sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
+        <div className={styles.contactWrapper}>
             {showConfetti && <Confetti />}
-            <Card sx={{ maxWidth: 480, width: "100%", boxShadow: 3, borderRadius: 3 }}>
-                <CardContent>
-                    <Typography variant="h5" fontWeight={700} mb={1} color="primary">
-                        {t.formTitle}
-                    </Typography>
-                    <Typography variant="body1" mb={3} color="text.secondary">
-                        {t.formDesc}
-                    </Typography>
-                    {successMsg ? (
-                        <Box sx={{ color: "#2e7d32", fontWeight: 600, textAlign: "center", fontSize: "1.2rem", minHeight: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                            {successMsg}
-                        </Box>
-                    ) : (
+            <Card className={styles.contactCard}>
+                {successMsg ? (
+                    <div className={styles.successMsg}>{successMsg}</div>
+                ) : (
+                    <>
+                        <Typography level="h2" className={styles.formTitle}>
+                            {t.formTitle}
+                        </Typography>
+                        <Typography level="body-md" className={styles.formDesc}>
+                            {t.formDesc}
+                        </Typography>
+
                         <Formik
                             initialValues={initialValues}
                             validationSchema={validationSchema}
                             onSubmit={handleSubmit}
                         >
                             {({ errors, touched, isSubmitting }) => (
-                                <Form>
-                                    <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
+                                <Form className={styles.form}>
+                                    <div className={styles.formGroupRow}>
                                         <Field name="name">
                                             {({ field }: { field: any }) => (
-                                                <TextField
+                                                <Input
                                                     {...field}
-                                                    label={t.firstName}
+                                                    placeholder={t.firstName}
+                                                    className={styles.input}
                                                     error={touched.name && !!errors.name}
-                                                    helperText={touched.name && errors.name}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    size="medium"
                                                 />
                                             )}
                                         </Field>
                                         <Field name="secondName">
                                             {({ field }: { field: any }) => (
-                                                <TextField
+                                                <Input
                                                     {...field}
-                                                    label={t.secondName}
+                                                    placeholder={t.secondName}
+                                                    className={styles.input}
                                                     error={touched.secondName && !!errors.secondName}
-                                                    helperText={touched.secondName && errors.secondName}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    size="medium"
                                                 />
                                             )}
                                         </Field>
-                                    </Box>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Field name="email">
-                                            {({ field }: { field: any }) => (
-                                                <TextField
-                                                    {...field}
-                                                    label={t.email}
-                                                    type="email"
-                                                    error={touched.email && !!errors.email}
-                                                    helperText={touched.email && errors.email}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    size="medium"
-                                                />
-                                            )}
-                                        </Field>
-                                    </Box>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Field name="phone">
-                                            {({ field }: { field: any }) => (
-                                                <TextField
-                                                    {...field}
-                                                    label={t.phone}
-                                                    type="tel"
-                                                    error={touched.phone && !!errors.phone}
-                                                    helperText={touched.phone && errors.phone}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    size="medium"
-                                                />
-                                            )}
-                                        </Field>
-                                    </Box>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Field name="message">
-                                            {({ field }: { field: any }) => (
-                                                <TextField
-                                                    {...field}
-                                                    label={t.message}
-                                                    multiline
-                                                    minRows={3}
-                                                    fullWidth
-                                                    variant="outlined"
-                                                    size="medium"
-                                                />
-                                            )}
-                                        </Field>
-                                    </Box>
-                                    <ButtonUI
+                                    </div>
+                                    <Field name="email">
+                                        {({ field }: { field: any }) => (
+                                            <Input
+                                                {...field}
+                                                type="email"
+                                                placeholder={t.email}
+                                                className={styles.input}
+                                                error={touched.email && !!errors.email}
+                                            />
+                                        )}
+                                    </Field>
+                                    <Field name="phone">
+                                        {({ field }: { field: any }) => (
+                                            <Input
+                                                {...field}
+                                                type="tel"
+                                                placeholder={t.phone}
+                                                className={styles.input}
+                                                error={touched.phone && !!errors.phone}
+                                            />
+                                        )}
+                                    </Field>
+                                    <Field name="message">
+                                        {({ field }: { field: any }) => (
+                                            <Textarea
+                                                {...field}
+                                                minRows={4}
+                                                placeholder={t.message}
+                                                className={styles.textarea}
+                                            />
+                                        )}
+                                    </Field>
+                                    <Button
                                         type="submit"
-                                        color="primary"
-                                        fullWidth
-                                        disabled={isSubmitting}
+                                        loading={isSubmitting}
+                                        className={styles.submitBtn}
                                     >
                                         {t.send}
-                                    </ButtonUI>
+                                    </Button>
                                 </Form>
                             )}
                         </Formik>
-                    )}
-                </CardContent>
+                    </>
+                )}
             </Card>
-        </Box>
+        </div>
     );
 };
 

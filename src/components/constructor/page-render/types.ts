@@ -135,6 +135,32 @@ export type QRGeneratorBlock = {
 };
 
 
+export type TestimonialItem = {
+    avatar?: string;
+    name: string;
+    role?: string;
+    text: string;
+};
+
+export type TestimonialsBlock = {
+    type: "testimonials";
+    title?: string;
+    items: TestimonialItem[];
+};
+
+export type StepItem = {
+    number: number;
+    title: string;
+    description?: string;
+    iconName?: string;
+};
+
+export type StepsBlock = {
+    type: "steps";
+    title?: string;
+    items: StepItem[];
+};
+
 export type PageBlock =
     | TextBlock
     | MediaBlock
@@ -145,7 +171,9 @@ export type PageBlock =
     | PricingBlock
     | GridBlock
     | HeroBlock
-    | QRGeneratorBlock;
+    | QRGeneratorBlock
+    | TestimonialsBlock
+    | StepsBlock;
 
 export type PageSchema = {
     meta: MetaSchema;

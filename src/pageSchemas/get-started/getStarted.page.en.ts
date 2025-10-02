@@ -3,212 +3,246 @@ import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `QR Code Generator — ${COMPANY_NAME}`,
-        description: `Generate QR codes easily, quickly, and affordably for any need. Customize your QR codes and access them instantly on any device.`,
+        title: `Get Started with ${COMPANY_NAME} — Professional Barcode Generator`,
+        description:
+            `Start creating high-quality barcodes (UPC-A, EAN-13, Code128, Code39) today. Fast setup, customizable formats, and print-ready exports for packaging, retail and logistics.`,
         keywords: [
-            "QR code generator",
-            "custom QR codes",
-            "affordable QR codes",
-            "instant QR code creation",
-            "multi-device QR codes",
-            "easy QR code customization"
+            "barcode generator",
+            "UPC-A",
+            "EAN-13",
+            "Code128",
+            "Code39",
+            "retail barcode",
+            "print-ready barcodes",
+            "packaging labels",
+            "SKU barcodes",
+            "logistics barcodes"
         ],
-        canonical: "/qr-generator",
+        canonical: "/get-started",
         ogImage: {
-            title: `QR Code Generator`,
-            description: "Create and customize QR codes instantly.",
+            title: "Get Started with Barcode Generator",
+            description: "Create and download professional barcodes quickly with flexible design options.",
             bg: "#f4faff",
-            color: "#0070f3",
-        },
+            color: "#0070f3"
+        }
     },
+
     blocks: [
         {
             type: "hero",
-            bgImage: "image10",
-            title: "Generate QR Codes Instantly",
-            description: "Create, customize, and download QR codes for any purpose — fast, easy, and affordable.",
+            bgImage: "image11",
+            title: "Start Creating Professional Barcodes Today",
+            description:
+                "Generate UPC-A, EAN-13, Code128 and Code39 barcodes for packaging, retail, and logistics. No design or coding skills required.",
             buttons: [
-                { text: "Try QR Generator", link: "/qr-generator", color: "primary" },
-                { text: "Learn More", link: "/faq", color: "secondary" },
-            ],
+                { text: "See Services", link: "/services", color: "primary" },
+                { text: "Help Center", link: "/faq", color: "secondary" }
+            ]
         },
+
+        {
+            type: "steps",
+            title: "How to Get Started in 3 Easy Steps",
+            items: [
+                {
+                    number: 1,
+                    title: "Select Barcode Type",
+                    description: "Choose UPC-A, EAN-13, Code128 or Code39 for your product or SKU.",
+                    iconName: "edit"
+                },
+                {
+                    number: 2,
+                    title: "Customize & Preview",
+                    description: "Set size, DPI, human-readable text, colors, and preview instantly.",
+                    iconName: "palette"
+                },
+                {
+                    number: 3,
+                    title: "Download & Use",
+                    description: "Export barcodes in PNG, SVG or PDF and apply to packaging or labels.",
+                    iconName: "download"
+                }
+            ]
+        },
+
         {
             type: "section",
-            align: "center",
+            align: "left",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: "Why Use Our QR Code Generator?",
-                description: "Our platform lets you create QR codes for business, events, marketing, or personal use. No technical skills required — just enter your data and get your code.",
+                title: "Why Choose Our Barcode Generator?",
+                description:
+                    "We make barcode creation simple, accurate, and fast. Ideal for businesses, designers, and logistics teams.",
                 bullets: [
-                    "Instant QR code creation",
-                    "Easy customization options",
-                    "Affordable pricing",
-                    "Works on all devices",
+                    "Automatic check-digit validation",
+                    "GS1-compliant output",
+                    "High-resolution, print-ready exports"
                 ],
-                iconName: "qr",
-                iconSize: 48,
-                iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
+                iconName: "star",
+                iconSize: 40,
+                iconColor: "#FFD700",
+                iconBg: "#fffbe6"
             },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image12",
+                width: "100%",
+                height: "400px",
+                alt: "Professional barcode generation preview"
+            }
         },
+
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
             cards: [
                 {
-                    image: "image1",
-                    title: "Step 1 — Enter Your Data",
-                    description: "Type in a URL, text, contact info, or any data you want to encode.",
-                    buttonLink: "/qr-generator",
-                    buttonText: "Start Now",
+                    image: "image5",
+                    title: "Enterprise-Grade Accuracy",
+                    description: "Correct check-digit math for UPC-A & EAN-13, compact Code128 for SKUs, and crystal-clear Code39.",
+                    buttonLink: "/services",
+                    buttonText: "See Services"
                 },
-                {
-                    image: "image2",
-                    title: "Step 2 — Customize Your QR Code",
-                    description: "Choose colors, add a logo, and set the size to match your brand or style.",
-                    buttonLink: "/qr-generator",
-                    buttonText: "Customize",
-                },
-                {
-                    image: "image3",
-                    title: "Step 3 — Download & Share",
-                    description: "Download your QR code in high quality and use it anywhere — print, web, or mobile.",
-                    buttonLink: "/qr-generator",
-                    buttonText: "Download",
-                },
-            ],
-        },
-        {
-            type: "section",
-            left: {
-                type: "media",
-                mediaType: "image",
-                src: "image4",
-                width: "100%",
-                height: "400px",
-                alt: "QR code customization preview",
-            },
-            right: {
-                type: "text",
-                title: "Customize Your QR Codes",
-                description: "Easily change colors, add your logo, and select the format you need. Make your QR codes stand out and match your brand.",
-                bullets: [
-                    "Color and style options",
-                    "Logo upload",
-                    "Multiple formats: PNG, SVG, PDF",
-                ],
-                iconName: "settings",
-                iconSize: 40,
-                iconColor: "#28a745",
-                iconBg: "#e6ffe6",
-            },
-        },
-        {
-            type: "section",
-            left: {
-                type: "text",
-                title: "Affordable and Flexible",
-                description: "Generate unlimited QR codes at a low cost. No subscriptions — pay only for what you use.",
-                bullets: [
-                    "No hidden fees",
-                    "Pay-as-you-go model",
-                    "Bulk generation for businesses",
-                ],
-                iconName: "money",
-                iconSize: 40,
-                iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
-            },
-            right: {
-                type: "media",
-                mediaType: "image",
-                src: "image5",
-                width: "100%",
-                height: "400px",
-                alt: "Affordable QR code pricing",
-            },
-        },
-        {
-            type: "grid",
-            columns: 2,
-            gap: "2rem",
-            cards: [
                 {
                     image: "image6",
-                    title: "Multi-Device Support",
-                    description: "Generate and use QR codes on desktop, tablet, or smartphone. Our site adapts to your workflow.",
+                    title: "Brand Consistency",
+                    description:
+                        "Customize fonts, human-readable text, and colors to match your packaging design.",
                     buttonLink: "/faq",
-                    buttonText: "Learn More",
+                    buttonText: "Learn More"
                 },
                 {
                     image: "image7",
-                    title: "Offline Access",
-                    description: "Download QR codes for offline use. Perfect for print materials and events.",
-                    buttonLink: "/faq",
-                    buttonText: "Read FAQ",
-                },
-            ],
+                    title: "Print-Ready Output",
+                    description: "Export PNG, SVG, PDF at up to 600 DPI for razor-sharp packaging and digital use.",
+                    buttonLink: "/pricing",
+                    buttonText: "View Pricing"
+                }
+            ]
         },
+
         {
             type: "section",
-            align: "center",
-            gap: "3rem",
             left: {
-                type: "text",
-                title: "What Makes Us Different?",
-                description: "We focus on speed, simplicity, and affordability. Generate as many QR codes as you need, with full customization and instant access.",
-                bullets: [
-                    "Fast and reliable",
-                    "Easy to use for everyone",
-                    "Custom branding options",
-                    "No subscription required",
-                ],
-                iconName: "star",
-                iconSize: 48,
-                iconColor: "#FFD700",
-                iconBg: "#fffbe6",
-                centerTitle: true,
-                centerDescription: true,
-                centerBullets: true,
+                type: "media",
+                mediaType: "image",
+                src: "image8",
+                width: "100%",
+                height: "400px",
+                alt: "Bulk barcode export preview"
             },
+            right: {
+                type: "text",
+                title: "Bulk Generation for Businesses",
+                description:
+                    "Upload SKU lists to create multiple barcodes at once — perfect for warehouses, e-commerce, and packaging runs.",
+                bullets: [
+                    "Batch PNG export",
+                    "Predictable file naming",
+                    "Error-free at scale"
+                ],
+                iconName: "time",
+                iconSize: 40,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff"
+            }
         },
+
+        {
+            type: "testimonials",
+            title: "What Our Clients Say",
+            items: [
+                {
+                    name: "Marta",
+                    role: "Packaging Lead",
+                    text: "UPC-A and EAN-13 exports are spot-on. Print house loved the SVGs.",
+                    avatar: "https://i.pravatar.cc/150?img=5"
+                },
+                {
+                    name: "Arman",
+                    role: "Ops Manager",
+                    text: "Bulk barcodes saved hours before a logistics deadline.",
+                    avatar: "https://i.pravatar.cc/150?img=12"
+                },
+                {
+                    name: "Li Wei",
+                    role: "Product Owner",
+                    text: "Code128 SKUs scan perfectly at POS — zero returns from retailers.",
+                    avatar: "https://i.pravatar.cc/150?img=8"
+                },
+                {
+                    name: "David",
+                    role: "E-commerce",
+                    text: "Fast to configure, predictable filenames, clean exports.",
+                    avatar: "https://i.pravatar.cc/150?img=22"
+                },
+                {
+                    name: "Sofia",
+                    role: "Brand Designer",
+                    text: "Barcode styling matched our brand perfectly. Great support too!",
+                    avatar: "https://i.pravatar.cc/150?img=39"
+                },
+                {
+                    name: "Nur",
+                    role: "Marketing",
+                    text: "Bulk generation and DPI control made campaign rollouts easy.",
+                    avatar: "https://i.pravatar.cc/150?img=16"
+                }
+            ]
+        },
+
         {
             type: "faq",
             items: [
                 {
-                    question: "How do I generate a QR code?",
-                    answer: "Just enter your data, customize the style, and click generate. Your QR code is ready instantly.",
+                    question: "Do I need an account to generate barcodes?",
+                    answer: "No, basic features are available without an account. Sign up for bulk tools and history."
                 },
                 {
-                    question: "Can I customize the QR code?",
-                    answer: "Yes. You can change colors, add a logo, and select the format you want.",
+                    question: "What formats are available for download?",
+                    answer: "We support PNG, SVG, and PDF — perfect for digital or print usage."
                 },
                 {
-                    question: "Is there a limit to how many QR codes I can create?",
-                    answer: "No. You can generate as many QR codes as you need.",
+                    question: "How much does it cost?",
+                    answer: "We offer flexible plans. Visit the pricing page to find the right fit for you."
                 },
                 {
-                    question: "Do I need an account?",
-                    answer: "No account required for basic generation. Sign up for advanced features and history.",
-                },
-                {
-                    question: "Can I use QR codes for business?",
-                    answer: "Absolutely. Our platform supports bulk generation and branding for business needs.",
-                },
-                {
-                    question: "Is support available?",
-                    answer: `Yes. Contact us at ${COMPANY_EMAIL} for help or custom requests.`,
-                },
-            ],
+                    question: "What if I need help or a custom barcode format?",
+                    answer: `You can always reach out at ${COMPANY_EMAIL} — we're happy to assist!`
+                }
+            ]
         },
+
         {
-            type: "qr-generator",
-        },
-    ],
+            type: "section",
+            align: "center",
+            left: {
+                type: "text",
+                title: "Ready to Generate Barcodes?",
+                description:
+                    "No long setup. No learning curve. Just fast, reliable, and professional barcodes in seconds.",
+                bullets: [
+                    "Trusted by small teams and enterprises",
+                    "Privacy-focused and ad-free",
+                    "Instant feedback and download"
+                ],
+                iconName: "verified",
+                iconSize: 48,
+                iconColor: "#0070f3",
+                iconBg: "#e6f7ff",
+                centerTitle: true,
+                centerDescription: true,
+                centerBullets: true,
+                buttons: [
+                    { text: "Get Started", link: "/get-started", color: "primary" },
+                    { text: "Contact Us", link: "/contact-us", color: "secondary" }
+                ]
+            }
+        }
+    ]
 };
 
 export default schema;

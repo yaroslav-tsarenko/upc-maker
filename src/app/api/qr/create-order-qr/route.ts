@@ -1,6 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
-import {qrController} from "@/backend/controllers/qr.controller";
-import {requireAuth} from "@/backend/middlewares/auth.middleware"; // optional
+import {requireAuth} from "@/backend/middlewares/auth.middleware";
+import {upcController} from "@/backend/controllers/upc.controller";
 
 export async function POST(req: NextRequest) {
     try {
@@ -9,11 +9,11 @@ export async function POST(req: NextRequest) {
         const body = await req.json();
         const {userId, email, prompt, response} = body;
 
-        const order = await qrController.createOrderQR(userId, email, prompt, response);
+        const order = await upcController.createOrderUPC(userId, email, prompt, response);
         return NextResponse.json({order}, {status: 200});
     } catch (err: any) {
         return NextResponse.json(
-            {message: err.message || "Failed to create QR order"},
+            {message: err.message || "Failed to download"},
             {status: 400}
         );
     }

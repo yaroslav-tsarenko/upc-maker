@@ -21,7 +21,7 @@ import {
 } from 'react-icons/md';
 import ButtonUI from '@/components/ui/button/ButtonUI';
 
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
+export const ICON_MAP: Record<string, React.ComponentType<{ size?: number; color?: string }>> = {
     star: MdStars,
     qr: MdQrCode,
     user: MdPerson,
@@ -203,7 +203,7 @@ const Text: React.FC<TextProps> = ({
 
     return (
         <div className={styles.textBlock}>
-            {IconComponent && (
+           {/* {IconComponent && (
                 <div
                     className={clsx(styles.bigIcon, iconAlignClass)}
                     style={{
@@ -219,7 +219,7 @@ const Text: React.FC<TextProps> = ({
                 >
                     <IconComponent size={iconSize} color={iconColor} />
                 </div>
-            )}
+            )}*/}
             {title &&
                 React.createElement(
                     headingTag,

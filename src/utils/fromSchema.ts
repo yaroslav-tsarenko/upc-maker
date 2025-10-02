@@ -24,7 +24,7 @@ export async function metadataFromSchema(meta: MetaSchema): Promise<Metadata> {
             : `/api/og` +
             `?title=${encodeURIComponent(meta.ogImage?.title ?? title)}` +
             `&desc=${encodeURIComponent(meta.ogImage?.description ?? description)}` +
-            `&bg=${encodeURIComponent(meta.ogImage?.bg ?? "#ffffff")}` +
+            `&bg=${encodeURIComponent(meta.ogImage?.bg ?? "linear-gradient(90deg, #4900e4 0%, #ce00ae 100%)")}` +
             `&color=${encodeURIComponent(meta.ogImage?.color ?? "#000000")}`;
 
     const [canonicalAbs, ogImageAbs] = await Promise.all([

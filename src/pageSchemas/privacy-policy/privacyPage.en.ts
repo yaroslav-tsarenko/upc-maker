@@ -10,20 +10,20 @@ import {
 const privacyPolicySchema: PageSchema = {
     meta: {
         title: `Privacy Policy – ${COMPANY_NAME}`,
-        description: `Privacy Policy for ${COMPANY_NAME}: what personal data we collect, how we use it for QR code generation, how long we keep it, and your rights.`,
+        description: `Privacy Policy for ${COMPANY_NAME}: what personal data we collect, how we use it for UPC barcode generation and management, how long we keep it, and your rights.`,
         keywords: [
             "privacy policy",
             "data protection",
             "gdpr",
-            COMPANY_NAME?.toLowerCase() || "qr-codes",
-            "qr codes",
+            COMPANY_NAME?.toLowerCase() || "upc barcodes",
+            "upc barcodes",
             "personal data",
             "security"
         ],
         canonical: "/privacy-policy",
         ogImage: {
             title: `${COMPANY_NAME} – Privacy Policy`,
-            description: "Transparent data protection and privacy standards.",
+            description: "Transparent data protection and privacy standards for barcode management.",
             bg: "#ffffff",
             color: "#000000"
         }
@@ -32,72 +32,72 @@ const privacyPolicySchema: PageSchema = {
         {
             type: "text",
             title: "1. Introduction",
-            description: `We respect your privacy. This Privacy Policy explains what personal data ${COMPANY_NAME} collects when you use our QR code generator, why we use it, how long we keep it, and how you can exercise your rights.`
+            description: `We respect your privacy. This Privacy Policy explains what personal data ${COMPANY_NAME} collects when you use our UPC barcode generation and management services, why we use it, how long we retain it, and how you can exercise your rights.`
         },
         {
             type: "text",
             title: "2. Data We Collect",
             bullets: [
                 "Name, email, and account details (if you register)",
-                "Payment transaction references for premium features (not full card data)",
-                "QR code generation history and saved projects (if logged in)",
-                "IP address, device details, and access logs",
-                "Support requests and correspondence"
+                "Payment transaction references for premium barcode features (not full card data)",
+                "UPC barcode history and saved barcode sets (if logged in)",
+                "IP address, device information, and access logs",
+                "Support messages and client communication"
             ]
         },
         {
             type: "text",
             title: "3. Why We Process Your Data & Legal Bases",
             bullets: [
-                "To provide QR code generation, customization, and related features (performance of contract)",
-                "To process payments for premium services and prevent fraud (legal obligation / legitimate interests)",
-                "To respond to support requests and manage refunds (performance of contract / legitimate interests)",
-                "To send marketing communications if you opt in (consent)"
+                "To provide UPC barcode generation, storage, and export (performance of contract)",
+                "To process payments and detect fraud (legal obligation / legitimate interests)",
+                "To assist with support requests and issue resolution (performance of contract / legitimate interests)",
+                "To send product updates or marketing emails if you opt in (consent)"
             ]
         },
         {
             type: "text",
             title: "4. Sharing and Transfers",
-            description: "We share data with payment providers, hosting/cloud platforms, analytics, and support tools where necessary. Some processors may operate outside the UK/EEA; where transfers occur we apply safeguards such as UK adequacy decisions and Standard Contractual Clauses (SCCs)."
+            description: "We share your data with trusted service providers (e.g., cloud storage, analytics, payment processors) strictly as needed. Some partners may be outside the UK/EEA; in such cases, we use safeguards like SCCs and adequacy agreements."
         },
         {
             type: "text",
             title: "5. Cookies",
-            description: "We use cookies and similar technologies to keep the site functional (e.g. login sessions, preferences) and to measure performance. For details and consent management, see our Cookie Policy."
+            description: "Our website uses cookies to ensure functionality (e.g., login persistence, language settings) and to analyze traffic. Full details are provided in our Cookie Policy."
         },
         {
             type: "text",
             title: "6. Retention",
-            description: "We keep account, billing, and transaction records for a minimum of 24 months and up to 6 years for disputes or compliance. Saved QR codes and design history are retained as long as your account is active, unless you delete them."
+            description: "We retain billing records and transaction logs for 24–72 months to meet legal and tax requirements. Saved barcode templates and project history remain available as long as your account is active, unless manually deleted."
         },
         {
             type: "text",
             title: "7. Your Rights",
-            description: "You have rights under data protection law, including access, correction, deletion, restriction, portability, objection, and withdrawal of consent. To exercise these rights, contact us at " + COMPANY_EMAIL + ". We may request ID for verification."
+            description: `You may request access, correction, deletion, restriction, or portability of your data. You can also object to processing or withdraw consent. Contact us at ${COMPANY_EMAIL} to exercise these rights. We may verify your identity before processing requests.`
         },
         {
             type: "text",
             title: "8. Security",
-            description: "We use reasonable technical and organisational measures to protect personal data, including encryption in transit, secure storage, access controls, logging, and regular backups."
+            description: "We employ robust security measures, including TLS encryption, secure servers, firewalls, and role-based access control to protect your data against unauthorized access, loss, or alteration."
         },
         {
             type: "text",
             title: "9. Changes",
-            description: "We may update this Policy when we add new features or legal requirements change. Significant updates will be notified by email or a prominent notice on our website."
+            description: "We may update this Privacy Policy to reflect legal changes or service enhancements. You will be notified via email or platform notice in case of significant updates."
         },
         {
             type: "text",
             title: "10. Contact & Complaints",
             bullets: [
-                `Data protection enquiries: ${COMPANY_EMAIL}`,
-                `Support: ${COMPANY_EMAIL}`,
-                "If you are unsatisfied, you may lodge a complaint with the UK Information Commissioner’s Office (ICO) or your local data protection authority."
+                `Privacy questions: ${COMPANY_EMAIL}`,
+                `Customer support: ${COMPANY_EMAIL}`,
+                "If unsatisfied, you may file a complaint with the UK ICO or your regional data authority."
             ]
         },
         {
             type: "text",
             title: "Effective Date",
-            description: "This Privacy Policy takes effect upon publication and supersedes all earlier versions."
+            description: "This policy is effective immediately upon publication and overrides all prior versions."
         },
         {
             type: "text",

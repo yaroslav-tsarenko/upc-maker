@@ -1,182 +1,166 @@
-import { PageSchema } from '@/components/constructor/page-render/types';
-import { COMPANY_NAME } from '@/resources/constants';
+import { PageSchema } from "@/components/constructor/page-render/types";
+import { COMPANY_NAME, COMPANY_EMAIL } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `${COMPANY_NAME} — QR Code Configurator for Any Need`,
-        description: `Create detailed, custom QR codes instantly. Every QR requires 30 tokens. Fast, secure, and flexible for any use case.`,
-        keywords: ["QR code", "configurator", "generator", "tokens", "custom", "fast", "secure"],
-        canonical: "/",
+        title: `Get Started with ${COMPANY_NAME} — UPC Barcode Generator`,
+        description:
+            "Start generating UPC barcodes in seconds. Fast setup, precise output, and export-ready formats for retail, logistics, and product labeling.",
+        keywords: [
+            "UPC barcode generator",
+            "create barcodes",
+            "GS1 barcodes",
+            "bulk barcode generation",
+            "barcode PNG SVG",
+            "retail barcode tool",
+            "barcode for packaging",
+            "generate UPC code",
+        ],
+        canonical: "/get-started",
         ogImage: {
-            title: `${COMPANY_NAME} QR Configurator`,
-            description: "Create custom QR codes for any need. Fast, flexible, and secure.",
-            bg: "#f4faff",
-            color: "#0070f3",
+            title: "Generate UPC Barcodes Easily",
+            description: "Retail-ready barcodes in just a few clicks. Export in high-res formats.",
+            bg: "#fff6f0",
+            color: "#ff6600",
         },
     },
     blocks: [
         {
-            type: "qr-generator",
+            type: "qr-generator"
         },
         {
             type: "hero",
-            bgImage: "image1",
-            title: "The Fastest Way to Create QR Codes",
-            description: "Unlock the power of instant QR code generation. Our configurator is designed for speed, flexibility, and security. Every QR code is ready in seconds and tailored to your needs.",
+            bgImage: "image23",
+            title: "Your Path to Perfect UPC Barcodes Starts Here",
+            description:
+                "Create compliant, retail-ready barcodes for packaging, inventory, and logistics — no special tools required.",
             buttons: [
-                { text: "Try QR Generator", link: "/qr-generator", color: "primary" },
-                { text: "See Examples", link: "/examples", color: "secondary" }
-            ]
+                { text: "Generate UPC", link: "/dashboard", color: "primary" },
+                { text: "Help Center", link: "/faq", color: "secondary" },
+            ],
         },
         {
-            type: "grid",
-            columns: 4,
-            gap: "2rem",
-            style: { margin: "2rem 0" },
+            type: "steps",
+            title: "How It Works in 3 Easy Steps",
             items: [
                 {
-                    key: "feature1",
-                    block: {
-                        type: "text",
-                        description: "Create QR codes for URLs, text, contact info, WiFi, events, and more. Tailor every QR to your exact needs.",
-                        bullets: [
-                            "Supports multiple data types",
-                            "Easy to configure",
-                            "Preview before download",
-                        ],
-                        iconName: "edit",
-                        iconSize: 40,
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: false,
-                        centerDescription: false,
-                    }
+                    number: 1,
+                    title: "Enter Your Code",
+                    description: "Input your 12-digit UPC or generate sequential codes in bulk.",
+                    iconName: "edit",
                 },
                 {
-                    key: "feature2",
-                    block: {
-                        type: "text",
-                        description: "Choose colors, add logos, and set error correction levels for maximum reliability and branding.",
-                        bullets: [
-                            "Custom colors and branding",
-                            "Logo embedding",
-                            "High error correction",
-                        ],
-                        iconName: "palette",
-                        iconSize: 40,
-                        iconColor: "#28a745",
-                        iconBg: "#e6ffe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                    }
+                    number: 2,
+                    title: "Customize Output",
+                    description:
+                        "Select barcode size, resolution, and format. Customize margins and alignment.",
+                    iconName: "palette",
                 },
                 {
-                    key: "feature3",
-                    block: {
-                        type: "text",
-                        description: "Get your QR code instantly after payment. Download in PNG, SVG, or PDF formats for print or digital use.",
-                        bullets: [
-                            "No waiting time",
-                            "Multiple formats",
-                            "Ready for print",
-                        ],
-                        iconName: "time",
-                        iconSize: 40,
-                        iconColor: "#FFD700",
-                        iconBg: "#fffbe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                    }
+                    number: 3,
+                    title: "Download & Print",
+                    description:
+                        "Export as PNG, SVG, or PDF. Print or embed directly in your product labels.",
+                    iconName: "download",
                 },
-                {
-                    key: "feature4",
-                    block: {
-                        type: "text",
-                        description: "Your data is protected. Every QR code is unique and safe for business or personal use.",
-                        bullets: [
-                            "Secure technology",
-                            "Private and unique codes",
-                            "Trusted by professionals",
-                        ],
-                        iconName: "lock",
-                        iconSize: 40,
-                        iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: true,
-                        centerDescription: false,
-                    }
-                },
-            ]
+            ],
+        },
+        {
+            type: "section",
+            align: "left",
+            gap: "2rem",
+            left: {
+                type: "text",
+                title: "Why Choose Our UPC Generator?",
+                description:
+                    "Designed for speed and accuracy, our tool supports batch generation, label-ready formatting, and all major barcode standards.",
+                bullets: [
+                    "No login required for basic usage",
+                    "GS1-compliant formatting",
+                    "Print-safe export options",
+                ],
+                iconName: "barcode",
+                iconSize: 40,
+                iconColor: "#ff6600",
+                iconBg: "#fff3e6",
+            },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image13",
+                width: "100%",
+                height: "400px",
+                alt: "UPC Barcode Generation Interface",
+            },
         },
         {
             type: "grid",
-            columns: 4,
+            columns: 3,
             gap: "2rem",
             cards: [
                 {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Starter Pack",
-                    price: "10",
-                    tokens: 1000,
-                    description: "Perfect for individuals who need occasional QR codes.",
-                    features: [
-                        "5 QR codes included",
-                        "Instant QR access",
-                        "No expiration",
-                        "Best for one-time projects"
-                    ],
-                    buttonText: "Buy Now",
-                    buttonLink: "/checkout?plan=starter",
+                    image: "image5",
+                    title: "Bulk Barcode Creation",
+                    description: "Generate dozens or hundreds of UPCs at once with consistent formatting.",
+                    buttonLink: "/bulk-generator",
+                    buttonText: "Try Bulk Tool",
                 },
                 {
-                    type: "pricing",
-                    variant: "highlight",
-                    title: "Pro Pack",
-                    price: "20",
-                    tokens: 2000,
-                    description: "Great for professionals and small teams.",
-                    features: [
-                        "20 QR codes included",
-                        "Priority QR creation",
-                        "Download & offline access",
-                        "Best value for growing teams"
-                    ],
-                    buttonText: "Get Pro",
-                    buttonLink: "/checkout?plan=pro",
+                    image: "image10",
+                    title: "Flexible Output Settings",
+                    description:
+                        "Control margin, label text, alignment, and export DPI with precision.",
+                    buttonLink: "/faq",
+                    buttonText: "See Options",
                 },
                 {
-                    type: "pricing",
-                    variant: "premium",
-                    title: "Enterprise Pack",
-                    price: "40",
-                    tokens: 4000,
-                    description: "Best for businesses with regular QR needs.",
-                    features: [
-                        "50 QR codes included",
-                        "Dedicated support",
-                        "Multi-format downloads",
-                        "Custom branding",
-                        "Scalable for large teams"
-                    ],
-                    buttonText: "Go Premium",
-                    buttonLink: "/checkout?plan=enterprise",
+                    image: "image12",
+                    title: "Retail-Ready Design",
+                    description: "Compliant with industry requirements and ready for printing on packaging.",
+                    buttonLink: "/pricing",
+                    buttonText: "See Pricing",
+                },
+            ],
+        },
+        {
+            type: "testimonials",
+            title: "What Our Clients Say",
+            items: [
+                {
+                    name: "Anna",
+                    role: "E-commerce Seller",
+                    text: "I needed 200 barcodes for Amazon. This tool made it incredibly simple and fast.",
+                    avatar: "https://i.pravatar.cc/150?img=12",
                 },
                 {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Custom Pack",
-                    price: "dynamic",
-                    tokens: 0,
-                    description: "Enter your own token amount and get instant pricing.",
-                    features: [
-                        "Flexible tokens",
-                        "Automatic price calculation",
-                        "No expiration",
-                        "Perfect for custom needs"
-                    ],
-                    buttonText: "Buy Custom",
-                    buttonLink: "/checkout?plan=custom",
+                    name: "Kevin",
+                    role: "Retail Manager",
+                    text: "We use this to generate barcodes for every new product line. Works perfectly.",
+                    avatar: "https://i.pravatar.cc/150?img=22",
+                },
+                {
+                    name: "Lisa",
+                    role: "Warehouse Lead",
+                    text: "Great export options! PNG and SVGs with perfect scaling.",
+                    avatar: "https://i.pravatar.cc/150?img=30",
+                },
+                {
+                    name: "Daniel",
+                    role: "Startup Founder",
+                    text: "Saved us hours — no need to hire a designer or buy expensive software.",
+                    avatar: "https://i.pravatar.cc/150?img=18",
+                },
+                {
+                    name: "Sara",
+                    role: "Labeling Technician",
+                    text: "Margins and print DPI options helped us avoid reprints. Great tool.",
+                    avatar: "https://i.pravatar.cc/150?img=25",
+                },
+                {
+                    name: "George",
+                    role: "Operations Director",
+                    text: "Used it across our packaging workflow. Everything looks clean and compliant.",
+                    avatar: "https://i.pravatar.cc/150?img=9",
                 },
             ],
         },
@@ -184,36 +168,24 @@ const schema: PageSchema = {
             type: "faq",
             items: [
                 {
-                    question: "What is a QR code configurator?",
-                    answer: "It's a tool to create custom QR codes for any purpose, instantly and securely. You can choose the content, style, and format.",
+                    question: "Is your generator GS1-compliant?",
+                    answer:
+                        "Yes. Our UPC codes are rendered with correct height, width, and quiet zone requirements.",
                 },
                 {
-                    question: "How much does each QR code cost?",
-                    answer: "Each QR code requires 30 tokens. No subscriptions or hidden fees. Buy tokens and use them as needed.",
+                    question: "Can I generate barcodes in bulk?",
+                    answer:
+                        "Yes! Use the bulk mode to create multiple barcodes at once with consistent layout.",
                 },
                 {
-                    question: "How fast do I get my QR code?",
-                    answer: "Your QR code is generated and delivered instantly after payment. Download it in your preferred format.",
+                    question: "What formats can I download?",
+                    answer:
+                        "We support high-resolution PNG, SVG for vector use, and PDF for print-ready needs.",
                 },
                 {
-                    question: "Can I use QR codes for business?",
-                    answer: "Yes! Our QR codes are perfect for business cards, product tracking, marketing, event tickets, and more.",
-                },
-                {
-                    question: "Is my data safe?",
-                    answer: "Absolutely. We use secure technology to protect your information. Your QR codes are unique and private.",
-                },
-                {
-                    question: "What formats are available?",
-                    answer: "You can download QR codes as PNG, SVG, or PDF, ready for print or digital use.",
-                },
-                {
-                    question: "Do I need technical skills?",
-                    answer: "No technical skills required. Our configurator is designed for everyone.",
-                },
-                {
-                    question: "Can I customize the look of my QR code?",
-                    answer: "Yes, you can choose colors, add logos, and set error correction levels for maximum reliability.",
+                    question: "Do I need to sign up?",
+                    answer:
+                        "No account is needed for most features. For saving history or batch exports, registration is helpful.",
                 },
             ],
         },

@@ -1,32 +1,49 @@
 .hero {
   position: relative;
-  width: 100%;
-  min-height: 400px;
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.content {
-  background: rgba(255,255,255,0.85);
-  border-radius: 16px;
-  padding: 40px 32px;
+  overflow: hidden;
   text-align: center;
-  max-width: 600px;
-  margin: 40px auto;
+  border-radius: 20px;
+  padding: 2rem;
 }
+
+.bgImage {
+  object-fit: cover;
+  filter: blur(6px) brightness(0.7); /* blur + darken */
+  z-index: -2;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* subtle dark overlay */
+  z-index: -1;
+}
+
+.content {
+  max-width: 800px;
+  color: #fff;
+  z-index: 1;
+  padding: 2rem;
+}
+
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
+
 .description {
-  font-size: 1.25rem;
-  margin-bottom: 32px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 2rem;
+  color: #e0e0e0;
 }
+
 .buttonGroup {
   display: flex;
-  justify-content: center;
-  gap: 16px;
+  gap: 10px;
+  margin: 0 auto;
 }

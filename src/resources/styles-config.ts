@@ -20,7 +20,7 @@ export const googleFonts: GoogleFont[] = [
     { name: "Open Sans", css: "'Open Sans', sans-serif", url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" },
 ];
 
-export const currentFontIndex = 4;
+export const currentFontIndex = 2;
 export const currentFont = googleFonts[currentFontIndex];
 
 // Кольори для кнопок
@@ -61,7 +61,7 @@ export const headerStyles = {
 
 // Drawer
 export const drawerConfig = {
-    anchor: "right" as SideBarDirection,
+    anchor: "top" as SideBarDirection,
     width: "100%",
     padding: "20px",
     logoWidth: 120,

@@ -3,56 +3,46 @@ import { COMPANY_NAME } from "@/resources/constants";
 
 const schema: PageSchema = {
     meta: {
-        title: `QR Code Services — ${COMPANY_NAME}`,
-        description: `Discover all-in-one QR code services with ${COMPANY_NAME}. Create, customize, and manage QR codes with expert support and business-ready features.`,
+        title: `Barcode Services — ${COMPANY_NAME}`,
+        description: `Explore all-in-one barcode services with ${COMPANY_NAME}. Create, customize, and manage barcodes (UPC-A, EAN-13, Code128, Code39) with expert support and business-ready features.`,
         keywords: [
-            `${COMPANY_NAME} services`,
-            "QR code generator",
-            "custom QR codes",
-            "bulk QR codes",
-            "secure QR codes",
-            "multi-language QR",
-            "business QR solutions"
+            `${COMPANY_NAME} barcode services`,
+            "barcode generator",
+            "UPC-A",
+            "EAN-13",
+            "Code128",
+            "Code39",
+            "bulk barcodes",
+            "secure barcodes",
+            "business barcode solutions"
         ],
         canonical: "/services",
         ogImage: {
-            title: `${COMPANY_NAME} QR Services`,
-            description: "Generate and customize QR codes with powerful features for individuals and businesses.",
+            title: `${COMPANY_NAME} Barcode Services`,
+            description: "Generate and customize barcodes with powerful features for individuals and businesses.",
             bg: "#f4faff",
-            color: "#0070f3",
-        },
+            color: "#0070f3"
+        }
     },
+
     blocks: [
-        {
-            type: "hero",
-            bgImage: "image1",
-            title: `Welcome to ${COMPANY_NAME}`,
-            description: "Your all-in-one solution for generating and customizing QR codes quickly and affordably.",
-            buttons: [
-                { text: "Generate QR Code", link: "/qr-generator", color: "primary" },
-                { text: "See Pricing", link: "/pricing", color: "secondary" }
-            ]
-        },
         {
             type: "section",
             align: "center",
             gap: "2rem",
             left: {
                 type: "text",
-                title: "Cloud-Based QR Management",
-                description: "Create and save QR codes online. Access your codes anytime, from any device.",
+                title: "Cloud-Based Barcode Management",
+                description: "Create and save barcodes online. Access your codes anytime, from any device.",
                 bullets: [
                     "Secure online storage",
                     "Download anytime",
-                    "Organize your codes"
+                    "Organize your barcodes"
                 ],
                 iconName: "cloud",
                 iconSize: 48,
                 iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
-                centerTitle: false,
-                centerDescription: false,
-                centerBullets: false,
+                iconBg: "#e6f7ff"
             },
             right: {
                 type: "media",
@@ -60,32 +50,30 @@ const schema: PageSchema = {
                 src: "image2",
                 width: "100%",
                 height: "400px",
-                alt: "Cloud QR management",
+                alt: "Cloud barcode management"
             }
         },
+
         {
             type: "grid",
             columns: 3,
             gap: "2rem",
             items: [
                 {
-                    key: "multiLang",
+                    key: "multiFormat",
                     block: {
                         type: "text",
-                        title: "Multi-Language Support",
-                        description: "Generate QR codes with localized content in multiple languages.",
+                        title: "Multiple Formats Supported",
+                        description: "Generate UPC-A, EAN-13, Code128, and Code39 barcodes for global standards.",
                         bullets: [
-                            "Language selector",
-                            "Localized QR data",
-                            "Perfect for global teams"
+                            "GS1-compliant codes",
+                            "Print-ready exports",
+                            "Retail and logistics ready"
                         ],
-                        iconName: "language",
+                        iconName: "layers",
                         iconSize: 40,
                         iconColor: "#FFD700",
-                        iconBg: "#fffbe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: true,
+                        iconBg: "#fffbe6"
                     }
                 },
                 {
@@ -93,7 +81,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "Security & Privacy",
-                        description: "Your QR codes and data are protected with enterprise-grade security.",
+                        description: "Your barcodes and data are protected with enterprise-grade security.",
                         bullets: [
                             "Secure access",
                             "Data encryption",
@@ -102,10 +90,7 @@ const schema: PageSchema = {
                         iconName: "security",
                         iconSize: 40,
                         iconColor: "#28a745",
-                        iconBg: "#e6ffe6",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: true,
+                        iconBg: "#e6ffe6"
                     }
                 },
                 {
@@ -113,7 +98,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "Favorites & Quick Access",
-                        description: "Save and access your most-used QR codes instantly from your dashboard.",
+                        description: "Save and access your most-used barcodes instantly from your dashboard.",
                         bullets: [
                             "Mark favorite codes",
                             "Quick dashboard access",
@@ -122,33 +107,28 @@ const schema: PageSchema = {
                         iconName: "favorite",
                         iconSize: 40,
                         iconColor: "#e91e63",
-                        iconBg: "#ffe6f0",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: true,
+                        iconBg: "#ffe6f0"
                     }
-                },
+                }
             ]
         },
+
         {
             type: "section",
             gap: "2rem",
             left: {
                 type: "text",
                 title: "Business Solutions",
-                description: "Scale your QR code usage with business-ready features and custom support.",
+                description: "Scale your barcode usage with business-ready features and custom support.",
                 bullets: [
-                    "Bulk QR code generation",
+                    "Bulk barcode generation",
                     "Custom branding",
                     "Dedicated account manager"
                 ],
                 iconName: "business",
                 iconSize: 48,
                 iconColor: "#0070f3",
-                iconBg: "#e6f7ff",
-                centerTitle: false,
-                centerDescription: false,
-                centerBullets: false,
+                iconBg: "#e6f7ff"
             },
             right: {
                 type: "media",
@@ -156,9 +136,10 @@ const schema: PageSchema = {
                 src: "image3",
                 width: "100%",
                 height: "400px",
-                alt: "Business QR solutions",
+                alt: "Business barcode solutions"
             }
         },
+
         {
             type: "grid",
             columns: 2,
@@ -178,10 +159,7 @@ const schema: PageSchema = {
                         iconName: "help",
                         iconSize: 40,
                         iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: true,
+                        iconBg: "#e6f7ff"
                     }
                 },
                 {
@@ -189,7 +167,7 @@ const schema: PageSchema = {
                     block: {
                         type: "text",
                         title: "Easy Customization",
-                        description: "Adjust colors, add logos, and set options with an intuitive interface.",
+                        description: "Adjust sizes, add human-readable text, and set options with an intuitive interface.",
                         bullets: [
                             "Color & style options",
                             "Logo integration",
@@ -198,14 +176,12 @@ const schema: PageSchema = {
                         iconName: "settings",
                         iconSize: 40,
                         iconColor: "#0070f3",
-                        iconBg: "#e6f7ff",
-                        centerTitle: false,
-                        centerDescription: false,
-                        centerBullets: true,
+                        iconBg: "#e6f7ff"
                     }
-                },
+                }
             ]
         },
+
         {
             type: "section",
             align: "center",
@@ -216,52 +192,79 @@ const schema: PageSchema = {
                 src: "image4",
                 width: "100%",
                 height: "400px",
-                alt: "Customer feedback",
+                alt: "Customer feedback"
             },
             right: {
                 type: "text",
                 title: "Customer Success Stories",
-                description: `Thousands of users trust ${COMPANY_NAME} for reliable QR code generation. See how our services help businesses and individuals succeed.`,
+                description: `Thousands of users trust ${COMPANY_NAME} for reliable barcode generation. See how our services help businesses and individuals succeed.`,
                 bullets: [
-                    `"I created branded QR codes for my café in minutes."`,
-                    `"Our marketing team boosted engagement with custom QR campaigns."`,
+                    `"We created branded barcodes for our retail chain in minutes."`,
+                    `"Our logistics team sped up dispatching with bulk barcodes."`,
                     `"Fast, reliable, and affordable — highly recommended."`
                 ],
-                centerTitle: false,
-                centerDescription: false,
-                centerBullets: false,
                 iconName: "star",
                 iconSize: 48,
                 iconColor: "#FFD700",
-                iconBg: "#fffbe6",
+                iconBg: "#fffbe6"
             }
         },
+
         {
             type: "faq",
             items: [
                 {
-                    question: "How do I generate QR codes?",
-                    answer: "Simply go to the QR Generator, enter your data, customize the design, and download instantly.",
+                    question: "How do I generate barcodes?",
+                    answer: "Go to Get Started, enter your data, select the barcode type, and download instantly."
                 },
                 {
-                    question: "Are QR codes secure?",
-                    answer: "Yes. All generated codes are private to your account and can include secure URLs.",
+                    question: "Are barcodes secure?",
+                    answer: "Yes. All generated codes are private to your account and can include secure data."
                 },
                 {
                     question: "Do you support businesses?",
-                    answer: "Absolutely! We offer bulk generation, custom branding, and enterprise features.",
+                    answer: "Absolutely! We offer bulk generation, custom branding, and enterprise features."
                 },
                 {
-                    question: "Can I create multi-language QR codes?",
-                    answer: "Yes, you can generate QR codes that link to localized content or use multilingual text.",
+                    question: "Can I create multiple barcode formats?",
+                    answer: "Yes, you can generate UPC-A, EAN-13, Code128, and Code39 barcodes as needed."
                 },
                 {
-                    question: "Can I save favorite QR codes?",
-                    answer: "Yes, you can mark your QR codes as favorites for quick access in your dashboard.",
-                },
-            ],
+                    question: "Can I save favorite barcodes?",
+                    answer: "Yes, you can mark your barcodes as favorites for quick access in your dashboard."
+                }
+            ]
         },
-    ],
+
+        {
+            type: "grid",
+            columns: 3,
+            gap: "2rem",
+            cards: [
+                {
+                    image: "image5",
+                    title: "See Pricing",
+                    description: "Find the best plan for your barcode needs.",
+                    buttonLink: "/pricing",
+                    buttonText: "View Pricing"
+                },
+                {
+                    image: "image6",
+                    title: "Get Started",
+                    description: "Start generating barcodes now with our easy-to-use platform.",
+                    buttonLink: "/get-started",
+                    buttonText: "Get Started"
+                },
+                {
+                    image: "image7",
+                    title: "Contact Us",
+                    description: "Need help? Our support team is ready to assist.",
+                    buttonLink: "/contact-us",
+                    buttonText: "Contact"
+                }
+            ]
+        }
+    ]
 };
 
 export default schema;

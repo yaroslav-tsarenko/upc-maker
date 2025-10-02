@@ -10,49 +10,52 @@ import {
 const pricingSchema: PageSchema = {
     meta: {
         title: `Pricing — ${COMPANY_NAME}`,
-        description:
-            `Discover flexible, transparent pricing for ${COMPANY_NAME}. Generate and customize QR codes at affordable rates — no subscriptions, no hidden fees.`,
+        description: `Discover flexible, transparent pricing for ${COMPANY_NAME}. Generate and customize barcodes at affordable rates — no subscriptions, no hidden fees.`,
         keywords: [
             `${COMPANY_NAME} pricing`,
-            "QR code generator pricing",
-            "QR code customization cost",
-            "affordable QR codes",
-            "QR code business plans"
+            "barcode generator pricing",
+            "UPC-A pricing",
+            "EAN-13 pricing",
+            "Code128",
+            "Code39",
+            "bulk barcode plans"
         ],
         canonical: "/pricing",
         ogImage: {
             title: `${COMPANY_NAME} Pricing`,
-            description: "Affordable, flexible pricing for QR code generation.",
+            description: "Affordable, flexible pricing for barcode generation.",
             bg: "#f4faff",
             color: "#0070f3",
         },
     },
+
     blocks: [
         {
             type: "hero",
             bgImage: "image10",
-            title: "Simple Pricing for Every Need",
-            description: `Choose the perfect plan for personal, professional, or business QR code generation. Pay only for what you use — no recurring fees.`,
+            title: "Transparent Pricing for Professional Barcodes",
+            description: `Choose the perfect plan for personal, professional, or business barcode generation. Pay only for what you use — no recurring fees.`,
             buttons: [
-                { text: "Get Started", link: "/qr-generator", color: "primary" },
-                { text: "Contact Sales", link: "/contact", color: "secondary" },
+                { text: "Get Started", link: "/get-started", color: "primary" },
+                { text: "Contact Us", link: "/contact-us", color: "secondary" },
             ],
         },
+
         {
             type: "section",
             align: "center",
+            gap: "2rem",
             left: {
                 type: "text",
-                title: "Why Choose Our Pricing?",
-                description:
-                    `We keep things simple: no subscriptions, no hidden fees. Whether you need a single QR code or thousands for your business, ${COMPANY_NAME} adapts to your needs.`,
+                title: "Fair and Flexible Plans",
+                description: `We keep things simple: no subscriptions, no hidden fees. Whether you need a single barcode or thousands for your business, ${COMPANY_NAME} adapts to your needs.`,
                 bullets: [
                     "No subscriptions or recurring payments",
                     "Pay-as-you-go flexibility",
                     "Affordable for individuals and enterprises",
-                    "Bulk QR generation available"
+                    "Bulk barcode generation available"
                 ],
-                iconName: "qr_code",
+                iconName: "layers",
                 iconSize: 48,
                 iconColor: "#0070f3",
                 iconBg: "#e6f7ff",
@@ -60,92 +63,100 @@ const pricingSchema: PageSchema = {
                 centerDescription: true,
                 centerBullets: true,
             },
-        },
-        {
-            type: "grid",
-            columns: 4,
-            gap: "2rem",
-            cards: [
-                {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Starter Pack",
-                    price: "5",
-                    description: "For individuals who need a few QR codes.",
-                    features: [
-                        "Up to 10 QR codes",
-                        "Basic customization",
-                        "Download in PNG/JPG",
-                        "No expiration"
-                    ],
-                    buttonText: "Buy Now",
-                    buttonLink: "/checkout?plan=starter",
-                },
-                {
-                    type: "pricing",
-                    variant: "highlight",
-                    title: "Pro Pack",
-                    price: "15",
-                    description: "For professionals and small teams.",
-                    features: [
-                        "Up to 50 QR codes",
-                        "Advanced customization (colors, logos)",
-                        "High-resolution exports",
-                        "Best value for growing teams"
-                    ],
-                    buttonText: "Get Pro",
-                    buttonLink: "/checkout?plan=pro",
-                },
-                {
-                    type: "pricing",
-                    variant: "premium",
-                    title: "Business Pack",
-                    price: "30",
-                    description: "For businesses with ongoing QR needs.",
-                    features: [
-                        "Unlimited QR codes",
-                        "Full customization",
-                        "Priority support",
-                        "Bulk download/export"
-                    ],
-                    buttonText: "Go Business",
-                    buttonLink: "/checkout?plan=business",
-                },
-                {
-                    type: "pricing",
-                    variant: "basic",
-                    title: "Custom Pack",
-                    price: "dynamic",
-                    description: "Define your own package and get instant pricing.",
-                    features: [
-                        "Flexible number of QR codes",
-                        "Custom features",
-                        "No expiration",
-                        "Perfect for enterprises"
-                    ],
-                    buttonText: "Contact Us",
-                    buttonLink: "/contact",
-                },
-            ],
-        },
-        {
-            type: "section",
-            gap: "2rem",
-            left: {
+            right: {
                 type: "media",
                 mediaType: "image",
                 src: "image1",
                 width: "100%",
                 height: "400px",
-                alt: "How pricing works",
+                alt: "Barcode pricing overview",
             },
+        },
+
+        // комбінований блок: текст + таблиця тарифів
+        {
+            type: "section",
+            align: "center",
+            gap: "3rem",
             right: {
+                type: "grid",
+                columns: 4,
+                gap: "2rem",
+                cards: [
+                    {
+                        type: "pricing",
+                        variant: "basic",
+                        title: "Starter Pack",
+                        price: "10",
+                        description: "For individuals who need a few barcodes.",
+                        features: [
+                            "Up to 50 barcodes",
+                            "Standard customization",
+                            "Download in PNG/JPG",
+                            "No expiration"
+                        ],
+                        buttonText: "Buy Now",
+                        buttonLink: "/contact-us",
+                    },
+                    {
+                        type: "pricing",
+                        variant: "highlight",
+                        title: "Professional Pack",
+                        price: "25",
+                        description: "For professionals and small teams.",
+                        features: [
+                            "Up to 500 barcodes",
+                            "Advanced customization (colors, human-readable text)",
+                            "High-resolution exports",
+                            "Bulk-friendly"
+                        ],
+                        buttonText: "Get Pro",
+                        buttonLink: "/contact-us",
+                    },
+                    {
+                        type: "pricing",
+                        variant: "premium",
+                        title: "Business Pack",
+                        price: "50",
+                        description: "For businesses with ongoing barcode needs.",
+                        features: [
+                            "Unlimited barcodes",
+                            "Full customization",
+                            "Priority support",
+                            "Batch export"
+                        ],
+                        buttonText: "Go Business",
+                        buttonLink: "/contact-us",
+                    },
+                    {
+                        type: "pricing",
+                        variant: "basic",
+                        title: "Custom Pack",
+                        price: "dynamic",
+                        description: "Define your own package and get instant pricing.",
+                        features: [
+                            "Flexible number of barcodes",
+                            "Custom features",
+                            "No expiration",
+                            "Perfect for enterprises"
+                        ],
+                        buttonText: "Contact Us",
+                        buttonLink: "/contact-us",
+                    },
+                ],
+            },
+        },
+
+        // комбінований блок: як працює тарифікація + приклади
+        {
+            type: "section",
+            gap: "2rem",
+            left: {
                 type: "text",
                 title: "How Our Pricing Works",
-                description:
-                    `You only pay for the QR codes you generate. Higher plans unlock more features and customization options. Your QR codes never expire, and you can download them anytime.`,
+                description: `You only pay for the barcodes you generate. Higher plans unlock more features and customization options. Your barcodes never expire, and you can download them anytime.`,
                 bullets: [
-                    "Basic QR codes included in all plans",
+                    "All barcode formats included in all plans",
                     "Advanced features available in Pro/Business",
                     "No hidden costs",
                     "Transparent pay-as-you-go model",
@@ -155,7 +166,17 @@ const pricingSchema: PageSchema = {
                 iconColor: "#28a745",
                 iconBg: "#e6ffe6",
             },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image2",
+                width: "100%",
+                height: "400px",
+                alt: "How barcode pricing works",
+            },
         },
+
+        // комбінований блок: відгуки
         {
             type: "section",
             align: "center",
@@ -163,12 +184,11 @@ const pricingSchema: PageSchema = {
             left: {
                 type: "text",
                 title: "What Our Customers Say",
-                description:
-                    `Thousands of users trust ${COMPANY_NAME} for QR code generation. Our simple and affordable pricing works for freelancers, teams, and enterprises.`,
+                description: `Thousands of users trust ${COMPANY_NAME} for barcode generation. Our simple and affordable pricing works for freelancers, teams, and enterprises.`,
                 bullets: [
-                    `"Perfect for my restaurant menu QR codes — affordable and easy."`,
-                    `"Our marketing team uses ${COMPANY_NAME} for campaigns."`,
-                    `"Best QR code generator with real customization."`,
+                    `"Perfect for my product barcodes — affordable and easy."`,
+                    `"Our logistics team uses ${COMPANY_NAME} for shipment labeling."`,
+                    `"Best barcode generator with real customization."`,
                 ],
                 iconName: "star",
                 iconSize: 48,
@@ -178,21 +198,30 @@ const pricingSchema: PageSchema = {
                 centerDescription: true,
                 centerBullets: true,
             },
+            right: {
+                type: "media",
+                mediaType: "image",
+                src: "image3",
+                width: "100%",
+                height: "400px",
+                alt: "Customer testimonials",
+            },
         },
+
         {
             type: "faq",
             items: [
                 {
-                    question: "Do QR codes expire?",
-                    answer: "No. Once generated and downloaded, your QR codes will always work.",
+                    question: "Do barcodes expire?",
+                    answer: "No. Once generated and downloaded, your barcodes will always work.",
                 },
                 {
                     question: "Can I upgrade my plan later?",
-                    answer: "Yes. You can upgrade at any time for more features and unlimited QR generation.",
+                    answer: "Yes. You can upgrade at any time for more features and unlimited barcode generation.",
                 },
                 {
                     question: "What formats are available?",
-                    answer: "QR codes can be downloaded in PNG, JPG, SVG, or PDF depending on your plan.",
+                    answer: "Barcodes can be downloaded in PNG, JPG, SVG, or PDF depending on your plan.",
                 },
                 {
                     question: "Do you offer refunds?",

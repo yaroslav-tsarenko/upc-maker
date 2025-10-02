@@ -11,22 +11,26 @@ const Selectors = () => {
     return (
         <div className={styles.selectorsWrapper}>
             <div className={styles.selectorBlock}>
-                <Select
-                    value={currency}
-                    onChange={(_, newValue) => newValue && setCurrency(newValue)}
-                    size="md"
-                    variant="soft"
-                    sx={{
-                        background: "#f7f7fa",
-                        borderRadius: "8px",
-                        minWidth: 120,
-                        fontWeight: 600,
-                    }}
-                >
-                    <Option value="GBP">GBP</Option>
-                    <Option value="USD">USD</Option>
-                    <Option value="EUR">EUR</Option>
-                </Select>
+                <ButtonGroup variant="soft" size="md">
+                    {["GBP", "USD", "EUR"].map((cur) => (
+                        <Button
+                            key={cur}
+                            onClick={() => setCurrency(cur)}
+                            sx={{
+                                fontWeight: 600,
+                                minWidth: 70,
+                                transition: "background 0.2s",
+                                background: currency === cur ? "#d900aa" : undefined,
+                                color: currency === cur ? "#fff" : undefined,
+                                "&:hover": {
+                                    background: currency === cur ? "#d900aa" : "#f0f0f0",
+                                },
+                            }}
+                        >
+                            {cur}
+                        </Button>
+                    ))}
+                </ButtonGroup>
             </div>
             {/*<div className={styles.selectorBlock}>
                 <Select
