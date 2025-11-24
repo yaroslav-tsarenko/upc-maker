@@ -4,12 +4,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
-import { footerContent } from "@/resources/content";
-import { useI18n } from "@/context/i18nContext";
+import {footerContent} from "@/resources/content";
+import {useI18n} from "@/context/i18nContext";
+import visa from "@/assets/icons/visa-logo.svg"
+import mastercard from "@/assets/icons/mastercard-logo.svg"
 
 const Footer: React.FC = () => {
-    const { logo, columns, contact, socials, legal } = footerContent;
-    const { lang } = useI18n();
+    const {logo, columns, contact, socials, legal} = footerContent;
+    const {lang} = useI18n();
 
     const translations = {
         en: {
@@ -35,7 +37,7 @@ const Footer: React.FC = () => {
             <div className={styles.inner}>
                 {/* Logo */}
                 <Link href={logo.href} className={styles.logo}>
-                    <Image src={logo.src} alt={logo.alt} width={120} height={40} />
+                    <Image src={logo.src} alt={logo.alt} width={120} height={40}/>
                 </Link>
 
                 {/* Columns */}
@@ -66,6 +68,10 @@ const Footer: React.FC = () => {
                             {contact.phone && (
                                 <a href={`tel:${contact.phone}`}>{contact.phone}</a>
                             )}
+                            <div className={styles.logosVisa}>
+                                <Image src={visa} alt="visa" width={50} height={16}/>
+                                <Image src={mastercard} alt="mastercard" width={50} height={16}/>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -85,7 +91,7 @@ const Footer: React.FC = () => {
                                 rel={isExternal ? "noopener noreferrer" : undefined}
                                 aria-label={s.label}
                             >
-                                <Icon size={22} />
+                                <Icon size={22}/>
                             </a>
                         );
                     })}

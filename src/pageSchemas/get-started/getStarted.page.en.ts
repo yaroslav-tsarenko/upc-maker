@@ -28,6 +28,8 @@ const schema: PageSchema = {
     },
 
     blocks: [
+
+        // HERO — кнопки виправлені
         {
             type: "hero",
             bgImage: "image11",
@@ -102,7 +104,8 @@ const schema: PageSchema = {
                 {
                     image: "image5",
                     title: "Enterprise-Grade Accuracy",
-                    description: "Correct check-digit math for UPC-A & EAN-13, compact Code128 for SKUs, and crystal-clear Code39.",
+                    description:
+                        "Correct check-digit math for UPC-A & EAN-13, compact Code128 for SKUs, and crystal-clear Code39.",
                     buttonLink: "/services",
                     buttonText: "See Services"
                 },
@@ -117,7 +120,8 @@ const schema: PageSchema = {
                 {
                     image: "image7",
                     title: "Print-Ready Output",
-                    description: "Export PNG, SVG, PDF at up to 600 DPI for razor-sharp packaging and digital use.",
+                    description:
+                        "Export PNG, SVG, PDF at up to 600 DPI for razor-sharp packaging and digital use.",
                     buttonLink: "/pricing",
                     buttonText: "View Pricing"
                 }
@@ -216,6 +220,7 @@ const schema: PageSchema = {
             ]
         },
 
+        // CTA блок — кнопки виправлені
         {
             type: "section",
             align: "center",
@@ -237,7 +242,7 @@ const schema: PageSchema = {
                 centerDescription: true,
                 centerBullets: true,
                 buttons: [
-                    { text: "Get Started", link: "/get-started", color: "primary" },
+                    { text: "Get Started", link: "/sign-in", color: "primary" },
                     { text: "Contact Us", link: "/contact-us", color: "secondary" }
                 ]
             }

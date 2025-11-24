@@ -10,177 +10,257 @@ import {
 const termsSchema: PageSchema = {
     meta: {
         title: `Terms & Conditions – ${COMPANY_NAME}`,
-        description: `Terms for using ${COMPANY_NAME}: accounts, UPC barcode generation, payments, refunds, IP, liability, and more.`,
+        description: `Updated Terms & Conditions for using ${COMPANY_NAME}, including token rules, refunds, privacy, data protection and legal obligations.`,
         keywords: [
             "terms",
             "terms and conditions",
-            "contract",
-            COMPANY_NAME?.toLowerCase() || "barcodes",
-            "upc barcodes",
+            "refund policy",
             "privacy",
-            "liability",
-            "payment",
-            "retail compliance"
+            "cookies",
+            "GDPR"
         ],
-        canonical: "/terms",
+        canonical: "/terms-and-conditions",
         ogImage: {
-            title: `${COMPANY_NAME} – Terms`,
-            description: "Transparent terms and fair conditions for UPC barcode generation.",
+            title: `${COMPANY_NAME} – Terms & Conditions`,
+            description: "Legal policies, compliance, refund rules and privacy standards.",
             bg: "#ffffff",
             color: "#000000"
         }
     },
+
     blocks: [
+        /* -------------------- HEADER -------------------- */
         {
             type: "text",
             title: "Terms and Conditions",
-            description: "Effective date: 18th September 2025"
+            description: "Effective date: 03 October 2025"
         },
+
+        /* -------------------- SECTION 1 -------------------- */
         {
             type: "text",
             title: "1. Introduction",
-            description: `These Terms and Conditions ("Terms") govern your use of the ${COMPANY_NAME} website and services (the "Service") operated by ${COMPANY_LEGAL_NAME} (company number: ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) ("we", "us", "our" or the "Company"). These Terms form a legally binding agreement between you ("you", "User", "Customer") and the Company. By accessing or using the Service, registering an account, generating UPC barcodes, or purchasing premium features, you agree to be bound by these Terms. If you do not agree to any part of the Terms you must not use the Service.`
+            description: `
+These Terms and Conditions (“Terms”) govern your access to and use of movawe.co.uk and any related pages, applications, and downloadable content (the “Service”), operated by OVERSEAS AGENT LTD (company number ${COMPANY_NUMBER}, registered office: ${COMPANY_ADDRESS}) (“Movawe”, “we”, “us”, “our”).
+
+By creating an Account, purchasing tokens, or using any barcode-related features on the Service, you agree to be bound by these Terms.
+
+Movawe provides a platform to generate, validate and download barcode images (UPC/EAN and other formats) using a token-based credit system.
+
+We do not guarantee acceptance of generated barcodes by retailers, carriers, customs authorities or marketplaces.
+`
         },
+
+        /* -------------------- SECTION 2 -------------------- */
         {
             type: "text",
             title: "2. Definitions",
             bullets: [
-                `"Account" means the User account created on the Service.`,
-                `"UPC Barcode(s)" means any digital Universal Product Code barcode created or customized via the Service (including PNG, SVG, JPEG or PDF formats).`,
-                `"Feature(s)" means additional barcode design, formatting, export, or bulk generation functionalities available on the Service.`,
-                `"Product(s)" means UPC barcodes and any other goods or services offered via the Service.`,
-                `"You/Your/Customer" means the person or legal entity who uses the Service or purchases Products.`
+                "“Account” – your user profile on the Service.",
+                "“Tokens / Wallet” – prepaid non-transferable digital credits used for paid features.",
+                "“Services” – barcode generation tools, validation checks, bulk export and related features.",
+                "“Barcodes / Outputs” – digital barcode images generated based on your inputs.",
+                "“Client Data” – product information, identifiers, SKU lists or files you upload.",
+                "“Third-Party Platforms” – external platforms such as retailers, logistics providers, marketplaces."
             ]
         },
+
+        /* -------------------- SECTION 3 -------------------- */
         {
             type: "text",
-            title: "3. Eligibility and Account Registration",
+            title: "3. Eligibility & Account Registration",
             bullets: [
-                "You must be at least 18 years of age to register for an Account and use the Service. If acting on behalf of an organization, you confirm your authority to do so.",
-                "You are responsible for maintaining the accuracy of your account information and for any activity that occurs under your credentials.",
-                "Notify us immediately if you suspect unauthorized access to your Account."
+                "You must be at least 18 years old or have authority to act for a business.",
+                "You must provide accurate information and protect your login credentials.",
+                `Security issues must be reported to: ${COMPANY_EMAIL}.`
             ]
         },
+
+        /* -------------------- SECTION 4 -------------------- */
         {
             type: "text",
-            title: "4. Services and Features",
+            title: "4. Nature of Services & Contract Structure",
             bullets: [
-                "Basic UPC barcode generation is available for free.",
-                "Advanced features (such as bulk export, custom sizing, high-resolution images, and format selection) may require payment.",
-                "Products are delivered digitally via secure download or dashboard access.",
-                "The Service may evolve over time with new features added or existing features updated."
+                "We provide self-service digital tools for barcode generation.",
+                "We do not guarantee acceptance of any Barcode by any retailer or marketplace.",
+                "We are not a GS1 organisation and do not allocate GS1 prefixes.",
+                "A contract is formed when you create an Account or purchase Tokens."
             ]
         },
+
+        /* -------------------- SECTION 5 -------------------- */
         {
             type: "text",
-            title: "5. Ordering, Payment and Checkout",
+            title: "5. Scope of Services & Barcodes",
             bullets: [
-                "All orders must be confirmed by the Company. Orders may be rejected for suspected fraud, errors, or availability issues.",
-                "Accepted payment methods are shown during checkout. You must have authorization to use the provided payment method.",
-                "You will see full pricing details including applicable fees and taxes before confirming your order.",
-                "Barcodes are delivered digitally and are considered provided once access is granted. Availability is not guaranteed at all times."
+                "Generate individual or bulk barcodes in supported formats.",
+                "Optional validation checks may be available.",
+                "Outputs depend on the accuracy of your submitted Client Data.",
+                "Compliance, printing and product listing responsibilities remain with you."
             ]
         },
+
+        /* -------------------- SECTION 6 -------------------- */
         {
             type: "text",
-            title: "6. Refunds, Cancellation and Consumer Rights",
+            title: "6. Client Data & Responsibilities",
             bullets: [
-                "Digital barcode products are delivered immediately. By completing your purchase, you agree to waive statutory cancellation rights where applicable.",
-                "Refunds may be offered for unused or defective barcodes. Requests must be submitted before usage.",
-                `If a barcode is corrupted, unreadable, or does not meet standard format specifications, contact our support at ${COMPANY_EMAIL}.`,
-                `Provide your order reference and account information. We aim to resolve issues or process eligible refunds promptly.`
+                "You must have rights to all Client Data provided.",
+                "Client Data must be lawful, accurate and non-infringing.",
+                "You are responsible for backing up barcodes and exports."
             ]
         },
+
+        /* -------------------- SECTION 7 -------------------- */
         {
             type: "text",
-            title: "7. Intellectual Property Rights",
+            title: "7. Acceptable Use",
             bullets: [
-                `All IP rights in the barcode generator platform and related tools are owned or licensed by ${COMPANY_LEGAL_NAME}.`,
-                "When you generate a barcode, you are granted a limited, non-exclusive license to use it for legitimate business or personal purposes.",
-                "You may not:",
-                "(a) Resell generated barcodes as a standalone product;",
-                "(b) Remove copyright or branding from the Service UI;",
-                "(c) Use the Service to create counterfeit or misleading product labels."
+                "No unauthorized access or security circumvention.",
+                "No automated token farming or fraud.",
+                "No unlawful, deceptive or harmful use of the Service.",
+                "No creation of Barcodes for illegal products."
             ]
         },
+
+        /* -------------------- SECTION 8 -------------------- */
         {
             type: "text",
-            title: "8. Warranties and Disclaimers",
+            title: "8. Tokens, Pricing & Payment",
             bullets: [
-                "We guarantee the right to provide the Services under these Terms.",
-                "Except as explicitly stated, all services and products are provided 'as-is' without warranty of merchantability or fitness for purpose.",
-                "We do not guarantee acceptance of barcodes by third-party retailers if your UPC numbers are not GS1-verified."
+                "100 Tokens = £1.00 / €1.17 / $1.29 (unless stated otherwise).",
+                "Tokens are prepaid credits, not cash or e-money.",
+                "Tokens are consumed when accessing paid features.",
+                "Tokens generally do not expire but future expiry rules may be introduced with notice.",
+                "Electronic invoices are provided for purchases."
             ]
         },
+
+        /* -------------------- SECTION 9 -------------------- */
         {
             type: "text",
-            title: "9. Limitation of Liability",
+            title: "9. Cancellations, Refunds & Chargebacks",
             bullets: [
-                "Nothing excludes liability for death, personal injury caused by negligence, or fraud.",
-                "Our total liability is capped at the total amount paid by you for barcodes in the past 12 months.",
-                "We are not liable for indirect damages, data loss, or business interruption related to your use of generated barcodes."
+                "Consumed Tokens are non-refundable.",
+                "Unused Tokens may be refunded only in exceptional cases.",
+                "Technical issues attributable to us may result in re-crediting Tokens.",
+                "Unfounded chargebacks may lead to account suspension."
             ]
         },
+
+        /* -------------------- SECTION 10 -------------------- */
         {
             type: "text",
-            title: "10. Indemnity",
-            description: `You agree to indemnify and hold harmless ${COMPANY_NAME}, its affiliates and employees against claims, liabilities, or losses arising from your use of the Service, especially if used in violation of applicable laws, including product labeling or consumer protection regulations.`
-        },
-        {
-            type: "text",
-            title: "11. Data Protection",
+            title: "10. Intellectual Property",
             bullets: [
-                "We collect and process user data in accordance with the UK GDPR and our Privacy Policy.",
-                "By using the Service, you agree to such processing and warrant the accuracy of data you provide."
+                "The platform and technology remain our property.",
+                "You receive a licence to use generated Barcodes for your business.",
+                "You may not resell Barcodes as standalone products.",
+                "We do not claim ownership of your Client Data."
             ]
         },
+
+        /* -------------------- SECTION 11 -------------------- */
         {
             type: "text",
-            title: "12. Third Party Content and Links",
-            description: "Links to third-party sites may appear within our Service. These are provided for informational purposes. We assume no responsibility for their content or privacy practices."
+            title: "11. Confidentiality",
+            description: `
+Both parties must protect confidential information. Confidentiality does not apply to public information, independently developed information, or information required to be disclosed by law.
+`
         },
+
+        /* -------------------- SECTION 12 -------------------- */
         {
             type: "text",
-            title: "13. Suspension and Termination",
+            title: "12. Third-Party Platforms",
             bullets: [
-                "We may suspend or terminate your account for breach of these Terms or misuse of the platform (e.g. barcode forgery or automation abuse).",
-                "Upon termination, you must stop using the platform. Previously downloaded barcodes remain usable unless access was fraudulently obtained."
+                "We are not responsible for third-party platform policies.",
+                "Your use of Barcodes with external platforms is at your sole risk.",
+                "You must ensure any integrations are lawful and compliant."
             ]
         },
+
+        /* -------------------- SECTION 13 -------------------- */
         {
             type: "text",
-            title: "14. Changes to These Terms",
-            description: "We may update these Terms. Changes will be announced via the Service or email. Continued use of the Service after updates implies acceptance."
-        },
-        {
-            type: "text",
-            title: "15. Notices",
-            description: `Contact us at ${COMPANY_EMAIL} or by mail at our registered address. We may send service-related notices to your account email.`
-        },
-        {
-            type: "text",
-            title: "16. Governing Law and Jurisdiction",
+            title: "13. Warranties & Disclaimers",
             bullets: [
-                "These Terms are governed by the laws of England and Wales.",
-                "Any disputes will be subject to the jurisdiction of the English courts, unless otherwise required by consumer law."
+                "Services are provided “as-is” and “as available”.",
+                "No guarantee that Barcodes meet any retailer’s acceptance rules.",
+                "No guarantee of uninterrupted or error-free access."
             ]
         },
+
+        /* -------------------- SECTION 14 -------------------- */
         {
             type: "text",
-            title: "17. Miscellaneous",
+            title: "14. Limitation of Liability",
             bullets: [
-                "If any provision is found unenforceable, it will be removed, and the rest will remain valid.",
-                "Failure to enforce any right under these Terms shall not constitute a waiver."
+                "Nothing limits liability for fraud or personal injury.",
+                "Our total liability is limited to the total Token payments made in the last 12 months.",
+                "We are not liable for third-party rejection of Barcodes or indirect losses."
             ]
         },
+
+        /* -------------------- SECTION 15 -------------------- */
         {
             type: "text",
-            title: "18. Contact Details",
+            title: "15. Indemnity",
+            description: `
+You agree to indemnify and hold Movawe harmless from claims arising from your misuse of the Service or infringement caused by Client Data or your use of Barcodes.
+`
+        },
+
+        /* -------------------- SECTION 16 -------------------- */
+        {
+            type: "text",
+            title: "16. Data Protection & Privacy",
+            description: `
+We process personal data in accordance with the UK GDPR and the Data Protection Act 2018. Details are provided in our Privacy Policy.
+`
+        },
+
+        /* -------------------- SECTION 17 -------------------- */
+        {
+            type: "text",
+            title: "17. Suspension & Termination",
+            bullets: [
+                "We may suspend accounts for breaches, fraud or security risks.",
+                "Account closure does not entitle you to automatic refunds.",
+                "We retain certain records for legal compliance."
+            ]
+        },
+
+        /* -------------------- SECTION 18 -------------------- */
+        {
+            type: "text",
+            title: "18. Changes to the Service or Terms",
+            bullets: [
+                "We may update features, pricing or Token packages.",
+                "Material changes will be communicated via email or in-Service notice.",
+                "Continued use of the Service constitutes acceptance."
+            ]
+        },
+
+        /* -------------------- SECTION 19 -------------------- */
+        {
+            type: "text",
+            title: "19. Governing Law & Jurisdiction",
+            bullets: [
+                "These Terms are governed by English law.",
+                "Disputes fall under the jurisdiction of courts of England and Wales."
+            ]
+        },
+
+        /* -------------------- SECTION 20 -------------------- */
+        {
+            type: "text",
+            title: "20. Contact Details",
             bullets: [
                 `Company: ${COMPANY_LEGAL_NAME}`,
+                `Company number: ${COMPANY_NUMBER}`,
                 `Registered office: ${COMPANY_ADDRESS}`,
-                `Company no.: ${COMPANY_NUMBER}`,
-                `Email: ${COMPANY_EMAIL}`
+                `Email: ${COMPANY_EMAIL}`,
             ]
         }
     ]

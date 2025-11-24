@@ -11,7 +11,12 @@ import {
 import FormUI from "@/components/ui/form/FormUI";
 import { useI18n } from "@/context/i18nContext";
 
-export type SignUpValues = { name: string; email: string; password: string };
+export type SignUpValues = {
+    name: string;
+    email: string;
+    password: string;
+    terms: boolean; // ← додано
+};
 
 const translations = {
     en: {
@@ -20,7 +25,8 @@ const translations = {
         name: "Name",
         email: "Email",
         password: "Password",
-        submit: "Sign Up",
+        terms: "I read and agree to Terms and Conditions",
+        submit: "Sign Up"
     },
     tr: {
         title: "Kayıt Ol",
@@ -28,7 +34,8 @@ const translations = {
         name: "İsim",
         email: "E-posta",
         password: "Şifre",
-        submit: "Kayıt Ol",
+        terms: "Şartlar ve koşulları kabul ediyorum",
+        submit: "Kayıt Ol"
     }
 };
 
@@ -40,23 +47,54 @@ export default function SignUpPage() {
 
     return (
         <Formik<SignUpValues>
-            initialValues={signUpInitialValues}
-            validate={signUpValidation}
-            onSubmit={async (values, { setSubmitting }: FormikHelpers<SignUpValues>) =>
-                signUpOnSubmit(values, { setSubmitting }, showAlert, router)
+            initialValues={{ ...signUpInitialValues, terms: false }}
+            validate={(values) => {
+                const errors: any = signUpValidation(values);
+
+                if (!values.terms) errors.terms = "You must accept the Terms";
+
+                return errors;
+            }}
+            onSubmit={async (values, helpers: FormikHelpers<SignUpValues>) =>
+                signUpOnSubmit(values, helpers, showAlert, router)
             }
         >
-            {({ isSubmitting }) => (
+            {(formik) => (
                 <FormUI
                     title={t.title}
                     description={t.description}
-                    isSubmitting={isSubmitting}
+                    isSubmitting={formik.isSubmitting}
                     fields={[
                         { name: "name", type: "text", placeholder: t.name },
                         { name: "email", type: "email", placeholder: t.email },
                         { name: "password", type: "password", placeholder: t.password }
                     ]}
                     submitLabel={t.submit}
+                    /** додаємо чекбокс у FormUI */
+                    extraContent={
+                        <label style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "15px" }}>
+                            <input
+                                type="checkbox"
+                                name="terms"
+                                checked={formik.values.terms}
+                                onChange={() =>
+                                    formik.setFieldValue("terms", !formik.values.terms)
+                                }
+                                style={{ marginTop: "4px" }}
+                            />
+                            <span style={{ fontSize: "14px", color: "#444" }}>
+                                I read and agree to{" "}
+                                <a
+                                    href="/terms"
+                                    target="_blank"
+                                    style={{ color: "#1a73e8", textDecoration: "underline" }}
+                                >
+                                    Terms and Conditions
+                                </a>
+                            </span>
+                        </label>
+                    }
+                    isSubmitDisabled={!formik.values.terms || formik.isSubmitting}
                 />
             )}
         </Formik>

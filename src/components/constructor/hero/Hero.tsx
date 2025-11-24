@@ -54,7 +54,9 @@ const Hero: React.FC<HeroProps> = ({ bgImage, title, description, buttons = [] }
                         <ButtonUI
                             key={idx}
                             color={btn.color || "primary"}
-                            href={btn.link}
+                          onClick={() => {
+                                window.location.href = btn.link;
+                          }}
                             sx={{display: "flex", width: "100%"}}
                         >
                             {btn.text}

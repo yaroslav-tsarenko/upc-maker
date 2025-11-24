@@ -46,10 +46,20 @@ const PricingCard: React.FC<PricingCardProps> = ({
                                                  }) => {
     const { showAlert } = useAlert();
     const user = useUser();
-    const { currency } = useCurrency();
 
+    // currency + real exchange rates
+    const { currency, rates, loading } = useCurrency();
     const { symbol } = currencyConfig[currency];
+
     const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
+
+    // convert £ to chosen currency
+    const convertPrice = (base: number) => {
+        if (loading) return base;
+        return base * rates[currency];
+    };
+
+    const convertedPrice = convertPrice(Number(price));
 
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
@@ -63,7 +73,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
         }
 
         if (price === "dynamic" && customAmount < MIN_CUSTOM_AMOUNT) {
-            showAlert(`Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`, "Please enter a higher amount", "warning");
+            showAlert(
+                `Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`,
+                "Please enter a higher amount",
+                "warning"
+            );
             return;
         }
 
@@ -80,7 +94,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
             if (!res.ok) throw new Error("Failed to buy tokens");
 
             const data = await res.json();
-            showAlert(`Success!`, `You purchased ${amount} tokens.`, "success");
+            showAlert("Success!", `You purchased ${amount} tokens.`, "success");
             console.log("Updated user:", data.user);
         } catch (err) {
             const error = err as Error;
@@ -93,7 +107,15 @@ const PricingCard: React.FC<PricingCardProps> = ({
             <div className={styles.cornerLabel}>{labelText[variant]}</div>
             <h3 className={styles.title}>{title}</h3>
 
-            {price === "dynamic" ? (
+            {/* -------- FIXED PRICE WITH CONVERSION ----- */}
+            {price !== "dynamic" ? (
+                <p className={styles.price}>
+                    {symbol}
+                    {convertedPrice.toFixed(2)}{" "}
+                    <span className={styles.tokens}>/{tokens} tokens</span>
+                </p>
+            ) : (
+                /* ---------- DYNAMIC INPUT ---------- */
                 <>
                     <Input
                         type="number"
@@ -101,25 +123,31 @@ const PricingCard: React.FC<PricingCardProps> = ({
                         onChange={(e) => {
                             const value = Number(e.target.value);
                             if (value.toString().length > 7) return;
-                            setCustomAmount(Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT));
+                            setCustomAmount(
+                                Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT)
+                            );
                         }}
-                        slotProps={{ input: { min: MIN_CUSTOM_AMOUNT, max: MAX_CUSTOM_AMOUNT, step: 0.01 } }}
+                        slotProps={{
+                            input: {
+                                min: MIN_CUSTOM_AMOUNT,
+                                max: MAX_CUSTOM_AMOUNT,
+                                step: 0.01,
+                            },
+                        }}
                         sx={{ mb: 2, width: "100%" }}
                         placeholder={`Enter amount (${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}+)`}
                         variant="outlined"
                         size="lg"
                     />
+
                     <p className={styles.price}>
-                        {symbol}{customAmount.toFixed(2)}{" "}
+                        {symbol}
+                        {customAmount.toFixed(2)}{" "}
                         <span className={styles.tokens}>
                             ≈ {calcTokens(customAmount)} tokens
                         </span>
                     </p>
                 </>
-            ) : (
-                <p className={styles.price}>
-                    {symbol}{Number(price).toFixed(2)} <span className={styles.tokens}>/{tokens} tokens</span>
-                </p>
             )}
 
             <p className={styles.description}>{description}</p>
@@ -133,7 +161,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 ))}
             </ul>
 
-            <ButtonUI type="button" color="secondary" hoverColor="secondary" sx={{ width: "100%" }} onClick={handleBuy}>
+            <ButtonUI
+                type="button"
+                color="secondary"
+                hoverColor="secondary"
+                sx={{ width: "100%" }}
+                onClick={handleBuy}
+            >
                 {user ? buttonText : "Sign Up to Buy"}
             </ButtonUI>
         </div>
