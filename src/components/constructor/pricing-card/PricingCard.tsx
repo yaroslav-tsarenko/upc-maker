@@ -53,16 +53,19 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
 
-    // convert £ to chosen currency
+    // ---------- Convert base GBP amount to selected currency ----------
     const convertPrice = (base: number) => {
         if (loading) return base;
         return base * rates[currency];
     };
 
+    // ---------- Converted fixed plan price ----------
     const convertedPrice = convertPrice(Number(price));
 
+    // 1 GBP = 100 tokens
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
+    // ---------- Handle purchase ----------
     const handleBuy = async () => {
         if (!user) {
             showAlert("Please sign up", "You need to be signed in to buy tokens", "info");
@@ -74,7 +77,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
         if (price === "dynamic" && customAmount < MIN_CUSTOM_AMOUNT) {
             showAlert(
-                `Minimum amount is ${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}`,
+                `Minimum amount is ${symbol}${convertPrice(MIN_CUSTOM_AMOUNT).toFixed(2)}`,
                 "Please enter a higher amount",
                 "warning"
             );
@@ -123,6 +126,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
                         onChange={(e) => {
                             const value = Number(e.target.value);
                             if (value.toString().length > 7) return;
+
                             setCustomAmount(
                                 Math.max(Math.min(value, MAX_CUSTOM_AMOUNT), MIN_CUSTOM_AMOUNT)
                             );
@@ -135,14 +139,16 @@ const PricingCard: React.FC<PricingCardProps> = ({
                             },
                         }}
                         sx={{ mb: 2, width: "100%" }}
-                        placeholder={`Enter amount (${symbol}${MIN_CUSTOM_AMOUNT.toFixed(2)}+)`}
+                        placeholder={`Enter amount (${symbol}${convertPrice(
+                            MIN_CUSTOM_AMOUNT
+                        ).toFixed(2)}+)`}
                         variant="outlined"
                         size="lg"
                     />
 
                     <p className={styles.price}>
                         {symbol}
-                        {customAmount.toFixed(2)}{" "}
+                        {convertPrice(customAmount).toFixed(2)}{" "}
                         <span className={styles.tokens}>
                             ≈ {calcTokens(customAmount)} tokens
                         </span>
