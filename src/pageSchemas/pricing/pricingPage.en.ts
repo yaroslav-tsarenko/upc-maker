@@ -86,6 +86,7 @@ const pricingSchema: PageSchema = {
                     {
                         type: "pricing",
                         variant: "basic",
+                        tokens: 1000,
                         title: "Starter Pack",
                         price: "10",
                         description: "For individuals who need a few barcodes.",
@@ -103,6 +104,7 @@ const pricingSchema: PageSchema = {
                         variant: "highlight",
                         title: "Professional Pack",
                         price: "25",
+                        tokens: 2500,
                         description: "For professionals and small teams.",
                         features: [
                             "Up to 500 barcodes",
@@ -118,6 +120,7 @@ const pricingSchema: PageSchema = {
                         variant: "premium",
                         title: "Business Pack",
                         price: "50",
+                        tokens: 5000,
                         description: "For businesses with ongoing barcode needs.",
                         features: [
                             "Unlimited barcodes",

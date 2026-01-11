@@ -53,55 +53,72 @@ const PricingCard: React.FC<PricingCardProps> = ({
 
     const [customAmount, setCustomAmount] = useState(MIN_CUSTOM_AMOUNT);
 
-    // ---------- Convert base GBP amount to selected currency ----------
+
     const convertPrice = (base: number) => {
         if (loading) return base;
         return base * rates[currency];
     };
-
-    // ---------- Converted fixed plan price ----------
     const convertedPrice = convertPrice(Number(price));
-
-    // 1 GBP = 100 tokens
     const calcTokens = (amount: number) => Math.floor(amount * 100);
 
-    // ---------- Handle purchase ----------
     const handleBuy = async () => {
         if (!user) {
-            showAlert("Please sign up", "You need to be signed in to buy tokens", "info");
-            setTimeout(() => {
-                window.location.href = "/sign-up";
-            }, 2000);
+            showAlert("Please sign up", "You need to be signed in", "info");
             return;
         }
 
-        if (price === "dynamic" && customAmount < MIN_CUSTOM_AMOUNT) {
-            showAlert(
-                `Minimum amount is ${symbol}${convertPrice(MIN_CUSTOM_AMOUNT).toFixed(2)}`,
-                "Please enter a higher amount",
-                "warning"
-            );
+        // 🔑 BASE: ціна завжди рахується від токенів
+        const baseAmountGBP =
+            price === "dynamic"
+                ? customAmount
+                : tokens / 100; // 100 tokens = £1
+
+        // 🔑 PAY AMOUNT = base * rate валюти
+        const payAmount = Number(
+            (baseAmountGBP * rates[currency]).toFixed(2)
+        );
+
+        const tokensToBuy =
+            price === "dynamic"
+                ? Math.floor(customAmount * 100)
+                : tokens;
+
+        if (!Number.isFinite(payAmount) || payAmount <= 0) {
+            showAlert("Error", "Invalid payment amount", "error");
             return;
         }
+
+        const payload = {
+            amount: payAmount,      // ✅ СУМА В ОБРАНІЙ ВАЛЮТІ
+            currency,               // ✅ GBP | USD | EUR
+            tokens: tokensToBuy,
+            user: {
+                id: user._id,
+                email: user.email,
+                firstName: user.name || "Customer",
+                lastName: "User",
+            },
+        };
+
+        console.log("[PricingCard] PAYLOAD:", payload);
 
         try {
-            const amount = price === "dynamic" ? calcTokens(customAmount) : tokens;
-
-            const res = await fetch("/api/user/buy-tokens", {
+            const res = await fetch("/api/transfermit/initiate", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
-                body: JSON.stringify({ amount }),
+                body: JSON.stringify(payload),
             });
 
-            if (!res.ok) throw new Error("Failed to buy tokens");
-
             const data = await res.json();
-            showAlert("Success!", `You purchased ${amount} tokens.`, "success");
-            console.log("Updated user:", data.user);
+
+            if (!res.ok) {
+                throw new Error(data?.error || "Payment init failed");
+            }
+
+            window.location.href = data.redirectUrl;
         } catch (err) {
-            const error = err as Error;
-            showAlert("Error", error.message || "Something went wrong", "error");
+            showAlert("Payment error", (err as Error).message, "error");
         }
     };
 
@@ -115,10 +132,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
                 <p className={styles.price}>
                     {symbol}
                     {convertedPrice.toFixed(2)}{" "}
-                    <span className={styles.tokens}>/{tokens} tokens</span>
+                    <span className={styles.tokens}>/ {tokens} tokens</span>
                 </p>
             ) : (
-                /* ---------- DYNAMIC INPUT ---------- */
+
                 <>
                     <Input
                         type="number"
